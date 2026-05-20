@@ -101,6 +101,7 @@ It's also a free, public resource for anyone trying to break into security witho
 I post lab work as I complete it. See:
 - [DAY-01-LAB-LOG.md](./DAY-01-LAB-LOG.md) — Lab foundation + early Elastic SIEM deployment
 - [DAY-02-LAB-LOG.md](./DAY-02-LAB-LOG.md) — Phase 2 completion · Windows telemetry · Fleet · Sysmon · Suricata · 5 Kibana dashboards · troubleshooting
+- [DAY-03-LAB-LOG.md](./DAY-03-LAB-LOG.md) — Phase 3 completion · Wazuh XDR deployment · Windows agent · FIM · SCA · vulnerability detection · Elastic vs Wazuh comparison
 
 More logs are added with each lab session.
 
