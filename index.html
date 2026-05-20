@@ -358,22 +358,22 @@ footer{position:relative;z-index:1;padding:48px 20px;border-top:1px solid var(--
           <div class="step-item">
             <div class="step-n sn-blue">1</div>
             <div class="step-content">
-              <div class="step-title">Create Windows, Ubuntu, and Kali VMs with NAT plus host-only networking.</div>
-              <div class="step-desc">Create Windows, Ubuntu, and Kali VMs with NAT plus host-only networking.</div>
+              <div class="step-title">Build the VM set</div>
+              <div class="step-desc">Create Windows, Ubuntu, and Kali VMs with NAT plus host-only networking so the lab can reach the internet while keeping attack traffic isolated.</div>
             </div>
           </div>
           <div class="step-item">
             <div class="step-n sn-blue">2</div>
             <div class="step-content">
-              <div class="step-title">Confirm host-to-VM and VM-to-VM connectivity with ping, ipconfig/ip addr, and basic firewall checks.</div>
-              <div class="step-desc">Confirm host-to-VM and VM-to-VM connectivity with ping, ipconfig/ip addr, and basic firewall checks.</div>
+              <div class="step-title">Verify connectivity</div>
+              <div class="step-desc">Confirm host-to-VM and VM-to-VM communication with ping, ipconfig or ip addr, routing checks, and basic firewall adjustments.</div>
             </div>
           </div>
           <div class="step-item">
             <div class="step-n sn-blue">3</div>
             <div class="step-content">
-              <div class="step-title">Take baseline snapshots so failed installs or attacks can be rolled back cleanly.</div>
-              <div class="step-desc">Take baseline snapshots so failed installs or attacks can be rolled back cleanly.</div>
+              <div class="step-title">Snapshot clean baselines</div>
+              <div class="step-desc">Take baseline snapshots before installing security tools so broken installs or attack simulations can be rolled back cleanly.</div>
             </div>
           </div>
         </div>
@@ -398,22 +398,22 @@ footer{position:relative;z-index:1;padding:48px 20px;border-top:1px solid var(--
           <div class="step-item">
             <div class="step-n sn-blue">1</div>
             <div class="step-content">
-              <div class="step-title">Install Elasticsearch and Kibana on Ubuntu and make Kibana reachable from the host.</div>
-              <div class="step-desc">Install Elasticsearch and Kibana on Ubuntu and make Kibana reachable from the host.</div>
+              <div class="step-title">Install Elastic and Kibana</div>
+              <div class="step-desc">Install Elasticsearch and Kibana on Ubuntu, complete enrollment, and make Kibana reachable from the host browser.</div>
             </div>
           </div>
           <div class="step-item">
             <div class="step-n sn-blue">2</div>
             <div class="step-content">
-              <div class="step-title">Install Sysmon and Elastic Agent on Windows through Fleet.</div>
-              <div class="step-desc">Install Sysmon and Elastic Agent on Windows through Fleet.</div>
+              <div class="step-title">Collect Windows telemetry</div>
+              <div class="step-desc">Install Sysmon and enroll the Windows endpoint into Elastic Fleet so process, login, and system activity reaches the SIEM.</div>
             </div>
           </div>
           <div class="step-item">
             <div class="step-n sn-blue">3</div>
             <div class="step-content">
-              <div class="step-title">Install Suricata, generate ICMP/network alerts, and build Kibana dashboards for endpoint and network telemetry.</div>
-              <div class="step-desc">Install Suricata, generate ICMP/network alerts, and build Kibana dashboards for endpoint and network telemetry.</div>
+              <div class="step-title">Add network detection</div>
+              <div class="step-desc">Install Suricata, generate safe ICMP and network test alerts, and build Kibana dashboards for endpoint and IDS telemetry.</div>
             </div>
           </div>
         </div>
@@ -438,22 +438,22 @@ footer{position:relative;z-index:1;padding:48px 20px;border-top:1px solid var(--
           <div class="step-item">
             <div class="step-n sn-blue">1</div>
             <div class="step-content">
-              <div class="step-title">Create a dedicated Wazuh Ubuntu Server VM with host-only and NAT networking.</div>
-              <div class="step-desc">Create a dedicated Wazuh Ubuntu Server VM with host-only and NAT networking.</div>
+              <div class="step-title">Deploy the Wazuh server</div>
+              <div class="step-desc">Create a dedicated Wazuh Ubuntu Server VM with host-only and NAT networking, then install manager, indexer, dashboard, and Filebeat.</div>
             </div>
           </div>
           <div class="step-item">
             <div class="step-n sn-blue">2</div>
             <div class="step-content">
-              <div class="step-title">Enroll the Windows victim VM using the Wazuh agent and confirm active endpoint status.</div>
-              <div class="step-desc">Enroll the Windows victim VM using the Wazuh agent and confirm active endpoint status.</div>
+              <div class="step-title">Enroll the endpoint agent</div>
+              <div class="step-desc">Install the Wazuh agent on the Windows victim VM and confirm the endpoint reports as active in the dashboard.</div>
             </div>
           </div>
           <div class="step-item">
             <div class="step-n sn-blue">3</div>
             <div class="step-content">
-              <div class="step-title">Validate admin group change alerts, File Integrity Monitoring, Security Configuration Assessment, and Vulnerability Detection.</div>
-              <div class="step-desc">Validate admin group change alerts, File Integrity Monitoring, Security Configuration Assessment, and Vulnerability Detection.</div>
+              <div class="step-title">Validate XDR features</div>
+              <div class="step-desc">Test admin group change alerts, File Integrity Monitoring, Security Configuration Assessment, vulnerability detection, and MITRE mapping.</div>
             </div>
           </div>
         </div>
@@ -487,22 +487,22 @@ footer{position:relative;z-index:1;padding:48px 20px;border-top:1px solid var(--
           <div class="step-item">
             <div class="step-n sn-green">1</div>
             <div class="step-content">
-              <div class="step-title">Build a Windows Event ID cheat sheet for 4624, 4625, 4672, 4688, 4698, 4720, 4728, 4732, 7045, and Sysmon 1/3/7/10/11/13.</div>
-              <div class="step-desc">Build a Windows Event ID cheat sheet for 4624, 4625, 4672, 4688, 4698, 4720, 4728, 4732, 7045, and Sysmon 1/3/7/10/11/13.</div>
+              <div class="step-title">Build a Windows event map</div>
+              <div class="step-desc">Document common SOC event IDs such as 4624, 4625, 4672, 4688, 4698, 4720, 4728, 4732, 7045, and key Sysmon events.</div>
             </div>
           </div>
           <div class="step-item">
             <div class="step-n sn-green">2</div>
             <div class="step-content">
-              <div class="step-title">Review Linux authentication, sudo, SSH, cron, and process logs from Ubuntu/Kali.</div>
-              <div class="step-desc">Review Linux authentication, sudo, SSH, cron, and process logs from Ubuntu/Kali.</div>
+              <div class="step-title">Read Linux security logs</div>
+              <div class="step-desc">Review Linux authentication, sudo, SSH, cron, and process logs from Ubuntu and Kali so investigations are not Windows-only.</div>
             </div>
           </div>
           <div class="step-item">
             <div class="step-n sn-green">3</div>
             <div class="step-content">
-              <div class="step-title">Map common network evidence</div>
-              <div class="step-desc">source/destination IP, port, protocol, DNS query, HTTP user agent, and IDS signature.</div>
+              <div class="step-title">Decode network fields</div>
+              <div class="step-desc">Practice reading source and destination IPs, ports, protocols, DNS queries, HTTP user agents, TLS clues, and IDS signatures.</div>
             </div>
           </div>
         </div>
@@ -527,22 +527,22 @@ footer{position:relative;z-index:1;padding:48px 20px;border-top:1px solid var(--
           <div class="step-item">
             <div class="step-n sn-green">1</div>
             <div class="step-content">
-              <div class="step-title">Create 15-20 practice alerts across Elastic and Wazuh</div>
-              <div class="step-desc">failed logins, admin group change, suspicious PowerShell, file deletion, network scan, and new service.</div>
+              <div class="step-title">Generate realistic alert types</div>
+              <div class="step-desc">Create safe lab alerts for failed logins, admin group changes, suspicious PowerShell, file deletion, network scans, and new services.</div>
             </div>
           </div>
           <div class="step-item">
             <div class="step-n sn-green">2</div>
             <div class="step-content">
-              <div class="step-title">For each alert, decide benign, false positive, true positive, or escalate, and document the evidence.</div>
-              <div class="step-desc">For each alert, decide benign, false positive, true positive, or escalate, and document the evidence.</div>
+              <div class="step-title">Decide the alert outcome</div>
+              <div class="step-desc">For each alert, decide benign, false positive, true positive, or escalation-worthy, then document the evidence behind the decision.</div>
             </div>
           </div>
           <div class="step-item">
             <div class="step-n sn-green">3</div>
             <div class="step-content">
-              <div class="step-title">Track alert name, severity, affected host/user, timestamps, query used, verdict, and next action.</div>
-              <div class="step-desc">Track alert name, severity, affected host/user, timestamps, query used, verdict, and next action.</div>
+              <div class="step-title">Write repeatable case notes</div>
+              <div class="step-desc">Track alert name, severity, affected host or user, timestamps, query used, verdict, and next action in a consistent format.</div>
             </div>
           </div>
         </div>
@@ -567,22 +567,22 @@ footer{position:relative;z-index:1;padding:48px 20px;border-top:1px solid var(--
           <div class="step-item">
             <div class="step-n sn-green">1</div>
             <div class="step-content">
-              <div class="step-title">Create a reusable ticket template with summary, evidence, timeline, analysis, MITRE mapping, verdict, and recommended action.</div>
-              <div class="step-desc">Create a reusable ticket template with summary, evidence, timeline, analysis, MITRE mapping, verdict, and recommended action.</div>
+              <div class="step-title">Create the ticket template</div>
+              <div class="step-desc">Build a reusable template with summary, evidence, timeline, analysis, MITRE mapping, verdict, recommended action, and owner.</div>
             </div>
           </div>
           <div class="step-item">
             <div class="step-n sn-green">2</div>
             <div class="step-content">
-              <div class="step-title">Write 5 full tickets from Phase 5 alerts and 3 concise escalation notes to a hypothetical L2 analyst.</div>
-              <div class="step-desc">Write 5 full tickets from Phase 5 alerts and 3 concise escalation notes to a hypothetical L2 analyst.</div>
+              <div class="step-title">Write practice escalations</div>
+              <div class="step-desc">Write five full tickets from Phase 5 alerts and three concise escalation notes that an L2 analyst could act on quickly.</div>
             </div>
           </div>
           <div class="step-item">
             <div class="step-n sn-green">3</div>
             <div class="step-content">
-              <div class="step-title">Write 2 shift handoff notes</div>
-              <div class="step-desc">what happened, what is pending, what was closed, and what needs follow-up.</div>
+              <div class="step-title">Practice shift handoff</div>
+              <div class="step-desc">Write handoff notes that show what happened, what is pending, what was closed, and what needs follow-up on the next shift.</div>
             </div>
           </div>
         </div>
@@ -607,22 +607,22 @@ footer{position:relative;z-index:1;padding:48px 20px;border-top:1px solid var(--
           <div class="step-item">
             <div class="step-n sn-green">1</div>
             <div class="step-content">
-              <div class="step-title">Analyze 5 phishing samples or safe training emails</div>
-              <div class="step-desc">sender, return-path, SPF, DKIM, DMARC, received chain, URLs, and attachments.</div>
+              <div class="step-title">Analyze email headers</div>
+              <div class="step-desc">Review sender, return-path, SPF, DKIM, DMARC, received chain, URLs, attachments, and user-reported context.</div>
             </div>
           </div>
           <div class="step-item">
             <div class="step-n sn-green">2</div>
             <div class="step-content">
-              <div class="step-title">Use URLScan, VirusTotal, AbuseIPDB, MXToolbox, and sandbox results for enrichment.</div>
-              <div class="step-desc">Use URLScan, VirusTotal, AbuseIPDB, MXToolbox, and sandbox results for enrichment.</div>
+              <div class="step-title">Enrich suspicious indicators</div>
+              <div class="step-desc">Use URLScan, VirusTotal, AbuseIPDB, MXToolbox, sandbox results, and safe browser checks to decide whether the email is malicious.</div>
             </div>
           </div>
           <div class="step-item">
             <div class="step-n sn-green">3</div>
             <div class="step-content">
-              <div class="step-title">Write a phishing ticket with user impact, IOCs, verdict, and recommended user/security actions.</div>
-              <div class="step-desc">Write a phishing ticket with user impact, IOCs, verdict, and recommended user/security actions.</div>
+              <div class="step-title">Document the phishing case</div>
+              <div class="step-desc">Write a phishing ticket with user impact, IOCs, verdict, containment steps, and recommended user or security actions.</div>
             </div>
           </div>
         </div>
@@ -647,22 +647,22 @@ footer{position:relative;z-index:1;padding:48px 20px;border-top:1px solid var(--
           <div class="step-item">
             <div class="step-n sn-green">1</div>
             <div class="step-content">
-              <div class="step-title">Install Splunk Free or use a safe lab dataset and ingest Windows/Sysmon-style logs.</div>
-              <div class="step-desc">Install Splunk Free or use a safe lab dataset and ingest Windows/Sysmon-style logs.</div>
+              <div class="step-title">Stand up Splunk practice</div>
+              <div class="step-desc">Install Splunk Free or use a safe lab dataset, then ingest Windows, Sysmon, or sample SOC logs for search practice.</div>
             </div>
           </div>
           <div class="step-item">
             <div class="step-n sn-green">2</div>
             <div class="step-content">
-              <div class="step-title">Practice SPL for failed logins, rare processes, encoded PowerShell, new services, and top talkers.</div>
-              <div class="step-desc">Practice SPL for failed logins, rare processes, encoded PowerShell, new services, and top talkers.</div>
+              <div class="step-title">Practice core SPL searches</div>
+              <div class="step-desc">Use SPL to find failed logins, rare processes, encoded PowerShell, new services, DNS activity, and top network talkers.</div>
             </div>
           </div>
           <div class="step-item">
             <div class="step-n sn-green">3</div>
             <div class="step-content">
-              <div class="step-title">Rebuild 3 Kibana dashboard ideas in Splunk and write a Splunk vs Elastic comparison.</div>
-              <div class="step-desc">Rebuild 3 Kibana dashboard ideas in Splunk and write a Splunk vs Elastic comparison.</div>
+              <div class="step-title">Compare SIEM workflows</div>
+              <div class="step-desc">Rebuild three Kibana dashboard ideas in Splunk and write a Splunk vs Elastic comparison focused on SOC analyst workflow.</div>
             </div>
           </div>
         </div>
@@ -687,22 +687,22 @@ footer{position:relative;z-index:1;padding:48px 20px;border-top:1px solid var(--
           <div class="step-item">
             <div class="step-n sn-green">1</div>
             <div class="step-content">
-              <div class="step-title">Write detections for encoded PowerShell, LSASS access, certutil download, scheduled task creation, new local admin, and suspicious outbound connections.</div>
-              <div class="step-desc">Write detections for encoded PowerShell, LSASS access, certutil download, scheduled task creation, new local admin, and suspicious outbound connections.</div>
+              <div class="step-title">Write practical detections</div>
+              <div class="step-desc">Create detections for encoded PowerShell, LSASS access, certutil download, scheduled task creation, new local admin, and suspicious outbound traffic.</div>
             </div>
           </div>
           <div class="step-item">
             <div class="step-n sn-green">2</div>
             <div class="step-content">
-              <div class="step-title">Convert at least 3 detections into Sigma-style logic and document fields, data source, severity, and false positives.</div>
-              <div class="step-desc">Convert at least 3 detections into Sigma-style logic and document fields, data source, severity, and false positives.</div>
+              <div class="step-title">Convert logic to Sigma</div>
+              <div class="step-desc">Convert at least three detections into Sigma-style logic and document fields, data source, severity, and likely false positives.</div>
             </div>
           </div>
           <div class="step-item">
             <div class="step-n sn-green">3</div>
             <div class="step-content">
-              <div class="step-title">Tune one noisy rule by adding exclusions, thresholds, or enrichment requirements and explain the tradeoff.</div>
-              <div class="step-desc">Tune one noisy rule by adding exclusions, thresholds, or enrichment requirements and explain the tradeoff.</div>
+              <div class="step-title">Tune noisy alerts</div>
+              <div class="step-desc">Tune one noisy rule by adding exclusions, thresholds, or enrichment requirements, then explain the detection tradeoff.</div>
             </div>
           </div>
         </div>
@@ -736,22 +736,22 @@ footer{position:relative;z-index:1;padding:48px 20px;border-top:1px solid var(--
           <div class="step-item">
             <div class="step-n sn-blue">1</div>
             <div class="step-content">
-              <div class="step-title">Deploy a Windows Server domain controller or AD-capable lab design.</div>
-              <div class="step-desc">Deploy a Windows Server domain controller or AD-capable lab design.</div>
+              <div class="step-title">Deploy domain services</div>
+              <div class="step-desc">Deploy a Windows Server domain controller or AD-capable lab design with DNS, domain join, and basic domain administration.</div>
             </div>
           </div>
           <div class="step-item">
             <div class="step-n sn-blue">2</div>
             <div class="step-content">
-              <div class="step-title">Create users, groups, OUs, service accounts, and a few intentionally weak configurations.</div>
-              <div class="step-desc">Create users, groups, OUs, service accounts, and a few intentionally weak configurations.</div>
+              <div class="step-title">Create realistic identities</div>
+              <div class="step-desc">Create users, groups, OUs, service accounts, and intentionally weak configurations that can generate useful security findings.</div>
             </div>
           </div>
           <div class="step-item">
             <div class="step-n sn-blue">3</div>
             <div class="step-content">
-              <div class="step-title">Forward domain controller security logs into Elastic/Wazuh for investigation.</div>
-              <div class="step-desc">Forward domain controller security logs into Elastic/Wazuh for investigation.</div>
+              <div class="step-title">Forward domain logs</div>
+              <div class="step-desc">Send domain controller security logs into Elastic or Wazuh so authentication and privilege activity can be investigated.</div>
             </div>
           </div>
         </div>
@@ -776,21 +776,21 @@ footer{position:relative;z-index:1;padding:48px 20px;border-top:1px solid var(--
           <div class="step-item">
             <div class="step-n sn-blue">1</div>
             <div class="step-content">
-              <div class="step-title">Run safe password spray, AS-REP roasting, Kerberoasting, suspicious admin group change, and BloodHound collection scenarios.</div>
-              <div class="step-desc">Run safe password spray, AS-REP roasting, Kerberoasting, suspicious admin group change, and BloodHound collection scenarios.</div>
+              <div class="step-title">Run safe AD attacks</div>
+              <div class="step-desc">Simulate password spray, AS-REP roasting, Kerberoasting, suspicious admin group changes, and BloodHound collection in the lab.</div>
             </div>
           </div>
           <div class="step-item">
             <div class="step-n sn-blue">2</div>
             <div class="step-content">
-              <div class="step-title">Find the related Windows events, Sysmon events, and SIEM/Wazuh alerts.</div>
-              <div class="step-desc">Find the related Windows events, Sysmon events, and SIEM/Wazuh alerts.</div>
+              <div class="step-title">Find the telemetry</div>
+              <div class="step-desc">Identify the related Windows events, Sysmon events, Wazuh alerts, and SIEM searches for each attack path.</div>
             </div>
           </div>
           <div class="step-item">
             <div class="step-n sn-blue">3</div>
             <div class="step-content">
-              <div class="step-title">Write tickets that include MITRE mapping, severity, evidence, escalation decision, and containment recommendation.</div>
+              <div class="step-title">Escalate like a SOC analyst</div>
               <div class="step-desc">Write tickets that include MITRE mapping, severity, evidence, escalation decision, and containment recommendation.</div>
             </div>
           </div>
@@ -816,22 +816,22 @@ footer{position:relative;z-index:1;padding:48px 20px;border-top:1px solid var(--
           <div class="step-item">
             <div class="step-n sn-blue">1</div>
             <div class="step-content">
-              <div class="step-title">Investigate process execution, parent-child process chains, network connections, autoruns, services, scheduled tasks, and file changes.</div>
-              <div class="step-desc">Investigate process execution, parent-child process chains, network connections, autoruns, services, scheduled tasks, and file changes.</div>
+              <div class="step-title">Investigate endpoint behavior</div>
+              <div class="step-desc">Review process execution, parent-child chains, network connections, autoruns, services, scheduled tasks, and file changes.</div>
             </div>
           </div>
           <div class="step-item">
             <div class="step-n sn-blue">2</div>
             <div class="step-content">
-              <div class="step-title">Build a device timeline for one suspicious endpoint scenario.</div>
-              <div class="step-desc">Build a device timeline for one suspicious endpoint scenario.</div>
+              <div class="step-title">Build a device timeline</div>
+              <div class="step-desc">Create a timeline for one suspicious endpoint scenario using SIEM events, endpoint alerts, user context, and file activity.</div>
             </div>
           </div>
           <div class="step-item">
             <div class="step-n sn-blue">3</div>
             <div class="step-content">
-              <div class="step-title">Write containment recommendations</div>
-              <div class="step-desc">isolate host, disable user, block IOC, collect memory, or close as benign.</div>
+              <div class="step-title">Choose a response action</div>
+              <div class="step-desc">Decide whether to isolate the host, disable the user, block an IOC, collect memory, escalate, or close the alert as benign.</div>
             </div>
           </div>
         </div>
@@ -856,22 +856,22 @@ footer{position:relative;z-index:1;padding:48px 20px;border-top:1px solid var(--
           <div class="step-item">
             <div class="step-n sn-blue">1</div>
             <div class="step-content">
-              <div class="step-title">Review local administrators, domain admins, service accounts, stale users, and weak password settings.</div>
-              <div class="step-desc">Review local administrators, domain admins, service accounts, stale users, and weak password settings.</div>
+              <div class="step-title">Review identity exposure</div>
+              <div class="step-desc">Review local administrators, domain admins, service accounts, stale users, weak password settings, and unnecessary privileges.</div>
             </div>
           </div>
           <div class="step-item">
             <div class="step-n sn-blue">2</div>
             <div class="step-content">
-              <div class="step-title">Apply baseline hardening</div>
-              <div class="step-desc">disable unnecessary services, enable logging, improve audit policy, and document before/after posture.</div>
+              <div class="step-title">Harden the lab systems</div>
+              <div class="step-desc">Disable unnecessary services, improve audit policy, tighten logging, remove excess privilege, and document before-and-after posture.</div>
             </div>
           </div>
           <div class="step-item">
             <div class="step-n sn-blue">3</div>
             <div class="step-content">
-              <div class="step-title">Map findings to CIS Controls or NIST CSF and write remediation recommendations.</div>
-              <div class="step-desc">Map findings to CIS Controls or NIST CSF and write remediation recommendations.</div>
+              <div class="step-title">Map to security controls</div>
+              <div class="step-desc">Map findings to CIS Controls or NIST CSF and write remediation recommendations in business-friendly language.</div>
             </div>
           </div>
         </div>
@@ -905,22 +905,22 @@ footer{position:relative;z-index:1;padding:48px 20px;border-top:1px solid var(--
           <div class="step-item">
             <div class="step-n sn-green">1</div>
             <div class="step-content">
-              <div class="step-title">Run authenticated scans against Windows and Linux lab systems.</div>
-              <div class="step-desc">Run authenticated scans against Windows and Linux lab systems.</div>
+              <div class="step-title">Run authenticated scans</div>
+              <div class="step-desc">Run authenticated vulnerability scans against Windows and Linux lab systems using safe targets and documented scan settings.</div>
             </div>
           </div>
           <div class="step-item">
             <div class="step-n sn-green">2</div>
             <div class="step-content">
-              <div class="step-title">Prioritize findings using severity, exploitability, asset criticality, and business impact rather than CVSS alone.</div>
-              <div class="step-desc">Prioritize findings using severity, exploitability, asset criticality, and business impact rather than CVSS alone.</div>
+              <div class="step-title">Prioritize risk</div>
+              <div class="step-desc">Prioritize findings using severity, exploitability, asset criticality, exposure, and business impact rather than CVSS alone.</div>
             </div>
           </div>
           <div class="step-item">
             <div class="step-n sn-green">3</div>
             <div class="step-content">
-              <div class="step-title">Create a remediation tracker with owner, due date, status, exception, and validation result.</div>
-              <div class="step-desc">Create a remediation tracker with owner, due date, status, exception, and validation result.</div>
+              <div class="step-title">Track remediation</div>
+              <div class="step-desc">Create a remediation tracker with owner, due date, status, exception, validation evidence, and final outcome.</div>
             </div>
           </div>
         </div>
@@ -945,22 +945,22 @@ footer{position:relative;z-index:1;padding:48px 20px;border-top:1px solid var(--
           <div class="step-item">
             <div class="step-n sn-green">1</div>
             <div class="step-content">
-              <div class="step-title">Enrich IPs, domains, hashes, and URLs from your alerts using VirusTotal, AbuseIPDB, URLScan, OTX, and vendor reports.</div>
-              <div class="step-desc">Enrich IPs, domains, hashes, and URLs from your alerts using VirusTotal, AbuseIPDB, URLScan, OTX, and vendor reports.</div>
+              <div class="step-title">Enrich IOCs</div>
+              <div class="step-desc">Enrich IPs, domains, hashes, and URLs from alerts using VirusTotal, AbuseIPDB, URLScan, OTX, and vendor reporting.</div>
             </div>
           </div>
           <div class="step-item">
             <div class="step-n sn-green">2</div>
             <div class="step-content">
-              <div class="step-title">Separate tactical IOCs from attacker behavior and map behavior to MITRE ATT&CK.</div>
-              <div class="step-desc">Separate tactical IOCs from attacker behavior and map behavior to MITRE ATT&CK.</div>
+              <div class="step-title">Separate IOC from behavior</div>
+              <div class="step-desc">Distinguish short-lived tactical IOCs from attacker behavior, then map the behavior to MITRE ATT&amp;CK.</div>
             </div>
           </div>
           <div class="step-item">
             <div class="step-n sn-green">3</div>
             <div class="step-content">
-              <div class="step-title">Write a one-page threat brief that explains what matters to a SOC analyst.</div>
-              <div class="step-desc">Write a one-page threat brief that explains what matters to a SOC analyst.</div>
+              <div class="step-title">Write a threat brief</div>
+              <div class="step-desc">Produce a one-page threat intelligence brief that explains relevance, risk, evidence, and analyst action.</div>
             </div>
           </div>
         </div>
@@ -985,22 +985,22 @@ footer{position:relative;z-index:1;padding:48px 20px;border-top:1px solid var(--
           <div class="step-item">
             <div class="step-n sn-green">1</div>
             <div class="step-content">
-              <div class="step-title">Write playbooks for brute force, phishing, malware execution, admin group change, suspicious PowerShell, and vulnerable host exposure.</div>
-              <div class="step-desc">Write playbooks for brute force, phishing, malware execution, admin group change, suspicious PowerShell, and vulnerable host exposure.</div>
+              <div class="step-title">Build core playbooks</div>
+              <div class="step-desc">Write playbooks for brute force, phishing, malware execution, admin group changes, suspicious PowerShell, and exposed vulnerable hosts.</div>
             </div>
           </div>
           <div class="step-item">
             <div class="step-n sn-green">2</div>
             <div class="step-content">
-              <div class="step-title">For each playbook, define evidence to collect, containment options, escalation threshold, and recovery/remediation steps.</div>
-              <div class="step-desc">For each playbook, define evidence to collect, containment options, escalation threshold, and recovery/remediation steps.</div>
+              <div class="step-title">Define decision points</div>
+              <div class="step-desc">For each playbook, define evidence to collect, containment options, escalation thresholds, and recovery or remediation steps.</div>
             </div>
           </div>
           <div class="step-item">
             <div class="step-n sn-green">3</div>
             <div class="step-content">
-              <div class="step-title">Run one tabletop scenario and write a post-incident review with lessons learned.</div>
-              <div class="step-desc">Run one tabletop scenario and write a post-incident review with lessons learned.</div>
+              <div class="step-title">Run a tabletop</div>
+              <div class="step-desc">Run one tabletop scenario and write a post-incident review with timeline, decisions, blockers, and lessons learned.</div>
             </div>
           </div>
         </div>
@@ -1025,22 +1025,22 @@ footer{position:relative;z-index:1;padding:48px 20px;border-top:1px solid var(--
           <div class="step-item">
             <div class="step-n sn-green">1</div>
             <div class="step-content">
-              <div class="step-title">Create an audit evidence folder from your lab</div>
-              <div class="step-desc">screenshots, tickets, scan results, detections, and access reviews.</div>
+              <div class="step-title">Gather audit evidence</div>
+              <div class="step-desc">Collect screenshots, tickets, scan results, detections, access reviews, and configuration evidence that prove security work was completed.</div>
             </div>
           </div>
           <div class="step-item">
             <div class="step-n sn-green">2</div>
             <div class="step-content">
-              <div class="step-title">Build a small risk register with likelihood, impact, owner, status, and treatment plan.</div>
-              <div class="step-desc">Build a small risk register with likelihood, impact, owner, status, and treatment plan.</div>
+              <div class="step-title">Build a risk register</div>
+              <div class="step-desc">Create a small risk register with likelihood, impact, owner, status, treatment plan, and due date.</div>
             </div>
           </div>
           <div class="step-item">
             <div class="step-n sn-green">3</div>
             <div class="step-content">
-              <div class="step-title">Produce a one-page monthly SOC metrics report</div>
-              <div class="step-desc">alerts triaged, true positives, false positives, top categories, and improvement actions.</div>
+              <div class="step-title">Report SOC metrics</div>
+              <div class="step-desc">Summarize alerts triaged, true positives, false positives, top categories, recurring issues, and improvement actions.</div>
             </div>
           </div>
         </div>
@@ -1074,22 +1074,22 @@ footer{position:relative;z-index:1;padding:48px 20px;border-top:1px solid var(--
           <div class="step-item">
             <div class="step-n sn-blue">1</div>
             <div class="step-content">
-              <div class="step-title">Analyze PCAPs for DNS, HTTP, TLS metadata, unusual ports, scanning, and beacon-like timing.</div>
-              <div class="step-desc">Analyze PCAPs for DNS, HTTP, TLS metadata, unusual ports, scanning, and beacon-like timing.</div>
+              <div class="step-title">Analyze packet captures</div>
+              <div class="step-desc">Review PCAPs for DNS, HTTP, TLS metadata, unusual ports, scanning, failed connections, and beacon-like timing.</div>
             </div>
           </div>
           <div class="step-item">
             <div class="step-n sn-blue">2</div>
             <div class="step-content">
-              <div class="step-title">Correlate Suricata alerts with packet-level evidence.</div>
-              <div class="step-desc">Correlate Suricata alerts with packet-level evidence.</div>
+              <div class="step-title">Correlate IDS and packets</div>
+              <div class="step-desc">Correlate Suricata alerts with packet-level evidence and explain what the network traffic proves.</div>
             </div>
           </div>
           <div class="step-item">
             <div class="step-n sn-blue">3</div>
             <div class="step-content">
-              <div class="step-title">Write one network investigation report with timeline, IOCs, and conclusion.</div>
-              <div class="step-desc">Write one network investigation report with timeline, IOCs, and conclusion.</div>
+              <div class="step-title">Write the network report</div>
+              <div class="step-desc">Write one network investigation report with timeline, IOCs, affected systems, conclusion, and recommended action.</div>
             </div>
           </div>
         </div>
@@ -1114,22 +1114,22 @@ footer{position:relative;z-index:1;padding:48px 20px;border-top:1px solid var(--
           <div class="step-item">
             <div class="step-n sn-blue">1</div>
             <div class="step-content">
-              <div class="step-title">Safely review malware reports from Any.run, Hybrid Analysis, MalwareBazaar, or public sandboxes.</div>
-              <div class="step-desc">Safely review malware reports from Any.run, Hybrid Analysis, MalwareBazaar, or public sandboxes.</div>
+              <div class="step-title">Review sandbox output</div>
+              <div class="step-desc">Safely analyze malware reports from Any.run, Hybrid Analysis, MalwareBazaar, or other public sandbox sources.</div>
             </div>
           </div>
           <div class="step-item">
             <div class="step-n sn-blue">2</div>
             <div class="step-content">
-              <div class="step-title">Extract hashes, dropped files, registry keys, network indicators, persistence behavior, and ATT&CK mapping.</div>
-              <div class="step-desc">Extract hashes, dropped files, registry keys, network indicators, persistence behavior, and ATT&CK mapping.</div>
+              <div class="step-title">Extract behavior and IOCs</div>
+              <div class="step-desc">Document hashes, dropped files, registry keys, network indicators, persistence behavior, process tree, and ATT&amp;CK mapping.</div>
             </div>
           </div>
           <div class="step-item">
             <div class="step-n sn-blue">3</div>
             <div class="step-content">
-              <div class="step-title">Write a malware triage note with block/contain/reimage recommendations.</div>
-              <div class="step-desc">Write a malware triage note with block/contain/reimage recommendations.</div>
+              <div class="step-title">Recommend containment</div>
+              <div class="step-desc">Write a malware triage note with confidence level, scope, block actions, containment, reimage guidance, and follow-up detection ideas.</div>
             </div>
           </div>
         </div>
@@ -1154,22 +1154,22 @@ footer{position:relative;z-index:1;padding:48px 20px;border-top:1px solid var(--
           <div class="step-item">
             <div class="step-n sn-blue">1</div>
             <div class="step-content">
-              <div class="step-title">Acquire or use a safe memory image and run Volatility basics</div>
-              <div class="step-desc">pslist, pstree, cmdline, netstat, and malfind.</div>
+              <div class="step-title">Run memory triage basics</div>
+              <div class="step-desc">Practice pslist, pstree, cmdline, netstat, and malfind concepts using safe forensic images or guided memory labs.</div>
             </div>
           </div>
           <div class="step-item">
             <div class="step-n sn-blue">2</div>
             <div class="step-content">
-              <div class="step-title">Use Autopsy or FTK Imager concepts to review filesystem artifacts, browser history, prefetch, registry, and deleted files.</div>
-              <div class="step-desc">Use Autopsy or FTK Imager concepts to review filesystem artifacts, browser history, prefetch, registry, and deleted files.</div>
+              <div class="step-title">Review host artifacts</div>
+              <div class="step-desc">Use Autopsy or FTK Imager concepts to examine filesystem artifacts, browser history, prefetch, registry, and deleted files.</div>
             </div>
           </div>
           <div class="step-item">
             <div class="step-n sn-blue">3</div>
             <div class="step-content">
-              <div class="step-title">Write a DFIR report with evidence collected, method, timeline, findings, and recommendations.</div>
-              <div class="step-desc">Write a DFIR report with evidence collected, method, timeline, findings, and recommendations.</div>
+              <div class="step-title">Write a DFIR report</div>
+              <div class="step-desc">Document evidence collected, method, timeline, findings, limitations, and recommended next steps.</div>
             </div>
           </div>
         </div>
@@ -1194,22 +1194,22 @@ footer{position:relative;z-index:1;padding:48px 20px;border-top:1px solid var(--
           <div class="step-item">
             <div class="step-n sn-blue">1</div>
             <div class="step-content">
-              <div class="step-title">Write 7 hunt hypotheses around LOLBins, suspicious PowerShell, LSASS access, rare parent-child processes, DNS anomalies, new services, and persistence.</div>
-              <div class="step-desc">Write 7 hunt hypotheses around LOLBins, suspicious PowerShell, LSASS access, rare parent-child processes, DNS anomalies, new services, and persistence.</div>
+              <div class="step-title">Write hunt hypotheses</div>
+              <div class="step-desc">Create seven hunt hypotheses covering LOLBins, suspicious PowerShell, LSASS access, rare parent-child processes, DNS anomalies, new services, and persistence.</div>
             </div>
           </div>
           <div class="step-item">
             <div class="step-n sn-blue">2</div>
             <div class="step-content">
-              <div class="step-title">Run each hunt in Elastic or Splunk and document query, results, and verdict.</div>
-              <div class="step-desc">Run each hunt in Elastic or Splunk and document query, results, and verdict.</div>
+              <div class="step-title">Run the hunts</div>
+              <div class="step-desc">Execute each hunt in Elastic or Splunk and document the query, data source, result set, verdict, and follow-up action.</div>
             </div>
           </div>
           <div class="step-item">
             <div class="step-n sn-blue">3</div>
             <div class="step-content">
-              <div class="step-title">Create an ATT&CK Navigator coverage map for what your lab can detect.</div>
-              <div class="step-desc">Create an ATT&CK Navigator coverage map for what your lab can detect.</div>
+              <div class="step-title">Map coverage</div>
+              <div class="step-desc">Create an ATT&amp;CK Navigator coverage map showing what your lab can detect and what visibility gaps remain.</div>
             </div>
           </div>
         </div>
@@ -1234,22 +1234,22 @@ footer{position:relative;z-index:1;padding:48px 20px;border-top:1px solid var(--
           <div class="step-item">
             <div class="step-n sn-blue">1</div>
             <div class="step-content">
-              <div class="step-title">Complete LetsDefend alert queue cases and practice professional closure notes.</div>
-              <div class="step-desc">Complete LetsDefend alert queue cases and practice professional closure notes.</div>
+              <div class="step-title">Practice alert queues</div>
+              <div class="step-desc">Complete LetsDefend alert queue cases and focus on evidence-backed closure notes that resemble real SOC work.</div>
             </div>
           </div>
           <div class="step-item">
             <div class="step-n sn-blue">2</div>
             <div class="step-content">
-              <div class="step-title">Complete CyberDefenders artifact-heavy labs and write full reports.</div>
-              <div class="step-desc">Complete CyberDefenders artifact-heavy labs and write full reports.</div>
+              <div class="step-title">Write full lab reports</div>
+              <div class="step-desc">Complete CyberDefenders artifact-heavy labs and write reports that show method, timeline, evidence, and conclusions.</div>
             </div>
           </div>
           <div class="step-item">
             <div class="step-n sn-blue">3</div>
             <div class="step-content">
-              <div class="step-title">Complete BTLO scenarios across phishing, logs, PCAP, malware, and memory, then compare all three platforms.</div>
-              <div class="step-desc">Complete BTLO scenarios across phishing, logs, PCAP, malware, and memory, then compare all three platforms.</div>
+              <div class="step-title">Compare platforms</div>
+              <div class="step-desc">Complete BTLO scenarios across phishing, logs, PCAP, malware, and memory, then compare the strengths of each platform.</div>
             </div>
           </div>
         </div>
@@ -1283,22 +1283,22 @@ footer{position:relative;z-index:1;padding:48px 20px;border-top:1px solid var(--
           <div class="step-item">
             <div class="step-n sn-orange">1</div>
             <div class="step-content">
-              <div class="step-title">Enable CloudTrail, GuardDuty, and Security Hub in a free-tier-safe AWS account.</div>
-              <div class="step-desc">Enable CloudTrail, GuardDuty, and Security Hub in a free-tier-safe AWS account.</div>
+              <div class="step-title">Enable AWS security services</div>
+              <div class="step-desc">Enable CloudTrail, GuardDuty, and Security Hub in a free-tier-safe AWS account with billing controls.</div>
             </div>
           </div>
           <div class="step-item">
             <div class="step-n sn-orange">2</div>
             <div class="step-content">
-              <div class="step-title">Generate safe IAM/API activity and review CloudTrail event history.</div>
-              <div class="step-desc">Generate safe IAM/API activity and review CloudTrail event history.</div>
+              <div class="step-title">Generate cloud activity</div>
+              <div class="step-desc">Create safe IAM and API activity, then review CloudTrail event history and GuardDuty or Security Hub context.</div>
             </div>
           </div>
           <div class="step-item">
             <div class="step-n sn-orange">3</div>
             <div class="step-content">
-              <div class="step-title">Write investigations for suspicious API calls, risky IAM activity, public exposure, and GuardDuty findings.</div>
-              <div class="step-desc">Write investigations for suspicious API calls, risky IAM activity, public exposure, and GuardDuty findings.</div>
+              <div class="step-title">Write cloud investigations</div>
+              <div class="step-desc">Document suspicious API calls, risky IAM activity, public exposure, and GuardDuty findings with analyst recommendations.</div>
             </div>
           </div>
         </div>
@@ -1323,22 +1323,22 @@ footer{position:relative;z-index:1;padding:48px 20px;border-top:1px solid var(--
           <div class="step-item">
             <div class="step-n sn-orange">1</div>
             <div class="step-content">
-              <div class="step-title">Set up a Microsoft developer/security lab where available and practice Sentinel KQL basics.</div>
-              <div class="step-desc">Set up a Microsoft developer/security lab where available and practice Sentinel KQL basics.</div>
+              <div class="step-title">Set up Microsoft practice</div>
+              <div class="step-desc">Use a Microsoft developer or security lab where available and practice Sentinel KQL basics with identity and endpoint data.</div>
             </div>
           </div>
           <div class="step-item">
             <div class="step-n sn-orange">2</div>
             <div class="step-content">
-              <div class="step-title">Investigate Entra ID sign-ins, risky users, conditional access context, mailbox rules, OAuth app activity, and Defender-style endpoint alerts.</div>
-              <div class="step-desc">Investigate Entra ID sign-ins, risky users, conditional access context, mailbox rules, OAuth app activity, and Defender-style endpoint alerts.</div>
+              <div class="step-title">Investigate identity and M365</div>
+              <div class="step-desc">Review Entra ID sign-ins, risky users, conditional access context, mailbox rules, OAuth app activity, and Defender-style endpoint alerts.</div>
             </div>
           </div>
           <div class="step-item">
             <div class="step-n sn-orange">3</div>
             <div class="step-content">
-              <div class="step-title">Write a Microsoft incident report comparing Sentinel/Defender workflow to Elastic/Wazuh.</div>
-              <div class="step-desc">Write a Microsoft incident report comparing Sentinel/Defender workflow to Elastic/Wazuh.</div>
+              <div class="step-title">Compare Microsoft workflow</div>
+              <div class="step-desc">Write a Microsoft incident report comparing Sentinel and Defender investigation flow to Elastic and Wazuh.</div>
             </div>
           </div>
         </div>
@@ -1372,22 +1372,22 @@ footer{position:relative;z-index:1;padding:48px 20px;border-top:1px solid var(--
           <div class="step-item">
             <div class="step-n sn-purple">1</div>
             <div class="step-content">
-              <div class="step-title">Write Python scripts for IOC enrichment, log parsing, hash/domain reputation lookups, and ticket note generation.</div>
-              <div class="step-desc">Write Python scripts for IOC enrichment, log parsing, hash/domain reputation lookups, and ticket note generation.</div>
+              <div class="step-title">Automate enrichment</div>
+              <div class="step-desc">Write Python scripts for IOC enrichment, log parsing, hash and domain reputation checks, and ticket note generation.</div>
             </div>
           </div>
           <div class="step-item">
             <div class="step-n sn-purple">2</div>
             <div class="step-content">
-              <div class="step-title">Build SOAR playbooks in Shuffle for phishing enrichment and suspicious IP/domain enrichment.</div>
-              <div class="step-desc">Build SOAR playbooks in Shuffle for phishing enrichment and suspicious IP/domain enrichment.</div>
+              <div class="step-title">Build SOAR workflows</div>
+              <div class="step-desc">Create Shuffle SOAR playbooks for phishing enrichment and suspicious IP or domain enrichment.</div>
             </div>
           </div>
           <div class="step-item">
             <div class="step-n sn-purple">3</div>
             <div class="step-content">
-              <div class="step-title">Document inputs, outputs, failure cases, and where a human analyst still makes the decision.</div>
-              <div class="step-desc">Document inputs, outputs, failure cases, and where a human analyst still makes the decision.</div>
+              <div class="step-title">Document human checkpoints</div>
+              <div class="step-desc">Document inputs, outputs, failure cases, audit trail, and where a human analyst still makes the final decision.</div>
             </div>
           </div>
         </div>
@@ -1421,22 +1421,22 @@ footer{position:relative;z-index:1;padding:48px 20px;border-top:1px solid var(--
           <div class="step-item">
             <div class="step-n sn-orange">1</div>
             <div class="step-content">
-              <div class="step-title">Organize GitHub into reports, tickets, detections, playbooks, automation, external labs, and cloud investigations.</div>
-              <div class="step-desc">Organize GitHub into reports, tickets, detections, playbooks, automation, external labs, and cloud investigations.</div>
+              <div class="step-title">Organize the portfolio</div>
+              <div class="step-desc">Structure GitHub around reports, tickets, detections, playbooks, automation, external labs, and cloud investigations.</div>
             </div>
           </div>
           <div class="step-item">
             <div class="step-n sn-orange">2</div>
             <div class="step-content">
-              <div class="step-title">Rewrite resume bullets around outcomes</div>
-              <div class="step-desc">alerts triaged, detections written, incidents documented, vulnerabilities prioritized, playbooks built.</div>
+              <div class="step-title">Rewrite job materials</div>
+              <div class="step-desc">Update resume and LinkedIn bullets around alerts triaged, detections written, incidents documented, vulnerabilities prioritized, and playbooks built.</div>
             </div>
           </div>
           <div class="step-item">
             <div class="step-n sn-orange">3</div>
             <div class="step-content">
-              <div class="step-title">Prepare a 5-minute lab walkthrough and 10 STAR stories tied to real investigations.</div>
-              <div class="step-desc">Prepare a 5-minute lab walkthrough and 10 STAR stories tied to real investigations.</div>
+              <div class="step-title">Practice the walkthrough</div>
+              <div class="step-desc">Prepare a five-minute lab walkthrough and ten STAR stories tied to real investigations you can defend in interviews.</div>
             </div>
           </div>
         </div>
