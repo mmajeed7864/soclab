@@ -2244,10 +2244,84 @@ footer{position:relative;z-index:1;padding:48px 20px;border-top:1px solid var(--
       </div>
     </div>
 
-    <!-- COMING SOON -->
-    <div class="log-coming-soon">
-      <div class="log-coming-soon-title">Day 03 Coming Soon</div>
-      <div class="log-coming-soon-text">Active Directory build + AD attack simulation + detection in Kibana</div>
+    <!-- DAY 3 -->
+    <div class="log-card">
+      <div class="log-card-hdr" onclick="toggleLog(this)">
+        <div class="log-day">
+          <div class="log-day-label">Day</div>
+          <div class="log-day-num">03</div>
+        </div>
+        <div class="log-info">
+          <div class="log-date">May 20, 2026</div>
+          <div class="log-title">Wazuh XDR Deployment, Windows Agent, FIM, SCA, and Vulnerability Detection</div>
+          <div class="log-phases">
+            <span class="log-phase-tag done">✓ Phase 3 Complete</span>
+            <span class="log-phase-tag">Wazuh XDR</span>
+            <span class="log-phase-tag">Windows Agent</span>
+            <span class="log-phase-tag">FIM + SCA</span>
+          </div>
+        </div>
+        <div class="log-caret">▶</div>
+      </div>
+      <div class="log-body">
+        <div class="log-body-inner">
+
+          <div class="log-section">
+            <div class="log-section-title">Wazuh XDR Platform Build</div>
+            <ul class="log-list">
+              <li>Created a dedicated Ubuntu Server VM for Wazuh instead of installing it on the existing Elastic SIEM VM</li>
+              <li>Configured dual networking with Host-Only for lab traffic and NAT for internet/package access</li>
+              <li>Installed Wazuh Manager, Wazuh Indexer, Wazuh Dashboard, and Filebeat using the all-in-one installer</li>
+              <li>Validated dashboard access at <code>https://192.168.56.105</code></li>
+              <li>Kept Elastic and Kali powered off during this phase to preserve system resources</li>
+            </ul>
+          </div>
+
+          <div class="log-section">
+            <div class="log-section-title">Windows Agent + Endpoint Monitoring</div>
+            <ul class="log-list">
+              <li>Deployed the Wazuh agent to the Windows 10 victim VM</li>
+              <li>Confirmed the Windows endpoint reported as active in Wazuh</li>
+              <li>Generated endpoint activity with <code>whoami</code>, <code>ipconfig</code>, <code>net user</code>, and <code>net localgroup administrators</code></li>
+              <li>Confirmed the working pipeline: Windows 10 Victim → Wazuh Agent → Wazuh Server → Wazuh Dashboard</li>
+            </ul>
+          </div>
+
+          <div class="log-section">
+            <div class="log-section-title">Detection Tests Confirmed</div>
+            <ul class="log-list">
+              <li>Created and removed a safe local test account to validate Windows account monitoring</li>
+              <li>Triggered and confirmed a high-severity <strong>Administrators Group Changed</strong> alert</li>
+              <li>Mapped account and admin-group activity to MITRE ATT&CK techniques <code>T1136</code>, <code>T1098</code>, and <code>T1078</code></li>
+              <li>Configured File Integrity Monitoring for <code>C:\Users\Public</code> and confirmed file deletion detection</li>
+              <li>Ran Wazuh Security Configuration Assessment against the Windows 10 CIS benchmark</li>
+              <li>Enabled and validated Vulnerability Detection after tuning Windows syscollector and hotfix collection</li>
+            </ul>
+          </div>
+
+          <div class="log-section">
+            <div class="log-section-title">Issues Hit + How I Fixed Them</div>
+            <ul class="log-issues-list">
+              <li><strong>Too many VMs for the phase</strong> — ran only Wazuh server and Windows victim while keeping Elastic and Kali off unless needed.</li>
+              <li><strong>VirtualBox copy/paste friction</strong> — installed OpenSSH Server and managed Wazuh from Windows PowerShell over SSH.</li>
+              <li><strong>FIM not showing results</strong> — corrected the Wazuh <code>&lt;syscheck&gt;</code> XML and added <code>C:\Users\Public</code> as a realtime monitored directory.</li>
+              <li><strong>Vulnerability Detection initially empty</strong> — confirmed server-side vulnerability detection was enabled, reduced syscollector interval, enabled hotfix collection, then restarted the Wazuh agent and manager.</li>
+            </ul>
+          </div>
+
+          <div class="log-section">
+            <div class="log-section-title">Elastic vs Wazuh Takeaway</div>
+            <ul class="log-list">
+              <li><strong>Elastic</strong> was stronger for flexible SIEM searching, raw telemetry analysis, and custom Kibana dashboards</li>
+              <li><strong>Wazuh</strong> was stronger for built-in endpoint alerts, FIM, SCA, vulnerability detection, compliance posture, and MITRE mapping</li>
+              <li>Using both platforms made the lab stronger because real SOC environments often rely on multiple detection and monitoring tools</li>
+            </ul>
+          </div>
+
+          <a href="https://github.com/mmajeed7864/soclab/blob/main/DAY-03-LAB-LOG.md" target="_blank" class="log-cta">Read full log on GitHub →</a>
+
+        </div>
+      </div>
     </div>
 
   </div>
