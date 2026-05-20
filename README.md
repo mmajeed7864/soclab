@@ -39,49 +39,49 @@ It's also a free, public resource for anyone trying to break into security witho
 
 ## The Roadmap
 
-**8 tracks. 26 phases.** Visit the [live site](https://mmajeed7864.github.io/soclab) for the full interactive version with detailed step-by-step instructions, tool guides, and goals for each phase.
+**8 tracks. 26 phases.** Visit the [live site](https://mmajeed7864.github.io/soclab) for the full interactive version with detailed step-by-step instructions, tool guides, and goals for each phase. The order is built around real SOC Analyst L1/L2 work: logs, triage, ticketing, phishing, Splunk, endpoint, identity, cloud, and automation.
 
 ### Track 1 — Build Your SOC Lab
-1. Set Up Virtual Lab Environment
+1. Set Up Your Virtual Lab Environment
 2. Deploy Elastic SIEM + Suricata IDS
 3. Wazuh XDR — Second Detection Platform
 
-### Track 2 — SOC L1 Analyst Practice
-4. SOC L1 Investigation Practice
-5. SOC Ticket Writing & Incident Documentation
-6. Build an Active Directory Environment
-7. Attack Simulation + Alert Triage
+### Track 2 — SOC L1 Core Workflow
+4. Windows, Linux, and Network Log Fundamentals
+5. SOC L1 Alert Queue, Triage, and Case Notes
+6. SOC Ticket Writing, Escalation, and Shift Handoff
+7. Phishing and Email Security Investigation
+8. Splunk Fundamentals for SOC
+9. Detection Engineering and Rule Tuning
 
-### Track 3 — Cybersecurity Analyst Skills
-8. Vulnerability Management
-9. Threat Intelligence Operations
-10. Security Analyst Fundamentals
-11. Hardening, IAM, and IR Playbooks
-12. GRC & Compliance Fundamentals
+### Track 3 — Endpoint and Identity Investigation
+10. Build an Active Directory Environment
+11. AD Attack Simulation + Alert Triage
+12. Endpoint / EDR Investigation with Wazuh, Sysmon, and Defender-Style Telemetry
+13. IAM, Hardening, and Least Privilege
 
-### Track 4 — Deep Investigation Skills
-13. Deep Log Analysis
-14. Network Traffic Analysis
-15. Malware Analysis + Phishing Investigation
-16. Digital Forensics & Memory Analysis
-17. Threat Hunting
+### Track 4 — Cybersecurity Analyst Operations
+14. Vulnerability Management + Patch Prioritization
+15. Threat Intelligence + IOC Enrichment
+16. Incident Response Playbooks + Containment Decisions
+17. GRC, Compliance, Audit Evidence, and Risk Reporting
 
-### Track 5 — Online Platform Practice
-18. LetsDefend — SOC Alert Queue
-19. CyberDefenders — Full Investigation Labs
-20. BTLO — Blue Team Labs Online
+### Track 5 — Deep Investigation and External Practice
+18. Network Traffic Analysis
+19. Malware Triage + Sandbox Analysis
+20. Digital Forensics + Memory Basics
+21. Threat Hunting
+22. External SOC Platforms: LetsDefend, CyberDefenders, and BTLO
 
-### Track 6 — Cloud SOC
-21. AWS CloudTrail + GuardDuty + Security Hub
-22. Microsoft Sentinel
-23. Microsoft Defender for Endpoint
+### Track 6 — Cloud SOC and Microsoft Security Stack
+23. AWS CloudTrail + GuardDuty + Security Hub
+24. Microsoft Sentinel + Defender + Entra ID / M365 Investigations
 
-### Track 7 — L2 SOC Skills
-24. Python Automation for SOC
-25. SOAR + Splunk
+### Track 7 — L2 SOC Automation
+25. Python Automation + SOAR Case Automation
 
 ### Track 8 — Land the Job
-26. GitHub Portfolio + LinkedIn Polish + Interview Prep
+26. Portfolio, Resume, LinkedIn, and Interview Prep
 
 ---
 
