@@ -150,7 +150,22 @@ section{position:relative;z-index:1;padding:70px 20px}
 .proof-num{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:10px;color:var(--accent2);border:1px solid rgba(0,255,136,.25);background:rgba(0,255,136,.05)}
 .proof-title{font-size:13px;font-weight:600;color:var(--text);line-height:1.3}
 .proof-copy{font-size:12px;color:var(--muted);line-height:1.6;margin-top:3px}
-@media(min-width:780px){.recruiter-snapshot{grid-template-columns:1.5fr .8fr}.skill-row{grid-template-columns:minmax(170px,.55fr) 1fr}.proof-strip{grid-template-columns:1fr 1fr}}
+.practice-board{margin-top:32px;padding:22px 0;border-top:1px solid rgba(0,255,136,.2);border-bottom:1px solid var(--border);display:grid;gap:18px}
+.practice-copy{font-size:13px;color:#6a8090;line-height:1.7;max-width:720px}
+.reps-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.rep-card{background:var(--surface);border:1px solid var(--border);border-left:2px solid var(--accent2);border-radius:8px;padding:13px 12px;min-height:86px}
+.rep-card:nth-child(2){border-left-color:var(--accent)}
+.rep-card:nth-child(3){border-left-color:var(--accent3)}
+.rep-card:nth-child(4){border-left-color:#ce93d8}
+.rep-card:nth-child(5){border-left-color:var(--accent)}
+.rep-num{font-family:var(--mono);font-size:22px;font-weight:700;color:var(--text);line-height:1}
+.rep-label{font-family:var(--mono);font-size:9px;color:var(--accent2);letter-spacing:.08em;text-transform:uppercase;margin-top:8px}
+.rep-desc{font-size:11px;color:var(--muted);line-height:1.5;margin-top:5px}
+.practice-plan{display:grid;gap:10px;margin-top:4px}
+.practice-step{padding:12px 0;border-top:1px solid var(--border)}
+.practice-step-title{font-size:13px;font-weight:600;color:var(--text)}
+.practice-step-copy{font-size:12px;color:var(--muted);line-height:1.6;margin-top:3px}
+@media(min-width:780px){.recruiter-snapshot{grid-template-columns:1.5fr .8fr}.skill-row{grid-template-columns:minmax(170px,.55fr) 1fr}.proof-strip{grid-template-columns:1fr 1fr}.practice-board{grid-template-columns:1fr 1.35fr}.reps-grid{grid-template-columns:repeat(5,1fr)}}
 
 /* CERTS */
 .certs-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:32px}
@@ -323,6 +338,7 @@ footer{position:relative;z-index:1;padding:48px 20px;border-top:1px solid var(--
       <div>
         <div class="prereq-title">Free accounts to create right now</div>
         <div class="prereq-desc">
+          <a href="https://www.vmware.com/products/desktop-hypervisor/workstation-and-fusion" target="_blank">VMware Workstation Pro</a> — VMware-based VM lab option<br>
           <a href="https://github.com" target="_blank">GitHub</a> — your portfolio lives here<br>
           <a href="https://tryhackme.com" target="_blank">TryHackMe</a> — guided learning rooms<br>
           <a href="https://letsdefend.io" target="_blank">LetsDefend</a> — SOC alert queue simulator<br>
@@ -362,7 +378,58 @@ footer{position:relative;z-index:1;padding:48px 20px;border-top:1px solid var(--
 <section id="roadmap">
   <div class="eyebrow">01 — The Roadmap</div>
   <h2 class="sec-title reveal">The Complete Path</h2>
-  <p class="sec-sub reveal">8 tracks. 26 phases. Updated after reviewing current Charlotte and remote SOC L1, SOC L2, and Cybersecurity Analyst job requirements: build the lab first, then prove alert triage, ticketing, Splunk, EDR, cloud, IR, automation, and portfolio-ready documentation.</p>
+  <p class="sec-sub reveal">8 tracks. 26 phases. Updated after reviewing current SOC L1, SOC L2, and Cybersecurity Analyst job requirements plus practitioner feedback: build the lab first, then prove high-volume alert triage, ticket writing, Splunk/SPL, EDR, cloud, IR, automation, and portfolio-ready documentation.</p>
+
+  <div class="practice-board reveal">
+    <div>
+      <div class="snapshot-label">SOC Reps Tracker</div>
+      <div class="snapshot-title">Practice the Queue, Not Just the Tools</div>
+      <p class="practice-copy">Real SOC work is repetition: sorting signal from noise, closing false positives, escalating cleanly, and writing tickets fast enough for a live queue. Phase 5 now turns the VMware lab into a scripted attack loop so the SIEM produces enough alerts to practice like an analyst, not just demo one detection.</p>
+    </div>
+    <div>
+      <div class="reps-grid">
+        <div class="rep-card">
+          <div class="rep-num">0 / 500</div>
+          <div class="rep-label">Alerts Triaged</div>
+          <div class="rep-desc">Long-term volume target across Elastic, Wazuh, Splunk, AD, and external SOC labs.</div>
+        </div>
+        <div class="rep-card">
+          <div class="rep-num">50+</div>
+          <div class="rep-label">Phase 5 Tickets</div>
+          <div class="rep-desc">Minimum high-volume queue session from scripted VMware attacker and admin activity.</div>
+        </div>
+        <div class="rep-card">
+          <div class="rep-num">10+</div>
+          <div class="rep-label">False Positives</div>
+          <div class="rep-desc">Tune, suppress, or explain recurring noise instead of only building clean detections.</div>
+        </div>
+        <div class="rep-card">
+          <div class="rep-num">5+</div>
+          <div class="rep-label">Escalations</div>
+          <div class="rep-desc">Write L2-ready summaries with affected user, host, evidence, timeline, and next action.</div>
+        </div>
+        <div class="rep-card">
+          <div class="rep-num">30s</div>
+          <div class="rep-label">First Look</div>
+          <div class="rep-desc">Practice deciding whether an alert deserves closure, tuning, escalation, or deeper review.</div>
+        </div>
+      </div>
+      <div class="practice-plan">
+        <div class="practice-step">
+          <div class="practice-step-title">How the volume gets created</div>
+          <div class="practice-step-copy">A VMware attacker VM and Windows/admin activity loop will generate failed logons, PowerShell events, DNS/web noise, scans, new services, file activity, and identity changes.</div>
+        </div>
+        <div class="practice-step">
+          <div class="practice-step-title">How the loop runs</div>
+          <div class="practice-step-copy">The Kali attacker VM runs timed scripts in VMware for 30-60 minutes, creating repeated but safe events that land in Elastic and Wazuh for triage practice.</div>
+        </div>
+        <div class="practice-step">
+          <div class="practice-step-title">What gets documented</div>
+          <div class="practice-step-copy">Each session produces tickets, case notes, false-positive decisions, escalation summaries, and a short lesson learned for the build logs.</div>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <div class="tracks reveal">
 
@@ -381,8 +448,8 @@ footer{position:relative;z-index:1;padding:48px 20px;border-top:1px solid var(--
         <div class="phase-num pn-blue">01</div>
         <div class="phase-hdr-info">
           <div class="phase-hdr-title">Set Up Your Virtual Lab Environment</div>
-          <div class="phase-hdr-meta">VirtualBox or UTM · isolated network · Windows · Ubuntu · Kali</div>
-          <div class="phase-tags"><span class="ptag">VirtualBox</span><span class="ptag">Ubuntu Server</span><span class="ptag">Windows 10</span><span class="ptag">Kali</span><span class="ptag">Host-Only Networking</span></div>
+          <div class="phase-hdr-meta">VMware, VirtualBox, or UTM · isolated network · Windows · Ubuntu · Kali</div>
+          <div class="phase-tags"><span class="ptag">VMware</span><span class="ptag">VirtualBox</span><span class="ptag">Ubuntu Server</span><span class="ptag">Windows 10</span><span class="ptag">Kali</span><span class="ptag">Host-Only Networking</span></div>
         </div>
         <div class="phase-caret">▶</div>
       </div>
@@ -393,7 +460,7 @@ footer{position:relative;z-index:1;padding:48px 20px;border-top:1px solid var(--
             <div class="step-n sn-blue">1</div>
             <div class="step-content">
               <div class="step-title">Build the VM set</div>
-              <div class="step-desc">Create Windows, Ubuntu, and Kali VMs with NAT plus host-only networking so the lab can reach the internet while keeping attack traffic isolated.</div>
+              <div class="step-desc">Create Windows, Ubuntu, and Kali VMs in VMware, VirtualBox, or UTM with NAT plus host-only networking so the lab can reach the internet while keeping attack traffic isolated.</div>
             </div>
           </div>
           <div class="step-item">
@@ -500,7 +567,7 @@ footer{position:relative;z-index:1;padding:48px 20px;border-top:1px solid var(--
       <div class="track-divider-icon">🎧</div>
       <div>
         <div class="track-divider-title">Track 2 — SOC L1 Core Workflow</div>
-        <div class="track-divider-sub">Practice the actual L1 job: alert triage, ticket notes, phishing, Splunk, escalation, and detection tuning.</div>
+        <div class="track-divider-sub">Practice the actual L1 job: high-volume alert triage, ticket notes, phishing, Splunk, escalation, and detection tuning.</div>
       </div>
     </div>
 
@@ -549,38 +616,38 @@ footer{position:relative;z-index:1;padding:48px 20px;border-top:1px solid var(--
       <div class="phase-hdr" onclick="togglePhase(this)">
         <div class="phase-num pn-green">05</div>
         <div class="phase-hdr-info">
-          <div class="phase-hdr-title">SOC L1 Alert Queue, Triage, and Case Notes</div>
-          <div class="phase-hdr-meta">True positive vs false positive · severity · SLA-style workflow</div>
-          <div class="phase-tags"><span class="ptag g">Alert Triage</span><span class="ptag g">Case Notes</span><span class="ptag g">Severity</span><span class="ptag g">Escalation</span></div>
+          <div class="phase-hdr-title">VMware Scripted Attack Loop + High-Volume Triage</div>
+          <div class="phase-hdr-meta">attacker VM loop · 50+ alerts/tickets · false-positive tuning · 30-second first look</div>
+          <div class="phase-tags"><span class="ptag g">VMware Loop</span><span class="ptag g">High-Volume Triage</span><span class="ptag g">50+ Tickets</span><span class="ptag g">False Positives</span></div>
         </div>
         <div class="phase-caret">▶</div>
       </div>
       <div class="phase-body">
-        <div class="phase-intro">Now that tools exist, use them like a SOC queue. The goal is fast, evidence-based decisions rather than tool setup.</div>
+        <div class="phase-intro">Now that tools exist, use them like a real SOC queue. Build a safe scripted attack loop in VMware, let the alerts stack up, then practice sorting noisy alerts quickly, deciding what deserves more time, tuning false positives, and writing tickets another analyst could act on.</div>
         <div class="steps-list">
           <div class="step-item">
             <div class="step-n sn-green">1</div>
             <div class="step-content">
-              <div class="step-title">Generate realistic alert types</div>
-              <div class="step-desc">Create safe lab alerts for failed logins, admin group changes, suspicious PowerShell, file deletion, network scans, and new services.</div>
+              <div class="step-title">Build the VMware scripted attack loop</div>
+              <div class="step-desc">Run a Kali attacker VM on a timed VMware loop, plus Windows/admin activity scripts, to create 50+ mixed alerts: failed logins, benign admin activity, suspicious PowerShell, file deletion, network scans, DNS/web noise, and new services.</div>
             </div>
           </div>
           <div class="step-item">
             <div class="step-n sn-green">2</div>
             <div class="step-content">
-              <div class="step-title">Decide the alert outcome</div>
-              <div class="step-desc">For each alert, decide benign, false positive, true positive, or escalation-worthy, then document the evidence behind the decision.</div>
+              <div class="step-title">Flood Elastic/Wazuh, then work the queue</div>
+              <div class="step-desc">Let the loop run for 30-60 minutes, then triage the alert queue in batches. For each alert, make a first-look decision within 30 seconds: close as benign, mark false positive, investigate for 10 more minutes, or escalate with evidence.</div>
             </div>
           </div>
           <div class="step-item">
             <div class="step-n sn-green">3</div>
             <div class="step-content">
-              <div class="step-title">Write repeatable case notes</div>
-              <div class="step-desc">Track alert name, severity, affected host or user, timestamps, query used, verdict, and next action in a consistent format.</div>
+              <div class="step-title">Write and tune like an analyst</div>
+              <div class="step-desc">Track alert name, severity, affected host or user, timestamps, query used, verdict, next action, and tuning recommendation for recurring false positives.</div>
             </div>
           </div>
         </div>
-        <div class="goal-box"><strong>PHASE GOAL</strong>At least 15 triaged alerts with clear case notes and verdicts.</div>
+        <div class="goal-box"><strong>PHASE GOAL</strong>At least 50 triaged alerts/tickets, 10 false positives tuned or explained, 5 escalations written, and average first-look triage time tracked.</div>
       </div>
     </div>
 
@@ -609,7 +676,7 @@ footer{position:relative;z-index:1;padding:48px 20px;border-top:1px solid var(--
             <div class="step-n sn-green">2</div>
             <div class="step-content">
               <div class="step-title">Write practice escalations</div>
-              <div class="step-desc">Write five full tickets from Phase 5 alerts and three concise escalation notes that an L2 analyst could act on quickly.</div>
+              <div class="step-desc">Turn the Phase 5 queue into 10 polished tickets and 5 concise escalation notes that an L2 analyst could act on quickly.</div>
             </div>
           </div>
           <div class="step-item">
@@ -620,7 +687,7 @@ footer{position:relative;z-index:1;padding:48px 20px;border-top:1px solid var(--
             </div>
           </div>
         </div>
-        <div class="goal-box"><strong>PHASE GOAL</strong>5 tickets, 3 escalation summaries, and 2 shift handoff notes published to GitHub.</div>
+        <div class="goal-box"><strong>PHASE GOAL</strong>10 polished tickets, 5 escalation summaries, and 2 shift handoff notes published to GitHub.</div>
       </div>
     </div>
 
@@ -676,7 +743,7 @@ footer{position:relative;z-index:1;padding:48px 20px;border-top:1px solid var(--
         <div class="phase-caret">▶</div>
       </div>
       <div class="phase-body">
-        <div class="phase-intro">Splunk appears constantly in SOC postings, so it should not wait until the end. Learn basic SPL while your Elastic skills are still fresh.</div>
+        <div class="phase-intro">Elastic is enough for the early lab, but Splunk and SPL show up constantly in SOC postings. Treat this as a focused familiarity block after you have real Elastic triage reps.</div>
         <div class="steps-list">
           <div class="step-item">
             <div class="step-n sn-green">1</div>
@@ -1492,7 +1559,7 @@ footer{position:relative;z-index:1;padding:48px 20px;border-top:1px solid var(--
     <div>
       <div class="snapshot-label">Role Fit</div>
       <div class="snapshot-title">SOC Analyst I / II + Cybersecurity Analyst</div>
-      <p class="snapshot-copy">This roadmap is designed to show hands-on readiness for alert triage, SIEM searching, endpoint and network telemetry review, identity investigations, incident documentation, cloud security monitoring, vulnerability prioritization, and analyst-style reporting.</p>
+      <p class="snapshot-copy">This roadmap is designed to show hands-on readiness for high-volume alert triage, SIEM searching, endpoint and network telemetry review, identity investigations, ticket documentation, cloud security monitoring, vulnerability prioritization, and analyst-style reporting.</p>
       <div class="role-pills">
         <span class="role-pill">SOC Analyst L1</span>
         <span class="role-pill">SOC Analyst L2</span>
@@ -1525,6 +1592,8 @@ footer{position:relative;z-index:1;padding:48px 20px;border-top:1px solid var(--
     <span class="ats-label">ATS Keywords</span>
     <span class="skill-tag">SIEM</span>
     <span class="skill-tag">SOC Triage</span>
+    <span class="skill-tag">High-Volume Alert Queue</span>
+    <span class="skill-tag">False Positive Tuning</span>
     <span class="skill-tag">Incident Response</span>
     <span class="skill-tag">EDR/XDR</span>
     <span class="skill-tag">Splunk</span>
@@ -1541,7 +1610,7 @@ footer{position:relative;z-index:1;padding:48px 20px;border-top:1px solid var(--
     <div class="skill-row">
       <div class="skill-row-title">SIEM + Detection</div>
       <div>
-        <div class="skill-row-proof">Search logs, build dashboards, compare platforms, write detections, tune alerts, and map findings to MITRE ATT&CK.</div>
+        <div class="skill-row-proof">Search logs, build dashboards, compare platforms, write detections, tune noisy alerts, and map findings to MITRE ATT&CK.</div>
         <div class="skill-tags">
           <span class="skill-tag">Elastic SIEM</span>
           <span class="skill-tag">Kibana</span>
@@ -1552,6 +1621,7 @@ footer{position:relative;z-index:1;padding:48px 20px;border-top:1px solid var(--
           <span class="skill-tag g">SPL</span>
           <span class="skill-tag g">KQL</span>
           <span class="skill-tag g">Detection Rules</span>
+          <span class="skill-tag g">Alert Tuning</span>
         </div>
       </div>
     </div>
@@ -1628,9 +1698,12 @@ footer{position:relative;z-index:1;padding:48px 20px;border-top:1px solid var(--
     <div class="skill-row">
       <div class="skill-row-title">SOC Operations + IR</div>
       <div>
-        <div class="skill-row-proof">Triage alerts, write tickets, escalate cleanly, document scope, use playbooks, and explain containment decisions.</div>
+        <div class="skill-row-proof">Triage high-volume alert queues, separate signal from noise, write tickets, escalate cleanly, document scope, use playbooks, and explain containment decisions.</div>
         <div class="skill-tags">
           <span class="skill-tag g">Alert Triage</span>
+          <span class="skill-tag g">50+ Ticket Sessions</span>
+          <span class="skill-tag g">Signal vs Noise</span>
+          <span class="skill-tag g">False Positive Tuning</span>
           <span class="skill-tag g">Ticket Writing</span>
           <span class="skill-tag g">Escalation</span>
           <span class="skill-tag g">Shift Handoff</span>
@@ -1704,6 +1777,7 @@ footer{position:relative;z-index:1;padding:48px 20px;border-top:1px solid var(--
       <div>
         <div class="skill-row-proof">Build safe virtual environments, isolate networks, practice SOC cases, and convert outside labs into documented evidence.</div>
         <div class="skill-tags">
+          <span class="skill-tag">VMware Workstation</span>
           <span class="skill-tag">VirtualBox</span>
           <span class="skill-tag">UTM</span>
           <span class="skill-tag">Ubuntu Server</span>
@@ -1749,7 +1823,7 @@ footer{position:relative;z-index:1;padding:48px 20px;border-top:1px solid var(--
       <div class="proof-num">02</div>
       <div>
         <div class="proof-title">Roadmap maps to job functions</div>
-        <div class="proof-copy">The lab covers triage, detection, ticketing, escalation, IR, cloud, vulnerability management, and analyst reporting.</div>
+        <div class="proof-copy">The lab covers high-volume triage, detection, ticketing, false-positive tuning, escalation, IR, cloud, vulnerability management, and analyst reporting.</div>
       </div>
     </div>
   </div>
@@ -1825,6 +1899,7 @@ footer{position:relative;z-index:1;padding:48px 20px;border-top:1px solid var(--
       <span class="tool-pill free">Kibana</span>
       <span class="tool-pill free">Sysmon</span>
       <span class="tool-pill free">Suricata IDS</span>
+      <span class="tool-pill free">VMware Workstation</span>
       <span class="tool-pill free">VirtualBox</span>
       <span class="tool-pill free">UTM (Mac)</span>
       <span class="tool-pill free">Kali Linux</span>
