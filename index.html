@@ -21,7 +21,7 @@ body::after{content:'';position:fixed;inset:0;background-image:linear-gradient(r
 
 nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:14px 20px;display:flex;justify-content:space-between;align-items:center;background:rgba(8,12,16,.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
 .nav-logo{font-family:var(--mono);font-size:11px;font-weight:700;color:var(--accent);line-height:1.3}
-.nav-links{display:flex;gap:12px}
+.nav-links{display:flex;gap:12px;flex-wrap:wrap;justify-content:flex-end}
 .nav-link{font-family:var(--mono);font-size:9px;color:var(--muted);text-decoration:none;letter-spacing:.06em;text-transform:uppercase;transition:color .2s}
 .nav-link:hover{color:var(--accent)}
 
@@ -120,10 +120,43 @@ section{position:relative;z-index:1;padding:70px 20px}
 .track-divider-title{font-size:14px;font-weight:600;color:var(--text)}
 .track-divider-sub{font-size:11px;color:var(--muted);margin-top:2px}
 
+/* TECHNICAL SKILLS */
+.recruiter-snapshot{margin-top:32px;padding:22px 0;border-top:1px solid rgba(0,212,255,.22);border-bottom:1px solid var(--border);display:grid;gap:20px}
+.snapshot-label{font-family:var(--mono);font-size:10px;color:var(--accent2);letter-spacing:.12em;text-transform:uppercase;margin-bottom:8px}
+.snapshot-title{font-size:20px;font-weight:600;color:var(--text);line-height:1.25;margin-bottom:8px}
+.snapshot-copy{font-size:13px;color:#6a8090;line-height:1.7;max-width:740px}
+.role-pills{display:flex;flex-wrap:wrap;gap:6px;margin-top:14px}
+.role-pill{font-family:var(--mono);font-size:9px;color:var(--accent);border:1px solid rgba(0,212,255,.2);background:rgba(0,212,255,.05);border-radius:4px;padding:4px 9px}
+.snapshot-metrics{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.snapshot-metric{border-left:2px solid var(--accent2);background:rgba(0,255,136,.035);padding:11px 12px}
+.snapshot-metric:nth-child(2){border-left-color:var(--accent);background:rgba(0,212,255,.035)}
+.snapshot-metric:nth-child(3){border-left-color:var(--accent3);background:rgba(255,107,53,.035)}
+.snapshot-metric:nth-child(4){border-left-color:#ce93d8;background:rgba(180,100,255,.035)}
+.metric-num{font-family:var(--mono);font-size:20px;font-weight:700;color:var(--text);line-height:1}
+.metric-label{font-size:11px;color:var(--muted);line-height:1.4;margin-top:5px}
+.ats-strip{margin-top:18px;padding:14px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.ats-label{font-family:var(--mono);font-size:9px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;margin-right:6px}
+.skills-matrix{margin-top:28px;border-top:1px solid var(--border)}
+.skill-row{display:grid;gap:10px;padding:18px 0;border-bottom:1px solid var(--border)}
+.skill-row-title{font-family:var(--mono);font-size:11px;font-weight:700;color:var(--accent);letter-spacing:.06em;text-transform:uppercase}
+.skill-row-proof{font-size:12px;color:#5a7080;line-height:1.6;margin-bottom:10px}
+.skill-tags{display:flex;flex-wrap:wrap;gap:5px}
+.skill-tag{font-family:var(--mono);font-size:9px;padding:3px 8px;border-radius:4px;background:rgba(0,212,255,.06);color:var(--accent);border:1px solid rgba(0,212,255,.15)}
+.skill-tag.g{background:rgba(0,255,136,.06);color:var(--accent2);border-color:rgba(0,255,136,.2)}
+.skill-tag.o{background:rgba(255,107,53,.06);color:var(--accent3);border-color:rgba(255,107,53,.18)}
+.skill-tag.p{background:rgba(180,100,255,.06);color:#ce93d8;border-color:rgba(180,100,255,.18)}
+.proof-strip{margin-top:22px;display:grid;gap:10px}
+.proof-item{display:grid;grid-template-columns:34px 1fr;gap:12px;align-items:flex-start;padding:12px 0;border-top:1px solid rgba(26,37,53,.75)}
+.proof-num{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:10px;color:var(--accent2);border:1px solid rgba(0,255,136,.25);background:rgba(0,255,136,.05)}
+.proof-title{font-size:13px;font-weight:600;color:var(--text);line-height:1.3}
+.proof-copy{font-size:12px;color:var(--muted);line-height:1.6;margin-top:3px}
+@media(min-width:780px){.recruiter-snapshot{grid-template-columns:1.5fr .8fr}.skill-row{grid-template-columns:minmax(170px,.55fr) 1fr}.proof-strip{grid-template-columns:1fr 1fr}}
+
 /* CERTS */
 .certs-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:32px}
 .cert-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:16px 14px;transition:all .2s}
 .cert-card.earned{border-color:rgba(0,255,136,.2)}
+.cert-card.ip{border-color:rgba(0,212,255,.16)}
 .cert-card:hover{border-color:rgba(0,212,255,.2)}
 .cert-top{display:flex;justify-content:space-between;align-items:flex-start;gap:6px;margin-bottom:7px}
 .cert-name{font-family:var(--mono);font-size:11px;font-weight:700}
@@ -231,6 +264,7 @@ footer{position:relative;z-index:1;padding:48px 20px;border-top:1px solid var(--
   <div class="nav-logo">SOC & Cybersecurity Analyst Roadmap<br>by Mohammed H. Majeed</div>
   <div class="nav-links">
     <a href="#roadmap" class="nav-link">Roadmap</a>
+    <a href="#skills" class="nav-link">Skills</a>
     <a href="#certs" class="nav-link">Certs</a>
     <a href="#logs" class="nav-link">Logs</a>
     <a href="#journey" class="nav-link">Journey</a>
@@ -1448,9 +1482,284 @@ footer{position:relative;z-index:1;padding:48px 20px;border-top:1px solid var(--
 
 <div class="divider"></div>
 
+<!-- TECHNICAL SKILLS -->
+<section id="skills">
+  <div class="eyebrow">02 — Technical Skills</div>
+  <h2 class="sec-title reveal">Recruiter Skills Snapshot</h2>
+  <p class="sec-sub reveal">A quick scan of the SOC and cybersecurity analyst capabilities this lab is building, mapped to real job duties instead of just tool names.</p>
+
+  <div class="recruiter-snapshot reveal">
+    <div>
+      <div class="snapshot-label">Role Fit</div>
+      <div class="snapshot-title">SOC Analyst I / II + Cybersecurity Analyst</div>
+      <p class="snapshot-copy">This roadmap is designed to show hands-on readiness for alert triage, SIEM searching, endpoint and network telemetry review, identity investigations, incident documentation, cloud security monitoring, vulnerability prioritization, and analyst-style reporting.</p>
+      <div class="role-pills">
+        <span class="role-pill">SOC Analyst L1</span>
+        <span class="role-pill">SOC Analyst L2</span>
+        <span class="role-pill">Cybersecurity Analyst</span>
+        <span class="role-pill">Security Operations</span>
+        <span class="role-pill">Detection + Response</span>
+      </div>
+    </div>
+    <div class="snapshot-metrics">
+      <div class="snapshot-metric">
+        <div class="metric-num">26</div>
+        <div class="metric-label">phases mapped to analyst job duties</div>
+      </div>
+      <div class="snapshot-metric">
+        <div class="metric-num">40+</div>
+        <div class="metric-label">security tools, platforms, and frameworks</div>
+      </div>
+      <div class="snapshot-metric">
+        <div class="metric-num">8</div>
+        <div class="metric-label">skill tracks from lab build to portfolio</div>
+      </div>
+      <div class="snapshot-metric">
+        <div class="metric-num">4</div>
+        <div class="metric-label">completed lab build logs documented</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="ats-strip reveal">
+    <span class="ats-label">ATS Keywords</span>
+    <span class="skill-tag">SIEM</span>
+    <span class="skill-tag">SOC Triage</span>
+    <span class="skill-tag">Incident Response</span>
+    <span class="skill-tag">EDR/XDR</span>
+    <span class="skill-tag">Splunk</span>
+    <span class="skill-tag">Microsoft Sentinel</span>
+    <span class="skill-tag">Wazuh</span>
+    <span class="skill-tag">Elastic</span>
+    <span class="skill-tag">MITRE ATT&CK</span>
+    <span class="skill-tag">Vulnerability Management</span>
+    <span class="skill-tag">Cloud Security</span>
+    <span class="skill-tag">Threat Intel</span>
+  </div>
+
+  <div class="skills-matrix reveal">
+    <div class="skill-row">
+      <div class="skill-row-title">SIEM + Detection</div>
+      <div>
+        <div class="skill-row-proof">Search logs, build dashboards, compare platforms, write detections, tune alerts, and map findings to MITRE ATT&CK.</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Elastic SIEM</span>
+          <span class="skill-tag">Kibana</span>
+          <span class="skill-tag">Splunk</span>
+          <span class="skill-tag">Microsoft Sentinel</span>
+          <span class="skill-tag">Wazuh XDR</span>
+          <span class="skill-tag g">Sigma</span>
+          <span class="skill-tag g">SPL</span>
+          <span class="skill-tag g">KQL</span>
+          <span class="skill-tag g">Detection Rules</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="skill-row">
+      <div class="skill-row-title">Endpoint + Host Telemetry</div>
+      <div>
+        <div class="skill-row-proof">Collect Windows activity, investigate endpoint behavior, review file integrity and configuration alerts, and document host-level findings.</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Sysmon</span>
+          <span class="skill-tag">Windows Event Logs</span>
+          <span class="skill-tag">Elastic Agent</span>
+          <span class="skill-tag">Fleet</span>
+          <span class="skill-tag">Wazuh Agent</span>
+          <span class="skill-tag">Microsoft Defender</span>
+          <span class="skill-tag g">FIM</span>
+          <span class="skill-tag g">SCA</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="skill-row">
+      <div class="skill-row-title">Network Security</div>
+      <div>
+        <div class="skill-row-proof">Analyze packets, firewall logs, IDS alerts, scans, DNS, HTTP, and TLS metadata to understand suspicious network behavior.</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Suricata IDS</span>
+          <span class="skill-tag">Wireshark</span>
+          <span class="skill-tag">tcpdump</span>
+          <span class="skill-tag">pfSense Firewall</span>
+          <span class="skill-tag">Nmap</span>
+          <span class="skill-tag g">PCAP Analysis</span>
+          <span class="skill-tag g">DNS</span>
+          <span class="skill-tag g">HTTP/TLS Metadata</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="skill-row">
+      <div class="skill-row-title">Identity + Access</div>
+      <div>
+        <div class="skill-row-proof">Build and defend Active Directory, investigate authentication patterns, and understand common identity attack paths.</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Active Directory</span>
+          <span class="skill-tag">Windows Server</span>
+          <span class="skill-tag">Group Policy</span>
+          <span class="skill-tag">Entra ID</span>
+          <span class="skill-tag">BloodHound</span>
+          <span class="skill-tag g">IAM</span>
+          <span class="skill-tag g">Kerberoasting Detection</span>
+          <span class="skill-tag g">Password Spraying</span>
+          <span class="skill-tag g">Least Privilege</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="skill-row">
+      <div class="skill-row-title">Cloud + Microsoft Security</div>
+      <div>
+        <div class="skill-row-proof">Review cloud identity, infrastructure, SaaS, and security service logs across AWS, Azure, and Microsoft 365 workflows.</div>
+        <div class="skill-tags">
+          <span class="skill-tag">AWS CloudTrail</span>
+          <span class="skill-tag">GuardDuty</span>
+          <span class="skill-tag">Security Hub</span>
+          <span class="skill-tag">CloudWatch</span>
+          <span class="skill-tag">Azure</span>
+          <span class="skill-tag">Microsoft 365</span>
+          <span class="skill-tag g">Cloud Log Analysis</span>
+          <span class="skill-tag g">IAM Review</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="skill-row">
+      <div class="skill-row-title">SOC Operations + IR</div>
+      <div>
+        <div class="skill-row-proof">Triage alerts, write tickets, escalate cleanly, document scope, use playbooks, and explain containment decisions.</div>
+        <div class="skill-tags">
+          <span class="skill-tag g">Alert Triage</span>
+          <span class="skill-tag g">Ticket Writing</span>
+          <span class="skill-tag g">Escalation</span>
+          <span class="skill-tag g">Shift Handoff</span>
+          <span class="skill-tag g">PICERL</span>
+          <span class="skill-tag g">Playbooks</span>
+          <span class="skill-tag g">Case Notes</span>
+          <span class="skill-tag g">Incident Reports</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="skill-row">
+      <div class="skill-row-title">Threat Intel + External Analysis</div>
+      <div>
+        <div class="skill-row-proof">Enrich indicators, validate suspicious infrastructure, analyze sandbox results, and turn raw IOCs into useful findings.</div>
+        <div class="skill-tags">
+          <span class="skill-tag">VirusTotal</span>
+          <span class="skill-tag">AbuseIPDB</span>
+          <span class="skill-tag">URLScan.io</span>
+          <span class="skill-tag">Any.run</span>
+          <span class="skill-tag">Hybrid Analysis</span>
+          <span class="skill-tag">MalwareBazaar</span>
+          <span class="skill-tag">Shodan</span>
+          <span class="skill-tag">CyberChef</span>
+          <span class="skill-tag">MXToolbox</span>
+          <span class="skill-tag">OTX</span>
+          <span class="skill-tag">ATT&CK Navigator</span>
+          <span class="skill-tag g">IOC Enrichment</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="skill-row">
+      <div class="skill-row-title">Vulnerability + Risk</div>
+      <div>
+        <div class="skill-row-proof">Prioritize exposure, connect technical findings to risk, validate fixes, and organize evidence for security reviews.</div>
+        <div class="skill-tags">
+          <span class="skill-tag g">Vulnerability Management</span>
+          <span class="skill-tag g">Patch Prioritization</span>
+          <span class="skill-tag g">CIS Controls</span>
+          <span class="skill-tag g">NIST CSF</span>
+          <span class="skill-tag g">SCA Findings</span>
+          <span class="skill-tag g">Access Reviews</span>
+          <span class="skill-tag g">Risk Register</span>
+          <span class="skill-tag g">Audit Evidence</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="skill-row">
+      <div class="skill-row-title">Adversary Simulation + DFIR</div>
+      <div>
+        <div class="skill-row-proof">Generate realistic lab activity, preserve evidence, inspect artifacts, triage malware, and write forensic summaries.</div>
+        <div class="skill-tags">
+          <span class="skill-tag o">Kali Linux</span>
+          <span class="skill-tag o">Metasploit</span>
+          <span class="skill-tag o">Impacket</span>
+          <span class="skill-tag o">CrackMapExec</span>
+          <span class="skill-tag o">Mimikatz</span>
+          <span class="skill-tag p">Volatility</span>
+          <span class="skill-tag p">Autopsy</span>
+          <span class="skill-tag p">FTK Imager</span>
+          <span class="skill-tag p">PEStudio</span>
+          <span class="skill-tag p">YARA</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="skill-row">
+      <div class="skill-row-title">Lab Infrastructure + Practice</div>
+      <div>
+        <div class="skill-row-proof">Build safe virtual environments, isolate networks, practice SOC cases, and convert outside labs into documented evidence.</div>
+        <div class="skill-tags">
+          <span class="skill-tag">VirtualBox</span>
+          <span class="skill-tag">UTM</span>
+          <span class="skill-tag">Ubuntu Server</span>
+          <span class="skill-tag">Windows 10</span>
+          <span class="skill-tag">Kali VM</span>
+          <span class="skill-tag">Host-Only Networking</span>
+          <span class="skill-tag g">LetsDefend</span>
+          <span class="skill-tag g">CyberDefenders</span>
+          <span class="skill-tag g">TryHackMe</span>
+          <span class="skill-tag g">BTLO</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="skill-row">
+      <div class="skill-row-title">Automation + Portfolio Proof</div>
+      <div>
+        <div class="skill-row-proof">Automate enrichment, parse logs, build repeatable notes, and publish clear proof through reports, dashboards, and GitHub.</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Python</span>
+          <span class="skill-tag">PowerShell</span>
+          <span class="skill-tag">Shuffle SOAR</span>
+          <span class="skill-tag">VS Code</span>
+          <span class="skill-tag">GitHub</span>
+          <span class="skill-tag">GitHub Pages</span>
+          <span class="skill-tag g">API Lookups</span>
+          <span class="skill-tag g">Technical Writing</span>
+          <span class="skill-tag g">Dashboards</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="proof-strip reveal">
+    <div class="proof-item">
+      <div class="proof-num">01</div>
+      <div>
+        <div class="proof-title">Build logs show the work</div>
+        <div class="proof-copy">Daily writeups document what was configured, what broke, what was fixed, and what alerts were generated.</div>
+      </div>
+    </div>
+    <div class="proof-item">
+      <div class="proof-num">02</div>
+      <div>
+        <div class="proof-title">Roadmap maps to job functions</div>
+        <div class="proof-copy">The lab covers triage, detection, ticketing, escalation, IR, cloud, vulnerability management, and analyst reporting.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
 <!-- CERTS -->
 <section id="certs">
-  <div class="eyebrow">02 — Certifications</div>
+  <div class="eyebrow">03 — Certifications</div>
   <h2 class="sec-title reveal">Which Certs Actually Matter</h2>
   <p class="sec-sub reveal">Focus on these. In this order. Don't get distracted by expensive or irrelevant certs.</p>
 
@@ -1469,29 +1778,29 @@ footer{position:relative;z-index:1;padding:48px 20px;border-top:1px solid var(--
       <div class="cert-desc">The most SOC-specific CompTIA cert. Covers threat detection, SIEM analysis, incident response, and vulnerability management. Filtered for by MSSP ATS systems.</div>
     </div>
     <!-- IN PROGRESS -->
-    <div class="cert-card">
+    <div class="cert-card ip">
       <div class="cert-top"><div class="cert-name cn-b">AWS Security Specialty</div><span class="cbadge cb-ip">IN PROGRESS</span></div>
       <div class="cert-desc">The highest-level AWS security certification. Covers GuardDuty, CloudTrail, Security Hub, IAM, and cloud incident response. Major differentiator for cloud-adjacent SOC and security analyst roles.</div>
     </div>
-    <div class="cert-card">
+    <div class="cert-card ip">
       <div class="cert-top"><div class="cert-name cn-b">CompTIA A+</div><span class="cbadge cb-ip">WGU — IN PROGRESS</span></div>
       <div class="cert-desc">Hardware, OS, troubleshooting, and IT operations fundamentals. Required as part of the WGU B.S. Cybersecurity &amp; Information Assurance degree program.</div>
     </div>
-    <div class="cert-card">
+    <div class="cert-card ip">
       <div class="cert-top"><div class="cert-name cn-b">CompTIA Linux+</div><span class="cbadge cb-ip">WGU — IN PROGRESS</span></div>
       <div class="cert-desc">Linux administration, shell scripting, and security hardening on Linux systems. Critical for SOC work — most SIEM servers, EDR tools, and cloud workloads run Linux.</div>
     </div>
-    <div class="cert-card">
+    <div class="cert-card ip">
       <div class="cert-top"><div class="cert-name cn-b">CompTIA Data+</div><span class="cbadge cb-ip">WGU — IN PROGRESS</span></div>
       <div class="cert-desc">Data analytics, visualization, and reporting fundamentals. Supports security data analysis, SIEM dashboard work, and threat intelligence reporting skills.</div>
     </div>
-    <div class="cert-card">
+    <div class="cert-card ip">
       <div class="cert-top"><div class="cert-name cn-b">CompTIA PenTest+</div><span class="cbadge cb-ip">WGU — IN PROGRESS</span></div>
       <div class="cert-desc">Penetration testing methodology, vulnerability scanning, and ethical hacking. Understanding attacker techniques makes you a stronger defender — essential for L2 SOC and threat hunting roles.</div>
     </div>
     <!-- PLANNED -->
-    <div class="cert-card">
-      <div class="cert-top"><div class="cert-name cn-m">CCSP — (ISC)²</div><span class="cbadge cb-plan">LONG-TERM GOAL</span></div>
+    <div class="cert-card ip">
+      <div class="cert-top"><div class="cert-name cn-b">CCSP — (ISC)²</div><span class="cbadge cb-ip">LONG-TERM GOAL</span></div>
       <div class="cert-desc">Certified Cloud Security Professional — the gold standard for cloud security engineering roles. Targets the $120K+ Cloud Security Engineer positions. Get this after 2+ years of cloud security experience.</div>
     </div>
     <div class="cert-card earned">
@@ -1505,7 +1814,7 @@ footer{position:relative;z-index:1;padding:48px 20px;border-top:1px solid var(--
 
 <!-- TOOLS SECTION -->
 <section id="tools">
-  <div class="eyebrow">03 — Tools</div>
+  <div class="eyebrow">04 — Tools</div>
   <h2 class="sec-title reveal">Every Tool You Need</h2>
   <p class="sec-sub reveal">Organized by cost. Most of what you need is free.</p>
 
@@ -1564,7 +1873,7 @@ footer{position:relative;z-index:1;padding:48px 20px;border-top:1px solid var(--
 
 <!-- BUILD LOGS -->
 <section id="logs">
-  <div class="eyebrow">04 — Build Logs</div>
+  <div class="eyebrow">05 — Build Logs</div>
   <h2 class="sec-title reveal">Daily Progress</h2>
   <p class="sec-sub reveal">Real updates from my lab. Every day I work on this roadmap I post what I did, what worked, and what broke.</p>
 
@@ -1812,6 +2121,97 @@ footer{position:relative;z-index:1;padding:48px 20px;border-top:1px solid var(--
       </div>
     </div>
 
+    <!-- DAY 4 -->
+    <div class="log-card">
+      <div class="log-card-hdr" onclick="toggleLog(this)">
+        <div class="log-day">
+          <div class="log-day-label">Day</div>
+          <div class="log-day-num">04</div>
+        </div>
+        <div class="log-info">
+          <div class="log-date">May 21, 2026</div>
+          <div class="log-title">Windows, Linux, and Network Log Fundamentals</div>
+          <div class="log-phases">
+            <span class="log-phase-tag done">✓ Phase 4 Complete</span>
+            <span class="log-phase-tag">KQL</span>
+            <span class="log-phase-tag">Sysmon</span>
+            <span class="log-phase-tag">Windows + Linux Logs</span>
+          </div>
+        </div>
+        <div class="log-caret">▶</div>
+      </div>
+      <div class="log-body">
+        <div class="log-body-inner">
+
+          <div class="log-section">
+            <div class="log-section-title">Phase 4 Focus</div>
+            <ul class="log-list">
+              <li>Shifted from tool setup into SOC Analyst L1 log interpretation and investigation fundamentals</li>
+              <li>Used Kibana Discover with the <code>logs-*</code> data view to review Windows, Sysmon, DNS, and network events</li>
+              <li>Reviewed Linux authentication and service logs directly from the Ubuntu SIEM VM using <code>grep</code>, <code>tail</code>, and <code>journalctl</code></li>
+              <li>Documented 20+ event scenarios with event meaning, key fields, SOC value, and search examples</li>
+            </ul>
+          </div>
+
+          <div class="log-section">
+            <div class="log-section-title">Windows + Sysmon Events Reviewed</div>
+            <ul class="log-list">
+              <li>Sysmon Event ID 1 for process creation, command lines, parent processes, and <code>net.exe</code> / <code>net1.exe</code> activity</li>
+              <li>Sysmon Event ID 3 for process-to-network connections and outbound destination review</li>
+              <li>Sysmon Event ID 22 for DNS queries tied back to endpoint process context</li>
+              <li>Sysmon Event IDs 7, 10, 11, and 13 for image loads, process access, file creation, and registry value changes</li>
+              <li>Windows Security Event IDs 4624, 4625, 4672, 4720, 4726, 4732, and 4740 for authentication, privilege, account, and group-change investigations</li>
+              <li>Windows System Event ID 7045 for new service installation and persistence-style review</li>
+            </ul>
+          </div>
+
+          <div class="log-section">
+            <div class="log-section-title">Linux + Network Log Review</div>
+            <ul class="log-list">
+              <li>Reviewed SSH authentication activity in <code>/var/log/auth.log</code></li>
+              <li>Reviewed sudo usage to understand privileged Linux command activity</li>
+              <li>Checked Elasticsearch, Kibana, and SSH service logs with <code>journalctl</code></li>
+              <li>Reviewed network fundamentals: source IP, destination IP, source port, destination port, protocol, DNS query, user agent, and IDS signature</li>
+              <li>Reviewed Suricata IDS alert fields from <code>fast.log</code> and <code>eve.json</code></li>
+            </ul>
+          </div>
+
+          <div class="log-section">
+            <div class="log-section-title">Issues Hit + How I Fixed Them</div>
+            <ul class="log-issues-list">
+              <li><strong>ECS fields were blank</strong> — used raw Sysmon fields like <code>winlog.event_data.CommandLine</code>, <code>Image</code>, and <code>ParentImage</code> instead of relying only on normalized fields.</li>
+              <li><strong>Specific test file did not appear in Event ID 11</strong> — validated that file-created events existed, added target filename fields, broadened searches, and moved on instead of getting stuck on one exact test file.</li>
+              <li><strong>KQL wildcard searches were picky</strong> — broadened searches by event code first, inspected raw fields manually, then narrowed the query.</li>
+              <li><strong>Noisy Windows background events</strong> — separated normal system activity from suspicious activity by focusing on field meaning and event context.</li>
+            </ul>
+          </div>
+
+          <div class="log-section">
+            <div class="log-section-title">Skills Sharpened</div>
+            <ul class="log-list">
+              <li>KQL searching, field selection, and raw event inspection in Kibana</li>
+              <li>Windows authentication, account-change, process, DNS, network, registry, and service-event interpretation</li>
+              <li>Linux SSH, sudo, and service log review from the terminal</li>
+              <li>Network log analysis across IPs, ports, protocols, DNS, and IDS alert fields</li>
+              <li>Interview-ready explanation of how analysts use logs to answer what happened, when, where, which host, which user, and whether it looks suspicious</li>
+            </ul>
+          </div>
+
+          <div class="log-section">
+            <div class="log-section-title">Up Next — Phase 5</div>
+            <ul class="log-list">
+              <li>Use the logs from Phase 4 to practice a real SOC L1 alert queue workflow</li>
+              <li>Generate safe alerts for failed logins, admin group changes, suspicious PowerShell, file deletion, scans, and new services</li>
+              <li>Write evidence-backed case notes with alert name, severity, host, user, timestamps, query used, verdict, and next action</li>
+            </ul>
+          </div>
+
+          <a href="https://github.com/mmajeed7864/soclab/blob/main/DAY-04-LAB-LOG.md" target="_blank" class="log-cta">Read full log on GitHub →</a>
+
+        </div>
+      </div>
+    </div>
+
   </div>
 </section>
 
@@ -1819,7 +2219,7 @@ footer{position:relative;z-index:1;padding:48px 20px;border-top:1px solid var(--
 
 <!-- TIMELINE / MY JOURNEY -->
 <section id="journey">
-  <div class="eyebrow">05 — My Journey</div>
+  <div class="eyebrow">06 — My Journey</div>
   <h2 class="sec-title reveal">Where I Am On This Path</h2>
   <p class="sec-sub reveal">I'm following this same roadmap. Here's my timeline — so you can see it's achievable.</p>
 
@@ -1931,6 +2331,7 @@ const obs=new IntersectionObserver(entries=>{
   entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}});
 },{threshold:.08});
 document.querySelectorAll('.reveal').forEach(r=>obs.observe(r));
+
 </script>
 </body>
 </html>
