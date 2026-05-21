@@ -1,146 +1,194 @@
-[README.md](https://github.com/user-attachments/files/28046762/README.md)
 # SOC Analyst Lab & Roadmap
 
-A public, end-to-end roadmap for becoming a SOC Analyst (L1 → L2) and Cybersecurity Analyst — built from scratch in a working home lab, documented in real time.
+A public, end-to-end roadmap for becoming a SOC Analyst L1/L2 and Cybersecurity Analyst, built from a real home lab and documented as the work progresses.
 
-🌐 **Live site:** [mmajeed7864.github.io/soclab](https://mmajeed7864.github.io/soclab)
-
----
+Live site: [mmajeed7864.github.io/soclab](https://mmajeed7864.github.io/soclab)
 
 ## About
 
-I'm **Mohammed H. Majeed** — a Cloud & Network Operations Technician based in Charlotte, NC, transitioning into SOC and cybersecurity analyst roles.
+I'm Mohammed H. Majeed, a Cloud & Network Operations Technician based in Charlotte, NC, transitioning into SOC and cybersecurity analyst roles.
 
-This repository documents my complete journey from IT support → SOC Analyst → Cybersecurity Analyst → Cloud Security Engineer. Every phase is real lab work, real investigations, real documentation. No theory dumps. No copied content. Built by doing.
+This repository documents my hands-on path from IT operations into security operations: SIEM deployment, endpoint telemetry, IDS alerts, Wazuh XDR, log analysis, high-volume triage practice, Active Directory attacks, incident notes, cloud security monitoring, and portfolio-ready reporting.
 
-It's also a free, public resource for anyone trying to break into security without paying for a bootcamp.
+The goal is simple: show real job-function proof, not just screenshots or theory.
 
----
+## Current Focus
+
+The roadmap now includes a production-style SOC practice layer:
+
+- VMware scripted attack loop using a Kali attacker VM
+- 30-60 minute alert generation sessions
+- 50+ alerts/tickets per triage session
+- Elastic and Wazuh queue review
+- 30-second first-look triage decisions
+- False-positive tuning decisions
+- L2-ready escalation notes
+- Case notes and lessons learned added to build logs
+
+This is designed to practice the real SOC motion: sort signal from noise, decide what deserves more time, close benign activity, tune recurring noise, and escalate cleanly.
 
 ## Credentials
 
-**Certifications**
-- ✅ CompTIA Security+
-- ✅ CompTIA Network+
-- ✅ CompTIA CySA+
-- 🔄 AWS Certified Security – Specialty (In Progress)
-- 🔄 CompTIA A+, Linux+, Data+, PenTest+ (In Progress — via WGU)
+Certifications:
 
-**Education**
-- 🎓 B.S. Cybersecurity & Information Assurance — Western Governors University (Expected Jan 2027)
+- CompTIA Security+
+- CompTIA Network+
+- CompTIA CySA+
+- AWS Certified Security - Specialty, in progress
+- CompTIA A+, Linux+, Data+, PenTest+, in progress through WGU
 
-**Current Role**
-- Cloud & Network Operations Technician — Bay Alarm (Apr 2024 – Present)
+Education:
 
-**Previous**
-- Network & Infrastructure Support Analyst — Apple Inc. (Feb 2023 – Jan 2024)
+- B.S. Cybersecurity & Information Assurance, Western Governors University, expected January 2027
 
----
+Current role:
 
-## The Roadmap
+- Cloud & Network Operations Technician, Bay Alarm, April 2024 to present
 
-**8 tracks. 26 phases.** Visit the [live site](https://mmajeed7864.github.io/soclab) for the full interactive version with detailed step-by-step instructions, tool guides, and goals for each phase. The order is built around real SOC Analyst L1/L2 work: logs, triage, ticketing, phishing, Splunk, endpoint, identity, cloud, and automation.
+Previous role:
 
-### Track 1 — Build Your SOC Lab
+- Network & Infrastructure Support Analyst, Apple Inc., February 2023 to January 2024
+
+## Roadmap
+
+The full interactive roadmap is on the live site. The order is built around SOC Analyst L1/L2 and Cybersecurity Analyst work: logs, triage, ticketing, phishing, Splunk, endpoint, identity, cloud, incident response, automation, and portfolio proof.
+
+### Track 1 - Build Your SOC Lab
+
 1. Set Up Your Virtual Lab Environment
 2. Deploy Elastic SIEM + Suricata IDS
-3. Wazuh XDR — Second Detection Platform
+3. Wazuh XDR - Second Detection Platform
 
-### Track 2 — SOC L1 Core Workflow
+### Track 2 - SOC L1 Core Workflow
+
 4. Windows, Linux, and Network Log Fundamentals
-5. SOC L1 Alert Queue, Triage, and Case Notes
+5. VMware Scripted Attack Loop + High-Volume Triage
 6. SOC Ticket Writing, Escalation, and Shift Handoff
 7. Phishing and Email Security Investigation
 8. Splunk Fundamentals for SOC
 9. Detection Engineering and Rule Tuning
 
-### Track 3 — Endpoint and Identity Investigation
+### Track 3 - Endpoint and Identity Investigation
+
 10. Build an Active Directory Environment
 11. AD Attack Simulation + Alert Triage
 12. Endpoint / EDR Investigation with Wazuh, Sysmon, and Defender-Style Telemetry
 13. IAM, Hardening, and Least Privilege
 
-### Track 4 — Cybersecurity Analyst Operations
+### Track 4 - Cybersecurity Analyst Operations
+
 14. Vulnerability Management + Patch Prioritization
 15. Threat Intelligence + IOC Enrichment
 16. Incident Response Playbooks + Containment Decisions
 17. GRC, Compliance, Audit Evidence, and Risk Reporting
 
-### Track 5 — Deep Investigation and External Practice
+### Track 5 - Deep Investigation and External Practice
+
 18. Network Traffic Analysis
 19. Malware Triage + Sandbox Analysis
 20. Digital Forensics + Memory Basics
 21. Threat Hunting
 22. External SOC Platforms: LetsDefend, CyberDefenders, and BTLO
 
-### Track 6 — Cloud SOC and Microsoft Security Stack
+### Track 6 - Cloud SOC and Microsoft Security Stack
+
 23. AWS CloudTrail + GuardDuty + Security Hub
 24. Microsoft Sentinel + Defender + Entra ID / M365 Investigations
 
-### Track 7 — L2 SOC Automation
+### Track 7 - L2 SOC Automation
+
 25. Python Automation + SOAR Case Automation
 
-### Track 8 — Land the Job
+### Track 8 - Land the Job
+
 26. Portfolio, Resume, LinkedIn, and Interview Prep
 
----
+## Technical Skills
 
-## Tech Stack
+SIEM and detection:
 
-**SIEM & Detection:** Elastic SIEM · Kibana · Wazuh XDR · Suricata IDS · Sysmon · Fleet · Elastic Agent · Splunk · Microsoft Sentinel
-**Cloud Security:** AWS CloudTrail · GuardDuty · Security Hub · IAM · CloudWatch · S3 · VPC · Microsoft Defender for Endpoint
-**Endpoint & Identity:** Active Directory · Group Policy · Windows Event Logs · Sysmon · JAMF MDM
-**Network & Forensics:** Wireshark · tcpdump · NMAP · pfSense · Volatility · Autopsy · FTK Imager · YARA
-**OS & Virtualization:** Windows 10/11 · Ubuntu · Kali Linux · VirtualBox
-**Frameworks:** MITRE ATT&CK · NIST CSF · CIS Controls v8 · PICERL
+- Elastic SIEM, Kibana, Wazuh XDR, Suricata IDS, Sysmon, Fleet, Elastic Agent, Splunk, Microsoft Sentinel
+- KQL, SPL, detection rules, alert tuning, MITRE ATT&CK mapping
 
----
+SOC operations:
+
+- High-volume alert triage
+- Alert queue management
+- 30-second first-look triage
+- False-positive tuning
+- Ticket writing
+- Escalation summaries
+- Shift handoff notes
+- Incident reports and playbooks
+
+Endpoint and identity:
+
+- Windows Event Logs, Sysmon, Microsoft Defender-style telemetry
+- Active Directory, Group Policy, Windows Server, BloodHound
+- Password spraying and Kerberoasting detection
+
+Network and infrastructure:
+
+- Wireshark, tcpdump, Nmap, Suricata, pfSense
+- VMware Workstation, VirtualBox, UTM, Ubuntu Server, Kali Linux, Windows 10/11
+- Host-only networking, NAT, VM snapshots, isolated lab design
+
+Adversary simulation and investigation:
+
+- Kali Linux, scripted VMware attack loops, Metasploit, Impacket, CrackMapExec, Mimikatz
+- Volatility, Autopsy, FTK Imager, PEStudio, YARA
+
+Cloud and Microsoft security:
+
+- AWS CloudTrail, GuardDuty, Security Hub, IAM, CloudWatch
+- Azure, Microsoft 365, Entra ID, Defender, Sentinel
+
+Frameworks and reporting:
+
+- MITRE ATT&CK, NIST CSF, CIS Controls v8, PICERL
+- Case notes, dashboards, GitHub documentation, analyst-style writeups
 
 ## Daily Build Logs
 
-I post lab work as I complete it. See:
-- [DAY-01-LAB-LOG.md](./DAY-01-LAB-LOG.md) — Lab foundation + early Elastic SIEM deployment
-- [DAY-02-LAB-LOG.md](./DAY-02-LAB-LOG.md) — Phase 2 completion · Windows telemetry · Fleet · Sysmon · Suricata · 5 Kibana dashboards · troubleshooting
-- [DAY-03-LAB-LOG.md](./DAY-03-LAB-LOG.md) — Phase 3 completion · Wazuh XDR deployment · Windows agent · FIM · SCA · vulnerability detection · Elastic vs Wazuh comparison
+I post lab work as I complete it:
+
+- [DAY-01-LAB-LOG.md](./DAY-01-LAB-LOG.md) - Lab foundation and early Elastic SIEM deployment
+- [DAY-02-LAB-LOG.md](./DAY-02-LAB-LOG.md) - Windows telemetry, Fleet, Sysmon, Suricata, dashboards, and troubleshooting
+- [DAY-03-LAB-LOG.md](./DAY-03-LAB-LOG.md) - Wazuh XDR deployment, Windows agent, FIM, SCA, vulnerability detection, and Elastic vs Wazuh comparison
+- [DAY-04-LAB-LOG.md](./DAY-04-LAB-LOG.md) - Windows, Linux, and network log fundamentals
 
 More logs are added with each lab session.
 
----
-
 ## For Recruiters
 
-If you're hiring for **SOC Analyst (L1/L2), Cybersecurity Analyst, Security Operations Analyst, or Junior Cybersecurity Analyst** roles in the Charlotte, NC area or remote — I'd love to connect.
+If you're hiring for SOC Analyst L1/L2, Cybersecurity Analyst, Security Operations Analyst, or Junior Cybersecurity Analyst roles in Charlotte, NC or remote, this portfolio demonstrates:
 
-- **LinkedIn:** [linkedin.com/in/mohammed-majeed-40a661271](https://www.linkedin.com/in/mohammed-majeed-40a661271)
-- **Email:** hmajeed04@gmail.com
-- **Location:** Charlotte, NC (open to remote)
-
-What this portfolio demonstrates:
-- Hands-on SIEM, IDS, EDR, and Active Directory experience in a production-style environment
-- Real SOC L1 investigations mapped to MITRE ATT&CK
-- Documented incident reports, escalation summaries, and IR playbooks
+- Hands-on SIEM, IDS, XDR, endpoint, and Active Directory lab experience
+- High-volume alert triage practice with VMware-generated alert volume
+- Realistic false-positive tuning and escalation workflows
+- SOC-style documentation, ticket notes, incident summaries, and build logs
 - Self-directed learning and consistent execution over time
 
----
+LinkedIn: [linkedin.com/in/mohammed-majeed-40a661271](https://www.linkedin.com/in/mohammed-majeed-40a661271)  
+Email: hmajeed04@gmail.com  
+Location: Charlotte, NC, open to remote
 
 ## For Other Learners
 
-Everything in the roadmap is **free or has a free tier**. No paid bootcamps, no $500 courses. The site includes step-by-step setup instructions and tool guides for every phase.
+Everything in the roadmap is free or has a free tier. The live site includes step-by-step setup guidance, tool lists, phase goals, and daily build logs.
 
 If you're starting from zero:
-1. Begin with **Phase 1** on the live site
-2. Read the **Before You Start** section
-3. Spin up the lab
-4. Work the phases in order
 
-Feel free to fork this repo, copy the structure, and build your own version. The whole point is to lower the barrier for the next person trying to get into security.
+1. Start with Phase 1 on the live site
+2. Build the lab foundation
+3. Document every phase in GitHub
+4. Use Phase 5 to practice realistic SOC triage repetition, not just tool setup
+5. Keep adding tickets, detections, reports, and lessons learned
 
----
+Feel free to fork the repo, copy the structure, and build your own version.
 
 ## License
 
-The content on this site (roadmap structure, instructions, lab guides) is shared for educational use. Feel free to reference or adapt it for your own learning journey.
+The content on this site is shared for educational use. You can reference or adapt it for your own learning journey.
 
----
-
-*Built and maintained by Mohammed H. Majeed · Charlotte, NC*
+Built and maintained by Mohammed H. Majeed - Charlotte, NC
