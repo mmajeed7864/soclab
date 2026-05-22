@@ -21,9 +21,10 @@ body::after{content:'';position:fixed;inset:0;background-image:linear-gradient(r
 
 nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:14px 20px;display:flex;justify-content:space-between;align-items:center;background:rgba(8,12,16,.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border)}
 .nav-logo{font-family:var(--mono);font-size:11px;font-weight:700;color:var(--accent);line-height:1.3}
-.nav-links{display:flex;gap:12px;flex-wrap:wrap;justify-content:flex-end}
-.nav-link{font-family:var(--mono);font-size:9px;color:var(--muted);text-decoration:none;letter-spacing:.06em;text-transform:uppercase;transition:color .2s}
-.nav-link:hover{color:var(--accent)}
+.nav-links{display:flex;gap:8px;flex-wrap:wrap;justify-content:flex-end;align-items:center}
+.nav-shortcuts-label{font-family:var(--mono);font-size:8px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;margin-right:2px}
+.nav-link{font-family:var(--mono);font-size:9px;color:#e8edf2;text-decoration:none;letter-spacing:.06em;text-transform:uppercase;transition:all .2s;border:1px solid rgba(232,237,242,.16);background:rgba(232,237,242,.035);border-radius:4px;padding:4px 8px}
+.nav-link:hover{color:#000;background:var(--accent);border-color:var(--accent)}
 
 /* HERO */
 .hero{position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:100px 20px 80px;z-index:1}
@@ -236,6 +237,8 @@ section{position:relative;z-index:1;padding:70px 20px}
 .log-list li{font-size:12px;color:#6a8090;line-height:1.7;padding-left:18px;position:relative;margin-bottom:5px}
 .log-list li::before{content:'✓';position:absolute;left:0;color:var(--accent2);font-size:11px;font-weight:700}
 .log-list li code{font-family:var(--mono);font-size:10px;background:rgba(0,212,255,.08);border:1px solid rgba(0,212,255,.15);padding:1px 5px;border-radius:3px;color:var(--accent)}
+.log-code{margin:10px 0 0;padding:12px 14px;background:#070b10;border:1px solid rgba(0,212,255,.16);border-radius:8px;overflow:auto;font-family:var(--mono);font-size:10px;color:#9bb7c8;line-height:1.7;white-space:pre}
+.log-note{margin-top:10px;padding:10px 12px;background:rgba(0,212,255,.045);border-left:2px solid var(--accent);border-radius:0 6px 6px 0;font-size:12px;color:#6a8090;line-height:1.6}
 .log-issues-list{list-style:none;padding:0}
 .log-issues-list li{font-size:12px;color:#cc8860;line-height:1.7;padding-left:22px;position:relative;margin-bottom:8px}
 .log-issues-list li::before{content:'⚠';position:absolute;left:0;color:var(--accent3);font-size:12px;font-weight:700}
@@ -278,6 +281,7 @@ footer{position:relative;z-index:1;padding:48px 20px;border-top:1px solid var(--
 <nav>
   <div class="nav-logo">SOC & Cybersecurity Analyst Roadmap<br>by Mohammed H. Majeed</div>
   <div class="nav-links">
+    <span class="nav-shortcuts-label">Shortcuts</span>
     <a href="#roadmap" class="nav-link">Roadmap</a>
     <a href="#skills" class="nav-link">Skills</a>
     <a href="#certs" class="nav-link">Certs</a>
@@ -1582,7 +1586,7 @@ footer{position:relative;z-index:1;padding:48px 20px;border-top:1px solid var(--
         <div class="metric-label">skill tracks from lab build to portfolio</div>
       </div>
       <div class="snapshot-metric">
-        <div class="metric-num">4</div>
+        <div class="metric-num">5</div>
         <div class="metric-label">completed lab build logs documented</div>
       </div>
     </div>
@@ -2287,6 +2291,232 @@ footer{position:relative;z-index:1;padding:48px 20px;border-top:1px solid var(--
       </div>
     </div>
 
+    <!-- DAY 5 -->
+    <div class="log-card">
+      <div class="log-card-hdr" onclick="toggleLog(this)">
+        <div class="log-day">
+          <div class="log-day-label">Day</div>
+          <div class="log-day-num">05</div>
+        </div>
+        <div class="log-info">
+          <div class="log-date">May 22, 2026</div>
+          <div class="log-title">Scripted Alert Loop, High-Volume SOC Triage, Escalation Notes, and Shift Handoff</div>
+          <div class="log-phases">
+            <span class="log-phase-tag done">✓ Phase 5 Complete</span>
+            <span class="log-phase-tag">Elastic Triage</span>
+            <span class="log-phase-tag">Sysmon</span>
+            <span class="log-phase-tag">SOC Queue Practice</span>
+          </div>
+        </div>
+        <div class="log-caret">▶</div>
+      </div>
+      <div class="log-body">
+        <div class="log-body-inner">
+
+          <div class="log-section">
+            <div class="log-section-title">Phase 5 Overview</div>
+            <ul class="log-list">
+              <li>Moved from building the lab into working like a SOC analyst by simulating a real first-look alert queue.</li>
+              <li>Used the existing Elastic/Kibana/Sysmon lab to review, classify, document, tune, and hand off security-relevant endpoint activity.</li>
+              <li>Generated repeatable activity with a PowerShell loop on the Windows 10 victim endpoint.</li>
+              <li>Practiced the analyst workflow: identify the source, review user/process/parent/destination, determine context, decide benign/suspicious/escalate, and document clearly.</li>
+              <li>Core mindset learned: <strong>suspicious by technique, benign by context</strong>.</li>
+            </ul>
+            <div class="log-note">The roadmap mentions VMware, but this specific Phase 5 run was performed in Oracle VirtualBox. The SOC workflow is the same: generate repeatable endpoint telemetry, review it in the SIEM, and document the decision process.</div>
+          </div>
+
+          <div class="log-section">
+            <div class="log-section-title">Lab Environment</div>
+            <ul class="log-list">
+              <li><strong>Ubuntu SIEM VM:</strong> Elastic, Kibana, Fleet Server, Elasticsearch, and Suricata. Host-only IP: <code>192.168.56.101</code>.</li>
+              <li><strong>Windows 10 Victim VM:</strong> monitored endpoint generating Phase 5 telemetry through Sysmon and Elastic Agent. Host-only IP: <code>192.168.56.104</code>.</li>
+              <li><strong>Windows Hostname:</strong> <code>DESKTOP-3JKM5O9</code>.</li>
+              <li><strong>Lab User:</strong> <code>DESKTOP-3JKM5O9\mmajeed</code>.</li>
+              <li><strong>Telemetry reviewed:</strong> Windows Security logs, Windows System logs, Sysmon logs, Elastic Agent/Fleet data streams.</li>
+              <li><strong>Wazuh note:</strong> Wazuh was powered off during most of this phase to conserve laptop resources because this run focused on Elastic/Kibana triage.</li>
+            </ul>
+          </div>
+
+          <div class="log-section">
+            <div class="log-section-title">Pre-Phase Issue + Fix</div>
+            <ul class="log-issues-list">
+              <li><strong>Kibana would not open</strong> — Kibana appeared to be running, but Elasticsearch was failing in the backend.</li>
+              <li><strong>Root cause</strong> — Elasticsearch could not read <code>/etc/elasticsearch/service_tokens</code> because of incorrect ownership/permissions.</li>
+              <li><strong>Fix</strong> — corrected ownership and permissions, restarted Elasticsearch, then restarted Kibana.</li>
+            </ul>
+            <pre class="log-code">sudo systemctl status elasticsearch
+sudo tail -n 120 /var/log/elasticsearch/elasticsearch.log
+sudo grep -i "error\|exception\|fatal\|failed" /var/log/elasticsearch/elasticsearch.log | tail -n 50
+
+sudo chown root:elasticsearch /etc/elasticsearch/service_tokens
+sudo chmod 660 /etc/elasticsearch/service_tokens
+sudo chown -R root:elasticsearch /etc/elasticsearch
+sudo find /etc/elasticsearch -type d -exec chmod 750 {} \;
+sudo find /etc/elasticsearch -type f -exec chmod 660 {} \;
+
+sudo systemctl restart elasticsearch
+sudo systemctl restart kibana</pre>
+            <div class="log-note">This became a real troubleshooting win: the SIEM front end could not work because the backend dependency was down. Reading service logs and fixing Linux permissions is part of real SOC/NOC work.</div>
+          </div>
+
+          <div class="log-section">
+            <div class="log-section-title">Scripted Activity Loop</div>
+            <ul class="log-list">
+              <li>Created a safe activity generator at <code>C:\SOC-Lab\Phase5\phase5-loop.ps1</code>.</li>
+              <li>Ran the loop to generate process creation, PowerShell, DNS, web request, file activity, enumeration, and network events.</li>
+              <li>Used the loop as a repeatable practice source for alert triage instead of relying on one-off demos.</li>
+            </ul>
+            <pre class="log-code">mkdir C:\SOC-Lab\Phase5
+notepad C:\SOC-Lab\Phase5\phase5-loop.ps1
+
+Set-ExecutionPolicy Bypass -Scope Process -Force
+C:\SOC-Lab\Phase5\phase5-loop.ps1</pre>
+            <pre class="log-code">Write-Host "Starting Phase 5 SOC alert generation loop..."
+
+for ($i = 1; $i -le 10; $i++) {
+    Write-Host "Iteration $i"
+
+    whoami
+    hostname
+    ipconfig
+
+    nslookup google.com
+    nslookup github.com
+    nslookup microsoft.com
+
+    curl.exe https://example.com
+    curl.exe https://github.com
+
+    Start-Process notepad.exe
+    Start-Sleep -Seconds 2
+    Start-Process calc.exe
+    Start-Sleep -Seconds 2
+
+    echo "Phase 5 test file $i" > "C:\Users\Public\phase5-test-$i.txt"
+    Start-Sleep -Seconds 2
+    Remove-Item "C:\Users\Public\phase5-test-$i.txt" -Force
+
+    net user
+    net localgroup administrators
+
+    powershell.exe -Command "Get-Process | Select-Object -First 5"
+
+    Start-Sleep -Seconds 10
+}
+
+Write-Host "Phase 5 loop complete."</pre>
+          </div>
+
+          <div class="log-section">
+            <div class="log-section-title">Kibana Searches Used</div>
+            <ul class="log-list">
+              <li><code>agent.name : "DESKTOP-3JKM5O9"</code> — broad Windows victim host search.</li>
+              <li><code>winlog.channel : "Microsoft-Windows-Sysmon/Operational" and event.code : "1"</code> — Sysmon process creation.</li>
+              <li><code>winlog.channel : "Microsoft-Windows-Sysmon/Operational" and event.code : "3"</code> — Sysmon network connections.</li>
+              <li><code>winlog.channel : "Microsoft-Windows-Sysmon/Operational" and event.code : "22"</code> — Sysmon DNS queries.</li>
+              <li><code>winlog.event_data.CommandLine : *powershell*</code> — PowerShell activity.</li>
+              <li><code>winlog.event_data.CommandLine : *whoami*</code> — user/context discovery.</li>
+              <li><code>winlog.event_data.CommandLine : *nslookup*</code> — DNS lookup commands.</li>
+              <li><code>winlog.event_data.CommandLine : *curl*</code> — command-line web requests.</li>
+              <li><code>winlog.event_data.CommandLine : *localgroup*</code> — local admin group enumeration.</li>
+              <li><code>winlog.event_data.DestinationPort : 443</code> — HTTPS network connections.</li>
+              <li><code>winlog.channel : "Security" and event.code : "4624"</code> — successful Windows logons.</li>
+            </ul>
+          </div>
+
+          <div class="log-section">
+            <div class="log-section-title">Triage Method Used</div>
+            <ul class="log-list">
+              <li>For every event, I documented: event, user, command/process, parent, decision, and reason.</li>
+              <li>Expanded checklist: what triggered, who ran it, what process ran, what parent launched it, whether it was expected, whether it was suspicious by technique, whether context made it benign, and whether it should be closed, investigated, tuned, or escalated.</li>
+              <li>Important fields reviewed: <code>winlog.event_data.User</code>, <code>CommandLine</code>, <code>Image</code>, <code>ParentImage</code>, <code>ParentCommandLine</code>, <code>event.code</code>, and <code>winlog.channel</code>.</li>
+              <li>Learned the difference between human user context like <code>DESKTOP-3JKM5O9\mmajeed</code> and system/service context like <code>NT AUTHORITY\SYSTEM</code>.</li>
+              <li>Learned that the child process tells what ran, while the parent process tells where it came from.</li>
+            </ul>
+          </div>
+
+          <div class="log-section">
+            <div class="log-section-title">Completed Triage Examples</div>
+            <ul class="log-list">
+              <li><strong>net localgroup administrators</strong> — local admin group discovery. Verdict: benign by context, suspicious by technique.</li>
+              <li><strong>PowerShell whoami</strong> — user context discovery from PowerShell. Verdict: benign by context, investigate if unexpected.</li>
+              <li><strong>nslookup github.com</strong> — DNS lookup activity. Verdict: benign by context, review domain reputation in production.</li>
+              <li><strong>curl.exe to github.com</strong> — command-line web request. Verdict: benign by context, suspicious if paired with download/execution.</li>
+              <li><strong>HTTPS network connection on 443</strong> — outbound network connection. Verdict: benign/tune if known process, investigate if unknown process or destination.</li>
+              <li><strong>Windows 4624 Logon Type 5</strong> — service logon. Verdict: close as benign unless unusual account or surrounding activity appears.</li>
+              <li><strong>PowerShell parent process</strong> — PowerShell launching child processes. Verdict: review child command, parent, user, and timing before closing.</li>
+              <li><strong>SYSTEM/services.exe activity</strong> — normal Windows service behavior unless paired with suspicious service creation or binary path.</li>
+              <li><strong>calc.exe and notepad.exe</strong> — benign GUI launches in this lab, suspicious only if spawned by unusual parents.</li>
+              <li><strong>ipconfig and hostname</strong> — discovery commands. Verdict: benign by context, suspicious if unexpected after compromise.</li>
+            </ul>
+          </div>
+
+          <div class="log-section">
+            <div class="log-section-title">False Positive + Benign Decisions</div>
+            <ul class="log-list">
+              <li>PowerShell <code>whoami</code>, <code>net user</code>, and <code>net localgroup administrators</code> were expected from the lab loop.</li>
+              <li><code>curl.exe</code> to GitHub/example.com and <code>nslookup</code> to Google/GitHub/Microsoft were expected connectivity and DNS tests.</li>
+              <li><code>notepad.exe</code>, <code>calc.exe</code>, OneDrive HTTPS traffic, Windows service logon type 5, and SYSTEM/service activity were documented as benign in context.</li>
+              <li>The key lesson was not to close everything blindly: each item still needs user, process, parent, destination, timing, and surrounding-event context.</li>
+            </ul>
+          </div>
+
+          <div class="log-section">
+            <div class="log-section-title">Escalation Notes Practiced</div>
+            <ul class="log-list">
+              <li><strong>PowerShell user discovery:</strong> whoami from PowerShell can indicate post-compromise discovery if unexpected.</li>
+              <li><strong>Local administrator group enumeration:</strong> <code>net localgroup administrators</code> can reveal privileged accounts.</li>
+              <li><strong>Command-line web request:</strong> <code>curl.exe</code> can be used for payload download or external infrastructure testing.</li>
+              <li><strong>HTTPS network connection:</strong> port 443 is common, but the process and destination determine risk.</li>
+              <li><strong>Successful service logon:</strong> 4624 Logon Type 5 is usually service activity but still matters during access investigations.</li>
+            </ul>
+          </div>
+
+          <div class="log-section">
+            <div class="log-section-title">Shift Handoff Summary</div>
+            <ul class="log-list">
+              <li>Scripted Phase 5 loop generated high-volume endpoint telemetry for SOC triage practice.</li>
+              <li>Reviewed Sysmon Event IDs 1, 3, and 22 plus Windows Security Event ID 4624.</li>
+              <li>No confirmed malicious activity was identified in the lab environment.</li>
+              <li>Several events were security-relevant by technique: PowerShell, whoami, net localgroup administrators, curl, DNS lookups, and outbound HTTPS.</li>
+              <li>Recommended follow-up: convert the best triage examples into formal SOC tickets in Phase 6.</li>
+            </ul>
+          </div>
+
+          <div class="log-section">
+            <div class="log-section-title">Lessons Learned</div>
+            <ul class="log-list">
+              <li>Same event type can have different risk depending on user, parent, command line, destination, and timing.</li>
+              <li>Context is everything: <code>whoami</code>, <code>curl</code>, and <code>net</code> are not automatically malicious.</li>
+              <li>SOC analysts do not escalate everything; they decide what is benign, noisy, tunable, suspicious, or escalation-worthy.</li>
+              <li>Parent-child process relationships matter because a benign-looking child process can become suspicious with an unusual parent.</li>
+              <li>Troubleshooting the SIEM itself is part of the work. If Elasticsearch or Kibana breaks, investigations stop until the service issue is fixed.</li>
+            </ul>
+          </div>
+
+          <div class="log-section">
+            <div class="log-section-title">Completion Checklist</div>
+            <ul class="log-list">
+              <li>Phase 5 activity loop created and executed</li>
+              <li>High-volume endpoint events generated and reviewed in Kibana</li>
+              <li>Elastic/Kibana restored after service permissions issue</li>
+              <li>Sysmon, PowerShell, curl, nslookup, net/localgroup, 4624 logon, SYSTEM context, parent-process, and false-positive triage practiced</li>
+              <li>Escalation-style notes, false-positive decisions, and shift handoff summary created</li>
+              <li>Phase 5 completed and documented for portfolio review</li>
+            </ul>
+          </div>
+
+          <a href="https://github.com/mmajeed7864/soclab/blob/main/DAY-05-LAB-LOG.md" target="_blank" class="log-cta">Read full detailed Phase 5 log on GitHub →</a>
+
+        </div>
+      </div>
+    </div>
+
+    <div class="log-coming-soon">
+      <div class="log-coming-soon-title">Day 06 Coming Soon — Phase 6</div>
+      <div class="log-coming-soon-text">Next up: convert the Phase 5 triage work into polished SOC tickets, escalation summaries, and shift handoff notes that look like real analyst output.</div>
+    </div>
+
   </div>
 </section>
 
@@ -2327,8 +2557,8 @@ footer{position:relative;z-index:1;padding:48px 20px;border-top:1px solid var(--
       <div class="tl-col"><div class="tl-d now"></div><div class="tl-l"></div></div>
       <div class="tl-body">
         <div class="tl-date">May 2026 <span class="now-badge">RIGHT NOW</span></div>
-        <div class="tl-title">Expanding lab — working through this roadmap</div>
-        <div class="tl-desc">New lab machine set up. Starting the full 40-lab roadmap from Phase 1. Documenting everything publicly so others can follow the same path.</div>
+        <div class="tl-title">Working through SOC analyst labs in public</div>
+        <div class="tl-desc">Completed Phases 1-5: Elastic, Suricata, Wazuh, Windows/Linux log fundamentals, and high-volume SOC triage practice. Next up is turning Phase 5 events into polished tickets and escalation notes.</div>
       </div>
     </div>
     <div class="tl-item">
