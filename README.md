@@ -156,6 +156,7 @@ I post lab work as I complete it:
 - [DAY-02-LAB-LOG.md](./DAY-02-LAB-LOG.md) - Windows telemetry, Fleet, Sysmon, Suricata, dashboards, and troubleshooting
 - [DAY-03-LAB-LOG.md](./DAY-03-LAB-LOG.md) - Wazuh XDR deployment, Windows agent, FIM, SCA, vulnerability detection, and Elastic vs Wazuh comparison
 - [DAY-04-LAB-LOG.md](./DAY-04-LAB-LOG.md) - Windows, Linux, and network log fundamentals
+- [DAY-05-LAB-LOG.md](./DAY-05-LAB-LOG.md) - Scripted alert loop, high-volume SOC triage, false-positive decisions, escalation notes, and shift handoff
 
 More logs are added with each lab session.
 
