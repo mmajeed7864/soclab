@@ -90,6 +90,12 @@ section{position:relative;z-index:1;padding:70px 20px}
 .ptag.g{background:rgba(0,255,136,.06);color:var(--accent2);border-color:rgba(0,255,136,.12)}
 .ptag.o{background:rgba(255,107,53,.06);color:var(--accent3);border-color:rgba(255,107,53,.12)}
 .ptag.p{background:rgba(180,100,255,.06);color:#ce93d8;border-color:rgba(180,100,255,.12)}
+.phase-proof-link{display:inline-flex;align-items:center;gap:6px;margin-top:8px;font-family:var(--mono);font-size:9px;line-height:1;padding:6px 9px;border-radius:5px;background:rgba(0,255,136,.055);border:1px solid rgba(0,255,136,.22);color:var(--accent2);text-decoration:none;letter-spacing:.05em;text-transform:uppercase;transition:all .2s;width:max-content}
+.phase-proof-link:hover{background:rgba(0,255,136,.1);border-color:rgba(0,255,136,.45);color:var(--text)}
+.phase-proof-link.cyan{background:rgba(0,212,255,.06);border-color:rgba(0,212,255,.25);color:var(--accent)}
+.phase-proof-link.cyan:hover{background:rgba(0,212,255,.11);border-color:rgba(0,212,255,.48);color:var(--text)}
+.phase-proof-link.orange{background:rgba(255,107,53,.07);border-color:rgba(255,107,53,.26);color:var(--accent3)}
+.phase-proof-link.orange:hover{background:rgba(255,107,53,.12);border-color:rgba(255,107,53,.5);color:var(--text)}
 .phase-caret{font-size:11px;color:var(--muted);transition:transform .25s;flex-shrink:0}
 .phase-hdr.open .phase-caret{transform:rotate(90deg)}
 .phase-body{display:none;border-top:1px solid var(--border)}
@@ -473,6 +479,7 @@ footer{position:relative;z-index:1;padding:48px 20px;border-top:1px solid var(--
           <div class="phase-hdr-title">Set Up Your Virtual Lab Environment</div>
           <div class="phase-hdr-meta">VMware, VirtualBox, or UTM · isolated network · Windows · Ubuntu · Kali</div>
           <div class="phase-tags"><span class="ptag">VMware</span><span class="ptag">VirtualBox</span><span class="ptag">Ubuntu Server</span><span class="ptag">Windows 10</span><span class="ptag">Kali</span><span class="ptag">Host-Only Networking</span></div>
+          <a href="https://github.com/mmajeed7864/soclab/blob/main/DAY-01-LAB-LOG.md" target="_blank" rel="noopener" class="phase-proof-link" onclick="event.stopPropagation()">View Day 1 GitHub Log</a>
         </div>
         <div class="phase-caret">▶</div>
       </div>
@@ -513,6 +520,7 @@ footer{position:relative;z-index:1;padding:48px 20px;border-top:1px solid var(--
           <div class="phase-hdr-title">Deploy Elastic SIEM + Suricata IDS</div>
           <div class="phase-hdr-meta">Elastic · Kibana · Fleet · Sysmon · Suricata · dashboards</div>
           <div class="phase-tags"><span class="ptag">Elastic</span><span class="ptag">Kibana</span><span class="ptag">Fleet</span><span class="ptag">Sysmon</span><span class="ptag">Suricata</span><span class="ptag">Dashboards</span></div>
+          <a href="https://github.com/mmajeed7864/soclab/blob/main/DAY-02-LAB-LOG.md" target="_blank" rel="noopener" class="phase-proof-link" onclick="event.stopPropagation()">View Day 2 GitHub Log</a>
         </div>
         <div class="phase-caret">▶</div>
       </div>
@@ -553,6 +561,7 @@ footer{position:relative;z-index:1;padding:48px 20px;border-top:1px solid var(--
           <div class="phase-hdr-title">Wazuh XDR — Second Detection Platform</div>
           <div class="phase-hdr-meta">Wazuh manager · indexer · dashboard · Windows agent · FIM · SCA</div>
           <div class="phase-tags"><span class="ptag">Wazuh</span><span class="ptag">XDR</span><span class="ptag">Windows Agent</span><span class="ptag">FIM</span><span class="ptag">SCA</span><span class="ptag">Vulnerability Detection</span></div>
+          <a href="https://github.com/mmajeed7864/soclab/blob/main/DAY-03-LAB-LOG.md" target="_blank" rel="noopener" class="phase-proof-link" onclick="event.stopPropagation()">View Day 3 GitHub Log</a>
         </div>
         <div class="phase-caret">▶</div>
       </div>
@@ -602,6 +611,7 @@ footer{position:relative;z-index:1;padding:48px 20px;border-top:1px solid var(--
           <div class="phase-hdr-title">Windows, Linux, and Network Log Fundamentals</div>
           <div class="phase-hdr-meta">Event IDs · auth logs · Sysmon · DNS · firewall/proxy basics</div>
           <div class="phase-tags"><span class="ptag g">Windows Event IDs</span><span class="ptag g">Linux auth.log</span><span class="ptag g">Sysmon</span><span class="ptag g">DNS</span><span class="ptag g">Firewall Logs</span></div>
+          <a href="https://github.com/mmajeed7864/soclab/blob/main/DAY-04-LAB-LOG.md" target="_blank" rel="noopener" class="phase-proof-link cyan" onclick="event.stopPropagation()">View Day 4 GitHub Log</a>
         </div>
         <div class="phase-caret">▶</div>
       </div>
@@ -642,6 +652,7 @@ footer{position:relative;z-index:1;padding:48px 20px;border-top:1px solid var(--
           <div class="phase-hdr-title">VMware Scripted Attack Loop + High-Volume Triage</div>
           <div class="phase-hdr-meta">attacker VM loop · 50+ alerts/tickets · false-positive tuning · 30-second first look</div>
           <div class="phase-tags"><span class="ptag g">VMware Loop</span><span class="ptag g">High-Volume Triage</span><span class="ptag g">50+ Tickets</span><span class="ptag g">False Positives</span></div>
+          <a href="https://github.com/mmajeed7864/soclab/blob/main/DAY-05-LAB-LOG.md" target="_blank" rel="noopener" class="phase-proof-link orange" onclick="event.stopPropagation()">View Day 5 GitHub Log</a>
         </div>
         <div class="phase-caret">▶</div>
       </div>
@@ -2653,7 +2664,7 @@ function togglePhase(hdr){
 
 const obs=new IntersectionObserver(entries=>{
   entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}});
-},{threshold:.08});
+},{threshold:.01});
 document.querySelectorAll('.reveal').forEach(r=>obs.observe(r));
 
 </script>
