@@ -143,8 +143,37 @@ section{position:relative;z-index:1;padding:70px 20px}
 .snapshot-metric:nth-child(4){border-left-color:#ce93d8;background:rgba(180,100,255,.035)}
 .metric-num{font-family:var(--mono);font-size:20px;font-weight:700;color:var(--text);line-height:1}
 .metric-label{font-size:11px;color:var(--muted);line-height:1.4;margin-top:5px}
-.ats-strip{margin-top:18px;padding:14px 0;border-top:1px solid var(--border);border-bottom:1px solid var(--border);display:flex;flex-wrap:wrap;gap:6px;align-items:center}
-.ats-label{font-family:var(--mono);font-size:9px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;margin-right:6px}
+.ats-strip{margin-top:22px;padding:18px 0 20px;border-top:1px solid rgba(0,212,255,.22);border-bottom:1px solid var(--border);display:grid;gap:14px}
+.ats-head{display:flex;justify-content:space-between;gap:18px;align-items:flex-end;flex-wrap:wrap}
+.ats-label{font-family:var(--mono);font-size:10px;color:var(--accent2);letter-spacing:.12em;text-transform:uppercase}
+.ats-title{font-size:18px;font-weight:600;color:var(--text);line-height:1.25;margin-top:4px}
+.ats-note{font-size:11px;color:#5a7080;line-height:1.55;max-width:520px}
+.ats-groups{display:grid;grid-template-columns:1fr;gap:10px}
+.ats-group{background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:8px;padding:12px 12px 13px}
+.ats-group.siem{border-left-color:var(--accent)}
+.ats-group.ops{border-left-color:var(--accent2)}
+.ats-group.endpoint{border-left-color:#ce93d8}
+.ats-group.network{border-left-color:var(--accent3)}
+.ats-group.identity{border-left-color:#7dd3fc}
+.ats-group.cloud{border-left-color:#a7f3d0}
+.ats-group.threat{border-left-color:#f0abfc}
+.ats-group.lab{border-left-color:#fbbf24}
+.ats-group.offense{border-left-color:#fb7185}
+.ats-group.risk{border-left-color:#34d399}
+.ats-group.automation{border-left-color:#60a5fa}
+.ats-group-title{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px}
+.ats-group.siem .ats-group-title{color:var(--accent)}
+.ats-group.ops .ats-group-title{color:var(--accent2)}
+.ats-group.endpoint .ats-group-title{color:#ce93d8}
+.ats-group.network .ats-group-title{color:var(--accent3)}
+.ats-group.identity .ats-group-title{color:#7dd3fc}
+.ats-group.cloud .ats-group-title{color:#a7f3d0}
+.ats-group.threat .ats-group-title{color:#f0abfc}
+.ats-group.lab .ats-group-title{color:#fbbf24}
+.ats-group.offense .ats-group-title{color:#fb7185}
+.ats-group.risk .ats-group-title{color:#34d399}
+.ats-group.automation .ats-group-title{color:#60a5fa}
+.ats-keywords{display:flex;flex-wrap:wrap;gap:5px}
 .skills-matrix{margin-top:28px;border-top:1px solid var(--border)}
 .skill-row{display:grid;gap:10px;padding:18px 0;border-bottom:1px solid var(--border)}
 .skill-row-title{font-family:var(--mono);font-size:11px;font-weight:700;color:var(--accent);letter-spacing:.06em;text-transform:uppercase}
@@ -154,6 +183,8 @@ section{position:relative;z-index:1;padding:70px 20px}
 .skill-tag.g{background:rgba(0,255,136,.06);color:var(--accent2);border-color:rgba(0,255,136,.2)}
 .skill-tag.o{background:rgba(255,107,53,.06);color:var(--accent3);border-color:rgba(255,107,53,.18)}
 .skill-tag.p{background:rgba(180,100,255,.06);color:#ce93d8;border-color:rgba(180,100,255,.18)}
+.skill-tag.y{background:rgba(251,191,36,.07);color:#fbbf24;border-color:rgba(251,191,36,.2)}
+.skill-tag.r{background:rgba(251,113,133,.07);color:#fb7185;border-color:rgba(251,113,133,.2)}
 .proof-strip{margin-top:22px;display:grid;gap:10px}
 .proof-item{display:grid;grid-template-columns:34px 1fr;gap:12px;align-items:flex-start;padding:12px 0;border-top:1px solid rgba(26,37,53,.75)}
 .proof-num{width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-size:10px;color:var(--accent2);border:1px solid rgba(0,255,136,.25);background:rgba(0,255,136,.05)}
@@ -174,7 +205,8 @@ section{position:relative;z-index:1;padding:70px 20px}
 .practice-step{padding:12px 0;border-top:1px solid var(--border)}
 .practice-step-title{font-size:13px;font-weight:600;color:var(--text)}
 .practice-step-copy{font-size:12px;color:var(--muted);line-height:1.6;margin-top:3px}
-@media(min-width:780px){.recruiter-snapshot{grid-template-columns:1.5fr .8fr}.skill-row{grid-template-columns:minmax(170px,.55fr) 1fr}.proof-strip{grid-template-columns:1fr 1fr}.practice-board{grid-template-columns:1fr 1.35fr}.reps-grid{grid-template-columns:repeat(5,1fr)}}
+@media(min-width:780px){.recruiter-snapshot{grid-template-columns:1.5fr .8fr}.ats-groups{grid-template-columns:repeat(2,1fr)}.skill-row{grid-template-columns:minmax(170px,.55fr) 1fr}.proof-strip{grid-template-columns:1fr 1fr}.practice-board{grid-template-columns:1fr 1.35fr}.reps-grid{grid-template-columns:repeat(5,1fr)}}
+@media(min-width:1180px){.ats-groups{grid-template-columns:repeat(3,1fr)}}
 
 /* Keep dense roadmap and skills content softer for scanability */
 #roadmap .sec-sub,
@@ -190,7 +222,6 @@ section{position:relative;z-index:1;padding:70px 20px}
 #skills .skill-row-proof,
 #skills .practice-copy{color:#5a7080}
 #skills .metric-label,
-#skills .ats-label,
 #skills .proof-copy,
 #skills .rep-desc,
 #skills .practice-step-copy{color:#4a6070}
@@ -1640,21 +1671,81 @@ footer{position:relative;z-index:1;padding:48px 20px;border-top:1px solid var(--
   </div>
 
   <div class="ats-strip reveal">
-    <span class="ats-label">ATS Keywords</span>
-    <span class="skill-tag">SIEM</span>
-    <span class="skill-tag">SOC Triage</span>
-    <span class="skill-tag">High-Volume Alert Queue</span>
-    <span class="skill-tag">False Positive Tuning</span>
-    <span class="skill-tag">Incident Response</span>
-    <span class="skill-tag">EDR/XDR</span>
-    <span class="skill-tag">Splunk</span>
-    <span class="skill-tag">Microsoft Sentinel</span>
-    <span class="skill-tag">Wazuh</span>
-    <span class="skill-tag">Elastic</span>
-    <span class="skill-tag">MITRE ATT&CK</span>
-    <span class="skill-tag">Vulnerability Management</span>
-    <span class="skill-tag">Cloud Security</span>
-    <span class="skill-tag">Threat Intel</span>
+    <div class="ats-head">
+      <div>
+        <div class="ats-label">ATS Keywords</div>
+        <div class="ats-title">Tools, Platforms, and Technical Skills Learned</div>
+      </div>
+      <p class="ats-note">Recruiter scan board: all major tools and job keywords gained from the roadmap, grouped by SOC function so the skill set is easier to read fast.</p>
+    </div>
+    <div class="ats-groups">
+      <div class="ats-group siem">
+        <div class="ats-group-title">SIEM + Detection</div>
+        <div class="ats-keywords">
+          <span class="skill-tag">SIEM</span><span class="skill-tag">Elastic SIEM</span><span class="skill-tag">Kibana</span><span class="skill-tag">Elastic Agent</span><span class="skill-tag">Fleet</span><span class="skill-tag">Wazuh XDR</span><span class="skill-tag">Splunk</span><span class="skill-tag">Microsoft Sentinel</span><span class="skill-tag g">SPL</span><span class="skill-tag g">KQL</span><span class="skill-tag g">Sigma</span><span class="skill-tag g">Detection Rules</span><span class="skill-tag g">Alert Tuning</span>
+        </div>
+      </div>
+      <div class="ats-group ops">
+        <div class="ats-group-title">SOC Operations</div>
+        <div class="ats-keywords">
+          <span class="skill-tag g">SOC Triage</span><span class="skill-tag g">High-Volume Alert Queue</span><span class="skill-tag g">50+ Ticket Sessions</span><span class="skill-tag g">False Positive Tuning</span><span class="skill-tag g">Ticket Writing</span><span class="skill-tag g">Escalation Notes</span><span class="skill-tag g">Shift Handoff</span><span class="skill-tag g">Incident Response</span><span class="skill-tag g">Playbooks</span><span class="skill-tag g">Case Notes</span><span class="skill-tag g">PICERL</span>
+        </div>
+      </div>
+      <div class="ats-group endpoint">
+        <div class="ats-group-title">Endpoint + Windows</div>
+        <div class="ats-keywords">
+          <span class="skill-tag p">Sysmon</span><span class="skill-tag p">Windows Event Logs</span><span class="skill-tag p">Windows Security Logs</span><span class="skill-tag p">PowerShell</span><span class="skill-tag p">Microsoft Defender</span><span class="skill-tag p">Wazuh Agent</span><span class="skill-tag p">FIM</span><span class="skill-tag p">SCA</span><span class="skill-tag p">Process Creation</span><span class="skill-tag p">Parent Process Analysis</span><span class="skill-tag p">Event ID 4624</span><span class="skill-tag p">Event ID 4625</span>
+        </div>
+      </div>
+      <div class="ats-group network">
+        <div class="ats-group-title">Network + IDS</div>
+        <div class="ats-keywords">
+          <span class="skill-tag o">Suricata IDS</span><span class="skill-tag o">Wireshark</span><span class="skill-tag o">tcpdump</span><span class="skill-tag o">pfSense</span><span class="skill-tag o">Nmap</span><span class="skill-tag o">PCAP Analysis</span><span class="skill-tag o">DNS Analysis</span><span class="skill-tag o">HTTP/TLS Metadata</span><span class="skill-tag o">NAT</span><span class="skill-tag o">Host-Only Networking</span>
+        </div>
+      </div>
+      <div class="ats-group identity">
+        <div class="ats-group-title">Identity + AD</div>
+        <div class="ats-keywords">
+          <span class="skill-tag">Active Directory</span><span class="skill-tag">Windows Server</span><span class="skill-tag">Group Policy</span><span class="skill-tag">Entra ID</span><span class="skill-tag">IAM</span><span class="skill-tag">Least Privilege</span><span class="skill-tag">BloodHound</span><span class="skill-tag g">Kerberoasting Detection</span><span class="skill-tag g">Password Spraying</span><span class="skill-tag g">Admin Group Enumeration</span>
+        </div>
+      </div>
+      <div class="ats-group cloud">
+        <div class="ats-group-title">Cloud + Microsoft</div>
+        <div class="ats-keywords">
+          <span class="skill-tag g">AWS CloudTrail</span><span class="skill-tag g">AWS IAM</span><span class="skill-tag g">GuardDuty</span><span class="skill-tag g">Security Hub</span><span class="skill-tag g">CloudWatch</span><span class="skill-tag g">Azure</span><span class="skill-tag g">Microsoft 365</span><span class="skill-tag g">Defender</span><span class="skill-tag g">Sentinel</span><span class="skill-tag g">Cloud Log Analysis</span>
+        </div>
+      </div>
+      <div class="ats-group threat">
+        <div class="ats-group-title">Threat Intel + Enrichment</div>
+        <div class="ats-keywords">
+          <span class="skill-tag p">VirusTotal</span><span class="skill-tag p">AbuseIPDB</span><span class="skill-tag p">URLScan.io</span><span class="skill-tag p">Any.run</span><span class="skill-tag p">Hybrid Analysis</span><span class="skill-tag p">MalwareBazaar</span><span class="skill-tag p">Shodan</span><span class="skill-tag p">CyberChef</span><span class="skill-tag p">MXToolbox</span><span class="skill-tag p">OTX</span><span class="skill-tag p">IOC Enrichment</span><span class="skill-tag p">ATT&CK Navigator</span>
+        </div>
+      </div>
+      <div class="ats-group lab">
+        <div class="ats-group-title">Lab + Portfolio Platforms</div>
+        <div class="ats-keywords">
+          <span class="skill-tag y">VMware Workstation</span><span class="skill-tag y">VirtualBox</span><span class="skill-tag y">UTM</span><span class="skill-tag y">Ubuntu Server</span><span class="skill-tag y">Windows 10/11</span><span class="skill-tag y">Kali Linux</span><span class="skill-tag y">GitHub</span><span class="skill-tag y">GitHub Pages</span><span class="skill-tag y">LetsDefend</span><span class="skill-tag y">CyberDefenders</span><span class="skill-tag y">BTLO</span><span class="skill-tag y">TryHackMe</span>
+        </div>
+      </div>
+      <div class="ats-group offense">
+        <div class="ats-group-title">Attack Simulation + DFIR</div>
+        <div class="ats-keywords">
+          <span class="skill-tag r">Scripted Attack Loop</span><span class="skill-tag r">Kali VM</span><span class="skill-tag r">Metasploit</span><span class="skill-tag r">Impacket</span><span class="skill-tag r">CrackMapExec</span><span class="skill-tag r">Mimikatz</span><span class="skill-tag p">Volatility</span><span class="skill-tag p">Autopsy</span><span class="skill-tag p">FTK Imager</span><span class="skill-tag p">PEStudio</span><span class="skill-tag p">YARA</span>
+        </div>
+      </div>
+      <div class="ats-group risk">
+        <div class="ats-group-title">Risk + GRC</div>
+        <div class="ats-keywords">
+          <span class="skill-tag g">Vulnerability Management</span><span class="skill-tag g">Patch Prioritization</span><span class="skill-tag g">CIS Controls v8</span><span class="skill-tag g">NIST CSF</span><span class="skill-tag g">Risk Register</span><span class="skill-tag g">Audit Evidence</span><span class="skill-tag g">Access Reviews</span><span class="skill-tag g">SCA Findings</span>
+        </div>
+      </div>
+      <div class="ats-group automation">
+        <div class="ats-group-title">Automation + Reporting</div>
+        <div class="ats-keywords">
+          <span class="skill-tag">Python</span><span class="skill-tag">PowerShell</span><span class="skill-tag">API Lookups</span><span class="skill-tag">Shuffle SOAR</span><span class="skill-tag">VS Code</span><span class="skill-tag">Dashboards</span><span class="skill-tag">Technical Writing</span><span class="skill-tag">Documentation</span><span class="skill-tag">Analyst Writeups</span>
+        </div>
+      </div>
+    </div>
   </div>
 
   <div class="skills-matrix reveal">
