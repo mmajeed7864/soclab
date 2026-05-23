@@ -22,20 +22,32 @@ The roadmap now includes a production-style SOC practice layer:
 - Elastic and Wazuh queue review
 - 30-second first-look triage decisions
 - False-positive tuning decisions
+- SOC ticket writing, severity reasoning, and shift handoff notes
 - L2-ready escalation notes
 - Case notes and lessons learned added to build logs
 
-This is designed to practice the real SOC motion: sort signal from noise, decide what deserves more time, close benign activity, tune recurring noise, and escalate cleanly.
+This is designed to practice the real SOC motion: sort signal from noise, decide what deserves more time, close benign activity, tune recurring noise, write clean tickets, and escalate cleanly.
 
 ## Credentials
 
-Certifications:
+Certifications that matter most for the target roles:
 
-- CompTIA Security+
-- CompTIA Network+
-- CompTIA CySA+
-- AWS Certified Security - Specialty, in progress
-- CompTIA A+, Linux+, Data+, PenTest+, in progress through WGU
+- CompTIA Network+ - earned
+- CompTIA Security+ - earned
+- CompTIA CySA+ - earned
+- CompTIA PenTest+ - WGU track
+- CCSP - (ISC)2 cloud security track
+- AWS Certified Security - Specialty - in progress
+
+WGU cybersecurity degree certification map:
+
+- CompTIA A+, Network+, Security+, Project+, CySA+, PenTest+, and Data+
+- CompTIA IT Operations Specialist, Secure Infrastructure Specialist, Network Vulnerability Assessment Professional, Network Security Professional, and Security Analytics Professional
+- ITIL 4 Foundation
+- LPI Linux Essentials
+- SSCP - (ISC)2
+- CCSP - (ISC)2
+- Current site carryovers: CompTIA Linux+ study and AWS Security Specialty external cloud target
 
 Education:
 
@@ -152,11 +164,12 @@ Frameworks and reporting:
 
 I post lab work as I complete it:
 
-- [DAY-01-LAB-LOG.md](./DAY-01-LAB-LOG.md) - Lab foundation and early Elastic SIEM deployment
+- [DAY-01-LAB-LOG.md](./DAY-01-LAB-LOG.md) - Virtual lab foundation, NAT/host-only networking, VM roles, SSH, snapshots, and troubleshooting
 - [DAY-02-LAB-LOG.md](./DAY-02-LAB-LOG.md) - Windows telemetry, Fleet, Sysmon, Suricata, dashboards, and troubleshooting
 - [DAY-03-LAB-LOG.md](./DAY-03-LAB-LOG.md) - Wazuh XDR deployment, Windows agent, FIM, SCA, vulnerability detection, and Elastic vs Wazuh comparison
 - [DAY-04-LAB-LOG.md](./DAY-04-LAB-LOG.md) - Windows, Linux, and network log fundamentals
 - [DAY-05-LAB-LOG.md](./DAY-05-LAB-LOG.md) - Scripted alert loop, high-volume SOC triage, false-positive decisions, escalation notes, and shift handoff
+- [DAY-06-LAB-LOG.md](./DAY-06-LAB-LOG.md) - SOC ticket writing, severity reasoning, escalation summaries, and shift handoff notes
 
 More logs are added with each lab session.
 
@@ -168,6 +181,7 @@ If you're hiring for SOC Analyst L1/L2, Cybersecurity Analyst, Security Operatio
 - High-volume alert triage practice with VMware-generated alert volume
 - Realistic false-positive tuning and escalation workflows
 - SOC-style documentation, ticket notes, incident summaries, and build logs
+- Written SOC tickets, severity justification, escalation summaries, and shift handoff examples
 - Self-directed learning and consistent execution over time
 
 LinkedIn: [linkedin.com/in/mohammed-majeed-40a661271](https://www.linkedin.com/in/mohammed-majeed-40a661271)  
@@ -184,7 +198,8 @@ If you're starting from zero:
 2. Build the lab foundation
 3. Document every phase in GitHub
 4. Use Phase 5 to practice realistic SOC triage repetition, not just tool setup
-5. Keep adding tickets, detections, reports, and lessons learned
+5. Use Phase 6 to turn triage evidence into tickets, escalation summaries, and shift handoff notes
+6. Keep adding detections, reports, and lessons learned
 
 Feel free to fork the repo, copy the structure, and build your own version.
 
