@@ -96,6 +96,8 @@ section{position:relative;z-index:1;padding:70px 20px}
 .phase-proof-link.cyan:hover{background:rgba(0,212,255,.11);border-color:rgba(0,212,255,.48);color:var(--text)}
 .phase-proof-link.orange{background:rgba(255,107,53,.07);border-color:rgba(255,107,53,.26);color:var(--accent3)}
 .phase-proof-link.orange:hover{background:rgba(255,107,53,.12);border-color:rgba(255,107,53,.5);color:var(--text)}
+.phase-proof-link.violet{background:rgba(180,100,255,.07);border-color:rgba(180,100,255,.28);color:#ce93d8}
+.phase-proof-link.violet:hover{background:rgba(180,100,255,.13);border-color:rgba(180,100,255,.52);color:var(--text)}
 .phase-caret{font-size:11px;color:var(--muted);transition:transform .25s;flex-shrink:0}
 .phase-hdr.open .phase-caret{transform:rotate(90deg)}
 .phase-body{display:none;border-top:1px solid var(--border)}
@@ -423,57 +425,6 @@ footer{position:relative;z-index:1;padding:48px 20px;border-top:1px solid var(--
   <h2 class="sec-title reveal">The Complete Path</h2>
   <p class="sec-sub reveal">8 tracks. 26 phases. Updated after reviewing current SOC L1, SOC L2, and Cybersecurity Analyst job requirements plus practitioner feedback: build the lab first, then prove high-volume alert triage, ticket writing, Splunk/SPL, EDR, cloud, IR, automation, and portfolio-ready documentation.</p>
 
-  <div class="practice-board reveal">
-    <div>
-      <div class="snapshot-label">SOC Operations Simulation</div>
-      <div class="snapshot-title">Intermediate Alert Queue Practice</div>
-      <p class="practice-copy">Phase 5 is built around analyst-style queue work: a scripted VMware attack loop generates repeated activity, Elastic/Wazuh collect the alerts, and each session is used to review evidence, tune noise, write case notes, and decide what needs escalation.</p>
-    </div>
-    <div>
-      <div class="reps-grid">
-        <div class="rep-card">
-          <div class="rep-num">50+</div>
-          <div class="rep-label">Alerts Reviewed</div>
-          <div class="rep-desc">Target queue volume per triage session across Elastic and Wazuh.</div>
-        </div>
-        <div class="rep-card">
-          <div class="rep-num">30-60m</div>
-          <div class="rep-label">VMware Attack Loop</div>
-          <div class="rep-desc">Timed Kali and Windows activity window to create realistic alert pressure.</div>
-        </div>
-        <div class="rep-card">
-          <div class="rep-num">10+</div>
-          <div class="rep-label">Tuning Decisions</div>
-          <div class="rep-desc">Document recurring noise, suppression logic, or why an alert should stay active.</div>
-        </div>
-        <div class="rep-card">
-          <div class="rep-num">5+</div>
-          <div class="rep-label">Escalation Notes</div>
-          <div class="rep-desc">Write L2-ready summaries with affected user, host, evidence, timeline, and next action.</div>
-        </div>
-        <div class="rep-card">
-          <div class="rep-num">30s</div>
-          <div class="rep-label">First-Look Triage</div>
-          <div class="rep-desc">Initial analyst decision: close, tune, investigate deeper, or escalate with evidence.</div>
-        </div>
-      </div>
-      <div class="practice-plan">
-        <div class="practice-step">
-          <div class="practice-step-title">How the volume gets created</div>
-          <div class="practice-step-copy">A VMware attacker VM and Windows/admin activity loop will generate failed logons, PowerShell events, DNS/web noise, scans, new services, file activity, and identity changes.</div>
-        </div>
-        <div class="practice-step">
-          <div class="practice-step-title">How the loop runs</div>
-          <div class="practice-step-copy">The Kali attacker VM runs timed scripts in VMware for 30-60 minutes, creating repeated but safe events that land in Elastic and Wazuh for triage practice.</div>
-        </div>
-        <div class="practice-step">
-          <div class="practice-step-title">What gets documented</div>
-          <div class="practice-step-copy">Each session produces tickets, case notes, false-positive decisions, escalation summaries, and a short lesson learned for the build logs.</div>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <div class="tracks reveal">
 
     <!-- TRACK 1 DIVIDER -->
@@ -707,7 +658,7 @@ footer{position:relative;z-index:1;padding:48px 20px;border-top:1px solid var(--
           <div class="phase-hdr-title">SOC Ticket Writing, Escalation, and Shift Handoff</div>
           <div class="phase-hdr-meta">5 SOC tickets · 3 escalation summaries · 2 shift handoffs · severity reasoning</div>
           <div class="phase-tags"><span class="ptag g">Ticket Writing</span><span class="ptag g">Severity</span><span class="ptag g">Escalation</span><span class="ptag g">Handoff</span><span class="ptag g">Documentation</span></div>
-          <a href="https://github.com/mmajeed7864/soclab/blob/main/DAY-06-LAB-LOG.md" target="_blank" rel="noopener" class="phase-proof-link" onclick="event.stopPropagation()">View Day 6 GitHub Log</a>
+          <a href="https://github.com/mmajeed7864/soclab/blob/main/DAY-06-LAB-LOG.md" target="_blank" rel="noopener" class="phase-proof-link violet" onclick="event.stopPropagation()">View Day 6 GitHub Log</a>
         </div>
         <div class="phase-caret">▶</div>
       </div>
@@ -1591,6 +1542,57 @@ footer{position:relative;z-index:1;padding:48px 20px;border-top:1px solid var(--
           </div>
         </div>
         <div class="goal-box"><strong>PHASE GOAL</strong>Portfolio polished, resume updated, LinkedIn aligned, lab walkthrough rehearsed, and applications ready.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="practice-board reveal">
+    <div>
+      <div class="snapshot-label">SOC Operations Simulation</div>
+      <div class="snapshot-title">Intermediate Alert Queue Practice</div>
+      <p class="practice-copy">Phase 5 is built around analyst-style queue work: a scripted VMware attack loop generates repeated activity, Elastic/Wazuh collect the alerts, and each session is used to review evidence, tune noise, write case notes, and decide what needs escalation.</p>
+    </div>
+    <div>
+      <div class="reps-grid">
+        <div class="rep-card">
+          <div class="rep-num">50+</div>
+          <div class="rep-label">Alerts Reviewed</div>
+          <div class="rep-desc">Target queue volume per triage session across Elastic and Wazuh.</div>
+        </div>
+        <div class="rep-card">
+          <div class="rep-num">30-60m</div>
+          <div class="rep-label">VMware Attack Loop</div>
+          <div class="rep-desc">Timed Kali and Windows activity window to create realistic alert pressure.</div>
+        </div>
+        <div class="rep-card">
+          <div class="rep-num">10+</div>
+          <div class="rep-label">Tuning Decisions</div>
+          <div class="rep-desc">Document recurring noise, suppression logic, or why an alert should stay active.</div>
+        </div>
+        <div class="rep-card">
+          <div class="rep-num">5+</div>
+          <div class="rep-label">Escalation Notes</div>
+          <div class="rep-desc">Write L2-ready summaries with affected user, host, evidence, timeline, and next action.</div>
+        </div>
+        <div class="rep-card">
+          <div class="rep-num">30s</div>
+          <div class="rep-label">First-Look Triage</div>
+          <div class="rep-desc">Initial analyst decision: close, tune, investigate deeper, or escalate with evidence.</div>
+        </div>
+      </div>
+      <div class="practice-plan">
+        <div class="practice-step">
+          <div class="practice-step-title">How the volume gets created</div>
+          <div class="practice-step-copy">A VMware attacker VM and Windows/admin activity loop will generate failed logons, PowerShell events, DNS/web noise, scans, new services, file activity, and identity changes.</div>
+        </div>
+        <div class="practice-step">
+          <div class="practice-step-title">How the loop runs</div>
+          <div class="practice-step-copy">The Kali attacker VM runs timed scripts in VMware for 30-60 minutes, creating repeated but safe events that land in Elastic and Wazuh for triage practice.</div>
+        </div>
+        <div class="practice-step">
+          <div class="practice-step-title">What gets documented</div>
+          <div class="practice-step-copy">Each session produces tickets, case notes, false-positive decisions, escalation summaries, and a short lesson learned for the build logs.</div>
+        </div>
       </div>
     </div>
   </div>
