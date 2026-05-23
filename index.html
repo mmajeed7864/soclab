@@ -208,6 +208,20 @@ section{position:relative;z-index:1;padding:70px 20px}
 .cb-next{background:rgba(255,107,53,.1);color:var(--accent3);border:1px solid rgba(255,107,53,.2)}
 .cb-plan{background:rgba(0,212,255,.06);color:var(--text);border:1px solid rgba(0,212,255,.2)}
 .cert-desc{font-size:11px;color:var(--muted);line-height:1.5}
+.cert-section{margin-top:30px}
+.cert-section-head{display:flex;align-items:flex-end;justify-content:space-between;gap:14px;padding-bottom:10px;border-bottom:1px solid var(--border)}
+.cert-section-kicker{font-family:var(--mono);font-size:9px;color:var(--accent2);letter-spacing:.12em;text-transform:uppercase;margin-bottom:4px}
+.cert-section-title{font-size:17px;font-weight:600;color:var(--text)}
+.cert-section-sub{font-size:11px;color:#5a7080;line-height:1.6;max-width:520px;margin-top:6px}
+.cert-source{font-family:var(--mono);font-size:9px;color:var(--accent);text-decoration:none;border:1px solid rgba(0,212,255,.2);border-radius:4px;padding:5px 8px;white-space:nowrap}
+.cert-source:hover{background:rgba(0,212,255,.07)}
+.cert-stack{display:grid;grid-template-columns:1fr 1fr;gap:7px;margin-top:14px}
+.cert-chip{font-family:var(--mono);font-size:9px;color:var(--accent);background:rgba(0,212,255,.045);border:1px solid rgba(0,212,255,.14);border-radius:4px;padding:6px 8px;line-height:1.35}
+.cert-chip.earned{color:var(--accent2);background:rgba(0,255,136,.045);border-color:rgba(0,255,136,.18)}
+.cert-chip.optional{color:#ce93d8;background:rgba(180,100,255,.045);border-color:rgba(180,100,255,.18)}
+.cert-chip.extra{color:var(--accent3);background:rgba(255,107,53,.045);border-color:rgba(255,107,53,.16)}
+.cert-note{margin-top:12px;font-size:11px;color:#5a7080;line-height:1.6;border-left:2px solid rgba(0,212,255,.25);padding-left:10px}
+@media(max-width:760px){.certs-grid,.cert-stack{grid-template-columns:1fr}.cert-section-head{align-items:flex-start;flex-direction:column}.cert-source{white-space:normal}}
 
 /* SALARY */
 .salary-box{margin-top:36px;background:linear-gradient(135deg,rgba(0,212,255,.06),rgba(0,255,136,.04));border:1px solid rgba(0,212,255,.2);border-radius:14px;padding:32px 24px;text-align:center;position:relative;overflow:hidden}
@@ -477,38 +491,38 @@ footer{position:relative;z-index:1;padding:48px 20px;border-top:1px solid var(--
         <div class="phase-num pn-blue">01</div>
         <div class="phase-hdr-info">
           <div class="phase-hdr-title">Set Up Your Virtual Lab Environment</div>
-          <div class="phase-hdr-meta">VMware, VirtualBox, or UTM · isolated network · Windows · Ubuntu · Kali</div>
-          <div class="phase-tags"><span class="ptag">VMware</span><span class="ptag">VirtualBox</span><span class="ptag">Ubuntu Server</span><span class="ptag">Windows 10</span><span class="ptag">Kali</span><span class="ptag">Host-Only Networking</span></div>
+          <div class="phase-hdr-meta">VirtualBox · NAT + Host-Only · Windows victim · Ubuntu SIEM · Kali · SSH · snapshots</div>
+          <div class="phase-tags"><span class="ptag">VirtualBox</span><span class="ptag">Ubuntu SIEM</span><span class="ptag">Windows 10</span><span class="ptag">Kali</span><span class="ptag">NAT</span><span class="ptag">Host-Only</span><span class="ptag">SSH</span><span class="ptag">Troubleshooting</span><span class="ptag">Snapshots</span></div>
           <a href="https://github.com/mmajeed7864/soclab/blob/main/DAY-01-LAB-LOG.md" target="_blank" rel="noopener" class="phase-proof-link" onclick="event.stopPropagation()">View Day 1 GitHub Log</a>
         </div>
         <div class="phase-caret">▶</div>
       </div>
       <div class="phase-body">
-        <div class="phase-intro">Create the safe lab network everything else depends on. Build the VMs, isolate lab traffic, confirm connectivity, and snapshot clean starting points.</div>
+        <div class="phase-intro">Create the safe lab network everything else depends on. Build the Ubuntu SIEM server, Windows victim endpoint, and Kali testing VM; separate internet access from private lab traffic; verify IP addressing and SSH; then snapshot clean rollback points before security tooling gets installed.</div>
         <div class="steps-list">
           <div class="step-item">
             <div class="step-n sn-blue">1</div>
             <div class="step-content">
-              <div class="step-title">Build the VM set</div>
-              <div class="step-desc">Create Windows, Ubuntu, and Kali VMs in VMware, VirtualBox, or UTM with NAT plus host-only networking so the lab can reach the internet while keeping attack traffic isolated.</div>
+              <div class="step-title">Design the VM roles</div>
+              <div class="step-desc">Create an Ubuntu SIEM VM for Elastic/Kibana/Suricata, a Windows 10 victim VM for endpoint telemetry, and a Kali VM for controlled testing and traffic generation in later phases.</div>
             </div>
           </div>
           <div class="step-item">
             <div class="step-n sn-blue">2</div>
             <div class="step-content">
-              <div class="step-title">Verify connectivity</div>
-              <div class="step-desc">Confirm host-to-VM and VM-to-VM communication with ping, ipconfig or ip addr, routing checks, and basic firewall adjustments.</div>
+              <div class="step-title">Configure NAT plus host-only networking</div>
+              <div class="step-desc">Use NAT for package downloads and updates, then use the <code>192.168.56.0/24</code> host-only network for private lab communication between monitored endpoints, SIEM services, and attacker/testing traffic.</div>
             </div>
           </div>
           <div class="step-item">
             <div class="step-n sn-blue">3</div>
             <div class="step-content">
-              <div class="step-title">Snapshot clean baselines</div>
-              <div class="step-desc">Take baseline snapshots before installing security tools so broken installs or attack simulations can be rolled back cleanly.</div>
+              <div class="step-title">Troubleshoot and snapshot baselines</div>
+              <div class="step-desc">Validate IPs with <code>ip addr</code> and <code>ipconfig</code>, test internet and VM-to-VM connectivity, account for Windows firewall ping behavior, enable SSH into Ubuntu, and snapshot clean baselines before Phase 2.</div>
             </div>
           </div>
         </div>
-        <div class="goal-box"><strong>PHASE GOAL</strong>Three stable VMs, verified lab networking, and clean snapshots ready for SIEM/XDR deployment.</div>
+        <div class="goal-box"><strong>PHASE GOAL</strong>Stable Ubuntu, Windows, and Kali lab foundation with NAT internet, host-only communication, SSH workflow, troubleshooting notes, and clean snapshots ready for SIEM/XDR deployment.</div>
       </div>
     </div>
 
@@ -691,37 +705,38 @@ footer{position:relative;z-index:1;padding:48px 20px;border-top:1px solid var(--
         <div class="phase-num pn-green">06</div>
         <div class="phase-hdr-info">
           <div class="phase-hdr-title">SOC Ticket Writing, Escalation, and Shift Handoff</div>
-          <div class="phase-hdr-meta">Ticket template · escalation summary · handoff notes</div>
-          <div class="phase-tags"><span class="ptag g">Ticket Writing</span><span class="ptag g">ServiceNow Style</span><span class="ptag g">Escalation</span><span class="ptag g">Handoff</span></div>
+          <div class="phase-hdr-meta">5 SOC tickets · 3 escalation summaries · 2 shift handoffs · severity reasoning</div>
+          <div class="phase-tags"><span class="ptag g">Ticket Writing</span><span class="ptag g">Severity</span><span class="ptag g">Escalation</span><span class="ptag g">Handoff</span><span class="ptag g">Documentation</span></div>
+          <a href="https://github.com/mmajeed7864/soclab/blob/main/DAY-06-LAB-LOG.md" target="_blank" rel="noopener" class="phase-proof-link" onclick="event.stopPropagation()">View Day 6 GitHub Log</a>
         </div>
         <div class="phase-caret">▶</div>
       </div>
       <div class="phase-body">
-        <div class="phase-intro">Job postings keep asking for documentation discipline. This phase turns lab work into manager-readable analyst output.</div>
+        <div class="phase-intro">Job postings keep asking for documentation discipline. This phase turns Phase 5 triage evidence into manager-readable analyst output: structured tickets, severity decisions, escalation summaries, and shift handoff notes.</div>
         <div class="steps-list">
           <div class="step-item">
             <div class="step-n sn-green">1</div>
             <div class="step-content">
               <div class="step-title">Create the ticket template</div>
-              <div class="step-desc">Build a reusable template with summary, evidence, timeline, analysis, MITRE mapping, verdict, recommended action, and owner.</div>
+              <div class="step-desc">Build a reusable ticket format with alert summary, affected asset, detection source, evidence, analysis, verdict, severity, and recommended action.</div>
             </div>
           </div>
           <div class="step-item">
             <div class="step-n sn-green">2</div>
             <div class="step-content">
-              <div class="step-title">Write practice escalations</div>
-              <div class="step-desc">Turn the Phase 5 queue into 10 polished tickets and 5 concise escalation notes that an L2 analyst could act on quickly.</div>
+              <div class="step-title">Write tickets and escalations</div>
+              <div class="step-desc">Document PowerShell user discovery, local administrator enumeration, curl web requests, nslookup DNS activity, and failed logon events, then write escalation summaries for higher-risk production versions.</div>
             </div>
           </div>
           <div class="step-item">
             <div class="step-n sn-green">3</div>
             <div class="step-content">
-              <div class="step-title">Practice shift handoff</div>
-              <div class="step-desc">Write handoff notes that show what happened, what is pending, what was closed, and what needs follow-up on the next shift.</div>
+              <div class="step-title">Practice severity and handoff</div>
+              <div class="step-desc">Explain why an event is low, medium, high, or critical; separate severity from verdict; avoid overclaiming; and hand off open watch items to the next analyst.</div>
             </div>
           </div>
         </div>
-        <div class="goal-box"><strong>PHASE GOAL</strong>10 polished tickets, 5 escalation summaries, and 2 shift handoff notes published to GitHub.</div>
+        <div class="goal-box"><strong>PHASE GOAL</strong>5 SOC tickets, 3 escalation summaries, 2 shift handoff notes, severity reasoning model, and evidence-matching lessons published to GitHub.</div>
       </div>
     </div>
 
@@ -1616,7 +1631,7 @@ footer{position:relative;z-index:1;padding:48px 20px;border-top:1px solid var(--
         <div class="metric-label">skill tracks from lab build to portfolio</div>
       </div>
       <div class="snapshot-metric">
-        <div class="metric-num">5</div>
+        <div class="metric-num">6</div>
         <div class="metric-label">completed lab build logs documented</div>
       </div>
     </div>
@@ -1868,10 +1883,80 @@ footer{position:relative;z-index:1;padding:48px 20px;border-top:1px solid var(--
 <!-- CERTS -->
 <section id="certs">
   <div class="eyebrow">03 — Certifications</div>
-  <h2 class="sec-title reveal">Which Certs Actually Matter</h2>
-  <p class="sec-sub reveal">Focus on these. In this order. Don't get distracted by expensive or irrelevant certs.</p>
+  <h2 class="sec-title reveal">Cert Roadmap Built For SOC Hiring</h2>
+  <p class="sec-sub reveal">A cleaner split: the certs recruiters care about most, then the full WGU cybersecurity degree certification map.</p>
 
-  <div class="certs-grid reveal">
+  <div class="cert-section reveal">
+    <div class="cert-section-head">
+      <div>
+        <div class="cert-section-kicker">Recruiter priority</div>
+        <div class="cert-section-title">Certs That Matter Most</div>
+        <div class="cert-section-sub">These are the names most likely to show up in SOC analyst, cybersecurity analyst, cloud security, and L2 analyst job filters.</div>
+      </div>
+    </div>
+
+    <div class="certs-grid">
+      <div class="cert-card earned">
+        <div class="cert-top"><div class="cert-name cn-g">CompTIA Network+</div><span class="cbadge cb-earned">EARNED</span></div>
+        <div class="cert-desc">TCP/IP, DNS, routing, VPNs, firewalls, and network troubleshooting. This is the foundation for reading traffic and understanding alerts.</div>
+      </div>
+      <div class="cert-card earned">
+        <div class="cert-top"><div class="cert-name cn-g">CompTIA Security+</div><span class="cbadge cb-earned">EARNED</span></div>
+        <div class="cert-desc">Baseline security certification for analyst roles. Covers threats, controls, incident response, identity, risk, and security operations fundamentals.</div>
+      </div>
+      <div class="cert-card earned">
+        <div class="cert-top"><div class="cert-name cn-g">CompTIA CySA+</div><span class="cbadge cb-earned">EARNED</span></div>
+        <div class="cert-desc">The most SOC-specific CompTIA cert: SIEM analysis, threat detection, vulnerability management, incident response, and analyst workflow.</div>
+      </div>
+      <div class="cert-card ip">
+        <div class="cert-top"><div class="cert-name cn-b">CompTIA PenTest+</div><span class="cbadge cb-ip">WGU TRACK</span></div>
+        <div class="cert-desc">Attacker methodology, scanning, exploitation concepts, and reporting. Useful because stronger defenders understand how attacks are executed.</div>
+      </div>
+      <div class="cert-card ip">
+        <div class="cert-top"><div class="cert-name cn-b">CCSP - (ISC)2</div><span class="cbadge cb-ip">CLOUD SECURITY</span></div>
+        <div class="cert-desc">Cloud security architecture, governance, operations, and risk. A strong next cloud-security credential instead of a vague long-term placeholder.</div>
+      </div>
+      <div class="cert-card ip">
+        <div class="cert-top"><div class="cert-name cn-b">AWS Security Specialty</div><span class="cbadge cb-ip">IN PROGRESS</span></div>
+        <div class="cert-desc">GuardDuty, CloudTrail, Security Hub, IAM, KMS, logging, detection, and cloud incident response. Strong differentiator for cloud-adjacent SOC roles.</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cert-section reveal">
+    <div class="cert-section-head">
+      <div>
+        <div class="cert-section-kicker">Degree embedded cert map</div>
+        <div class="cert-section-title">Certifications Earned By WGU Degree</div>
+        <div class="cert-section-sub">WGU's B.S. Cybersecurity and Information Assurance program includes the core CompTIA, ITIL, LPI, and (ISC)2 certification path below.</div>
+      </div>
+      <a class="cert-source" href="https://www.wgu.edu/online-it-degrees/cybersecurity-information-assurance-bachelors-program.html" target="_blank" rel="noopener">WGU source</a>
+    </div>
+
+    <div class="cert-stack">
+      <span class="cert-chip">CompTIA A+</span>
+      <span class="cert-chip earned">CompTIA Network+</span>
+      <span class="cert-chip earned">CompTIA Security+</span>
+      <span class="cert-chip">CompTIA Project+</span>
+      <span class="cert-chip earned">CompTIA CySA+</span>
+      <span class="cert-chip">CompTIA PenTest+</span>
+      <span class="cert-chip">CompTIA Data+</span>
+      <span class="cert-chip">CompTIA IT Operations Specialist</span>
+      <span class="cert-chip">CompTIA Secure Infrastructure Specialist</span>
+      <span class="cert-chip">CompTIA Network Vulnerability Assessment Professional</span>
+      <span class="cert-chip">CompTIA Network Security Professional</span>
+      <span class="cert-chip">CompTIA Security Analytics Professional</span>
+      <span class="cert-chip">ITIL 4 Foundation</span>
+      <span class="cert-chip">LPI Linux Essentials</span>
+      <span class="cert-chip">SSCP - (ISC)2</span>
+      <span class="cert-chip optional">CCSP - (ISC)2</span>
+      <span class="cert-chip extra">CompTIA Linux+ - current site carryover</span>
+      <span class="cert-chip extra">AWS Security Specialty - external cloud target</span>
+    </div>
+    <div class="cert-note">WGU lists LPI Linux Essentials in the degree. Linux+ and AWS Security Specialty stay visible here because they were already part of the site plan, but they are marked as external/carryover items instead of WGU-included certs.</div>
+  </div>
+
+  <div class="certs-grid reveal" style="display:none" aria-hidden="true">
     <!-- EARNED -->
     <div class="cert-card earned">
       <div class="cert-top"><div class="cert-name cn-g">CompTIA Security+</div><span class="cbadge cb-earned">✓ EARNED</span></div>
@@ -1895,7 +1980,7 @@ footer{position:relative;z-index:1;padding:48px 20px;border-top:1px solid var(--
       <div class="cert-desc">Hardware, OS, troubleshooting, and IT operations fundamentals. Required as part of the WGU B.S. Cybersecurity &amp; Information Assurance degree program.</div>
     </div>
     <div class="cert-card ip">
-      <div class="cert-top"><div class="cert-name cn-b">CompTIA Linux+</div><span class="cbadge cb-ip">WGU — IN PROGRESS</span></div>
+      <div class="cert-top"><div class="cert-name cn-b">CompTIA Linux+</div><span class="cbadge cb-ip">CURRENT STUDY</span></div>
       <div class="cert-desc">Linux administration, shell scripting, and security hardening on Linux systems. Critical for SOC work — most SIEM servers, EDR tools, and cloud workloads run Linux.</div>
     </div>
     <div class="cert-card ip">
@@ -1908,8 +1993,8 @@ footer{position:relative;z-index:1;padding:48px 20px;border-top:1px solid var(--
     </div>
     <!-- PLANNED -->
     <div class="cert-card ip">
-      <div class="cert-top"><div class="cert-name cn-b">CCSP — (ISC)²</div><span class="cbadge cb-ip">LONG-TERM GOAL</span></div>
-      <div class="cert-desc">Certified Cloud Security Professional — the gold standard for cloud security engineering roles. Targets the $120K+ Cloud Security Engineer positions. Get this after 2+ years of cloud security experience.</div>
+      <div class="cert-top"><div class="cert-name cn-b">CCSP - (ISC)2</div><span class="cbadge cb-ip">CLOUD SECURITY</span></div>
+      <div class="cert-desc">Certified Cloud Security Professional track focused on cloud security architecture, governance, operations, and risk.</div>
     </div>
     <div class="cert-card earned">
       <div class="cert-top"><div class="cert-name cn-g">WGU BSCSIA</div><span class="cbadge cb-ip">JAN 2027</span></div>
@@ -2016,11 +2101,23 @@ footer{position:relative;z-index:1;padding:48px 20px;border-top:1px solid var(--
           <div class="log-section">
             <div class="log-section-title">Phase 1 — Lab Foundation</div>
             <ul class="log-list">
-              <li>Built Ubuntu SIEM VM in Oracle VirtualBox</li>
-              <li>Configured dual networking — NAT adapter for internet, Host-Only adapter for lab traffic</li>
-              <li>Confirmed Windows host can reach Ubuntu VM</li>
-              <li>SIEM host-only IP locked in at <code>192.168.56.101</code></li>
-              <li>Troubleshot DNS resolution, package repos, and adapter behavior</li>
+              <li>Built the core VirtualBox lab foundation with Ubuntu SIEM, Windows 10 victim, and Kali testing roles defined.</li>
+              <li>Configured dual networking: NAT for internet/package access and Host-Only networking for private lab traffic.</li>
+              <li>Established the <code>192.168.56.0/24</code> lab network and documented key host-only IPs including Ubuntu SIEM at <code>192.168.56.101</code>.</li>
+              <li>Validated connectivity with <code>ip addr</code>, <code>ipconfig</code>, ping tests, DNS checks, and SSH into Ubuntu for cleaner administration.</li>
+              <li>Troubleshot NAT vs Host-Only confusion, IP address selection, Windows firewall ping behavior, resource limits, and copy/paste workflow problems.</li>
+              <li>Created a snapshot strategy so clean VM baselines could be restored before installing Elastic, Sysmon, Suricata, and Wazuh.</li>
+            </ul>
+          </div>
+
+          <div class="log-section">
+            <div class="log-section-title">Issues Hit + How I Fixed Them</div>
+            <ul class="log-issues-list">
+              <li><strong>NAT vs Host-Only confusion</strong> - separated internet access from private lab communication so updates used NAT while SIEM, Windows, and Kali traffic stayed on the host-only network.</li>
+              <li><strong>Wrong IP address during testing</strong> - used <code>ip addr</code> and <code>ipconfig</code> to identify which address belonged to NAT and which belonged to the lab network.</li>
+              <li><strong>Windows ping behavior</strong> - learned that failed ICMP does not always mean networking is broken; Windows Firewall and network profile settings can block ping even when the host is reachable.</li>
+              <li><strong>VirtualBox console workflow</strong> - switched to SSH into Ubuntu so long commands could be copied, edited, and rerun cleanly from the host.</li>
+              <li><strong>Resource limits</strong> - kept only the VMs needed for each phase powered on and used clean snapshots before major installs so broken states could be rolled back.</li>
             </ul>
           </div>
 
@@ -2542,9 +2639,78 @@ Write-Host "Phase 5 loop complete."</pre>
       </div>
     </div>
 
-    <div class="log-coming-soon">
-      <div class="log-coming-soon-title">Day 06 Coming Soon — Phase 6</div>
-      <div class="log-coming-soon-text">Next up: convert the Phase 5 triage work into polished SOC tickets, escalation summaries, and shift handoff notes that look like real analyst output.</div>
+    <!-- DAY 6 -->
+    <div class="log-card">
+      <div class="log-card-hdr" onclick="toggleLog(this)">
+        <div class="log-day">
+          <div class="log-day-label">Day</div>
+          <div class="log-day-num">06</div>
+        </div>
+        <div class="log-info">
+          <div class="log-date">May 23, 2026</div>
+          <div class="log-title">SOC Ticket Writing, Severity Reasoning, Escalation, and Shift Handoff</div>
+          <div class="log-phases">
+            <span class="log-phase-tag done">✓ Phase 6 Complete</span>
+            <span class="log-phase-tag">5 SOC Tickets</span>
+            <span class="log-phase-tag">3 Escalations</span>
+            <span class="log-phase-tag">2 Handoffs</span>
+          </div>
+        </div>
+        <div class="log-caret">▶</div>
+      </div>
+      <div class="log-body">
+        <div class="log-body-inner">
+
+          <div class="log-section">
+            <div class="log-section-title">Phase 6 Overview</div>
+            <ul class="log-list">
+              <li>Converted Phase 5 alert evidence into SOC-style tickets, escalation summaries, severity decisions, and shift handoff notes.</li>
+              <li>Practiced writing like an L1 analyst: clear summary, affected asset, detection source, event ID, evidence, analysis, verdict, and recommended action.</li>
+              <li>Focused on documentation discipline instead of just tool usage, because real SOC work has to be readable by another analyst, L2, or a manager.</li>
+            </ul>
+          </div>
+
+          <div class="log-section">
+            <div class="log-section-title">Tickets Created</div>
+            <ul class="log-list">
+              <li><strong>PowerShell whoami:</strong> user discovery from PowerShell, medium severity by technique, closed as benign lab activity.</li>
+              <li><strong>Local administrators enumeration:</strong> <code>net localgroup administrators</code> / <code>net1.exe</code> privilege discovery, medium severity by technique.</li>
+              <li><strong>curl.exe to GitHub:</strong> command-line web request from PowerShell, reviewed for possible download or external infrastructure behavior.</li>
+              <li><strong>nslookup github.com:</strong> DNS lookup activity, low severity in lab context but useful for DNS investigation practice.</li>
+              <li><strong>Windows 4625 failed logon:</strong> single failed logon from a known user, closed as likely user error while documenting what would raise severity.</li>
+            </ul>
+          </div>
+
+          <div class="log-section">
+            <div class="log-section-title">Severity Reasoning</div>
+            <ul class="log-list">
+              <li>Built a severity model around command, user, parent process, destination, frequency, impact, and follow-on activity.</li>
+              <li>Practiced separating <strong>severity</strong> from <strong>verdict</strong>: an event can be medium severity by technique but benign after context is reviewed.</li>
+              <li>Documented when similar events should become higher priority, such as repeated failed logons, privileged account targeting, unknown source IPs, user creation, admin group changes, payload downloads, or LSASS access.</li>
+            </ul>
+          </div>
+
+          <div class="log-section">
+            <div class="log-section-title">Escalation + Handoff Practice</div>
+            <ul class="log-list">
+              <li>Wrote 3 escalation summaries for production-risk versions of failed logons, <code>curl.exe</code> from PowerShell, and local administrator group enumeration.</li>
+              <li>Wrote 2 shift handoff notes summarizing reviewed tickets, closed benign activity, open watch items, and recommended next steps.</li>
+              <li>Reinforced key analyst habits: match evidence to the alert, avoid claiming unauthorized activity without proof, and write what the logs actually support.</li>
+            </ul>
+          </div>
+
+          <div class="log-section">
+            <div class="log-section-title">Up Next — Phase 7</div>
+            <ul class="log-list">
+              <li>Move into phishing and email security investigation.</li>
+              <li>Practice email header review, URL and attachment enrichment, SPF/DKIM/DMARC checks, and user-reported phishing ticket documentation.</li>
+            </ul>
+          </div>
+
+          <a href="https://github.com/mmajeed7864/soclab/blob/main/DAY-06-LAB-LOG.md" target="_blank" class="log-cta">Read full Phase 6 log on GitHub →</a>
+
+        </div>
+      </div>
     </div>
 
   </div>
@@ -2588,7 +2754,7 @@ Write-Host "Phase 5 loop complete."</pre>
       <div class="tl-body">
         <div class="tl-date">May 2026 <span class="now-badge">RIGHT NOW</span></div>
         <div class="tl-title">Working through SOC analyst labs in public</div>
-        <div class="tl-desc">Completed Phases 1-5: Elastic, Suricata, Wazuh, Windows/Linux log fundamentals, and high-volume SOC triage practice. Next up is turning Phase 5 events into polished tickets and escalation notes.</div>
+        <div class="tl-desc">Completed Phases 1-6: Elastic, Suricata, Wazuh, Windows/Linux log fundamentals, high-volume SOC triage, and SOC ticket/escalation/handoff writing. Next up is phishing and email security investigation.</div>
       </div>
     </div>
     <div class="tl-item">
