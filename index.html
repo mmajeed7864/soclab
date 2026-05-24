@@ -83,6 +83,12 @@ section{position:relative;z-index:1;padding:70px 20px;scroll-margin-top:74px}
 .overview-actions{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
 .overview-link{font-family:var(--mono);font-size:10px;color:var(--text);text-decoration:none;border:1px solid rgba(0,212,255,.24);border-radius:5px;padding:8px 12px;background:rgba(0,212,255,.035);transition:all .2s}
 .overview-link:hover{color:#000;background:var(--accent);border-color:var(--accent)}
+.hire-callout{margin-top:18px;padding:15px 16px;background:rgba(251,191,36,.055);border:1px solid rgba(251,191,36,.22);border-left:3px solid var(--accent4);border-radius:8px}
+.hire-label{font-family:var(--mono);font-size:9px;color:var(--accent4);letter-spacing:.12em;text-transform:uppercase;margin-bottom:6px}
+.hire-copy{font-size:13px;color:var(--text);line-height:1.65}
+.hire-links{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px}
+.hire-link{font-family:var(--mono);font-size:9px;color:var(--accent);text-decoration:none;border:1px solid rgba(0,212,255,.22);border-radius:4px;padding:6px 9px;background:rgba(0,212,255,.035)}
+.hire-link:hover{background:rgba(0,212,255,.1);color:var(--text)}
 .proof-metrics{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
 .proof-metric{min-height:94px;background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:14px;border-left:3px solid var(--accent)}
 .proof-metric:nth-child(2){border-left-color:var(--accent2)}
@@ -261,6 +267,7 @@ section{position:relative;z-index:1;padding:70px 20px;scroll-margin-top:74px}
 .practice-step-copy{font-size:12px;color:var(--muted);line-height:1.6;margin-top:3px}
 @media(min-width:780px){.overview-grid{grid-template-columns:1.15fr .85fr}.audience-grid{grid-template-columns:1fr 1fr}.workflow-strip{grid-template-columns:repeat(5,1fr)}.workflow-step{grid-template-columns:1fr}.recruiter-snapshot{grid-template-columns:1.5fr .8fr}.ats-groups{grid-template-columns:repeat(2,1fr)}.skill-row{grid-template-columns:minmax(170px,.55fr) 1fr}.proof-strip{grid-template-columns:1fr 1fr}.practice-board{grid-template-columns:1fr 1.35fr}.reps-grid{grid-template-columns:repeat(5,1fr)}}
 @media(min-width:1180px){.ats-groups{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:680px){nav{position:sticky;top:0;align-items:flex-start;gap:10px;padding:12px 14px}.nav-links{justify-content:flex-start}.hero{padding-top:42px}section{scroll-margin-top:118px}.nav-shortcuts-label{width:100%;margin-bottom:2px}}
 
 /* Keep dense roadmap and skills content softer for scanability */
 #roadmap .sec-sub,
@@ -472,6 +479,14 @@ footer{position:relative;z-index:1;padding:50px 20px;border-top:1px solid var(--
  <a class="overview-link" href="#roadmap">View roadmap</a>
  <a class="overview-link" href="#logs">Read build logs</a>
  <a class="overview-link" href="https://github.com/mmajeed7864/soclab" target="_blank" rel="noopener">GitHub repo</a>
+ </div>
+ <div class="hire-callout">
+ <div class="hire-label">Open to work</div>
+ <div class="hire-copy">Currently targeting SOC Analyst L1/L2 and Cybersecurity Analyst roles in Charlotte or remote. Open to conversations around security operations, SIEM triage, alert investigation, endpoint/network telemetry, and analyst documentation.</div>
+ <div class="hire-links">
+ <a class="hire-link" href="mailto:hmajeed04@gmail.com">Email Mohammed</a>
+ <a class="hire-link" href="https://www.linkedin.com/in/mohammed-majeed-40a661271" target="_blank" rel="noopener">LinkedIn</a>
+ </div>
  </div>
  </div>
 
@@ -824,21 +839,21 @@ footer{position:relative;z-index:1;padding:50px 20px;border-top:1px solid var(--
  <div class="phase-hdr" onclick="togglePhase(this)">
  <div class="phase-num pn-green">05</div>
  <div class="phase-hdr-info">
- <div class="phase-hdr-title">VMware Scripted Attack Loop + High-Volume Triage</div>
+ <div class="phase-hdr-title">Scripted Attack Loop + High-Volume Triage</div>
  <div class="phase-hdr-meta">attacker VM loop / 50+ alerts/tickets / false-positive tuning / 30-second first look</div>
- <div class="phase-tags"><span class="ptag g">VMware Loop</span><span class="ptag g">High-Volume Triage</span><span class="ptag g">50+ Tickets</span><span class="ptag g">False Positives</span></div>
+ <div class="phase-tags"><span class="ptag g">Scripted Loop</span><span class="ptag g">High-Volume Triage</span><span class="ptag g">50+ Tickets</span><span class="ptag g">False Positives</span></div>
  <a href="https://github.com/mmajeed7864/soclab/blob/main/DAY-05-LAB-LOG.md" target="_blank" rel="noopener" class="phase-proof-link orange" onclick="event.stopPropagation()">View Day 5 GitHub Log</a>
  </div>
  <div class="phase-caret">▶</div>
  </div>
  <div class="phase-body">
- <div class="phase-intro">Now that tools exist, use them like a real SOC queue. Build a safe scripted attack loop in VMware, let the alerts stack up, then practice sorting noisy alerts quickly, deciding what deserves more time, tuning false positives, and writing tickets another analyst could act on.</div>
+ <div class="phase-intro">Now that tools exist, use them like a real SOC queue. Build a safe scripted attack loop in a lab VM, let the alerts stack up, then practice sorting noisy alerts quickly, deciding what deserves more time, tuning false positives, and writing tickets another analyst could act on.</div>
  <div class="steps-list">
  <div class="step-item">
  <div class="step-n sn-green">1</div>
  <div class="step-content">
- <div class="step-title">Build the VMware scripted attack loop</div>
- <div class="step-desc">Run a Kali attacker VM on a timed VMware loop, plus Windows/admin activity scripts, to create 50+ mixed alerts: failed logins, benign admin activity, suspicious PowerShell, file deletion, network scans, DNS/web noise, and new services.</div>
+ <div class="step-title">Build the scripted attack loop</div>
+ <div class="step-desc">Run a Kali attacker VM on a timed loop, plus Windows/admin activity scripts, to create 50+ mixed alerts: failed logins, benign admin activity, suspicious PowerShell, file deletion, network scans, DNS/web noise, and new services. The current documented run used VirtualBox; the next run will repeat the workflow in VMware.</div>
  </div>
  </div>
  <div class="step-item">
@@ -1760,7 +1775,7 @@ footer{position:relative;z-index:1;padding:50px 20px;border-top:1px solid var(--
  <div>
  <div class="snapshot-label">SOC Operations Simulation</div>
  <div class="snapshot-title">Intermediate Alert Queue Practice</div>
- <p class="practice-copy">Phase 5 is built around analyst-style queue work: a scripted VMware attack loop generates repeated activity, Elastic/Wazuh collect the alerts, and each session is used to review evidence, tune noise, write case notes, and decide what needs escalation.</p>
+ <p class="practice-copy">Phase 5 is built around analyst-style queue work: a scripted lab attack loop generates repeated activity, Elastic/Wazuh collect the alerts, and each session is used to review evidence, tune noise, write case notes, and decide what needs escalation.</p>
  </div>
  <div>
  <div class="reps-grid">
@@ -1771,7 +1786,7 @@ footer{position:relative;z-index:1;padding:50px 20px;border-top:1px solid var(--
  </div>
  <div class="rep-card">
  <div class="rep-num">30-60m</div>
- <div class="rep-label">VMware Attack Loop</div>
+ <div class="rep-label">Lab Attack Loop</div>
  <div class="rep-desc">Timed Kali and Windows activity window to create realistic alert pressure.</div>
  </div>
  <div class="rep-card">
@@ -1793,11 +1808,11 @@ footer{position:relative;z-index:1;padding:50px 20px;border-top:1px solid var(--
  <div class="practice-plan">
  <div class="practice-step">
  <div class="practice-step-title">How the volume gets created</div>
- <div class="practice-step-copy">A VMware attacker VM and Windows/admin activity loop will generate failed logons, PowerShell events, DNS/web noise, scans, new services, file activity, and identity changes.</div>
+ <div class="practice-step-copy">An attacker VM and Windows/admin activity loop generate failed logons, PowerShell events, DNS/web noise, scans, new services, file activity, and identity changes.</div>
  </div>
  <div class="practice-step">
  <div class="practice-step-title">How the loop runs</div>
- <div class="practice-step-copy">The Kali attacker VM runs timed scripts in VMware for 30-60 minutes, creating repeated but safe events that land in Elastic and Wazuh for triage practice.</div>
+ <div class="practice-step-copy">The Kali attacker VM runs timed scripts for 30-60 minutes, creating repeated but safe events that land in Elastic and Wazuh for triage practice. The documented run used VirtualBox; VMware repeat testing is planned.</div>
  </div>
  <div class="practice-step">
  <div class="practice-step-title">What gets documented</div>
@@ -3026,7 +3041,7 @@ Write-Host "Phase 5 loop complete."</pre>
  <div class="tl-body">
  <div class="tl-date">May 2026 <span class="now-badge">RIGHT NOW</span></div>
  <div class="tl-title">Working through SOC analyst labs in public</div>
- <div class="tl-desc">Completed Phases 1-6: Elastic, Suricata, Wazuh, Windows/Linux log fundamentals, high-volume SOC triage, and SOC ticket/escalation/handoff writing. Next up is phishing and email security investigation.</div>
+ <div class="tl-desc">Completed Phases 1-6: Elastic, Suricata, Wazuh, Windows/Linux log fundamentals, high-volume SOC triage, and SOC ticket/escalation/handoff writing. Phase 7 is now focused on phishing and email security investigation.</div>
  </div>
  </div>
  <div class="tl-item">
