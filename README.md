@@ -16,7 +16,7 @@ The goal is simple: show real job-function proof, not just screenshots or theory
 
 The roadmap now includes a production-style SOC practice layer:
 
-- VMware scripted attack loop using a Kali attacker VM
+- Scripted lab attack loop using a Kali attacker VM
 - 30-60 minute alert generation sessions
 - 50+ alerts/tickets per triage session
 - Elastic and Wazuh queue review
@@ -74,7 +74,7 @@ The full interactive roadmap is on the live site. The order is built around SOC 
 ### Track 2 - SOC L1 Core Workflow
 
 4. Windows, Linux, and Network Log Fundamentals
-5. VMware Scripted Attack Loop + High-Volume Triage
+5. Scripted Attack Loop + High-Volume Triage
 6. SOC Ticket Writing, Escalation, and Shift Handoff
 7. Phishing and Email Security Investigation
 8. Splunk Fundamentals for SOC
@@ -147,7 +147,7 @@ Network and infrastructure:
 
 Adversary simulation and investigation:
 
-- Kali Linux, scripted VMware attack loops, Metasploit, Impacket, CrackMapExec, Mimikatz
+- Kali Linux, scripted attack loops, Metasploit, Impacket, CrackMapExec, Mimikatz
 - Volatility, Autopsy, FTK Imager, PEStudio, YARA
 
 Cloud and Microsoft security:
@@ -178,7 +178,7 @@ More logs are added with each lab session.
 If you're hiring for SOC Analyst L1/L2, Cybersecurity Analyst, Security Operations Analyst, or Junior Cybersecurity Analyst roles in Charlotte, NC or remote, this portfolio demonstrates:
 
 - Hands-on SIEM, IDS, XDR, endpoint, and Active Directory lab experience
-- High-volume alert triage practice with VMware-generated alert volume
+- High-volume alert triage practice with scripted lab-generated alert volume
 - Realistic false-positive tuning and escalation workflows
 - SOC-style documentation, ticket notes, incident summaries, and build logs
 - Written SOC tickets, severity justification, escalation summaries, and shift handoff examples
