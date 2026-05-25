@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -517,7 +517,7 @@ footer{position:relative;z-index:1;padding:50px 20px;border-top:1px solid var(--
  <div class="proof-metric-copy">SOC L1, L2, cloud, IR, threat hunting, automation.</div>
  </div>
  <div class="proof-metric">
- <div class="proof-metric-num">6</div>
+ <div class="proof-metric-num">7</div>
  <div class="proof-metric-label">Detailed logs</div>
  <div class="proof-metric-copy">Published GitHub write-ups with troubleshooting and evidence.</div>
  </div>
@@ -531,7 +531,7 @@ footer{position:relative;z-index:1;padding:50px 20px;border-top:1px solid var(--
  <div class="audience-copy">The goal is to make the skills easy to verify: tools used, problems solved, investigations written, and the role this maps to.</div>
  <ul class="audience-list">
  <li>Target roles: SOC Analyst L1/L2, Cybersecurity Analyst, Security Operations.</li>
- <li>Proof areas: SIEM/XDR setup, endpoint telemetry, IDS, queue triage, tickets, escalation.</li>
+ <li>Proof areas: SIEM/XDR setup, endpoint telemetry, IDS, queue triage, tickets, escalation, phishing investigation.</li>
  <li>Tools shown: Elastic, Kibana, Fleet, Sysmon, Suricata, Wazuh, VMware, Kali, Windows, Linux.</li>
  </ul>
  </div>
@@ -648,7 +648,7 @@ footer{position:relative;z-index:1;padding:50px 20px;border-top:1px solid var(--
 <section id="roadmap">
  <div class="eyebrow">02 - The Roadmap</div>
  <h2 class="sec-title reveal">The Complete Path</h2>
- <p class="sec-sub reveal">8 tracks. 26 phases. Updated after reviewing current SOC L1, SOC L2, and Cybersecurity Analyst job requirements plus practitioner feedback: build the lab first, then prove high-volume alert triage, ticket writing, Splunk/SPL, EDR, cloud, IR, automation, and portfolio-ready documentation.</p>
+ <p class="sec-sub reveal">8 tracks. 26 phases. Updated after reviewing current SOC L1, SOC L2, and Cybersecurity Analyst job requirements plus practitioner feedback: build the lab first, then prove high-volume alert triage, ticket writing, phishing investigation, Splunk/SPL, EDR, cloud, IR, automation, and portfolio-ready documentation.</p>
 
  <div class="tracks reveal">
 
@@ -922,13 +922,14 @@ footer{position:relative;z-index:1;padding:50px 20px;border-top:1px solid var(--
  <div class="phase-num pn-green">07</div>
  <div class="phase-hdr-info">
  <div class="phase-hdr-title">Phishing and Email Security Investigation</div>
- <div class="phase-hdr-meta">Headers / URLs / attachments / SPF/DKIM/DMARC</div>
+ <div class="phase-hdr-meta">5 phishing cases / IOC extraction / SPF-DKIM-DMARC / incident report</div>
  <div class="phase-tags"><span class="ptag g">Phishing</span><span class="ptag g">Email Headers</span><span class="ptag g">URLScan</span><span class="ptag g">VirusTotal</span><span class="ptag g">DMARC</span></div>
+ <a href="https://github.com/mmajeed7864/soclab/blob/main/DAY-07-LAB-LOG.md" target="_blank" rel="noopener" class="phase-proof-link cyan" onclick="event.stopPropagation()">View Day 7 GitHub Log</a>
  </div>
  <div class="phase-caret">▶</div>
  </div>
  <div class="phase-body">
- <div class="phase-intro">Phishing is one of the most common L1 workflows. Move it early so you can talk about email cases before malware/forensics.</div>
+ <div class="phase-intro">Completed phishing and email security triage from a SOC L1 perspective: five simulated user-reported phishing cases, IOC extraction, sender/domain/URL review, attachment-risk analysis, verdict writing, recommended SOC actions, and a polished phishing incident report.</div>
  <div class="steps-list">
  <div class="step-item">
  <div class="step-n sn-green">1</div>
@@ -952,7 +953,7 @@ footer{position:relative;z-index:1;padding:50px 20px;border-top:1px solid var(--
  </div>
  </div>
  </div>
- <div class="goal-box"><strong>PHASE GOAL</strong>5 phishing investigations and 1 polished phishing incident report.</div>
+ <div class="goal-box"><strong>PHASE COMPLETE</strong>5 phishing investigations, 5 phishing tickets, extracted IOCs, recommended response actions, and 1 polished phishing incident report published to GitHub.</div>
  </div>
  </div>
 
@@ -1858,7 +1859,7 @@ footer{position:relative;z-index:1;padding:50px 20px;border-top:1px solid var(--
  <div class="metric-label">skill tracks from lab build to portfolio</div>
  </div>
  <div class="snapshot-metric">
- <div class="metric-num">6</div>
+ <div class="metric-num">7</div>
  <div class="metric-label">completed lab build logs documented</div>
  </div>
  </div>
@@ -1882,7 +1883,13 @@ footer{position:relative;z-index:1;padding:50px 20px;border-top:1px solid var(--
  <div class="ats-group ops">
  <div class="ats-group-title">SOC Operations</div>
  <div class="ats-keywords">
- <span class="skill-tag g">SOC Triage</span><span class="skill-tag g">High-Volume Alert Queue</span><span class="skill-tag g">50+ Ticket Sessions</span><span class="skill-tag g">False Positive Tuning</span><span class="skill-tag g">Ticket Writing</span><span class="skill-tag g">Escalation Notes</span><span class="skill-tag g">Shift Handoff</span><span class="skill-tag g">Incident Response</span><span class="skill-tag g">Playbooks</span><span class="skill-tag g">Case Notes</span><span class="skill-tag g">PICERL</span>
+ <span class="skill-tag g">SOC Triage</span><span class="skill-tag g">High-Volume Alert Queue</span><span class="skill-tag g">50+ Ticket Sessions</span><span class="skill-tag g">False Positive Tuning</span><span class="skill-tag g">Ticket Writing</span><span class="skill-tag g">Phishing Triage</span><span class="skill-tag g">Escalation Notes</span><span class="skill-tag g">Shift Handoff</span><span class="skill-tag g">Incident Response</span><span class="skill-tag g">Playbooks</span><span class="skill-tag g">Case Notes</span><span class="skill-tag g">PICERL</span>
+ </div>
+ </div>
+ <div class="ats-group email">
+ <div class="ats-group-title">Email Security + Phishing</div>
+ <div class="ats-keywords">
+ <span class="skill-tag">Phishing Investigation</span><span class="skill-tag">Email Headers</span><span class="skill-tag">SPF</span><span class="skill-tag">DKIM</span><span class="skill-tag">DMARC</span><span class="skill-tag">Reply-To Analysis</span><span class="skill-tag">Return-Path Review</span><span class="skill-tag p">Credential Harvesting</span><span class="skill-tag p">BEC</span><span class="skill-tag p">Attachment Triage</span><span class="skill-tag p">URL Analysis</span><span class="skill-tag p">IOC Extraction</span><span class="skill-tag p">Phishing Incident Reports</span>
  </div>
  </div>
  <div class="ats-group endpoint">
@@ -2047,6 +2054,26 @@ footer{position:relative;z-index:1;padding:50px 20px;border-top:1px solid var(--
  <span class="skill-tag g">Playbooks</span>
  <span class="skill-tag g">Case Notes</span>
  <span class="skill-tag g">Incident Reports</span>
+ </div>
+ </div>
+ </div>
+
+ <div class="skill-row">
+ <div class="skill-row-title">Email Security + Phishing</div>
+ <div>
+ <div class="skill-row-proof">Investigate suspicious emails, review sender and authentication evidence, extract IOCs, identify phishing type, write verdicts, and recommend containment actions.</div>
+ <div class="skill-tags">
+ <span class="skill-tag">Phishing Triage</span>
+ <span class="skill-tag">Email Headers</span>
+ <span class="skill-tag">SPF</span>
+ <span class="skill-tag">DKIM</span>
+ <span class="skill-tag">DMARC</span>
+ <span class="skill-tag">URL Analysis</span>
+ <span class="skill-tag">Attachment Review</span>
+ <span class="skill-tag g">Credential Harvesting</span>
+ <span class="skill-tag g">BEC</span>
+ <span class="skill-tag g">IOC Extraction</span>
+ <span class="skill-tag g">Incident Report Writing</span>
  </div>
  </div>
  </div>
@@ -3000,6 +3027,81 @@ Write-Host "Phase 5 loop complete."</pre>
  </div>
  </div>
 
+ <!-- DAY 7 -->
+ <div class="log-card">
+ <div class="log-card-hdr" onclick="toggleLog(this)">
+ <div class="log-day">
+ <div class="log-day-label">Day</div>
+ <div class="log-day-num">07</div>
+ </div>
+ <div class="log-info">
+ <div class="log-date">May 24, 2026</div>
+ <div class="log-title">Phishing Investigation, IOC Extraction, Email Triage, and Incident Reporting</div>
+ <div class="log-phases">
+ <span class="log-phase-tag done">✓ Phase 7 Complete</span>
+ <span class="log-phase-tag">5 Phishing Cases</span>
+ <span class="log-phase-tag">IOC Extraction</span>
+ <span class="log-phase-tag">Incident Report</span>
+ </div>
+ </div>
+ <div class="log-caret">▶</div>
+ </div>
+ <div class="log-body">
+ <div class="log-body-inner">
+
+ <div class="log-section">
+ <div class="log-section-title">Phase 7 Overview</div>
+ <ul class="log-list">
+ <li>Practiced one of the most common SOC L1 queues: user-reported suspicious emails and email security alerts.</li>
+ <li>Reviewed sender identity, display name, sender domain, reply-to, return-path, URLs, attachments, social engineering language, and authentication results.</li>
+ <li>Built a repeatable phishing workflow: review evidence, identify the attack goal, extract IOCs, decide the verdict, recommend SOC actions, and write the ticket.</li>
+ </ul>
+ </div>
+
+ <div class="log-section">
+ <div class="log-section-title">Cases Investigated</div>
+ <ul class="log-list">
+ <li><strong>Microsoft 365 password expiration:</strong> confirmed credential harvesting using a lookalike Microsoft domain and urgent account-suspension language.</li>
+ <li><strong>Invoice ZIP attachment:</strong> suspicious invoice-themed email with possible malware delivery through a compressed attachment.</li>
+ <li><strong>CEO / executive impersonation:</strong> BEC-style email with no link or attachment, proving phishing can be conversation-based.</li>
+ <li><strong>Fake Okta security alert:</strong> MFA/security-alert themed credential phishing using urgency and account-lockout pressure.</li>
+ <li><strong>Fake DocuSign document review:</strong> document-signing impersonation using a lookalike domain and fake secure review link.</li>
+ </ul>
+ </div>
+
+ <div class="log-section">
+ <div class="log-section-title">Skills Practiced</div>
+ <ul class="log-list">
+ <li>Extracted sender emails, sender domains, URLs, root domains, attachment filenames, subjects, impersonated brands, and phishing themes as IOCs.</li>
+ <li>Separated verdict types: benign, spam, suspicious, phishing, malware delivery, credential harvesting, and BEC.</li>
+ <li>Recommended actions such as block sender/domain/URL, search for other recipients, quarantine matching emails, ask whether users clicked or entered credentials, reset passwords, revoke sessions, and review identity sign-in logs.</li>
+ <li>Wrote a final phishing incident report with executive summary, scope, key findings, IOC list, impact assessment, recommended SOC actions, and final verdict.</li>
+ </ul>
+ </div>
+
+ <div class="log-section">
+ <div class="log-section-title">Lessons Learned</div>
+ <ul class="log-list">
+ <li>Display names can lie; the real sender address, domain, reply-to, and return-path matter more.</li>
+ <li>HTTPS does not make a link safe; analysts still need to inspect the root domain and context.</li>
+ <li>Phishing does not always include a link or attachment. BEC can start with a simple reply request.</li>
+ <li>ZIP files, lookalike domains, urgency, fear, executive pressure, and brand impersonation are major triage clues.</li>
+ </ul>
+ </div>
+
+ <div class="log-section">
+ <div class="log-section-title">Up Next - Phase 8</div>
+ <ul class="log-list">
+ <li>Start Splunk fundamentals for SOC: SPL search practice, dashboards, failed authentication analysis, process execution review, and mapping Elastic-style investigation habits to Splunk.</li>
+ </ul>
+ </div>
+
+ <a href="https://github.com/mmajeed7864/soclab/blob/main/DAY-07-LAB-LOG.md" target="_blank" class="log-cta">Read full Phase 7 log on GitHub →</a>
+
+ </div>
+ </div>
+ </div>
+
  </div>
 </section>
 
@@ -3041,7 +3143,7 @@ Write-Host "Phase 5 loop complete."</pre>
  <div class="tl-body">
  <div class="tl-date">May 2026 <span class="now-badge">RIGHT NOW</span></div>
  <div class="tl-title">Working through SOC analyst labs in public</div>
- <div class="tl-desc">Completed Phases 1-6: Elastic, Suricata, Wazuh, Windows/Linux log fundamentals, high-volume SOC triage, and SOC ticket/escalation/handoff writing. Phase 7 is now focused on phishing and email security investigation.</div>
+ <div class="tl-desc">Completed Phases 1-7: Elastic, Suricata, Wazuh, Windows/Linux log fundamentals, high-volume SOC triage, SOC ticket/escalation/handoff writing, and phishing/email security investigation. Phase 8 is now focused on Splunk fundamentals and SPL practice.</div>
  </div>
  </div>
  <div class="tl-item">
