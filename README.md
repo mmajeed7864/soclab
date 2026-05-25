@@ -24,9 +24,11 @@ The roadmap now includes a production-style SOC practice layer:
 - False-positive tuning decisions
 - SOC ticket writing, severity reasoning, and shift handoff notes
 - L2-ready escalation notes
+- Phishing investigation, IOC extraction, and email security ticket writing
+- Final phishing incident report with verdicts and recommended response actions
 - Case notes and lessons learned added to build logs
 
-This is designed to practice the real SOC motion: sort signal from noise, decide what deserves more time, close benign activity, tune recurring noise, write clean tickets, and escalate cleanly.
+This is designed to practice the real SOC motion: sort signal from noise, decide what deserves more time, close benign activity, tune recurring noise, write clean tickets, investigate suspicious emails, extract IOCs, and escalate cleanly.
 
 ## Credentials
 
@@ -131,6 +133,9 @@ SOC operations:
 - Ticket writing
 - Escalation summaries
 - Shift handoff notes
+- Phishing triage
+- IOC extraction
+- Email security incident reports
 - Incident reports and playbooks
 
 Endpoint and identity:
@@ -155,6 +160,11 @@ Cloud and Microsoft security:
 - AWS CloudTrail, GuardDuty, Security Hub, IAM, CloudWatch
 - Azure, Microsoft 365, Entra ID, Defender, Sentinel
 
+Email security and phishing:
+
+- Email header review, SPF, DKIM, DMARC, reply-to, return-path, and sender domain analysis
+- URL analysis, attachment review, credential harvesting detection, BEC recognition, and phishing verdict writing
+
 Frameworks and reporting:
 
 - MITRE ATT&CK, NIST CSF, CIS Controls v8, PICERL
@@ -170,6 +180,7 @@ I post lab work as I complete it:
 - [DAY-04-LAB-LOG.md](./DAY-04-LAB-LOG.md) - Windows, Linux, and network log fundamentals
 - [DAY-05-LAB-LOG.md](./DAY-05-LAB-LOG.md) - Scripted alert loop, high-volume SOC triage, false-positive decisions, escalation notes, and shift handoff
 - [DAY-06-LAB-LOG.md](./DAY-06-LAB-LOG.md) - SOC ticket writing, severity reasoning, escalation summaries, and shift handoff notes
+- [DAY-07-LAB-LOG.md](./DAY-07-LAB-LOG.md) - Phishing investigation, IOC extraction, email security triage, phishing tickets, and final incident report
 
 More logs are added with each lab session.
 
@@ -182,6 +193,7 @@ If you're hiring for SOC Analyst L1/L2, Cybersecurity Analyst, Security Operatio
 - Realistic false-positive tuning and escalation workflows
 - SOC-style documentation, ticket notes, incident summaries, and build logs
 - Written SOC tickets, severity justification, escalation summaries, and shift handoff examples
+- Phishing investigation workflow, extracted IOCs, user-impact questions, and response recommendations
 - Self-directed learning and consistent execution over time
 
 LinkedIn: [linkedin.com/in/mohammed-majeed-40a661271](https://www.linkedin.com/in/mohammed-majeed-40a661271)  
@@ -199,7 +211,8 @@ If you're starting from zero:
 3. Document every phase in GitHub
 4. Use Phase 5 to practice realistic SOC triage repetition, not just tool setup
 5. Use Phase 6 to turn triage evidence into tickets, escalation summaries, and shift handoff notes
-6. Keep adding detections, reports, and lessons learned
+6. Use Phase 7 to practice phishing investigation, IOC extraction, and email security reports
+7. Keep adding detections, reports, and lessons learned
 
 Feel free to fork the repo, copy the structure, and build your own version.
 
