@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -203,6 +203,14 @@ section{position:relative;z-index:1;padding:70px 20px;scroll-margin-top:74px}
 .snapshot-metric:nth-child(4){border-left-color:#ce93d8;background:rgba(180,100,255,.035)}
 .metric-num{font-family:var(--mono);font-size:20px;font-weight:700;color:var(--text);line-height:1}
 .metric-label{font-size:11px;color:var(--muted);line-height:1.4;margin-top:5px}
+.skills-focus-grid{margin-top:22px;display:grid;grid-template-columns:1fr;gap:10px}
+.skill-proof-card{background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:15px 14px;border-top:3px solid var(--accent)}
+.skill-proof-card:nth-child(2){border-top-color:var(--accent2)}
+.skill-proof-card:nth-child(3){border-top-color:var(--accent3)}
+.skill-proof-card:nth-child(4){border-top-color:var(--accent5)}
+.skill-proof-title{font-size:14px;font-weight:600;color:var(--text);line-height:1.3;margin-bottom:6px}
+.skill-proof-copy{font-size:12px;color:var(--text);line-height:1.65;margin-bottom:10px}
+.skill-proof-stack{display:flex;flex-wrap:wrap;gap:5px}
 .ats-strip{margin-top:22px;padding:18px 0 20px;border-top:1px solid rgba(0,212,255,.22);border-bottom:1px solid var(--border);display:grid;gap:14px}
 .ats-head{display:flex;justify-content:space-between;gap:18px;align-items:flex-end;flex-wrap:wrap}
 .ats-label{font-family:var(--mono);font-size:10px;color:var(--accent2);letter-spacing:.12em;text-transform:uppercase}
@@ -212,6 +220,7 @@ section{position:relative;z-index:1;padding:70px 20px;scroll-margin-top:74px}
 .ats-group{background:var(--surface);border:1px solid var(--border);border-left:3px solid var(--accent);border-radius:8px;padding:12px 12px 13px}
 .ats-group.siem{border-left-color:var(--accent)}
 .ats-group.ops{border-left-color:var(--accent2)}
+.ats-group.email{border-left-color:#f0abfc}
 .ats-group.endpoint{border-left-color:#ce93d8}
 .ats-group.network{border-left-color:var(--accent3)}
 .ats-group.identity{border-left-color:#7dd3fc}
@@ -224,6 +233,7 @@ section{position:relative;z-index:1;padding:70px 20px;scroll-margin-top:74px}
 .ats-group-title{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;margin-bottom:8px}
 .ats-group.siem .ats-group-title{color:var(--accent)}
 .ats-group.ops .ats-group-title{color:var(--accent2)}
+.ats-group.email .ats-group-title{color:#f0abfc}
 .ats-group.endpoint .ats-group-title{color:#ce93d8}
 .ats-group.network .ats-group-title{color:var(--accent3)}
 .ats-group.identity .ats-group-title{color:#7dd3fc}
@@ -265,7 +275,7 @@ section{position:relative;z-index:1;padding:70px 20px;scroll-margin-top:74px}
 .practice-step{padding:12px 0;border-top:1px solid var(--border)}
 .practice-step-title{font-size:13px;font-weight:600;color:var(--text)}
 .practice-step-copy{font-size:12px;color:var(--muted);line-height:1.6;margin-top:3px}
-@media(min-width:780px){.overview-grid{grid-template-columns:1.15fr .85fr}.audience-grid{grid-template-columns:1fr 1fr}.workflow-strip{grid-template-columns:repeat(5,1fr)}.workflow-step{grid-template-columns:1fr}.recruiter-snapshot{grid-template-columns:1.5fr .8fr}.ats-groups{grid-template-columns:repeat(2,1fr)}.skill-row{grid-template-columns:minmax(170px,.55fr) 1fr}.proof-strip{grid-template-columns:1fr 1fr}.practice-board{grid-template-columns:1fr 1.35fr}.reps-grid{grid-template-columns:repeat(5,1fr)}}
+@media(min-width:780px){.overview-grid{grid-template-columns:1.15fr .85fr}.audience-grid{grid-template-columns:1fr 1fr}.workflow-strip{grid-template-columns:repeat(5,1fr)}.workflow-step{grid-template-columns:1fr}.recruiter-snapshot{grid-template-columns:1.5fr .8fr}.skills-focus-grid{grid-template-columns:repeat(2,1fr)}.ats-groups{grid-template-columns:repeat(2,1fr)}.skill-row{grid-template-columns:minmax(170px,.55fr) 1fr}.proof-strip{grid-template-columns:1fr 1fr}.practice-board{grid-template-columns:1fr 1.35fr}.reps-grid{grid-template-columns:repeat(5,1fr)}}
 @media(min-width:1180px){.ats-groups{grid-template-columns:repeat(3,1fr)}}
 @media(max-width:680px){nav{position:sticky;top:0;align-items:flex-start;gap:10px;padding:12px 14px}.nav-links{justify-content:flex-start}.hero{padding-top:42px}section{scroll-margin-top:118px}.nav-shortcuts-label{width:100%;margin-bottom:2px}}
 
@@ -517,7 +527,7 @@ footer{position:relative;z-index:1;padding:50px 20px;border-top:1px solid var(--
  <div class="proof-metric-copy">SOC L1, L2, cloud, IR, threat hunting, automation.</div>
  </div>
  <div class="proof-metric">
- <div class="proof-metric-num">7</div>
+ <div class="proof-metric-num">8</div>
  <div class="proof-metric-label">Detailed logs</div>
  <div class="proof-metric-copy">Published GitHub write-ups with troubleshooting and evidence.</div>
  </div>
@@ -532,7 +542,7 @@ footer{position:relative;z-index:1;padding:50px 20px;border-top:1px solid var(--
  <ul class="audience-list">
  <li>Target roles: SOC Analyst L1/L2, Cybersecurity Analyst, Security Operations.</li>
  <li>Proof areas: SIEM/XDR setup, endpoint telemetry, IDS, queue triage, tickets, escalation, phishing investigation.</li>
- <li>Tools shown: Elastic, Kibana, Fleet, Sysmon, Suricata, Wazuh, VMware, Kali, Windows, Linux.</li>
+ <li>Tools shown: Elastic, Kibana, Fleet, Sysmon, Suricata, Wazuh, Splunk Enterprise, Splunk Universal Forwarder, SPL, VMware, Kali, Windows, Linux.</li>
  </ul>
  </div>
 
@@ -965,35 +975,36 @@ footer{position:relative;z-index:1;padding:50px 20px;border-top:1px solid var(--
  <div class="phase-hdr-title">Splunk Fundamentals for SOC</div>
  <div class="phase-hdr-meta">SPL / dashboards / failed auth / process execution</div>
  <div class="phase-tags"><span class="ptag g">Splunk</span><span class="ptag g">SPL</span><span class="ptag g">Dashboards</span><span class="ptag g">SIEM Searching</span></div>
+ <a href="https://github.com/mmajeed7864/soclab/blob/main/DAY-08-LAB-LOG.md" target="_blank" rel="noopener" class="phase-proof-link orange" onclick="event.stopPropagation()">View Day 8 GitHub Log</a>
  </div>
  <div class="phase-caret">▶</div>
  </div>
  <div class="phase-body">
- <div class="phase-intro">Elastic is enough for the early lab, but Splunk and SPL show up constantly in SOC postings. Treat this as a focused familiarity block after you have real Elastic triage reps.</div>
+ <div class="phase-intro">Completed a dedicated Splunk SOC workflow: deployed Splunk Enterprise on a separate Ubuntu Server VM, configured a Windows Universal Forwarder pipeline, ingested Windows Security and Sysmon telemetry, completed 10 SPL investigations, built three SOC dashboards, and documented the differences between Splunk/SPL and Elastic/KQL analyst workflows.</div>
  <div class="steps-list">
  <div class="step-item">
  <div class="step-n sn-green">1</div>
  <div class="step-content">
  <div class="step-title">Stand up Splunk practice</div>
- <div class="step-desc">Install Splunk Free or use a safe lab dataset, then ingest Windows, Sysmon, or sample SOC logs for search practice.</div>
+ <div class="step-desc">Deployed Splunk Enterprise 10.4.0 on a dedicated Ubuntu Server VM and enabled the receiver on TCP 9997.</div>
  </div>
  </div>
  <div class="step-item">
  <div class="step-n sn-green">2</div>
  <div class="step-content">
  <div class="step-title">Practice core SPL searches</div>
- <div class="step-desc">Use SPL to find failed logins, rare processes, encoded PowerShell, new services, DNS activity, and top network talkers.</div>
+ <div class="step-desc">Used SPL across Windows Security and Sysmon Operational telemetry to investigate failed logons, successful logons, PowerShell, process creation, DNS activity, and privileged account activity.</div>
  </div>
  </div>
  <div class="step-item">
  <div class="step-n sn-green">3</div>
  <div class="step-content">
  <div class="step-title">Compare SIEM workflows</div>
- <div class="step-desc">Rebuild three Kibana dashboard ideas in Splunk and write a Splunk vs Elastic comparison focused on SOC analyst workflow.</div>
+ <div class="step-desc">Built three Splunk SOC dashboards and documented how Splunk/SPL differs from Elastic/KQL during analyst investigations.</div>
  </div>
  </div>
  </div>
- <div class="goal-box"><strong>PHASE GOAL</strong>Splunk installed or practiced, 10 SPL searches written, 3 dashboards built, and comparison published.</div>
+ <div class="goal-box"><strong>PHASE COMPLETE</strong>Dedicated Splunk Enterprise server, Universal Forwarder pipeline, Windows Security and Sysmon ingestion, 10 SPL searches, 3 dashboards, and Splunk vs Elastic comparison published to GitHub.</div>
  </div>
  </div>
 
@@ -1851,7 +1862,7 @@ footer{position:relative;z-index:1;padding:50px 20px;border-top:1px solid var(--
  <div class="metric-label">phases mapped to analyst job duties</div>
  </div>
  <div class="snapshot-metric">
- <div class="metric-num">40+</div>
+ <div class="metric-num">45+</div>
  <div class="metric-label">security tools, platforms, and frameworks</div>
  </div>
  <div class="snapshot-metric">
@@ -1859,321 +1870,82 @@ footer{position:relative;z-index:1;padding:50px 20px;border-top:1px solid var(--
  <div class="metric-label">skill tracks from lab build to portfolio</div>
  </div>
  <div class="snapshot-metric">
- <div class="metric-num">7</div>
+ <div class="metric-num">8</div>
  <div class="metric-label">completed lab build logs documented</div>
  </div>
+ </div>
+ </div>
+
+ <div class="skills-focus-grid reveal">
+ <div class="skill-proof-card">
+ <div class="skill-proof-title">SIEM investigation proof</div>
+ <div class="skill-proof-copy">Built and used Elastic, Wazuh, and Splunk workflows to search endpoint telemetry, build dashboards, compare SIEM behavior, and document analyst findings.</div>
+ <div class="skill-proof-stack"><span class="skill-tag">Elastic SIEM</span><span class="skill-tag">Wazuh XDR</span><span class="skill-tag">Splunk Enterprise</span><span class="skill-tag g">SPL</span><span class="skill-tag g">KQL</span><span class="skill-tag g">Dashboards</span></div>
+ </div>
+ <div class="skill-proof-card">
+ <div class="skill-proof-title">SOC workflow proof</div>
+ <div class="skill-proof-copy">Practiced queue triage, false-positive decisions, tickets, escalation summaries, shift handoffs, phishing verdicts, and incident-style reporting.</div>
+ <div class="skill-proof-stack"><span class="skill-tag g">Alert Triage</span><span class="skill-tag g">Ticket Writing</span><span class="skill-tag g">Escalation</span><span class="skill-tag g">Shift Handoff</span><span class="skill-tag g">Phishing Triage</span><span class="skill-tag g">Incident Reports</span></div>
+ </div>
+ <div class="skill-proof-card">
+ <div class="skill-proof-title">Endpoint and network proof</div>
+ <div class="skill-proof-copy">Collected and reviewed Windows Security, Sysmon, DNS, Linux, IDS, and network evidence across a controlled virtual lab.</div>
+ <div class="skill-proof-stack"><span class="skill-tag p">Sysmon</span><span class="skill-tag p">Windows Event Logs</span><span class="skill-tag p">Universal Forwarder</span><span class="skill-tag o">Suricata IDS</span><span class="skill-tag o">Wireshark</span><span class="skill-tag o">pfSense</span></div>
+ </div>
+ <div class="skill-proof-card">
+ <div class="skill-proof-title">Portfolio proof</div>
+ <div class="skill-proof-copy">Converted lab work into public GitHub logs with troubleshooting, screenshots-ready notes, SOC case summaries, and lessons learned.</div>
+ <div class="skill-proof-stack"><span class="skill-tag y">GitHub</span><span class="skill-tag y">GitHub Pages</span><span class="skill-tag y">Technical Writing</span><span class="skill-tag y">Documentation</span><span class="skill-tag y">Analyst Writeups</span></div>
  </div>
  </div>
 
  <div class="ats-strip reveal">
  <div class="ats-head">
  <div>
- <div class="ats-label">ATS Keywords</div>
- <div class="ats-title">Tools, Platforms, and Technical Skills Learned</div>
+ <div class="ats-label">Recruiter Keyword Bank</div>
+ <div class="ats-title">Clean Scan of Tools, Platforms, and Technical Skills</div>
  </div>
- <p class="ats-note">Recruiter scan board: all major tools and job keywords gained from the roadmap, grouped by SOC function so the skill set is easier to read fast.</p>
+ <p class="ats-note">Grouped for quick hiring-manager review. The detailed evidence lives in the roadmap cards and GitHub logs.</p>
  </div>
  <div class="ats-groups">
  <div class="ats-group siem">
  <div class="ats-group-title">SIEM + Detection</div>
  <div class="ats-keywords">
- <span class="skill-tag">SIEM</span><span class="skill-tag">Elastic SIEM</span><span class="skill-tag">Kibana</span><span class="skill-tag">Elastic Agent</span><span class="skill-tag">Fleet</span><span class="skill-tag">Wazuh XDR</span><span class="skill-tag">Splunk</span><span class="skill-tag">Microsoft Sentinel</span><span class="skill-tag g">SPL</span><span class="skill-tag g">KQL</span><span class="skill-tag g">Sigma</span><span class="skill-tag g">Detection Rules</span><span class="skill-tag g">Alert Tuning</span>
+ <span class="skill-tag">SIEM</span><span class="skill-tag">Elastic SIEM</span><span class="skill-tag">Kibana</span><span class="skill-tag">Wazuh XDR</span><span class="skill-tag">Splunk Enterprise</span><span class="skill-tag">Splunk Universal Forwarder</span><span class="skill-tag">Microsoft Sentinel</span><span class="skill-tag g">SPL</span><span class="skill-tag g">KQL</span><span class="skill-tag g">Sigma</span><span class="skill-tag g">Detection Rules</span><span class="skill-tag g">Alert Tuning</span>
  </div>
  </div>
  <div class="ats-group ops">
  <div class="ats-group-title">SOC Operations</div>
  <div class="ats-keywords">
- <span class="skill-tag g">SOC Triage</span><span class="skill-tag g">High-Volume Alert Queue</span><span class="skill-tag g">50+ Ticket Sessions</span><span class="skill-tag g">False Positive Tuning</span><span class="skill-tag g">Ticket Writing</span><span class="skill-tag g">Phishing Triage</span><span class="skill-tag g">Escalation Notes</span><span class="skill-tag g">Shift Handoff</span><span class="skill-tag g">Incident Response</span><span class="skill-tag g">Playbooks</span><span class="skill-tag g">Case Notes</span><span class="skill-tag g">PICERL</span>
- </div>
- </div>
- <div class="ats-group email">
- <div class="ats-group-title">Email Security + Phishing</div>
- <div class="ats-keywords">
- <span class="skill-tag">Phishing Investigation</span><span class="skill-tag">Email Headers</span><span class="skill-tag">SPF</span><span class="skill-tag">DKIM</span><span class="skill-tag">DMARC</span><span class="skill-tag">Reply-To Analysis</span><span class="skill-tag">Return-Path Review</span><span class="skill-tag p">Credential Harvesting</span><span class="skill-tag p">BEC</span><span class="skill-tag p">Attachment Triage</span><span class="skill-tag p">URL Analysis</span><span class="skill-tag p">IOC Extraction</span><span class="skill-tag p">Phishing Incident Reports</span>
+ <span class="skill-tag g">SOC Triage</span><span class="skill-tag g">High-Volume Alert Queue</span><span class="skill-tag g">50+ Ticket Sessions</span><span class="skill-tag g">False Positive Review</span><span class="skill-tag g">Ticket Writing</span><span class="skill-tag g">Escalation Notes</span><span class="skill-tag g">Shift Handoff</span><span class="skill-tag g">Incident Response</span><span class="skill-tag g">Playbooks</span><span class="skill-tag g">Case Notes</span>
  </div>
  </div>
  <div class="ats-group endpoint">
- <div class="ats-group-title">Endpoint + Windows</div>
+ <div class="ats-group-title">Endpoint + Network</div>
  <div class="ats-keywords">
- <span class="skill-tag p">Sysmon</span><span class="skill-tag p">Windows Event Logs</span><span class="skill-tag p">Windows Security Logs</span><span class="skill-tag p">PowerShell</span><span class="skill-tag p">Microsoft Defender</span><span class="skill-tag p">Wazuh Agent</span><span class="skill-tag p">FIM</span><span class="skill-tag p">SCA</span><span class="skill-tag p">Process Creation</span><span class="skill-tag p">Parent Process Analysis</span><span class="skill-tag p">Event ID 4624</span><span class="skill-tag p">Event ID 4625</span>
+ <span class="skill-tag p">Sysmon</span><span class="skill-tag p">Windows Security Logs</span><span class="skill-tag p">Process Creation</span><span class="skill-tag p">PowerShell</span><span class="skill-tag p">Parent Process Analysis</span><span class="skill-tag p">Event ID 4624</span><span class="skill-tag p">Event ID 4625</span><span class="skill-tag o">Suricata IDS</span><span class="skill-tag o">Wireshark</span><span class="skill-tag o">Nmap</span><span class="skill-tag o">DNS Analysis</span><span class="skill-tag o">PCAP Analysis</span>
  </div>
  </div>
- <div class="ats-group network">
- <div class="ats-group-title">Network + IDS</div>
+ <div class="ats-group email">
+ <div class="ats-group-title">Phishing + Threat Intel</div>
  <div class="ats-keywords">
- <span class="skill-tag o">Suricata IDS</span><span class="skill-tag o">Wireshark</span><span class="skill-tag o">tcpdump</span><span class="skill-tag o">pfSense</span><span class="skill-tag o">Nmap</span><span class="skill-tag o">PCAP Analysis</span><span class="skill-tag o">DNS Analysis</span><span class="skill-tag o">HTTP/TLS Metadata</span><span class="skill-tag o">NAT</span><span class="skill-tag o">Host-Only Networking</span>
+ <span class="skill-tag">Phishing Investigation</span><span class="skill-tag">Email Headers</span><span class="skill-tag">SPF</span><span class="skill-tag">DKIM</span><span class="skill-tag">DMARC</span><span class="skill-tag p">Credential Harvesting</span><span class="skill-tag p">BEC</span><span class="skill-tag p">URL Analysis</span><span class="skill-tag p">IOC Extraction</span><span class="skill-tag p">VirusTotal</span><span class="skill-tag p">AbuseIPDB</span><span class="skill-tag p">URLScan.io</span><span class="skill-tag p">MXToolbox</span>
  </div>
  </div>
  <div class="ats-group identity">
- <div class="ats-group-title">Identity + AD</div>
+ <div class="ats-group-title">Identity + Cloud</div>
  <div class="ats-keywords">
- <span class="skill-tag">Active Directory</span><span class="skill-tag">Windows Server</span><span class="skill-tag">Group Policy</span><span class="skill-tag">Entra ID</span><span class="skill-tag">IAM</span><span class="skill-tag">Least Privilege</span><span class="skill-tag">BloodHound</span><span class="skill-tag g">Kerberoasting Detection</span><span class="skill-tag g">Password Spraying</span><span class="skill-tag g">Admin Group Enumeration</span>
- </div>
- </div>
- <div class="ats-group cloud">
- <div class="ats-group-title">Cloud + Microsoft</div>
- <div class="ats-keywords">
- <span class="skill-tag g">AWS CloudTrail</span><span class="skill-tag g">AWS IAM</span><span class="skill-tag g">GuardDuty</span><span class="skill-tag g">Security Hub</span><span class="skill-tag g">CloudWatch</span><span class="skill-tag g">Azure</span><span class="skill-tag g">Microsoft 365</span><span class="skill-tag g">Defender</span><span class="skill-tag g">Sentinel</span><span class="skill-tag g">Cloud Log Analysis</span>
- </div>
- </div>
- <div class="ats-group threat">
- <div class="ats-group-title">Threat Intel + Enrichment</div>
- <div class="ats-keywords">
- <span class="skill-tag p">VirusTotal</span><span class="skill-tag p">AbuseIPDB</span><span class="skill-tag p">URLScan.io</span><span class="skill-tag p">Any.run</span><span class="skill-tag p">Hybrid Analysis</span><span class="skill-tag p">MalwareBazaar</span><span class="skill-tag p">Shodan</span><span class="skill-tag p">CyberChef</span><span class="skill-tag p">MXToolbox</span><span class="skill-tag p">OTX</span><span class="skill-tag p">IOC Enrichment</span><span class="skill-tag p">ATT&CK Navigator</span>
+ <span class="skill-tag">Active Directory</span><span class="skill-tag">Windows Server</span><span class="skill-tag">Group Policy</span><span class="skill-tag">Entra ID</span><span class="skill-tag">IAM</span><span class="skill-tag g">Least Privilege</span><span class="skill-tag g">Kerberoasting Detection</span><span class="skill-tag g">Password Spraying</span><span class="skill-tag g">AWS CloudTrail</span><span class="skill-tag g">GuardDuty</span><span class="skill-tag g">Security Hub</span><span class="skill-tag g">CloudWatch</span>
  </div>
  </div>
  <div class="ats-group lab">
- <div class="ats-group-title">Lab + Portfolio Platforms</div>
+ <div class="ats-group-title">Lab + Reporting</div>
  <div class="ats-keywords">
- <span class="skill-tag y">VMware Workstation</span><span class="skill-tag y">VirtualBox</span><span class="skill-tag y">UTM</span><span class="skill-tag y">Ubuntu Server</span><span class="skill-tag y">Windows 10/11</span><span class="skill-tag y">Kali Linux</span><span class="skill-tag y">GitHub</span><span class="skill-tag y">GitHub Pages</span><span class="skill-tag y">LetsDefend</span><span class="skill-tag y">CyberDefenders</span><span class="skill-tag y">BTLO</span><span class="skill-tag y">TryHackMe</span>
- </div>
- </div>
- <div class="ats-group offense">
- <div class="ats-group-title">Attack Simulation + DFIR</div>
- <div class="ats-keywords">
- <span class="skill-tag r">Scripted Attack Loop</span><span class="skill-tag r">Kali VM</span><span class="skill-tag r">Metasploit</span><span class="skill-tag r">Impacket</span><span class="skill-tag r">CrackMapExec</span><span class="skill-tag r">Mimikatz</span><span class="skill-tag p">Volatility</span><span class="skill-tag p">Autopsy</span><span class="skill-tag p">FTK Imager</span><span class="skill-tag p">PEStudio</span><span class="skill-tag p">YARA</span>
- </div>
- </div>
- <div class="ats-group risk">
- <div class="ats-group-title">Risk + GRC</div>
- <div class="ats-keywords">
- <span class="skill-tag g">Vulnerability Management</span><span class="skill-tag g">Patch Prioritization</span><span class="skill-tag g">CIS Controls v8</span><span class="skill-tag g">NIST CSF</span><span class="skill-tag g">Risk Register</span><span class="skill-tag g">Audit Evidence</span><span class="skill-tag g">Access Reviews</span><span class="skill-tag g">SCA Findings</span>
- </div>
- </div>
- <div class="ats-group automation">
- <div class="ats-group-title">Automation + Reporting</div>
- <div class="ats-keywords">
- <span class="skill-tag">Python</span><span class="skill-tag">PowerShell</span><span class="skill-tag">API Lookups</span><span class="skill-tag">Shuffle SOAR</span><span class="skill-tag">VS Code</span><span class="skill-tag">Dashboards</span><span class="skill-tag">Technical Writing</span><span class="skill-tag">Documentation</span><span class="skill-tag">Analyst Writeups</span>
+ <span class="skill-tag y">VMware Workstation</span><span class="skill-tag y">VirtualBox</span><span class="skill-tag y">Ubuntu Server</span><span class="skill-tag y">Windows 10/11</span><span class="skill-tag y">Kali Linux</span><span class="skill-tag y">pfSense</span><span class="skill-tag y">Python</span><span class="skill-tag y">PowerShell</span><span class="skill-tag y">GitHub</span><span class="skill-tag y">GitHub Pages</span><span class="skill-tag y">Technical Writing</span><span class="skill-tag y">Dashboards</span>
  </div>
  </div>
  </div>
  </div>
-
- <div class="skills-matrix reveal">
- <div class="skill-row">
- <div class="skill-row-title">SIEM + Detection</div>
- <div>
- <div class="skill-row-proof">Search logs, build dashboards, compare platforms, write detections, tune noisy alerts, and map findings to MITRE ATT&CK.</div>
- <div class="skill-tags">
- <span class="skill-tag">Elastic SIEM</span>
- <span class="skill-tag">Kibana</span>
- <span class="skill-tag">Splunk</span>
- <span class="skill-tag">Microsoft Sentinel</span>
- <span class="skill-tag">Wazuh XDR</span>
- <span class="skill-tag g">Sigma</span>
- <span class="skill-tag g">SPL</span>
- <span class="skill-tag g">KQL</span>
- <span class="skill-tag g">Detection Rules</span>
- <span class="skill-tag g">Alert Tuning</span>
- </div>
- </div>
- </div>
-
- <div class="skill-row">
- <div class="skill-row-title">Endpoint + Host Telemetry</div>
- <div>
- <div class="skill-row-proof">Collect Windows activity, investigate endpoint behavior, review file integrity and configuration alerts, and document host-level findings.</div>
- <div class="skill-tags">
- <span class="skill-tag">Sysmon</span>
- <span class="skill-tag">Windows Event Logs</span>
- <span class="skill-tag">Elastic Agent</span>
- <span class="skill-tag">Fleet</span>
- <span class="skill-tag">Wazuh Agent</span>
- <span class="skill-tag">Microsoft Defender</span>
- <span class="skill-tag g">FIM</span>
- <span class="skill-tag g">SCA</span>
- </div>
- </div>
- </div>
-
- <div class="skill-row">
- <div class="skill-row-title">Network Security</div>
- <div>
- <div class="skill-row-proof">Analyze packets, firewall logs, IDS alerts, scans, DNS, HTTP, and TLS metadata to understand suspicious network behavior.</div>
- <div class="skill-tags">
- <span class="skill-tag">Suricata IDS</span>
- <span class="skill-tag">Wireshark</span>
- <span class="skill-tag">tcpdump</span>
- <span class="skill-tag">pfSense Firewall</span>
- <span class="skill-tag">Nmap</span>
- <span class="skill-tag g">PCAP Analysis</span>
- <span class="skill-tag g">DNS</span>
- <span class="skill-tag g">HTTP/TLS Metadata</span>
- </div>
- </div>
- </div>
-
- <div class="skill-row">
- <div class="skill-row-title">Identity + Access</div>
- <div>
- <div class="skill-row-proof">Build and defend Active Directory, investigate authentication patterns, and understand common identity attack paths.</div>
- <div class="skill-tags">
- <span class="skill-tag">Active Directory</span>
- <span class="skill-tag">Windows Server</span>
- <span class="skill-tag">Group Policy</span>
- <span class="skill-tag">Entra ID</span>
- <span class="skill-tag">BloodHound</span>
- <span class="skill-tag g">IAM</span>
- <span class="skill-tag g">Kerberoasting Detection</span>
- <span class="skill-tag g">Password Spraying</span>
- <span class="skill-tag g">Least Privilege</span>
- </div>
- </div>
- </div>
-
- <div class="skill-row">
- <div class="skill-row-title">Cloud + Microsoft Security</div>
- <div>
- <div class="skill-row-proof">Review cloud identity, infrastructure, SaaS, and security service logs across AWS, Azure, and Microsoft 365 workflows.</div>
- <div class="skill-tags">
- <span class="skill-tag">AWS CloudTrail</span>
- <span class="skill-tag">GuardDuty</span>
- <span class="skill-tag">Security Hub</span>
- <span class="skill-tag">CloudWatch</span>
- <span class="skill-tag">Azure</span>
- <span class="skill-tag">Microsoft 365</span>
- <span class="skill-tag g">Cloud Log Analysis</span>
- <span class="skill-tag g">IAM Review</span>
- </div>
- </div>
- </div>
-
- <div class="skill-row">
- <div class="skill-row-title">SOC Operations + IR</div>
- <div>
- <div class="skill-row-proof">Triage high-volume alert queues, separate signal from noise, write tickets, escalate cleanly, document scope, use playbooks, and explain containment decisions.</div>
- <div class="skill-tags">
- <span class="skill-tag g">Alert Triage</span>
- <span class="skill-tag g">50+ Ticket Sessions</span>
- <span class="skill-tag g">Signal vs Noise</span>
- <span class="skill-tag g">False Positive Tuning</span>
- <span class="skill-tag g">Ticket Writing</span>
- <span class="skill-tag g">Escalation</span>
- <span class="skill-tag g">Shift Handoff</span>
- <span class="skill-tag g">PICERL</span>
- <span class="skill-tag g">Playbooks</span>
- <span class="skill-tag g">Case Notes</span>
- <span class="skill-tag g">Incident Reports</span>
- </div>
- </div>
- </div>
-
- <div class="skill-row">
- <div class="skill-row-title">Email Security + Phishing</div>
- <div>
- <div class="skill-row-proof">Investigate suspicious emails, review sender and authentication evidence, extract IOCs, identify phishing type, write verdicts, and recommend containment actions.</div>
- <div class="skill-tags">
- <span class="skill-tag">Phishing Triage</span>
- <span class="skill-tag">Email Headers</span>
- <span class="skill-tag">SPF</span>
- <span class="skill-tag">DKIM</span>
- <span class="skill-tag">DMARC</span>
- <span class="skill-tag">URL Analysis</span>
- <span class="skill-tag">Attachment Review</span>
- <span class="skill-tag g">Credential Harvesting</span>
- <span class="skill-tag g">BEC</span>
- <span class="skill-tag g">IOC Extraction</span>
- <span class="skill-tag g">Incident Report Writing</span>
- </div>
- </div>
- </div>
-
- <div class="skill-row">
- <div class="skill-row-title">Threat Intel + External Analysis</div>
- <div>
- <div class="skill-row-proof">Enrich indicators, validate suspicious infrastructure, analyze sandbox results, and turn raw IOCs into useful findings.</div>
- <div class="skill-tags">
- <span class="skill-tag">VirusTotal</span>
- <span class="skill-tag">AbuseIPDB</span>
- <span class="skill-tag">URLScan.io</span>
- <span class="skill-tag">Any.run</span>
- <span class="skill-tag">Hybrid Analysis</span>
- <span class="skill-tag">MalwareBazaar</span>
- <span class="skill-tag">Shodan</span>
- <span class="skill-tag">CyberChef</span>
- <span class="skill-tag">MXToolbox</span>
- <span class="skill-tag">OTX</span>
- <span class="skill-tag">ATT&CK Navigator</span>
- <span class="skill-tag g">IOC Enrichment</span>
- </div>
- </div>
- </div>
-
- <div class="skill-row">
- <div class="skill-row-title">Vulnerability + Risk</div>
- <div>
- <div class="skill-row-proof">Prioritize exposure, connect technical findings to risk, validate fixes, and organize evidence for security reviews.</div>
- <div class="skill-tags">
- <span class="skill-tag g">Vulnerability Management</span>
- <span class="skill-tag g">Patch Prioritization</span>
- <span class="skill-tag g">CIS Controls</span>
- <span class="skill-tag g">NIST CSF</span>
- <span class="skill-tag g">SCA Findings</span>
- <span class="skill-tag g">Access Reviews</span>
- <span class="skill-tag g">Risk Register</span>
- <span class="skill-tag g">Audit Evidence</span>
- </div>
- </div>
- </div>
-
- <div class="skill-row">
- <div class="skill-row-title">Adversary Simulation + DFIR</div>
- <div>
- <div class="skill-row-proof">Generate realistic lab activity, preserve evidence, inspect artifacts, triage malware, and write forensic summaries.</div>
- <div class="skill-tags">
- <span class="skill-tag o">Kali Linux</span>
- <span class="skill-tag o">Metasploit</span>
- <span class="skill-tag o">Impacket</span>
- <span class="skill-tag o">CrackMapExec</span>
- <span class="skill-tag o">Mimikatz</span>
- <span class="skill-tag p">Volatility</span>
- <span class="skill-tag p">Autopsy</span>
- <span class="skill-tag p">FTK Imager</span>
- <span class="skill-tag p">PEStudio</span>
- <span class="skill-tag p">YARA</span>
- </div>
- </div>
- </div>
-
- <div class="skill-row">
- <div class="skill-row-title">Lab Infrastructure + Practice</div>
- <div>
- <div class="skill-row-proof">Build safe virtual environments, isolate networks, practice SOC cases, and convert outside labs into documented evidence.</div>
- <div class="skill-tags">
- <span class="skill-tag">VMware Workstation</span>
- <span class="skill-tag">VirtualBox</span>
- <span class="skill-tag">UTM</span>
- <span class="skill-tag">Ubuntu Server</span>
- <span class="skill-tag">Windows 10</span>
- <span class="skill-tag">Kali VM</span>
- <span class="skill-tag">Host-Only Networking</span>
- <span class="skill-tag g">LetsDefend</span>
- <span class="skill-tag g">CyberDefenders</span>
- <span class="skill-tag g">TryHackMe</span>
- <span class="skill-tag g">BTLO</span>
- </div>
- </div>
- </div>
-
- <div class="skill-row">
- <div class="skill-row-title">Automation + Portfolio Proof</div>
- <div>
- <div class="skill-row-proof">Automate enrichment, parse logs, build repeatable notes, and publish clear proof through reports, dashboards, and GitHub.</div>
- <div class="skill-tags">
- <span class="skill-tag">Python</span>
- <span class="skill-tag">PowerShell</span>
- <span class="skill-tag">Shuffle SOAR</span>
- <span class="skill-tag">VS Code</span>
- <span class="skill-tag">GitHub</span>
- <span class="skill-tag">GitHub Pages</span>
- <span class="skill-tag g">API Lookups</span>
- <span class="skill-tag g">Technical Writing</span>
- <span class="skill-tag g">Dashboards</span>
- </div>
- </div>
- </div>
- </div>
-
  <div class="proof-strip reveal">
  <div class="proof-item">
  <div class="proof-num">01</div>
@@ -3090,13 +2862,78 @@ Write-Host "Phase 5 loop complete."</pre>
  </div>
 
  <div class="log-section">
- <div class="log-section-title">Up Next - Phase 8</div>
+ <div class="log-section-title">Up Next - Phase 9</div>
  <ul class="log-list">
- <li>Start Splunk fundamentals for SOC: SPL search practice, dashboards, failed authentication analysis, process execution review, and mapping Elastic-style investigation habits to Splunk.</li>
+ <li>Begin detection engineering and alert tuning by converting completed investigation patterns into structured detections, reducing noisy results, documenting thresholds, and mapping rules to analyst decision logic.</li>
  </ul>
  </div>
 
  <a href="https://github.com/mmajeed7864/soclab/blob/main/DAY-07-LAB-LOG.md" target="_blank" class="log-cta">Read full Phase 7 log on GitHub →</a>
+
+ </div>
+ </div>
+ </div>
+
+ <!-- DAY 8 -->
+ <div class="log-card">
+ <div class="log-card-hdr" onclick="toggleLog(this)">
+ <div class="log-day">
+ <div class="log-day-label">Day</div>
+ <div class="log-day-num">08</div>
+ </div>
+ <div class="log-info">
+ <div class="log-date">May 29, 2026</div>
+ <div class="log-title">Phase 8 - Splunk Fundamentals for SOC</div>
+ <div class="log-phases">
+ <span class="log-phase-tag done">✓ Phase 8 Complete</span>
+ <span class="log-phase-tag">Splunk Enterprise</span>
+ <span class="log-phase-tag">SPL Investigations</span>
+ <span class="log-phase-tag">SOC Dashboards</span>
+ </div>
+ </div>
+ <div class="log-caret">▶</div>
+ </div>
+ <div class="log-body">
+ <div class="log-body-inner">
+
+ <div class="log-section">
+ <div class="log-section-title">Phase 8 Overview</div>
+ <ul class="log-list">
+ <li>Created a dedicated Ubuntu Server VM for Splunk Enterprise to protect the working Elastic SIEM deployment.</li>
+ <li>Installed Splunk Enterprise 10.4.0 and configured it to run as a non-root service account.</li>
+ <li>Enabled systemd boot-start and validated Splunk automatically recovered after reboot.</li>
+ <li>Enabled the Splunk receiving port on TCP 9997.</li>
+ </ul>
+ </div>
+
+ <div class="log-section">
+ <div class="log-section-title">Forwarder + Telemetry Pipeline</div>
+ <ul class="log-list">
+ <li>Installed the Splunk Universal Forwarder on the Windows Victim endpoint.</li>
+ <li>Verified active forwarder communication from <code>DESKTOP-3JKM5O9</code> to <code>192.168.56.102:9997</code>.</li>
+ <li>Configured and validated Windows Security and Sysmon Operational ingestion.</li>
+ <li>Troubleshot a working forwarder connection that initially had no searchable Windows event inputs.</li>
+ </ul>
+ </div>
+
+ <div class="log-section">
+ <div class="log-section-title">SPL Investigations + Dashboards</div>
+ <ul class="log-list">
+ <li>Completed 10 SPL investigations covering DNS activity, process creation, PowerShell review, authentication failures, successful logons, and privileged account activity.</li>
+ <li>Built three SOC dashboards: Authentication & Privileged Access, Endpoint Process & PowerShell Triage, and DNS Activity Investigation.</li>
+ <li>Documented a Splunk vs. Elastic SOC workflow comparison.</li>
+ <li>Deferred optional Sysmon Event ID 3 network-connection tuning because it did not block Phase 8 deliverables.</li>
+ </ul>
+ </div>
+
+ <div class="log-section">
+ <div class="log-section-title">Up Next - Phase 9</div>
+ <ul class="log-list">
+ <li>Move into detection engineering and alert tuning by turning completed investigation patterns into structured detections, documenting thresholds, and reducing noisy results.</li>
+ </ul>
+ </div>
+
+ <a href="https://github.com/mmajeed7864/soclab/blob/main/DAY-08-LAB-LOG.md" target="_blank" class="log-cta">Read full Phase 8 log on GitHub →</a>
 
  </div>
  </div>
@@ -3143,7 +2980,7 @@ Write-Host "Phase 5 loop complete."</pre>
  <div class="tl-body">
  <div class="tl-date">May 2026 <span class="now-badge">RIGHT NOW</span></div>
  <div class="tl-title">Working through SOC analyst labs in public</div>
- <div class="tl-desc">Completed Phases 1-7: Elastic, Suricata, Wazuh, Windows/Linux log fundamentals, high-volume SOC triage, SOC ticket/escalation/handoff writing, and phishing/email security investigation. Phase 8 is now focused on Splunk fundamentals and SPL practice.</div>
+ <div class="tl-desc">Completed Phases 1-8: Elastic SIEM, Suricata IDS, Wazuh XDR, Windows/Linux log fundamentals, high-volume SOC triage, SOC ticket/escalation/handoff writing, phishing/email security investigation, and Splunk/SPL dashboard investigations. Phase 9 now moves into detection engineering and alert tuning.</div>
  </div>
  </div>
  <div class="tl-item">
