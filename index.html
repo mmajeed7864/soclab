@@ -394,10 +394,28 @@ section{position:relative;z-index:1;padding:70px 20px;scroll-margin-top:74px}
 .log-coming-soon-text{font-size:12px;color:var(--text);line-height:1.6}
 
 /* TOOLS */
-.tools-wrap{display:flex;flex-wrap:wrap;gap:7px;margin-top:28px}
-.tool-pill{font-family:var(--mono);font-size:10px;padding:5px 11px;border-radius:4px;border:1px solid var(--border);color:var(--muted);background:var(--surface)}
-.tool-pill.free{border-color:rgba(0,255,136,.2);color:var(--accent2);background:rgba(0,255,136,.04)}
-.tool-pill.paid{border-color:rgba(255,107,53,.2);color:var(--accent3);background:rgba(255,107,53,.04)}
+.cyber-stack{margin-top:28px;display:grid;gap:12px}
+.cyber-stack-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:16px 16px 17px;border-left:3px solid var(--accent)}
+.cyber-stack-card:nth-child(2){border-left-color:var(--accent2)}
+.cyber-stack-card:nth-child(3){border-left-color:var(--accent3)}
+.cyber-stack-card:nth-child(4){border-left-color:var(--accent5)}
+.cyber-stack-card:nth-child(5){border-left-color:var(--accent4)}
+.cyber-stack-card:nth-child(6){border-left-color:#60a5fa}
+.cyber-stack-title{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--accent);margin-bottom:8px}
+.cyber-stack-card:nth-child(2) .cyber-stack-title{color:var(--accent2)}
+.cyber-stack-card:nth-child(3) .cyber-stack-title{color:var(--accent3)}
+.cyber-stack-card:nth-child(4) .cyber-stack-title{color:var(--accent5)}
+.cyber-stack-card:nth-child(5) .cyber-stack-title{color:var(--accent4)}
+.cyber-stack-card:nth-child(6) .cyber-stack-title{color:#60a5fa}
+.cyber-stack-copy{font-size:12px;color:#5a7080;line-height:1.6;margin-bottom:10px;max-width:820px}
+.tools-wrap{display:flex;flex-wrap:wrap;gap:7px}
+.tool-pill{font-family:var(--mono);font-size:10px;padding:5px 10px;border-radius:4px;border:1px solid rgba(0,212,255,.18);color:var(--accent);background:rgba(0,212,255,.045)}
+.tool-pill.g{border-color:rgba(0,255,136,.2);color:var(--accent2);background:rgba(0,255,136,.04)}
+.tool-pill.o{border-color:rgba(255,107,53,.2);color:var(--accent3);background:rgba(255,107,53,.04)}
+.tool-pill.p{border-color:rgba(180,100,255,.22);color:#ce93d8;background:rgba(180,100,255,.045)}
+.tool-pill.y{border-color:rgba(251,191,36,.22);color:#fbbf24;background:rgba(251,191,36,.045)}
+.tool-pill.b{border-color:rgba(96,165,250,.22);color:#60a5fa;background:rgba(96,165,250,.045)}
+@media(min-width:980px){.cyber-stack{grid-template-columns:repeat(2,1fr)}.cyber-stack-card.featured{grid-column:1/-1}}
 
 /* CTA */
 .cta-section{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:36px 24px;text-align:center;margin-top:40px;position:relative;overflow:hidden}
@@ -2094,57 +2112,130 @@ footer{position:relative;z-index:1;padding:50px 20px;border-top:1px solid var(--
 <!-- TOOLS SECTION -->
 <section id="tools">
  <div class="eyebrow">05 - Tools</div>
- <h2 class="sec-title reveal">Every Tool You Need</h2>
- <p class="sec-sub reveal">Organized by cost. Most of what you need is free.</p>
+ <h2 class="sec-title reveal">Security Operations Toolkit</h2>
+ <p class="sec-sub reveal">A clean view of the tools, systems, and analyst skills this roadmap builds toward across SOC, cybersecurity analyst, cloud security, and incident response roles.</p>
 
- <div class="reveal" style="margin-top:24px">
- <div style="font-family:var(--mono);font-size:10px;color:var(--accent2);margin-bottom:10px;letter-spacing:.06em">FREE TOOLS</div>
+ <div class="cyber-stack reveal">
+ <div class="cyber-stack-card featured">
+ <div class="cyber-stack-title">Core Security Operations</div>
+ <p class="cyber-stack-copy">The baseline language recruiters and hiring managers expect to see for SOC Analyst and Cybersecurity Analyst roles.</p>
  <div class="tools-wrap">
- <span class="tool-pill free">Elastic SIEM</span>
- <span class="tool-pill free">Kibana</span>
- <span class="tool-pill free">Sysmon</span>
- <span class="tool-pill free">Suricata IDS</span>
- <span class="tool-pill free">VMware Workstation</span>
- <span class="tool-pill free">VirtualBox</span>
- <span class="tool-pill free">UTM (Mac)</span>
- <span class="tool-pill free">Kali Linux</span>
- <span class="tool-pill free">Wireshark</span>
- <span class="tool-pill free">Metasploit</span>
- <span class="tool-pill free">Impacket</span>
- <span class="tool-pill free">BloodHound</span>
- <span class="tool-pill free">mimikatz</span>
- <span class="tool-pill free">CrackMapExec</span>
- <span class="tool-pill free">VirusTotal</span>
- <span class="tool-pill free">AbuseIPDB</span>
- <span class="tool-pill free">URLScan.io</span>
- <span class="tool-pill free">Any.run</span>
- <span class="tool-pill free">MalwareBazaar</span>
- <span class="tool-pill free">Hybrid-Analysis</span>
- <span class="tool-pill free">MXToolbox</span>
- <span class="tool-pill free">CyberChef</span>
- <span class="tool-pill free">Shodan (free tier)</span>
- <span class="tool-pill free">ATT&CK Navigator</span>
- <span class="tool-pill free">GitHub</span>
- <span class="tool-pill free">TryHackMe (free tier)</span>
- <span class="tool-pill free">LetsDefend (free tier)</span>
- <span class="tool-pill free">CyberDefenders (free)</span>
- <span class="tool-pill free">Shuffle SOAR</span>
- <span class="tool-pill free">AWS Free Tier</span>
- <span class="tool-pill free">Azure Free Tier</span>
- <span class="tool-pill free">PEStudio</span>
- <span class="tool-pill free">Python</span>
- <span class="tool-pill free">VS Code</span>
- <span class="tool-pill free">Sigma</span>
+ <span class="tool-pill">SIEM</span>
+ <span class="tool-pill">SOC Triage</span>
+ <span class="tool-pill">Alert Queue</span>
+ <span class="tool-pill">Incident Response</span>
+ <span class="tool-pill">Ticket Writing</span>
+ <span class="tool-pill">Escalation</span>
+ <span class="tool-pill">Shift Handoff</span>
+ <span class="tool-pill">False Positive Review</span>
+ <span class="tool-pill">Detection Engineering</span>
+ <span class="tool-pill">Threat Hunting</span>
+ <span class="tool-pill">MITRE ATT&CK</span>
+ <span class="tool-pill">SOC Dashboards</span>
  </div>
  </div>
 
- <div class="reveal" style="margin-top:20px">
- <div style="font-family:var(--mono);font-size:10px;color:var(--accent3);margin-bottom:10px;letter-spacing:.06em">LOW COST ($10-50/mo or one-time)</div>
+ <div class="cyber-stack-card">
+ <div class="cyber-stack-title">SIEM + Log Platforms</div>
+ <p class="cyber-stack-copy">Platforms and search languages used to investigate endpoint, authentication, network, and application telemetry.</p>
  <div class="tools-wrap">
- <span class="tool-pill paid">Splunk (free 500MB/day)</span>
- <span class="tool-pill paid">LetsDefend Pro (~$30/mo)</span>
- <span class="tool-pill paid">TryHackMe Premium (~$14/mo)</span>
- <span class="tool-pill paid">Shodan (membership $69 one-time)</span>
+ <span class="tool-pill">Elastic SIEM</span>
+ <span class="tool-pill">Kibana</span>
+ <span class="tool-pill">Splunk Enterprise</span>
+ <span class="tool-pill">Splunk Universal Forwarder</span>
+ <span class="tool-pill">Wazuh XDR</span>
+ <span class="tool-pill">Microsoft Sentinel</span>
+ <span class="tool-pill g">SPL</span>
+ <span class="tool-pill g">KQL</span>
+ <span class="tool-pill g">Sigma</span>
+ <span class="tool-pill g">Dashboards</span>
+ </div>
+ </div>
+
+ <div class="cyber-stack-card">
+ <div class="cyber-stack-title">Endpoint + Windows Telemetry</div>
+ <p class="cyber-stack-copy">Host evidence used for process, PowerShell, authentication, persistence, and user activity investigations.</p>
+ <div class="tools-wrap">
+ <span class="tool-pill p">Sysmon</span>
+ <span class="tool-pill p">Windows Security Logs</span>
+ <span class="tool-pill p">Windows Event Logs</span>
+ <span class="tool-pill p">PowerShell</span>
+ <span class="tool-pill p">Process Creation</span>
+ <span class="tool-pill p">Parent Process Analysis</span>
+ <span class="tool-pill p">Event ID 4624</span>
+ <span class="tool-pill p">Event ID 4625</span>
+ <span class="tool-pill p">Microsoft Defender</span>
+ <span class="tool-pill p">FIM</span>
+ </div>
+ </div>
+
+ <div class="cyber-stack-card">
+ <div class="cyber-stack-title">Network + IDS</div>
+ <p class="cyber-stack-copy">Network visibility and packet-level analysis for DNS, HTTP/TLS, scanning, IDS alerts, and suspicious traffic review.</p>
+ <div class="tools-wrap">
+ <span class="tool-pill o">IDS</span>
+ <span class="tool-pill o">Suricata IDS</span>
+ <span class="tool-pill o">Wireshark</span>
+ <span class="tool-pill o">tcpdump</span>
+ <span class="tool-pill o">Nmap</span>
+ <span class="tool-pill o">pfSense</span>
+ <span class="tool-pill o">PCAP Analysis</span>
+ <span class="tool-pill o">DNS Analysis</span>
+ <span class="tool-pill o">HTTP/TLS Metadata</span>
+ <span class="tool-pill o">Firewall Logs</span>
+ </div>
+ </div>
+
+ <div class="cyber-stack-card">
+ <div class="cyber-stack-title">Identity + Cloud Security</div>
+ <p class="cyber-stack-copy">Identity, access, and cloud telemetry needed for modern SOC and cybersecurity analyst workflows.</p>
+ <div class="tools-wrap">
+ <span class="tool-pill g">Active Directory</span>
+ <span class="tool-pill g">Windows Server</span>
+ <span class="tool-pill g">Group Policy</span>
+ <span class="tool-pill g">Entra ID</span>
+ <span class="tool-pill g">IAM</span>
+ <span class="tool-pill g">Least Privilege</span>
+ <span class="tool-pill g">AWS CloudTrail</span>
+ <span class="tool-pill g">GuardDuty</span>
+ <span class="tool-pill g">Security Hub</span>
+ <span class="tool-pill g">CloudWatch</span>
+ </div>
+ </div>
+
+ <div class="cyber-stack-card">
+ <div class="cyber-stack-title">Phishing + Threat Intel</div>
+ <p class="cyber-stack-copy">Email investigation and enrichment skills used to classify suspicious messages, extract IOCs, and recommend response actions.</p>
+ <div class="tools-wrap">
+ <span class="tool-pill y">Phishing Analysis</span>
+ <span class="tool-pill y">Email Headers</span>
+ <span class="tool-pill y">SPF</span>
+ <span class="tool-pill y">DKIM</span>
+ <span class="tool-pill y">DMARC</span>
+ <span class="tool-pill y">IOC Extraction</span>
+ <span class="tool-pill y">VirusTotal</span>
+ <span class="tool-pill y">AbuseIPDB</span>
+ <span class="tool-pill y">URLScan.io</span>
+ <span class="tool-pill y">MXToolbox</span>
+ <span class="tool-pill y">CyberChef</span>
+ </div>
+ </div>
+
+ <div class="cyber-stack-card">
+ <div class="cyber-stack-title">Lab + Automation</div>
+ <p class="cyber-stack-copy">Hands-on lab systems and scripting skills used to build, test, document, and repeat analyst workflows.</p>
+ <div class="tools-wrap">
+ <span class="tool-pill b">VMware Workstation</span>
+ <span class="tool-pill b">VirtualBox</span>
+ <span class="tool-pill b">Ubuntu Server</span>
+ <span class="tool-pill b">Kali Linux</span>
+ <span class="tool-pill b">Windows 10/11</span>
+ <span class="tool-pill b">Python</span>
+ <span class="tool-pill b">PowerShell</span>
+ <span class="tool-pill b">GitHub</span>
+ <span class="tool-pill b">Technical Writing</span>
+ <span class="tool-pill b">Documentation</span>
+ </div>
  </div>
  </div>
 </section>
