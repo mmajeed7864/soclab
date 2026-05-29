@@ -26,9 +26,15 @@ The roadmap now includes a production-style SOC practice layer:
 - L2-ready escalation notes
 - Phishing investigation, IOC extraction, and email security ticket writing
 - Final phishing incident report with verdicts and recommended response actions
+- Dedicated Splunk Enterprise server deployment
+- Splunk Universal Forwarder endpoint telemetry pipeline
+- Windows Security and Sysmon telemetry searchable in Splunk
+- 10 SPL investigations across authentication, DNS, PowerShell, and process activity
+- Three Splunk SOC dashboards for authentication, endpoint, and DNS review
+- Splunk/SPL vs Elastic/KQL workflow comparison
 - Case notes and lessons learned added to build logs
 
-This is designed to practice the real SOC motion: sort signal from noise, decide what deserves more time, close benign activity, tune recurring noise, write clean tickets, investigate suspicious emails, extract IOCs, and escalate cleanly.
+This is designed to practice the real SOC motion: sort signal from noise, decide what deserves more time, close benign activity, tune recurring noise, write clean tickets, investigate suspicious emails, extract IOCs, search telemetry in multiple SIEMs, build dashboards, and escalate cleanly.
 
 ## Credentials
 
@@ -121,7 +127,7 @@ The full interactive roadmap is on the live site. The order is built around SOC 
 
 SIEM and detection:
 
-- Elastic SIEM, Kibana, Wazuh XDR, Suricata IDS, Sysmon, Fleet, Elastic Agent, Splunk, Microsoft Sentinel
+- Elastic SIEM, Kibana, Wazuh XDR, Suricata IDS, Sysmon, Fleet, Elastic Agent, Splunk Enterprise, Splunk Universal Forwarder, Microsoft Sentinel
 - KQL, SPL, detection rules, alert tuning, MITRE ATT&CK mapping
 
 SOC operations:
@@ -181,6 +187,7 @@ I post lab work as I complete it:
 - [DAY-05-LAB-LOG.md](./DAY-05-LAB-LOG.md) - Scripted alert loop, high-volume SOC triage, false-positive decisions, escalation notes, and shift handoff
 - [DAY-06-LAB-LOG.md](./DAY-06-LAB-LOG.md) - SOC ticket writing, severity reasoning, escalation summaries, and shift handoff notes
 - [DAY-07-LAB-LOG.md](./DAY-07-LAB-LOG.md) - Phishing investigation, IOC extraction, email security triage, phishing tickets, and final incident report
+- [DAY-08-LAB-LOG.md](./DAY-08-LAB-LOG.md) - Splunk Enterprise deployment, Universal Forwarder pipeline, Windows/Sysmon telemetry, SPL investigations, dashboards, and Splunk vs Elastic workflow comparison
 
 More logs are added with each lab session.
 
@@ -194,6 +201,7 @@ If you're hiring for SOC Analyst L1/L2, Cybersecurity Analyst, Security Operatio
 - SOC-style documentation, ticket notes, incident summaries, and build logs
 - Written SOC tickets, severity justification, escalation summaries, and shift handoff examples
 - Phishing investigation workflow, extracted IOCs, user-impact questions, and response recommendations
+- Splunk Enterprise, Universal Forwarder, SPL investigations, and SOC dashboard evidence
 - Self-directed learning and consistent execution over time
 
 LinkedIn: [linkedin.com/in/mohammed-majeed-40a661271](https://www.linkedin.com/in/mohammed-majeed-40a661271)  
@@ -212,7 +220,8 @@ If you're starting from zero:
 4. Use Phase 5 to practice realistic SOC triage repetition, not just tool setup
 5. Use Phase 6 to turn triage evidence into tickets, escalation summaries, and shift handoff notes
 6. Use Phase 7 to practice phishing investigation, IOC extraction, and email security reports
-7. Keep adding detections, reports, and lessons learned
+7. Use Phase 8 to practice Splunk/SPL investigations and dashboards without disrupting the Elastic lab
+8. Keep adding detections, reports, and lessons learned
 
 Feel free to fork the repo, copy the structure, and build your own version.
 
