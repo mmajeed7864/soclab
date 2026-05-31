@@ -137,6 +137,7 @@ The core SOC analyst tracks end with a capstone checkpoint (outside the numbered
 - Capstone 01 - SOC L1 Core Workflow Readiness (after Phase 9, covers Tracks 1-2) - upcoming
 - Capstone 02 - Endpoint and Identity Investigation (after Phase 13)
 - Capstone 03 - Cybersecurity Analyst Operations (after Phase 17)
+- Capstone 04 - Deep Investigation Capstone (after Phase 22, before Track 6)
 
 ## Technical Skills
 
