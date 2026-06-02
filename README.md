@@ -86,6 +86,8 @@ The core SOC analyst tracks also end with a realistic, graded, retakeable capsto
 2. Deploy Elastic SIEM + Suricata IDS
 3. Wazuh XDR - Second Detection Platform
 
+Status: complete and validated through Capstone 01.
+
 ### Track 2 - SOC L1 Core Workflow
 
 4. Windows, Linux, and Network Log Fundamentals
@@ -94,6 +96,8 @@ The core SOC analyst tracks also end with a realistic, graded, retakeable capsto
 7. Phishing and Email Security Investigation
 8. Splunk Fundamentals for SOC
 9. Detection Engineering and Rule Tuning
+
+Status: complete and capstone passed. Capstone 01 was passed on Attempt 2 with a 91% final score and 90% SOC readiness rating.
 
 ### Track 3 - Endpoint and Identity Investigation
 
@@ -134,7 +138,7 @@ The core SOC analyst tracks also end with a realistic, graded, retakeable capsto
 
 The core SOC analyst tracks end with a capstone checkpoint (outside the numbered 26 phases) that must be completed before moving on:
 
-- Capstone 01 - SOC L1 Core Workflow Readiness (after Phase 9, covers Tracks 1-2) - upcoming
+- Capstone 01 - SOC L1 Core Workflow Readiness (after Phase 9, covers Tracks 1-2) - passed on Attempt 2, 91% final score, 90% SOC readiness
 - Capstone 02 - Endpoint and Identity Investigation (after Phase 13)
 - Capstone 03 - Cybersecurity Analyst Operations (after Phase 17)
 - Capstone 04 - Deep Investigation Capstone (after Phase 22, before Track 6)
@@ -205,6 +209,7 @@ I post lab work as I complete it:
 - [DAY-07-LAB-LOG.md](./DAY-07-LAB-LOG.md) - Phishing investigation, IOC extraction, email security triage, phishing tickets, and final incident report
 - [DAY-08-LAB-LOG.md](./DAY-08-LAB-LOG.md) - Splunk Enterprise deployment, Universal Forwarder pipeline, Windows/Sysmon telemetry, SPL investigations, dashboards, and Splunk vs Elastic workflow comparison
 - [DAY-09-LAB-LOG.md](./DAY-09-LAB-LOG.md) - Detection engineering in Splunk: six enabled alerts, three Sigma-style rules, before/after false-positive tuning, and honest deferral of unsupported LSASS and Certutil validation paths
+- [capstone-01-soc-l1-core-workflow-readiness-assessment.md](./capstone-01-soc-l1-core-workflow-readiness-assessment.md) - Capstone 01 results log: passed on Attempt 2 with a 91% final score and 90% SOC readiness rating, validating Track 1 foundation and Track 2 SOC L1 workflow
 
 More logs are added with each lab session.
 
@@ -213,6 +218,7 @@ More logs are added with each lab session.
 If you're hiring for SOC Analyst L1/L2, Cybersecurity Analyst, Security Operations Analyst, or Junior Cybersecurity Analyst roles in Charlotte, NC or remote, this portfolio demonstrates:
 
 - Hands-on SIEM, IDS, XDR, endpoint, and Active Directory lab experience
+- Assessment proof: Passed the cumulative SOC L1 Core Workflow Readiness Assessment on Attempt 2 with a 91% final score and 90% SOC readiness rating
 - High-volume alert triage practice with scripted lab-generated alert volume
 - Realistic false-positive tuning and escalation workflows
 - SOC-style documentation, ticket notes, incident summaries, and build logs
@@ -240,8 +246,8 @@ If you're starting from zero:
 6. Use Phase 7 to practice phishing investigation, IOC extraction, and email security reports
 7. Use Phase 8 to practice Splunk/SPL investigations and dashboards without disrupting the Elastic lab
 8. Use Phase 9 to turn investigations into enabled detections, write Sigma-style rules, and tune false positives
-9. Complete the Track 1-2 capstone assessment before moving into Active Directory work
-10. Keep adding detections, reports, and lessons learned
+9. Complete and document the Track 1-2 capstone assessment before moving into Active Directory work
+10. Keep adding detections, reports, capstone results, and lessons learned
 
 Feel free to fork the repo, copy the structure, and build your own version.
 
