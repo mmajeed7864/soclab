@@ -210,6 +210,8 @@ section{position:relative;z-index:1;padding:70px 20px;scroll-margin-top:74px}
 .capstone-status{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.06em;padding:5px 9px;border-radius:5px;white-space:nowrap}
 .cs-upcoming{color:var(--accent4);background:rgba(251,191,36,.12);border:1px solid rgba(251,191,36,.35)}
 .cs-planned{color:var(--soft);background:rgba(127,147,163,.1);border:1px solid rgba(127,147,163,.3)}
+.cs-passed{color:#00ff88;background:rgba(0,255,136,.12);border:1px solid rgba(0,255,136,.42)}
+.capstone-card.passed{border-color:rgba(0,255,136,.45);border-left-color:#00ff88;background:linear-gradient(135deg,rgba(0,255,136,.07),rgba(0,212,255,.04))}
 .capstone-metrics{display:flex;flex-wrap:wrap;gap:16px;padding:14px 0 4px}
 .capstone-metric{font-family:var(--mono);font-size:11px;color:var(--accent2)}
 .capstone-metric span{color:var(--soft)}
@@ -580,9 +582,19 @@ footer{position:relative;z-index:1;padding:50px 20px;border-top:1px solid var(--
  <div class="proof-metric-copy">SOC L1, L2, cloud, IR, threat hunting, automation.</div>
  </div>
  <div class="proof-metric">
- <div class="proof-metric-num">9</div>
+ <div class="proof-metric-num">10</div>
  <div class="proof-metric-label">Detailed logs</div>
- <div class="proof-metric-copy">Published GitHub write-ups with troubleshooting and evidence.</div>
+ <div class="proof-metric-copy">Published GitHub write-ups with troubleshooting, investigations, and verified capstone results.</div>
+ </div>
+ <div class="proof-metric">
+ <div class="proof-metric-num">91%</div>
+ <div class="proof-metric-label">Capstone 01 Final Score</div>
+ <div class="proof-metric-copy">Passed SOC L1 Core Workflow Readiness Assessment on Attempt 2.</div>
+ </div>
+ <div class="proof-metric">
+ <div class="proof-metric-num">90%</div>
+ <div class="proof-metric-label">SOC Readiness Rating</div>
+ <div class="proof-metric-copy">Validated after completing Phases 1-9.</div>
  </div>
  </div>
  </div>
@@ -595,6 +607,7 @@ footer{position:relative;z-index:1;padding:50px 20px;border-top:1px solid var(--
  <ul class="audience-list">
  <li>Target roles: SOC Analyst L1/L2, Cybersecurity Analyst, Security Operations.</li>
  <li>Proof areas: SIEM/XDR setup, endpoint telemetry, IDS, queue triage, tickets, escalation, phishing investigation.</li>
+ <li>Assessment proof: Passed the cumulative SOC L1 Core Workflow Readiness Assessment on Attempt 2 with a 91% final score and 90% SOC readiness rating.</li>
  <li>Tools shown: Elastic, Kibana, Fleet, Sysmon, Suricata, Wazuh, Splunk Enterprise, Splunk Universal Forwarder, SPL, VMware, Kali, Windows, Linux.</li>
  </ul>
  </div>
@@ -866,7 +879,7 @@ footer{position:relative;z-index:1;padding:50px 20px;border-top:1px solid var(--
  <div class="track-divider-icon">🎧</div>
  <div>
  <div class="track-divider-title">Track 2 - SOC L1 Core Workflow</div>
- <div class="track-divider-sub">Practice the actual L1 job: high-volume alert triage, ticket notes, phishing, Splunk, escalation, and detection tuning.</div>
+ <div class="track-divider-sub">Complete and capstone-passed: high-volume alert triage, ticket notes, phishing, Splunk, escalation, and detection tuning.</div>
  </div>
  </div>
 
@@ -1117,55 +1130,54 @@ footer{position:relative;z-index:1;padding:50px 20px;border-top:1px solid var(--
  </div>
 
  <!-- CAPSTONE 01 -->
- <div class="capstone-card reveal">
+ <div class="capstone-card passed reveal">
  <div class="capstone-hdr" onclick="toggleCapstone(this)">
  <div class="capstone-badge">CAPSTONE 01</div>
  <div class="capstone-hdr-info">
  <div class="capstone-hdr-title">SOC L1 Core Workflow Readiness Assessment</div>
  <div class="capstone-hdr-sub">Track 1 Foundation + Track 2 SOC L1 Workflow · Phases 1-9</div>
- <div class="capstone-hdr-meta">Timed alert triage / hands-on investigation / tickets / detections / interview defense</div>
+ <div class="capstone-hdr-meta">PASSED - Attempt 2 / 91% final score / 90% SOC readiness</div>
+ <a href="https://github.com/mmajeed7864/soclab/blob/main/capstone-01-soc-l1-core-workflow-readiness-assessment.md" target="_blank" rel="noopener" class="phase-proof-link" onclick="event.stopPropagation()">View Capstone 01 Results Log</a>
  </div>
- <div class="capstone-status cs-upcoming">UPCOMING</div>
+ <div class="capstone-status cs-passed">PASSED</div>
  <div class="phase-caret">▶</div>
  </div>
  <div class="capstone-body">
  <div class="capstone-metrics">
- <div class="capstone-metric">5-7 hours</div>
- <div class="capstone-metric">70-75% hands-on</div>
- <div class="capstone-metric">Retakes supported</div>
- <div class="capstone-metric"><span>Begins after Phase 9</span></div>
+ <div class="capstone-metric">91% Final Score</div>
+ <div class="capstone-metric">90% SOC Readiness</div>
+ <div class="capstone-metric">Attempt 2</div>
+ <div class="capstone-metric"><span>All sections completed</span></div>
+ <div class="capstone-metric"><span>No remediation required</span></div>
  </div>
  <div class="capstone-body-section">
- <h4>What this covers</h4>
- <p>This first capstone combines the lab foundation with the complete SOC L1 workflow. It proves readiness to perform foundational SOC L1 investigation and documentation across Elastic, Wazuh, Splunk, Sysmon, Windows logs, Suricata evidence, phishing cases, and basic detection tuning. It is not a memorization quiz. It is a simulated SOC shift plus a technical interview defense, run across roughly 5-7 hours split over two days.</p>
+ <h4>What this validated</h4>
+ <p>Capstone 01 validated the Track 1 lab foundation and Track 2 SOC L1 workflow across Phases 1-9: SIEM/XDR workflows, Windows and Sysmon logs, alert triage, phishing analysis, documentation, detection reasoning, and interview-style technical explanation.</p>
  </div>
  <div class="capstone-body-section">
- <h4>Assessment format</h4>
+ <h4>Verified results</h4>
  <ul>
- <li>Part 1 - Rapid-fire SOC knowledge check: 25 scenario questions, 35 minutes (15%)</li>
- <li>Part 2 - Timed alert queue simulation: 15 mixed alerts, 45 minutes (20%)</li>
- <li>Part 3 - Hands-on SOC investigation project: 2 connected cases, 2-3 hours (30%)</li>
- <li>Part 4 - SOC documentation package: tickets, escalation, handoff, incident report</li>
- <li>Part 5 - Detection and tuning challenge plus interview-style defense of decisions</li>
+ <li>Passed on Attempt 2 with a 91% final score.</li>
+ <li>90% SOC readiness rating.</li>
+ <li>All required sections completed.</li>
+ <li>No material weaknesses requiring remediation were identified in the final passing attempt.</li>
+ <li>No retake is currently planned.</li>
  </ul>
  </div>
  <div class="capstone-body-section">
- <h4>Skills tested</h4>
+ <h4>Strengths demonstrated</h4>
  <ul>
- <li>SIEM/XDR lab architecture across Elastic, Wazuh, and Splunk</li>
- <li>Endpoint and network telemetry: Sysmon, Windows Security, DNS, Suricata</li>
- <li>Alert triage, severity reasoning, and 30-second first-look decisions</li>
- <li>Ticketing, escalation, and shift handoff documentation</li>
- <li>Phishing analysis and IOC extraction</li>
- <li>Splunk/SPL searching and basic detection tuning</li>
- <li>SOC interview defense of investigation decisions</li>
+ <li>Alert triage and severity decision-making.</li>
+ <li>Searching and investigative workflow.</li>
+ <li>Managing multiple virtual machines during SOC lab work.</li>
+ <li>Explaining technical decisions in job-style language.</li>
  </ul>
  </div>
  <div class="capstone-body-section">
- <h4>Retake rules</h4>
- <p>Retakes are part of the design. Each attempt uses fresh phishing themes, IOCs, users, hosts, event combinations, and interview questions while testing the same competencies. Attempt 1 is the baseline, Attempt 2 is the remediation retake, Attempt 3 is job-readiness validation, and later attempts are skill maintenance and interview practice. The track is not considered fully complete until its assessment is completed and documented.</p>
+ <h4>Next progression</h4>
+ <p>Track 1 and Track 2 are now validated. The roadmap progression moves into Track 3: Endpoint and Identity Investigation. Track 3 phases are not marked complete yet.</p>
  </div>
- <div class="capstone-callout">Build it. Investigate it. Document it. Defend it.</div>
+ <div class="capstone-callout">Track 1 foundation + Track 2 SOC L1 workflow validated.</div>
  </div>
  </div>
 
@@ -3336,6 +3348,72 @@ Write-Host "Phase 5 loop complete."</pre>
  </div>
  </div>
 
+ <!-- CAPSTONE 01 LOG -->
+ <div class="log-card">
+ <div class="log-card-hdr" onclick="toggleLog(this)">
+ <div class="log-day">
+ <div class="log-day-label">Cap</div>
+ <div class="log-day-num">01</div>
+ </div>
+ <div class="log-info">
+ <div class="log-date">Completed after Phase 9</div>
+ <div class="log-title">Capstone 01 - SOC L1 Core Workflow Readiness Assessment</div>
+ <div class="log-phases">
+ <span class="log-phase-tag done">Passed</span>
+ <span class="log-phase-tag">Attempt 2</span>
+ <span class="log-phase-tag">91% Final Score</span>
+ <span class="log-phase-tag">90% SOC Readiness</span>
+ <span class="log-phase-tag">Track 1-2 Validated</span>
+ </div>
+ </div>
+ <div class="log-caret">â–¶</div>
+ </div>
+ <div class="log-body">
+ <div class="log-body-inner">
+
+ <div class="log-section">
+ <div class="log-section-title">Verified Result</div>
+ <ul class="log-list">
+ <li>Passed Capstone 01 on Attempt 2 with a 91% final score and 90% SOC readiness rating.</li>
+ <li>All required assessment sections were completed.</li>
+ <li>No material weaknesses requiring remediation were identified in the final passing attempt.</li>
+ <li>No retake is currently planned.</li>
+ </ul>
+ </div>
+
+ <div class="log-section">
+ <div class="log-section-title">What It Validated</div>
+ <ul class="log-list">
+ <li>Track 1 foundation: virtual SOC lab architecture, endpoint-to-SIEM telemetry, and multi-VM management.</li>
+ <li>Track 2 SOC L1 workflow: alert triage, severity reasoning, phishing analysis, searching, documentation, escalation logic, Splunk/SPL, and detection tuning concepts.</li>
+ <li>Interview readiness: explaining investigation decisions, lab architecture, severity choices, and how the project maps to SOC analyst responsibilities.</li>
+ </ul>
+ </div>
+
+ <div class="log-section">
+ <div class="log-section-title">Strengths Demonstrated</div>
+ <ul class="log-list">
+ <li>Alert triage and decision-making.</li>
+ <li>Searching and investigation workflow.</li>
+ <li>Managing multiple virtual machines during SOC lab work.</li>
+ <li>Turning home-lab evidence into professional SOC analyst language.</li>
+ </ul>
+ </div>
+
+ <div class="log-section">
+ <div class="log-section-title">Next Progression</div>
+ <ul class="log-list">
+ <li>Track 1 and Track 2 are validated through Capstone 01.</li>
+ <li>The roadmap now progresses into Track 3: Endpoint and Identity Investigation.</li>
+ </ul>
+ </div>
+
+ <a href="https://github.com/mmajeed7864/soclab/blob/main/capstone-01-soc-l1-core-workflow-readiness-assessment.md" target="_blank" class="log-cta">Read Capstone 01 results log on GitHub â†’</a>
+
+ </div>
+ </div>
+ </div>
+
  </div>
 </section>
 
@@ -3378,6 +3456,14 @@ Write-Host "Phase 5 loop complete."</pre>
  <div class="tl-date">May 2026 <span class="now-badge">RIGHT NOW</span></div>
  <div class="tl-title">Working through SOC analyst labs in public</div>
  <div class="tl-desc">Completed Phases 1-9: Elastic SIEM, Suricata IDS, Wazuh XDR, Windows/Linux log fundamentals, high-volume SOC triage, SOC ticket/escalation/handoff writing, phishing/email security investigation, Splunk/SPL dashboards, and detection engineering with alert tuning. Phase 10 now moves into building an Active Directory environment with domain services, realistic identities, and domain security logs flowing into the monitoring stack.</div>
+ </div>
+ </div>
+ <div class="tl-item">
+ <div class="tl-col"><div class="tl-d done"></div><div class="tl-l"></div></div>
+ <div class="tl-body">
+ <div class="tl-date">June 2026</div>
+ <div class="tl-title">Passed Capstone 01 - SOC L1 Core Workflow Readiness Assessment</div>
+ <div class="tl-desc">Completed the first cumulative roadmap capstone after finishing Phases 1-9. Passed on Attempt 2 with a 91% final score and a 90% SOC readiness rating, validating the lab foundation and SOC L1 workflow through job-style triage, investigation, documentation, detection/tuning reasoning, and interview defense. Evidence line: Attempt 2 / 91% Final Score / 90% SOC Readiness / Track 2 Validated.</div>
  </div>
  </div>
  <div class="tl-item">
