@@ -7,9 +7,9 @@ Live site: [mmajeed7864.github.io/soclab](https://mmajeed7864.github.io/soclab)
 
 ## About
 
-I'm Mohammed H. Majeed, a Cloud & Network Operations Technician based in Charlotte, NC, transitioning into SOC and cybersecurity analyst roles.
+I'm Mohammed H. Majeed, a SOC Analyst based in Charlotte, NC, building toward SOC L1/L2 and cybersecurity analyst roles.
 
-This repository documents my hands-on path from IT operations into security operations: SIEM deployment, endpoint telemetry, IDS alerts, Wazuh XDR, log analysis, high-volume triage practice, Active Directory attacks, incident notes, cloud security monitoring, and portfolio-ready reporting.
+This repository documents my hands-on path through security operations: SIEM deployment, endpoint telemetry, IDS alerts, Wazuh XDR, Microsoft Defender for Endpoint, phishing investigation, IOC enrichment, log analysis, high-volume triage practice, incident notes, detection engineering, cloud security monitoring, and portfolio-ready reporting.
 
 The goal is simple: show real job-function proof, not just screenshots or theory.
 
@@ -68,7 +68,7 @@ Education:
 
 Current role:
 
-- Cloud & Network Operations Technician, Bay Alarm, April 2024 to present
+- SOC Analyst, Bay Alarm, April 2024 to present
 
 Previous role:
 
@@ -147,7 +147,7 @@ The core SOC analyst tracks end with a capstone checkpoint (outside the numbered
 
 SIEM and detection:
 
-- Elastic SIEM, Kibana, Wazuh XDR, Suricata IDS, Sysmon, Fleet, Elastic Agent, Splunk Enterprise, Splunk Universal Forwarder, Microsoft Sentinel
+- Splunk, Elastic SIEM, Kibana, Wazuh XDR, Suricata IDS, Sysmon, Fleet, Elastic Agent, Splunk Universal Forwarder, Microsoft Defender for Endpoint, Microsoft Sentinel
 - KQL, SPL, detection rules, alert tuning, MITRE ATT&CK mapping
 
 SOC operations:
@@ -157,16 +157,18 @@ SOC operations:
 - 30-second first-look triage
 - False-positive tuning
 - Ticket writing
+- ServiceNow and Jira case tracking
 - Escalation summaries
 - Shift handoff notes
 - Phishing triage
 - IOC extraction
+- IOC enrichment with VirusTotal, AbuseIPDB, and Shodan
 - Email security incident reports
 - Incident reports and playbooks
 
 Endpoint and identity:
 
-- Windows Event Logs, Sysmon, Microsoft Defender-style telemetry
+- Windows Event Logs, Sysmon, Microsoft Defender for Endpoint telemetry
 - Active Directory, Group Policy, Windows Server, BloodHound
 - Password spraying and Kerberoasting detection
 
@@ -189,7 +191,7 @@ Cloud and Microsoft security:
 Email security and phishing:
 
 - Email header review, SPF, DKIM, DMARC, reply-to, return-path, and sender domain analysis
-- URL analysis, attachment review, credential harvesting detection, BEC recognition, and phishing verdict writing
+- URL analysis, attachment review, credential harvesting detection, BEC recognition, IOC enrichment, and phishing verdict writing
 
 Frameworks and reporting:
 
@@ -218,6 +220,7 @@ More logs are added with each lab session.
 If you're hiring for SOC Analyst L1/L2, Cybersecurity Analyst, Security Operations Analyst, or Junior Cybersecurity Analyst roles in Charlotte, NC or remote, this portfolio demonstrates:
 
 - Hands-on SIEM, IDS, XDR, endpoint, and Active Directory lab experience
+- Current SOC analyst responsibilities across Splunk, Elastic, Wazuh, Microsoft Defender for Endpoint, phishing investigation, IOC enrichment, ServiceNow/Jira ticketing, and escalation handoff
 - Assessment proof: Passed the cumulative SOC L1 Core Workflow Readiness Assessment with a 90% SOC readiness rating and 90% SOC level
 - High-volume alert triage practice with scripted lab-generated alert volume
 - Realistic false-positive tuning and escalation workflows
