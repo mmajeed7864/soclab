@@ -119,7 +119,7 @@ Status: complete and capstone passed. Capstone 01 was passed with a 90% SOC read
 19. Malware Triage + Sandbox Analysis
 20. Digital Forensics + Memory Basics
 21. Threat Hunting
-22. External SOC Platforms: LetsDefend, CyberDefenders, and BTLO
+22. External SOC Platforms and Unfamiliar Case Investigations
 
 ### Track 6 - Cloud SOC and Microsoft Security Stack
 
