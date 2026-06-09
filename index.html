@@ -585,7 +585,7 @@ footer{position:relative;z-index:1;padding:50px 20px;border-top:1px solid var(--
  <div class="proof-metric-copy">SOC L1, L2, cloud, IR, threat hunting, automation.</div>
  </div>
  <div class="proof-metric">
- <div class="proof-metric-num">10</div>
+ <div class="proof-metric-num">11</div>
  <div class="proof-metric-label">Detailed logs</div>
  <div class="proof-metric-copy">Published GitHub write-ups with troubleshooting, investigations, and verified capstone results.</div>
  </div>
@@ -611,7 +611,7 @@ footer{position:relative;z-index:1;padding:50px 20px;border-top:1px solid var(--
  <li>Target roles: SOC Analyst L1/L2, Cybersecurity Analyst, Security Operations.</li>
  <li>Proof areas: SIEM/XDR setup, endpoint telemetry, IDS, queue triage, tickets, escalation, phishing investigation.</li>
  <li>Assessment proof: Passed the cumulative SOC L1 Core Workflow Readiness Assessment with a 90% SOC readiness rating and 90% SOC level.</li>
- <li>Tools shown: Elastic, Kibana, Fleet, Sysmon, Suricata, Wazuh, Splunk Enterprise, Splunk Universal Forwarder, SPL, VMware, Kali, Windows, Linux.</li>
+ <li>Tools shown: Elastic, Kibana, Fleet, Sysmon, Suricata, Wazuh, Splunk Enterprise, Splunk Universal Forwarder, Active Directory, Windows Server, SPL, VMware, Kali, Windows, Linux.</li>
  </ul>
  </div>
 
@@ -1195,40 +1195,41 @@ footer{position:relative;z-index:1;padding:50px 20px;border-top:1px solid var(--
  <!-- PHASE 10 -->
  <div class="phase-block">
  <div class="phase-hdr" onclick="togglePhase(this)">
- <div class="phase-num pn-blue">10</div>
+ <div class="phase-num pn-green">10</div>
  <div class="phase-hdr-info">
  <div class="phase-hdr-title">Build an Active Directory Environment</div>
- <div class="phase-hdr-meta">Domain controller / users / groups / GPO / Kerberos basics</div>
- <div class="phase-tags"><span class="ptag">Active Directory</span><span class="ptag">Kerberos</span><span class="ptag">Group Policy</span><span class="ptag">Domain Controller</span></div>
+ <div class="phase-hdr-meta">Windows Server DC / DNS / OUs / users / groups / domain join / Kerberos / Splunk forwarding</div>
+ <div class="phase-tags"><span class="ptag g">Active Directory</span><span class="ptag g">Windows Server</span><span class="ptag g">Domain Controller</span><span class="ptag g">DNS</span><span class="ptag g">Kerberos</span><span class="ptag g">Windows Security Logs</span><span class="ptag g">Splunk Universal Forwarder</span><span class="ptag g">Identity Investigation</span></div>
+ <a href="https://github.com/mmajeed7864/soclab/blob/main/DAY-10-LAB-LOG.md" target="_blank" rel="noopener" class="phase-proof-link violet" onclick="event.stopPropagation()">View Day 10 GitHub Log</a>
  </div>
  <div class="phase-caret">▶</div>
  </div>
  <div class="phase-body">
- <div class="phase-intro">Most enterprise alerts involve identity. Build AD once you already know how to read Windows authentication logs.</div>
+ <div class="phase-intro">Built a working Active Directory lab after completing the SOC L1 workflow foundation. Deployed a Windows Server domain controller, created a private domain, organized users, groups, and OUs, joined the Windows 10 endpoint to the domain, validated domain authentication, and forwarded DC01 Security logs into Splunk for identity-focused investigation.</div>
  <div class="steps-list">
  <div class="step-item">
  <div class="step-n sn-blue">1</div>
  <div class="step-content">
  <div class="step-title">Deploy domain services</div>
- <div class="step-desc">Deploy a Windows Server domain controller or AD-capable lab design with DNS, domain join, and basic domain administration.</div>
+ <div class="step-desc">Installed Windows Server 2022 in VirtualBox, renamed the server to DC01, configured host-only and NAT networking, assigned a stable host-only IP, installed Active Directory Domain Services, promoted DC01 to a domain controller, and created the <code>majeed.local</code> lab domain with DNS.</div>
  </div>
  </div>
  <div class="step-item">
  <div class="step-n sn-blue">2</div>
  <div class="step-content">
  <div class="step-title">Create realistic identities</div>
- <div class="step-desc">Create users, groups, OUs, service accounts, and intentionally weak configurations that can generate useful security findings.</div>
+ <div class="step-desc">Created the <code>SOC-Lab</code> OU with child OUs for users and workstations, added three realistic domain users, and created the <code>SOC Analysts</code>, <code>Helpdesk</code>, and <code>IT Admins</code> security groups for controlled identity evidence.</div>
  </div>
  </div>
  <div class="step-item">
  <div class="step-n sn-blue">3</div>
  <div class="step-content">
- <div class="step-title">Forward domain logs</div>
- <div class="step-desc">Send domain controller security logs into Elastic or Wazuh so authentication and privilege activity can be investigated.</div>
+ <div class="step-title">Join endpoint and forward domain logs</div>
+ <div class="step-desc">Joined the Windows 10 victim to <code>majeed.local</code>, validated login as <code>MAJEED\soc.analyst1</code>, moved the computer into the Workstations OU, configured Splunk Universal Forwarder on DC01, and investigated Kerberos and group-membership events in Splunk.</div>
  </div>
  </div>
  </div>
- <div class="goal-box"><strong>PHASE GOAL</strong>AD domain running with logs flowing into the monitoring stack.</div>
+ <div class="goal-box"><strong>PHASE COMPLETE</strong>Working Active Directory domain with DC01, domain DNS, organized OUs/users/groups, a domain-joined Windows client, validated domain authentication, DC01 logs forwarding to Splunk, and successful investigation of Kerberos and privileged group-membership events.</div>
  </div>
  </div>
 
@@ -2138,7 +2139,7 @@ footer{position:relative;z-index:1;padding:50px 20px;border-top:1px solid var(--
  <div class="metric-label">skill tracks from lab build to portfolio</div>
  </div>
  <div class="snapshot-metric">
- <div class="metric-num">9</div>
+ <div class="metric-num">10</div>
  <div class="metric-label">completed lab build logs documented</div>
  </div>
  </div>
@@ -2157,8 +2158,8 @@ footer{position:relative;z-index:1;padding:50px 20px;border-top:1px solid var(--
  </div>
  <div class="skill-proof-card">
  <div class="skill-proof-title">Endpoint and network proof</div>
- <div class="skill-proof-copy">Collected and reviewed Windows Security, Sysmon, DNS, Linux, IDS, and network evidence across a controlled virtual lab.</div>
- <div class="skill-proof-stack"><span class="skill-tag p">Sysmon</span><span class="skill-tag p">Windows Event Logs</span><span class="skill-tag p">Universal Forwarder</span><span class="skill-tag o">Suricata IDS</span><span class="skill-tag o">Wireshark</span><span class="skill-tag o">pfSense</span></div>
+ <div class="skill-proof-copy">Collected and reviewed Windows Security, Sysmon, DNS, Linux, IDS, network, and domain-controller identity evidence across a controlled virtual lab.</div>
+ <div class="skill-proof-stack"><span class="skill-tag p">Sysmon</span><span class="skill-tag p">Windows Event Logs</span><span class="skill-tag p">Active Directory</span><span class="skill-tag p">Kerberos Events</span><span class="skill-tag p">Universal Forwarder</span><span class="skill-tag o">Suricata IDS</span><span class="skill-tag o">Wireshark</span><span class="skill-tag o">pfSense</span></div>
  </div>
  <div class="skill-proof-card">
  <div class="skill-proof-title">Portfolio proof</div>
@@ -2203,7 +2204,7 @@ footer{position:relative;z-index:1;padding:50px 20px;border-top:1px solid var(--
  <div class="ats-group identity">
  <div class="ats-group-title">Identity + Cloud</div>
  <div class="ats-keywords">
- <span class="skill-tag">Active Directory</span><span class="skill-tag">Windows Server</span><span class="skill-tag">Group Policy</span><span class="skill-tag">Entra ID</span><span class="skill-tag">IAM</span><span class="skill-tag g">Least Privilege</span><span class="skill-tag g">Kerberoasting Detection</span><span class="skill-tag g">Password Spraying</span><span class="skill-tag g">AWS CloudTrail</span><span class="skill-tag g">GuardDuty</span><span class="skill-tag g">Security Hub</span><span class="skill-tag g">CloudWatch</span>
+ <span class="skill-tag">Active Directory</span><span class="skill-tag">Active Directory Domain Services</span><span class="skill-tag">Windows Server 2022</span><span class="skill-tag">Domain Controller</span><span class="skill-tag">AD DNS</span><span class="skill-tag">Domain Join</span><span class="skill-tag">OU Management</span><span class="skill-tag">Security Groups</span><span class="skill-tag">Kerberos Authentication</span><span class="skill-tag">Windows Identity Events</span><span class="skill-tag">Entra ID</span><span class="skill-tag">IAM</span><span class="skill-tag g">Least Privilege</span><span class="skill-tag g">AWS CloudTrail</span><span class="skill-tag g">GuardDuty</span><span class="skill-tag g">Security Hub</span><span class="skill-tag g">CloudWatch</span>
  </div>
  </div>
  <div class="ats-group lab">
@@ -2444,8 +2445,14 @@ footer{position:relative;z-index:1;padding:50px 20px;border-top:1px solid var(--
  <p class="cyber-stack-copy">Identity, access, and cloud telemetry needed for modern SOC and cybersecurity analyst workflows.</p>
  <div class="tools-wrap">
  <span class="tool-pill g">Active Directory</span>
- <span class="tool-pill g">Windows Server</span>
- <span class="tool-pill g">Group Policy</span>
+ <span class="tool-pill g">AD Domain Services</span>
+ <span class="tool-pill g">Windows Server 2022</span>
+ <span class="tool-pill g">Domain Controller</span>
+ <span class="tool-pill g">AD DNS</span>
+ <span class="tool-pill g">Domain Join</span>
+ <span class="tool-pill g">OUs + Security Groups</span>
+ <span class="tool-pill g">Kerberos Events</span>
+ <span class="tool-pill g">Identity Investigation</span>
  <span class="tool-pill g">Entra ID</span>
  <span class="tool-pill g">IAM</span>
  <span class="tool-pill g">Least Privilege</span>
@@ -3420,6 +3427,92 @@ Write-Host "Phase 5 loop complete."</pre>
  </div>
  </div>
 
+ <!-- DAY 10 -->
+ <div class="log-card">
+ <div class="log-card-hdr" onclick="toggleLog(this)">
+ <div class="log-day">
+ <div class="log-day-label">Day</div>
+ <div class="log-day-num">10</div>
+ </div>
+ <div class="log-info">
+ <div class="log-date">June 9, 2026</div>
+ <div class="log-title">Phase 10 - Active Directory Domain, Domain Join, and AD Logs in Splunk</div>
+ <div class="log-phases">
+ <span class="log-phase-tag done">&#10003; Phase 10 Complete</span>
+ <span class="log-phase-tag">Active Directory</span>
+ <span class="log-phase-tag">DC01</span>
+ <span class="log-phase-tag">Domain Join</span>
+ <span class="log-phase-tag">Kerberos Events</span>
+ <span class="log-phase-tag">Splunk Forwarding</span>
+ </div>
+ </div>
+ <div class="log-caret">â–¶</div>
+ </div>
+ <div class="log-body">
+ <div class="log-body-inner">
+
+ <div class="log-section">
+ <div class="log-section-title">Active Directory Lab Build</div>
+ <ul class="log-list">
+ <li>Deployed Windows Server 2022 in VirtualBox and renamed the server <code>DC01</code>.</li>
+ <li>Configured host-only networking for isolated lab communication, NAT when internet access was needed, and the stable DC address <code>192.168.56.10</code>.</li>
+ <li>Installed Active Directory Domain Services, promoted DC01 to a domain controller, and created the private <code>majeed.local</code> domain with DNS.</li>
+ <li>Kept Elastic, Wazuh, and Kali powered off during the build so DC01, Windows 10, and Splunk had the resources needed for stable validation.</li>
+ </ul>
+ </div>
+
+ <div class="log-section">
+ <div class="log-section-title">Identity Objects + Domain Join</div>
+ <ul class="log-list">
+ <li>Created the <code>SOC-Lab</code> OU with child OUs for <code>Users</code> and <code>Workstations</code>.</li>
+ <li>Created <code>soc.analyst1</code>, <code>helpdesk.user1</code>, and <code>test.employee1</code> plus the <code>SOC Analysts</code>, <code>Helpdesk</code>, and <code>IT Admins</code> security groups.</li>
+ <li>Pointed the Windows 10 lab adapter to DC01 for DNS, validated domain name resolution, and joined <code>DESKTOP-3JKM5O9</code> to <code>majeed.local</code>.</li>
+ <li>Validated domain login as <code>MAJEED\soc.analyst1</code> and moved the computer object into the Workstations OU.</li>
+ </ul>
+ </div>
+
+ <div class="log-section">
+ <div class="log-section-title">Splunk Forwarding + Identity Visibility</div>
+ <ul class="log-list">
+ <li>Installed Splunk Universal Forwarder on DC01 and sent Windows Security, System, Application, Directory Service, and DNS Server logs to <code>192.168.56.102:9997</code>.</li>
+ <li>Confirmed <code>host=DC01</code> events were centrally searchable in Splunk.</li>
+ <li>Reviewed authentication and privilege events including 4624, 4634, 4672, 4771, 4776, 4728, and 4729.</li>
+ <li>Created repeatable SPL views for Kerberos failures and security group membership changes.</li>
+ </ul>
+ </div>
+
+ <div class="log-section">
+ <div class="log-section-title">Two SOC-Style Identity Investigations</div>
+ <ul class="log-list">
+ <li>Investigated Event ID 4771 for controlled failed authentication by <code>MAJEED\test.employee1</code>, including service <code>krbtgt/MAJEED</code>, source <code>192.168.56.104</code>, and failure code <code>0x18</code>.</li>
+ <li>Investigated Event ID 4728 showing <code>MAJEED\Administrator</code> adding <code>helpdesk.user1</code> to <code>IT Admins</code>, then confirmed the removal event with 4729.</li>
+ <li>Documented both as security-relevant events that were benign by known lab context, with the validation and follow-up steps a production SOC would require.</li>
+ </ul>
+ </div>
+
+ <div class="log-section">
+ <div class="log-section-title">Troubleshooting + Lessons Learned</div>
+ <ul class="log-list">
+ <li>Learned that domain identity evidence lives on the DC while endpoint process, Sysmon, file, and registry evidence remains on the endpoint unless separately forwarded.</li>
+ <li>Found that the controlled bad-password evidence appeared as Kerberos 4771 and credential-validation 4776 activity rather than relying only on a DC-side 4625.</li>
+ <li>Fixed a forwarder configuration that had a valid destination in <code>outputs.conf</code> but no event inputs by creating <code>inputs.conf</code> and restarting the service.</li>
+ <li>Confirmed that successful domain joining depended on the client using DC01 for DNS, not just basic IP connectivity.</li>
+ </ul>
+ </div>
+
+ <div class="log-section">
+ <div class="log-section-title">Up Next - Phase 11</div>
+ <ul class="log-list">
+ <li>Begin safe identity attack and detection practice against the AD lab, focusing on password attacks, suspicious domain authentication, Kerberos-related activity, attack-path evidence, and defensible SOC documentation.</li>
+ </ul>
+ </div>
+
+ <a href="https://github.com/mmajeed7864/soclab/blob/main/DAY-10-LAB-LOG.md" target="_blank" class="log-cta">Read full Phase 10 log on GitHub &rarr;</a>
+
+ </div>
+ </div>
+ </div>
+
  </div>
 </section>
 
@@ -3453,15 +3546,15 @@ Write-Host "Phase 5 loop complete."</pre>
  <div class="tl-body">
  <div class="tl-date">Early 2026</div>
  <div class="tl-title">Built first home SOC lab</div>
- <div class="tl-desc">Deployed Elastic SIEM, Snort IDS, Sysmon, pfSense, and a virtualized Active Directory environment. Started generating real alerts and triaging them.</div>
+ <div class="tl-desc">Deployed Elastic SIEM, Suricata IDS, Sysmon, pfSense, and the first multi-VM monitoring environment. Started generating real alerts and triaging them.</div>
  </div>
  </div>
  <div class="tl-item">
  <div class="tl-col"><div class="tl-d now"></div><div class="tl-l"></div></div>
  <div class="tl-body">
- <div class="tl-date">May 2026 <span class="now-badge">RIGHT NOW</span></div>
+ <div class="tl-date">June 2026 <span class="now-badge">RIGHT NOW</span></div>
  <div class="tl-title">Working through SOC analyst labs in public</div>
- <div class="tl-desc">Completed Phases 1-9: Elastic SIEM, Suricata IDS, Wazuh XDR, Windows/Linux log fundamentals, high-volume SOC triage, SOC ticket/escalation/handoff writing, phishing/email security investigation, Splunk/SPL dashboards, and detection engineering with alert tuning. Phase 10 now moves into building an Active Directory environment with domain services, realistic identities, and domain security logs flowing into the monitoring stack.</div>
+ <div class="tl-desc">Completed Phases 1-10: Elastic SIEM, Suricata IDS, Wazuh XDR, Windows/Linux log fundamentals, high-volume SOC triage, ticket/escalation/handoff writing, phishing investigation, Splunk/SPL dashboards, detection engineering, and a working Active Directory domain with DC01 identity logs flowing into Splunk. Phase 11 moves into controlled identity attack and detection practice.</div>
  </div>
  </div>
  <div class="tl-item">
