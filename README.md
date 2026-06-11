@@ -42,6 +42,7 @@ The roadmap now includes a production-style SOC practice layer:
 - Windows 10 domain join and domain authentication validation
 - DC01 Security, System, Application, Directory Service, and DNS Server logs forwarded into Splunk
 - Kerberos pre-authentication and privileged group-membership investigations using Events 4771, 4776, 4728, and 4729
+- Five controlled AD security scenarios covering password spray behavior, AS-REP roastable configuration, Kerberoast-relevant telemetry, privileged group changes, and AD enumeration
 - Case notes and lessons learned added to build logs
 
 This is designed to practice the real SOC motion: sort signal from noise, decide what deserves more time, close benign activity, tune recurring noise, write clean tickets, investigate suspicious emails, extract IOCs, search telemetry in multiple SIEMs, build dashboards, and escalate cleanly.
@@ -111,7 +112,7 @@ Status: complete and capstone passed. Capstone 01 was passed with a 90% SOC read
 12. Endpoint / EDR Investigation with Wazuh, Sysmon, and Defender-Style Telemetry
 13. IAM, Hardening, and Least Privilege
 
-Status: Phase 10 complete. Core AD build validated with DC01, private domain DNS, organized users/groups/OUs, a domain-joined Windows endpoint, Splunk forwarding, and identity-event investigations. Phase 11 is next.
+Status: Phases 10-11 complete. The AD foundation is validated, and five controlled identity-security scenarios were detected, triaged, and documented in Splunk. Phase 12 endpoint and EDR investigation is next.
 
 ### Track 4 - Cybersecurity Analyst Operations
 
@@ -177,8 +178,9 @@ Endpoint and identity:
 
 - Windows Event Logs, Sysmon, Microsoft Defender for Endpoint telemetry
 - Active Directory Domain Services, Windows Server, domain controller administration, DNS, OUs, users, security groups, domain join, and Kerberos authentication
-- Splunk investigation of Windows identity events including 4771, 4776, 4728, and 4729
-- BloodHound, password spraying, and Kerberoasting detection are planned for the controlled Phase 11 attack lab
+- Splunk investigation of Windows identity events including 4771, 4776, 4769, 4728, and 4729
+- Password-spray investigation, AS-REP roastable configuration review, Kerberoast-relevant telemetry, privileged group monitoring, and AD enumeration analysis
+- Evidence-safe identity triage that separates suspicious behavior from confirmed compromise
 
 Network and infrastructure:
 
@@ -220,6 +222,7 @@ I post lab work as I complete it:
 - [DAY-08-LAB-LOG.md](./DAY-08-LAB-LOG.md) - Splunk Enterprise deployment, Universal Forwarder pipeline, Windows/Sysmon telemetry, SPL investigations, dashboards, and Splunk vs Elastic workflow comparison
 - [DAY-09-LAB-LOG.md](./DAY-09-LAB-LOG.md) - Detection engineering in Splunk: six enabled alerts, three Sigma-style rules, before/after false-positive tuning, and honest deferral of unsupported LSASS and Certutil validation paths
 - [DAY-10-LAB-LOG.md](./DAY-10-LAB-LOG.md) - Windows Server Active Directory domain build, DNS, users/groups/OUs, Windows domain join, DC01 Splunk forwarding, Kerberos failures, privileged group changes, troubleshooting, and analyst mini-tickets
+- [DAY-11-LAB-LOG.md](./DAY-11-LAB-LOG.md) - Five controlled AD security scenarios, Splunk identity triage, evidence-safe verdicts, and troubleshooting
 - [capstone-01-soc-l1-core-workflow-readiness-assessment.md](./capstone-01-soc-l1-core-workflow-readiness-assessment.md) - Capstone 01 results log: passed with a 90% SOC readiness rating and 90% SOC level, validating Track 1 foundation and Track 2 SOC L1 workflow
 
 More logs are added with each lab session.
@@ -231,6 +234,7 @@ If you're hiring for SOC Analyst L1/L2, Cybersecurity Analyst, Security Operatio
 - Hands-on SIEM, IDS, XDR, endpoint, and Active Directory lab experience
 - Built a Windows Server domain controller, joined a Windows endpoint to the domain, and centralized DC01 identity logs in Splunk
 - Investigated Kerberos pre-authentication failures and privileged group membership changes with evidence-safe SOC conclusions
+- Simulated and triaged five identity-security scenarios covering password spray behavior, risky service-account configurations, Kerberos service-ticket activity, Domain Admins changes, and AD enumeration
 - Current SOC analyst responsibilities across Splunk, Elastic, Wazuh, Microsoft Defender for Endpoint, phishing investigation, IOC enrichment, ServiceNow/Jira ticketing, and escalation handoff
 - Assessment proof: Passed the cumulative SOC L1 Core Workflow Readiness Assessment with a 90% SOC readiness rating and 90% SOC level
 - High-volume alert triage practice with scripted lab-generated alert volume
@@ -263,7 +267,8 @@ If you're starting from zero:
 9. Complete and document the Track 1-2 capstone assessment before moving into Active Directory work
 10. Use Phase 10 to build AD, join a Windows endpoint, centralize DC logs, and learn where identity evidence lives
 11. Use Phase 11 for controlled identity attack simulation and evidence-safe investigation
-12. Keep adding detections, reports, capstone results, and lessons learned
+12. Use Phase 12 to investigate endpoint process trees, persistence evidence, device timelines, and containment decisions
+13. Keep adding detections, reports, capstone results, and lessons learned
 
 Feel free to fork the repo, copy the structure, and build your own version.
 

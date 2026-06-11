@@ -585,7 +585,7 @@ footer{position:relative;z-index:1;padding:50px 20px;border-top:1px solid var(--
  <div class="proof-metric-copy">SOC L1, L2, cloud, IR, threat hunting, automation.</div>
  </div>
  <div class="proof-metric">
- <div class="proof-metric-num">11</div>
+ <div class="proof-metric-num">12</div>
  <div class="proof-metric-label">Detailed logs</div>
  <div class="proof-metric-copy">Published GitHub write-ups with troubleshooting, investigations, and verified capstone results.</div>
  </div>
@@ -1236,40 +1236,41 @@ footer{position:relative;z-index:1;padding:50px 20px;border-top:1px solid var(--
  <!-- PHASE 11 -->
  <div class="phase-block">
  <div class="phase-hdr" onclick="togglePhase(this)">
- <div class="phase-num pn-blue">11</div>
+ <div class="phase-num pn-green">11</div>
  <div class="phase-hdr-info">
  <div class="phase-hdr-title">AD Attack Simulation + Alert Triage</div>
- <div class="phase-hdr-meta">Password spray / Kerberoast / AS-REP roast / BloodHound</div>
- <div class="phase-tags"><span class="ptag">AD Attacks</span><span class="ptag">Kerberoasting</span><span class="ptag">BloodHound</span><span class="ptag">Impacket</span></div>
+ <div class="phase-hdr-meta">5 controlled AD scenarios detected, triaged, and documented in Splunk</div>
+ <div class="phase-tags"><span class="ptag g">&#10003; Complete</span><span class="ptag g">Password Spray</span><span class="ptag g">AS-REP Configuration</span><span class="ptag g">Kerberos 4769</span><span class="ptag g">Domain Admin Changes</span><span class="ptag g">AD Enumeration</span></div>
+ <a href="https://github.com/mmajeed7864/soclab/blob/main/DAY-11-LAB-LOG.md" target="_blank" rel="noopener" class="phase-proof-link cyan" onclick="event.stopPropagation()">View Day 11 GitHub Log</a>
  </div>
  <div class="phase-caret">▶</div>
  </div>
  <div class="phase-body">
- <div class="phase-intro">Simulate common identity attacks and triage the alerts exactly the way L1/L2 SOC analysts do.</div>
+ <div class="phase-intro">Simulated five identity-focused security scenarios and investigated DC01 plus Windows endpoint telemetry in Splunk. Each case documents what the evidence proved, what remained unknown, the verdict, and the production follow-up a SOC analyst would recommend.</div>
  <div class="steps-list">
  <div class="step-item">
  <div class="step-n sn-blue">1</div>
  <div class="step-content">
- <div class="step-title">Run safe AD attacks</div>
- <div class="step-desc">Simulate password spray, AS-REP roasting, Kerberoasting, suspicious admin group changes, and BloodHound collection in the lab.</div>
+ <div class="step-title">Generate controlled identity activity</div>
+ <div class="step-desc">Created password-spray behavior, an AS-REP roastable configuration, a Kerberoast-relevant SPN ticket request, a temporary Domain Admins change, and AD enumeration activity.</div>
  </div>
  </div>
  <div class="step-item">
  <div class="step-n sn-blue">2</div>
  <div class="step-content">
- <div class="step-title">Find the telemetry</div>
- <div class="step-desc">Identify the related Windows events, Sysmon events, Wazuh alerts, and SIEM searches for each attack path.</div>
+ <div class="step-title">Investigate DC and endpoint evidence</div>
+ <div class="step-desc">Used Splunk to analyze Windows events 4771, 4776, 4769, 4728, and 4729 plus process and command-line telemetry from the domain workstation.</div>
  </div>
  </div>
  <div class="step-item">
  <div class="step-n sn-blue">3</div>
  <div class="step-content">
- <div class="step-title">Escalate like a SOC analyst</div>
- <div class="step-desc">Write tickets that include MITRE mapping, severity, evidence, escalation decision, and containment recommendation.</div>
+ <div class="step-title">Document evidence-safe verdicts</div>
+ <div class="step-desc">Separated suspicious behavior from confirmed compromise and recorded severity, lab context, evidence limits, validation steps, and escalation recommendations.</div>
  </div>
  </div>
  </div>
- <div class="goal-box"><strong>PHASE GOAL</strong>5 AD attack scenarios detected, triaged, and documented.</div>
+ <div class="goal-box"><strong>PHASE COMPLETE</strong>5 AD security scenarios detected, triaged, and documented with defensible SOC conclusions.</div>
  </div>
  </div>
 
@@ -2139,7 +2140,7 @@ footer{position:relative;z-index:1;padding:50px 20px;border-top:1px solid var(--
  <div class="metric-label">skill tracks from lab build to portfolio</div>
  </div>
  <div class="snapshot-metric">
- <div class="metric-num">10</div>
+ <div class="metric-num">11</div>
  <div class="metric-label">completed lab build logs documented</div>
  </div>
  </div>
@@ -2204,7 +2205,7 @@ footer{position:relative;z-index:1;padding:50px 20px;border-top:1px solid var(--
  <div class="ats-group identity">
  <div class="ats-group-title">Identity + Cloud</div>
  <div class="ats-keywords">
- <span class="skill-tag">Active Directory</span><span class="skill-tag">Active Directory Domain Services</span><span class="skill-tag">Windows Server 2022</span><span class="skill-tag">Domain Controller</span><span class="skill-tag">AD DNS</span><span class="skill-tag">Domain Join</span><span class="skill-tag">OU Management</span><span class="skill-tag">Security Groups</span><span class="skill-tag">Kerberos Authentication</span><span class="skill-tag">Windows Identity Events</span><span class="skill-tag">Entra ID</span><span class="skill-tag">IAM</span><span class="skill-tag g">Least Privilege</span><span class="skill-tag g">AWS CloudTrail</span><span class="skill-tag g">GuardDuty</span><span class="skill-tag g">Security Hub</span><span class="skill-tag g">CloudWatch</span>
+ <span class="skill-tag">Active Directory</span><span class="skill-tag">Active Directory Domain Services</span><span class="skill-tag">Windows Server 2022</span><span class="skill-tag">Domain Controller</span><span class="skill-tag">AD DNS</span><span class="skill-tag">Domain Join</span><span class="skill-tag">OU Management</span><span class="skill-tag">Security Groups</span><span class="skill-tag">Kerberos Authentication</span><span class="skill-tag">Windows Identity Events</span><span class="skill-tag p">Password Spray Investigation</span><span class="skill-tag p">AS-REP Roastable Configuration</span><span class="skill-tag p">Kerberoast-Relevant Telemetry</span><span class="skill-tag p">Event ID 4769</span><span class="skill-tag p">Events 4728 / 4729</span><span class="skill-tag p">AD Enumeration</span><span class="skill-tag">Entra ID</span><span class="skill-tag">IAM</span><span class="skill-tag g">Least Privilege</span><span class="skill-tag g">AWS CloudTrail</span><span class="skill-tag g">GuardDuty</span><span class="skill-tag g">Security Hub</span><span class="skill-tag g">CloudWatch</span>
  </div>
  </div>
  <div class="ats-group lab">
@@ -2453,6 +2454,11 @@ footer{position:relative;z-index:1;padding:50px 20px;border-top:1px solid var(--
  <span class="tool-pill g">OUs + Security Groups</span>
  <span class="tool-pill g">Kerberos Events</span>
  <span class="tool-pill g">Identity Investigation</span>
+ <span class="tool-pill g">Password Spray Triage</span>
+ <span class="tool-pill g">AS-REP Configuration Review</span>
+ <span class="tool-pill g">Kerberoast-Relevant Telemetry</span>
+ <span class="tool-pill g">Privileged Group Monitoring</span>
+ <span class="tool-pill g">AD Enumeration Analysis</span>
  <span class="tool-pill g">Entra ID</span>
  <span class="tool-pill g">IAM</span>
  <span class="tool-pill g">Least Privilege</span>
@@ -3380,7 +3386,7 @@ Write-Host "Phase 5 loop complete."</pre>
  <span class="log-phase-tag">Track 1-2 Validated</span>
  </div>
  </div>
- <div class="log-caret">â–¶</div>
+ <div class="log-caret">&#9654;</div>
  </div>
  <div class="log-body">
  <div class="log-body-inner">
@@ -3446,7 +3452,7 @@ Write-Host "Phase 5 loop complete."</pre>
  <span class="log-phase-tag">Splunk Forwarding</span>
  </div>
  </div>
- <div class="log-caret">â–¶</div>
+ <div class="log-caret">&#9654;</div>
  </div>
  <div class="log-body">
  <div class="log-body-inner">
@@ -3513,6 +3519,74 @@ Write-Host "Phase 5 loop complete."</pre>
  </div>
  </div>
 
+ <!-- DAY 11 -->
+ <div class="log-card">
+ <div class="log-card-hdr" onclick="toggleLog(this)">
+ <div class="log-day">
+ <div class="log-day-label">Day</div>
+ <div class="log-day-num">11</div>
+ </div>
+ <div class="log-info">
+ <div class="log-date">June 11, 2026</div>
+ <div class="log-title">Phase 11 - AD Attack Simulation + Alert Triage</div>
+ <div class="log-phases">
+ <span class="log-phase-tag done">&#10003; Phase 11 Complete</span>
+ <span class="log-phase-tag">Password Spray</span>
+ <span class="log-phase-tag">Kerberos</span>
+ <span class="log-phase-tag">Privileged Changes</span>
+ <span class="log-phase-tag">AD Enumeration</span>
+ <span class="log-phase-tag">Splunk</span>
+ </div>
+ </div>
+ <div class="log-caret">&#9654;</div>
+ </div>
+ <div class="log-body">
+ <div class="log-body-inner">
+
+ <div class="log-section">
+ <div class="log-section-title">Five Controlled Identity Scenarios</div>
+ <ul class="log-list">
+ <li>Generated failed Kerberos authentication across multiple users and investigated the Event 4771 pattern as password-spray behavior.</li>
+ <li>Created <code>svc_legacy</code> with Kerberos pre-authentication disabled and documented the AS-REP roastable configuration without claiming credential theft.</li>
+ <li>Registered <code>HTTP/webapp.majeed.local</code>, requested a service ticket, and investigated the resulting Kerberoast-relevant Event 4769.</li>
+ <li>Added and removed <code>test.employee1</code> from Domain Admins, then reviewed Events 4728 and 4729 as high-impact privileged access activity.</li>
+ <li>Ran domain discovery commands from <code>DESKTOP-3JKM5O9</code> and reviewed the resulting process and command-line evidence as AD enumeration behavior.</li>
+ </ul>
+ </div>
+
+ <div class="log-section">
+ <div class="log-section-title">SOC Triage + Evidence Boundaries</div>
+ <ul class="log-list">
+ <li>Documented actor, target, host, time, event ID, raw evidence, severity, lab context, verdict, and production follow-up for every scenario.</li>
+ <li>Used evidence-safe conclusions: the events proved the activity occurred, but did not prove password cracking, credential theft, malware execution, or domain compromise.</li>
+ <li>Classified most behavior as suspicious by pattern but benign by controlled lab context; treated the Domain Admins change as high severity by potential impact.</li>
+ </ul>
+ </div>
+
+ <div class="log-section">
+ <div class="log-section-title">Troubleshooting + Fixes</div>
+ <ul class="log-list">
+ <li>Expanded failed-authentication searches beyond 4625 to include 4771 and 4776 after confirming the domain authentication path produced different evidence.</li>
+ <li>Used <code>nltest</code> and DNS validation to resolve DC discovery, RPC, and domain connectivity issues from the Windows workstation.</li>
+ <li>Corrected DC01 DNS registration so the host-only address was used instead of the NAT interface.</li>
+ <li>Enabled Kerberos Service Ticket Operations auditing and generated a fresh <code>klist</code> request before Event 4769 appeared.</li>
+ <li>Recovered useful process telemetry from failed enumeration commands instead of treating a failed command as no evidence.</li>
+ </ul>
+ </div>
+
+ <div class="log-section">
+ <div class="log-section-title">Up Next - Phase 12</div>
+ <ul class="log-list">
+ <li>Move into endpoint and EDR investigation using Wazuh, Sysmon, and Defender-style telemetry, with emphasis on process trees, device timelines, persistence, scoping, and containment decisions.</li>
+ </ul>
+ </div>
+
+ <a href="https://github.com/mmajeed7864/soclab/blob/main/DAY-11-LAB-LOG.md" target="_blank" class="log-cta">Read full Phase 11 log on GitHub &rarr;</a>
+
+ </div>
+ </div>
+ </div>
+
  </div>
 </section>
 
@@ -3554,7 +3628,7 @@ Write-Host "Phase 5 loop complete."</pre>
  <div class="tl-body">
  <div class="tl-date">June 2026 <span class="now-badge">RIGHT NOW</span></div>
  <div class="tl-title">Working through SOC analyst labs in public</div>
- <div class="tl-desc">Completed Phases 1-10: Elastic SIEM, Suricata IDS, Wazuh XDR, Windows/Linux log fundamentals, high-volume SOC triage, ticket/escalation/handoff writing, phishing investigation, Splunk/SPL dashboards, detection engineering, and a working Active Directory domain with DC01 identity logs flowing into Splunk. Phase 11 moves into controlled identity attack and detection practice.</div>
+ <div class="tl-desc">Completed Phases 1-11: Elastic SIEM, Suricata IDS, Wazuh XDR, Windows/Linux log fundamentals, high-volume SOC triage, ticket/escalation/handoff writing, phishing investigation, Splunk/SPL dashboards, detection engineering, a working Active Directory domain, and five controlled identity-security investigations covering password spray behavior, risky service accounts, Kerberos ticket activity, privileged group changes, and AD enumeration. Phase 12 moves into endpoint and EDR investigation.</div>
  </div>
  </div>
  <div class="tl-item">
