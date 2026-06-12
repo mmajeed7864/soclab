@@ -114,7 +114,7 @@ Status: complete and validated through Capstone 01.
 8. Splunk Fundamentals for SOC
 9. Detection Engineering and Rule Tuning
 
-Status: complete and capstone passed. Capstone 01 was passed with a 90% SOC readiness rating and 90% SOC level.
+Status: complete and capstone passed. Capstone 01 validated the Track 1 lab foundation and Track 2 SOC L1 workflow.
 
 ### Track 3 - Endpoint and Identity Investigation
 
@@ -157,7 +157,7 @@ Status: Phases 10-11 complete. The AD foundation is validated, and five controll
 
 The core SOC analyst tracks end with a capstone checkpoint (outside the numbered 26 phases) that must be completed before moving on:
 
-- Capstone 01 - SOC L1 Core Workflow Readiness (after Phase 9, covers Tracks 1-2) - passed, 90% SOC readiness, 90% SOC level
+- Capstone 01 - SOC L1 Core Workflow Readiness (after Phase 9, covers Tracks 1-2) - passed
 - Capstone 02 - Endpoint and Identity Investigation (after Phase 13)
 - Capstone 03 - Cybersecurity Analyst Operations (after Phase 17)
 - Capstone 04 - Deep Investigation Capstone (after Phase 22, before Track 6)
@@ -239,7 +239,7 @@ I post lab work as I complete it:
 - [DAY-09-LAB-LOG.md](./DAY-09-LAB-LOG.md) - Detection engineering in Splunk: six enabled alerts, three Sigma-style rules, before/after false-positive tuning, and honest deferral of unsupported LSASS and Certutil validation paths
 - [DAY-10-LAB-LOG.md](./DAY-10-LAB-LOG.md) - Windows Server Active Directory domain build, DNS, users/groups/OUs, Windows domain join, DC01 Splunk forwarding, Kerberos failures, privileged group changes, troubleshooting, and analyst mini-tickets
 - [DAY-11-LAB-LOG.md](./DAY-11-LAB-LOG.md) - Five controlled AD security scenarios, Splunk identity triage, evidence-safe verdicts, and troubleshooting
-- [capstone-01-soc-l1-core-workflow-readiness-assessment.md](./capstone-01-soc-l1-core-workflow-readiness-assessment.md) - Capstone 01 results log: passed with a 90% SOC readiness rating and 90% SOC level, validating Track 1 foundation and Track 2 SOC L1 workflow
+- [capstone-01-soc-l1-core-workflow-readiness-assessment.md](./capstone-01-soc-l1-core-workflow-readiness-assessment.md) - Capstone 01 results log validating the Track 1 foundation and Track 2 SOC L1 workflow
 
 More logs are added with each lab session.
 
@@ -252,7 +252,7 @@ If you're hiring for SOC Analyst L1/L2, Cybersecurity Analyst, Security Operatio
 - Investigated Kerberos pre-authentication failures and privileged group membership changes with evidence-safe SOC conclusions
 - Simulated and triaged five identity-security scenarios covering password spray behavior, risky service-account configurations, Kerberos service-ticket activity, Domain Admins changes, and AD enumeration
 - Current SOC analyst responsibilities across Splunk, Elastic, Wazuh, Microsoft Defender for Endpoint, phishing investigation, IOC enrichment, ServiceNow/Jira ticketing, and escalation handoff
-- Assessment proof: Passed the cumulative SOC L1 Core Workflow Readiness Assessment with a 90% SOC readiness rating and 90% SOC level
+- Assessment proof: Passed the cumulative SOC L1 Core Workflow Readiness Assessment covering Phases 1-9
 - High-volume alert triage practice with scripted lab-generated alert volume
 - Realistic false-positive tuning and escalation workflows
 - SOC-style documentation, ticket notes, incident summaries, and build logs
