@@ -3,7 +3,22 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
-<title>SOC & Cybersecurity Analyst Roadmap - Free Community Guide</title><script async src="https://www.googletagmanager.com/gtag/js?id=G-18QKNDV0Q1"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-18QKNDV0Q1');</script>
+<title>SOC & Cybersecurity Analyst Roadmap - Free Community Guide</title>
+<meta name="description" content="A free 26-phase SOC and cybersecurity analyst roadmap with a working six-VM lab, guided investigations, progress tracking, capstones, and detailed build logs.">
+<link rel="canonical" href="https://mmajeed7864.github.io/soclab/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://mmajeed7864.github.io/soclab/">
+<meta property="og:title" content="SOC & Cybersecurity Analyst Roadmap">
+<meta property="og:description" content="Build a working SOC lab and learn telemetry, triage, detection, identity, cloud, and incident response through 26 practical phases.">
+<meta property="og:image" content="https://mmajeed7864.github.io/soclab/soclab-social-preview.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="SOC lab architecture and analyst roadmap">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="SOC & Cybersecurity Analyst Roadmap">
+<meta name="twitter:description" content="A free 26-phase guide built around a working SOC lab, real telemetry, investigations, and build logs.">
+<meta name="twitter:image" content="https://mmajeed7864.github.io/soclab/soclab-social-preview.png">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-18QKNDV0Q1"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}gtag('js',new Date());gtag('config','G-18QKNDV0Q1');</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -383,31 +398,6 @@ section{position:relative;z-index:1;padding:70px 20px;scroll-margin-top:74px}
 .cert-note{margin-top:12px;font-size:11px;color:#5a7080;line-height:1.6;border-left:2px solid rgba(0,212,255,.25);padding-left:10px}
 @media(max-width:760px){.certs-grid,.cert-stack{grid-template-columns:1fr}.cert-section-head{align-items:flex-start;flex-direction:column}.cert-source{white-space:normal}}
 
-/* SALARY */
-.salary-box{margin-top:36px;background:linear-gradient(135deg,rgba(0,212,255,.06),rgba(0,255,136,.04));border:1px solid rgba(0,212,255,.2);border-radius:14px;padding:32px 24px;text-align:center;position:relative;overflow:hidden}
-.salary-box::before{content:'';position:absolute;top:-1px;left:10%;right:10%;height:1px;background:linear-gradient(90deg,transparent,var(--accent),transparent)}
-.salary-label{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:.1em;text-transform:uppercase;margin-bottom:12px}
-.salary-role{font-size:18px;font-weight:600;color:var(--text);margin-bottom:16px}
-.salary-num{font-family:var(--mono);font-size:clamp(36px,8vw,64px);font-weight:700;color:var(--accent2);line-height:1}
-.salary-range{font-size:13px;color:var(--muted);margin-top:8px}
-.salary-desc{font-size:13px;color:var(--text);max-width:420px;margin:16px auto 0;line-height:1.6}
-
-/* TIMELINE */
-.tl{margin-top:32px}
-.tl-item{display:flex;gap:14px;padding-bottom:24px}
-.tl-item:last-child{padding-bottom:0}
-.tl-col{display:flex;flex-direction:column;align-items:center;flex-shrink:0}
-.tl-d{width:12px;height:12px;border-radius:50%;flex-shrink:0}
-.tl-d.done{background:var(--accent2);box-shadow:0 0 8px rgba(0,255,136,.4)}
-.tl-d.now{background:var(--accent);box-shadow:0 0 12px rgba(0,212,255,.5);animation:pulse 2s infinite}
-.tl-d.future{background:transparent;border:2px solid var(--border)}
-.tl-l{width:1px;flex:1;background:var(--border);margin-top:4px}
-.tl-body{padding-top:0}
-.tl-date{font-family:var(--mono);font-size:10px;color:var(--muted);letter-spacing:.06em;margin-bottom:4px}
-.tl-title{font-size:14px;font-weight:600;color:var(--text)}
-.now-badge{display:inline-block;font-family:var(--mono);font-size:8px;padding:2px 6px;border-radius:3px;background:rgba(0,212,255,.1);color:var(--accent);border:1px solid rgba(0,212,255,.2);margin-left:8px;vertical-align:middle}
-.tl-desc{font-size:12px;color:var(--muted);margin-top:4px;line-height:1.6}
-
 /* BUILD LOGS */
 .logs-intro{margin-top:20px;padding:14px 16px;background:rgba(0,255,136,.04);border-left:3px solid var(--accent2);border-radius:0 8px 8px 0;font-size:13px;color:var(--text);line-height:1.6}
 .logs-intro strong{color:var(--accent2);font-family:var(--mono);font-size:11px;letter-spacing:.06em}
@@ -644,17 +634,6 @@ footer{position:relative;z-index:1;padding:50px 20px;border-top:1px solid var(--
  <div class="hero-meta-item"><span>&gt;</span> Use completed GitHub logs when setup or troubleshooting blocks your progress</div>
  <div class="hero-meta-item"><span>&gt;</span> Track your own completion locally as you work through all 26 phases</div>
  </div>
- <div class="hero-author">
- <div class="hero-author-label">Built and maintained by</div>
- <div class="hero-author-name">Mohammed H. Majeed</div>
- <div class="hero-author-role">SOC Analyst | Security Operations</div>
- <div class="hero-author-certs">
- <span class="acert">Security+</span>
- <span class="acert">Network+</span>
- <span class="acert">CySA+</span>
- <span class="acert ip">AWS Security → In Progress</span>
- </div>
- </div>
  <div class="hero-cta">
  <a href="#start" class="btn btn-primary">Start Roadmap</a>
  <a href="#architecture" class="btn btn-ghost">Open Lab Map</a>
@@ -681,73 +660,13 @@ footer{position:relative;z-index:1;padding:50px 20px;border-top:1px solid var(--
  <a class="overview-link" href="#roadmap">Open phase guide</a>
  <a class="overview-link" href="#logs">Use troubleshooting logs</a>
  </div>
- <div class="hire-callout">
- <div class="hire-label">Open to work</div>
- <div class="hire-copy">Currently targeting SOC Analyst L1/L2 and Cybersecurity Analyst roles in Charlotte or remote. Current work includes SOC alert triage, Splunk/Elastic/Wazuh review, Microsoft Defender for Endpoint monitoring, phishing investigation, IOC enrichment, ServiceNow/Jira ticketing, and clean escalation handoff.</div>
- <div class="hire-links">
- <a class="hire-link" href="mailto:hmajeed04@gmail.com">Email Mohammed</a>
- <a class="hire-link" href="https://mmajeed7864.github.io" target="_blank" rel="noopener">Portfolio</a>
- <a class="hire-link" href="https://www.linkedin.com/in/mohammed-majeed-40a661271" target="_blank" rel="noopener">LinkedIn</a>
- </div>
- </div>
  </div>
 
- <div class="proof-metrics">
- <div class="proof-metric">
- <div class="proof-metric-num">26</div>
- <div class="proof-metric-label">Phases mapped</div>
- <div class="proof-metric-copy">Full SOC and cybersecurity analyst roadmap.</div>
- </div>
- <div class="proof-metric">
- <div class="proof-metric-num">30+</div>
- <div class="proof-metric-label">Tools + skills</div>
- <div class="proof-metric-copy">SIEM, XDR, endpoint, network, cloud, and IR stack.</div>
- </div>
- <div class="proof-metric">
- <div class="proof-metric-num">50+</div>
- <div class="proof-metric-label">Alerts triaged</div>
- <div class="proof-metric-copy">High-volume triage practice from lab activity.</div>
- </div>
- <div class="proof-metric">
- <div class="proof-metric-num">20+</div>
- <div class="proof-metric-label">Event IDs + fields</div>
- <div class="proof-metric-copy">Windows, Sysmon, Linux, DNS, network, and SIEM fields.</div>
- </div>
- <div class="proof-metric">
- <div class="proof-metric-num">8</div>
- <div class="proof-metric-label">Analyst tracks</div>
- <div class="proof-metric-copy">SOC L1, L2, cloud, IR, threat hunting, automation.</div>
- </div>
- <div class="proof-metric">
- <div class="proof-metric-num">12</div>
- <div class="proof-metric-label">Published evidence logs</div>
- <div class="proof-metric-copy">11 phase logs plus 1 capstone results log with troubleshooting, investigations, and analyst decisions.</div>
- </div>
- <div class="proof-metric">
- <div class="proof-metric-num">Passed</div>
- <div class="proof-metric-label">Capstone 01</div>
- <div class="proof-metric-copy">Completed the cumulative workflow assessment across Phases 1-9.</div>
- </div>
- <div class="proof-metric">
- <div class="proof-metric-num">1-2</div>
- <div class="proof-metric-label">Tracks validated</div>
- <div class="proof-metric-copy">Lab foundation and SOC L1 workflow assessed.</div>
- </div>
- </div>
+ 
  </div>
 
  <div class="audience-grid reveal">
- <div class="audience-card recruiter" hidden aria-hidden="true">
- <div class="audience-label">For recruiters</div>
- <div class="audience-title">Evidence of hands-on SOC readiness.</div>
- <div class="audience-copy">The goal is to make the skills easy to verify: tools used, problems solved, investigations written, and the role this maps to.</div>
- <ul class="audience-list">
- <li>Target roles: SOC Analyst L1/L2, Cybersecurity Analyst, Security Operations.</li>
- <li>Proof areas: SIEM/XDR setup, endpoint telemetry, IDS, queue triage, tickets, escalation, phishing investigation.</li>
- <li>Assessment proof: Passed the cumulative SOC L1 Core Workflow Readiness Assessment covering Phases 1-9.</li>
- <li>Tools shown: Elastic, Kibana, Fleet, Sysmon, Suricata, Wazuh, Splunk Enterprise, Splunk Universal Forwarder, Active Directory, Windows Server, SPL, VMware, Kali, Windows, Linux.</li>
- </ul>
- </div>
+ 
 
  <div class="audience-card learner">
  <div class="audience-label">For learners</div>
@@ -2396,135 +2315,6 @@ footer{position:relative;z-index:1;padding:50px 20px;border-top:1px solid var(--
 
 <div class="divider"></div>
 
-<!-- TECHNICAL SKILLS -->
-<section id="skills" hidden aria-hidden="true">
- <div class="eyebrow">03 - Technical Skills</div>
- <h2 class="sec-title reveal">Recruiter Skills Snapshot</h2>
- <p class="sec-sub reveal">A quick scan of the SOC and cybersecurity analyst capabilities this lab is building, mapped to real job duties instead of just tool names.</p>
-
- <div class="recruiter-snapshot reveal">
- <div>
- <div class="snapshot-label">Role Fit</div>
- <div class="snapshot-title">SOC Analyst I / II + Cybersecurity Analyst</div>
- <p class="snapshot-copy">This roadmap is designed to show hands-on readiness for high-volume alert triage, SIEM searching, endpoint and network telemetry review, phishing investigation, IOC enrichment, ticket documentation, escalation handoff, cloud security monitoring, vulnerability prioritization, and analyst-style reporting.</p>
- <div class="role-pills">
- <span class="role-pill">SOC Analyst L1</span>
- <span class="role-pill">SOC Analyst L2</span>
- <span class="role-pill">Cybersecurity Analyst</span>
- <span class="role-pill">Security Operations</span>
- <span class="role-pill">Detection + Response</span>
- </div>
- </div>
- <div class="snapshot-metrics">
- <div class="snapshot-metric">
- <div class="metric-num">26</div>
- <div class="metric-label">phases mapped to analyst job duties</div>
- </div>
- <div class="snapshot-metric">
- <div class="metric-num">45+</div>
- <div class="metric-label">security tools, platforms, and frameworks</div>
- </div>
- <div class="snapshot-metric">
- <div class="metric-num">8</div>
- <div class="metric-label">skill tracks from lab build to portfolio</div>
- </div>
- <div class="snapshot-metric">
- <div class="metric-num">11</div>
- <div class="metric-label">completed lab build logs documented</div>
- </div>
- </div>
- </div>
-
- <div class="skills-focus-grid reveal">
- <div class="skill-proof-card">
- <div class="skill-proof-title">SIEM investigation proof</div>
- <div class="skill-proof-copy">Built and used Elastic, Wazuh, Splunk, and Microsoft Defender workflows to search endpoint telemetry, build dashboards, compare SIEM behavior, and document analyst findings.</div>
- <div class="skill-proof-stack"><span class="skill-tag">Elastic SIEM</span><span class="skill-tag">Wazuh XDR</span><span class="skill-tag">Splunk Enterprise</span><span class="skill-tag">Microsoft Defender for Endpoint</span><span class="skill-tag g">SPL</span><span class="skill-tag g">KQL</span><span class="skill-tag g">Dashboards</span></div>
- </div>
- <div class="skill-proof-card">
- <div class="skill-proof-title">SOC workflow proof</div>
- <div class="skill-proof-copy">Practiced and documented queue triage, false-positive decisions, ServiceNow/Jira-style tickets, escalation summaries, shift handoffs, phishing verdicts, IOC enrichment, and incident-style reporting.</div>
- <div class="skill-proof-stack"><span class="skill-tag g">Alert Triage</span><span class="skill-tag g">ServiceNow</span><span class="skill-tag g">Jira</span><span class="skill-tag g">Escalation</span><span class="skill-tag g">Shift Handoff</span><span class="skill-tag g">Phishing Triage</span><span class="skill-tag g">IOC Enrichment</span><span class="skill-tag g">Incident Reports</span></div>
- </div>
- <div class="skill-proof-card">
- <div class="skill-proof-title">Endpoint and network proof</div>
- <div class="skill-proof-copy">Collected and reviewed Windows Security, Sysmon, DNS, Linux, IDS, network, and domain-controller identity evidence across a controlled virtual lab.</div>
- <div class="skill-proof-stack"><span class="skill-tag p">Sysmon</span><span class="skill-tag p">Windows Event Logs</span><span class="skill-tag p">Active Directory</span><span class="skill-tag p">Kerberos Events</span><span class="skill-tag p">Universal Forwarder</span><span class="skill-tag o">Suricata IDS</span><span class="skill-tag o">Wireshark</span><span class="skill-tag o">pfSense</span></div>
- </div>
- <div class="skill-proof-card">
- <div class="skill-proof-title">Portfolio proof</div>
- <div class="skill-proof-copy">Converted lab work into public GitHub logs with troubleshooting, screenshots-ready notes, SOC case summaries, and lessons learned.</div>
- <div class="skill-proof-stack"><span class="skill-tag y">GitHub</span><span class="skill-tag y">GitHub Pages</span><span class="skill-tag y">Technical Writing</span><span class="skill-tag y">Documentation</span><span class="skill-tag y">Analyst Writeups</span></div>
- </div>
- </div>
-
- <div class="ats-strip reveal">
- <div class="ats-head">
- <div>
- <div class="ats-label">Recruiter Keyword Bank</div>
- <div class="ats-title">Clean Scan of Tools, Platforms, and Technical Skills</div>
- </div>
- <p class="ats-note">Grouped for quick hiring-manager review. The detailed evidence lives in the roadmap cards and GitHub logs.</p>
- </div>
- <div class="ats-groups">
- <div class="ats-group siem">
- <div class="ats-group-title">SIEM + Detection</div>
- <div class="ats-keywords">
- <span class="skill-tag">SIEM</span><span class="skill-tag">Elastic SIEM</span><span class="skill-tag">Kibana</span><span class="skill-tag">Wazuh XDR</span><span class="skill-tag">Splunk Enterprise</span><span class="skill-tag">Splunk Universal Forwarder</span><span class="skill-tag">Microsoft Sentinel</span><span class="skill-tag">Microsoft Defender for Endpoint</span><span class="skill-tag g">SPL</span><span class="skill-tag g">KQL</span><span class="skill-tag g">Sigma</span><span class="skill-tag g">Detection Rules</span><span class="skill-tag g">Alert Tuning</span>
- </div>
- </div>
- <div class="ats-group ops">
- <div class="ats-group-title">SOC Operations</div>
- <div class="ats-keywords">
- <span class="skill-tag g">SOC Triage</span><span class="skill-tag g">High-Volume Alert Queue</span><span class="skill-tag g">50+ Ticket Sessions</span><span class="skill-tag g">False Positive Review</span><span class="skill-tag g">Ticket Writing</span><span class="skill-tag g">ServiceNow</span><span class="skill-tag g">Jira</span><span class="skill-tag g">Escalation Notes</span><span class="skill-tag g">Shift Handoff</span><span class="skill-tag g">Incident Response</span><span class="skill-tag g">SOC Runbooks</span><span class="skill-tag g">PICERL</span><span class="skill-tag g">Case Notes</span>
- </div>
- </div>
- <div class="ats-group endpoint">
- <div class="ats-group-title">Endpoint + Network</div>
- <div class="ats-keywords">
- <span class="skill-tag p">Sysmon</span><span class="skill-tag p">Windows Security Logs</span><span class="skill-tag p">Process Creation</span><span class="skill-tag p">PowerShell</span><span class="skill-tag p">Parent Process Analysis</span><span class="skill-tag p">Event ID 4624</span><span class="skill-tag p">Event ID 4625</span><span class="skill-tag o">Suricata IDS</span><span class="skill-tag o">Wireshark</span><span class="skill-tag o">Nmap</span><span class="skill-tag o">DNS Analysis</span><span class="skill-tag o">PCAP Analysis</span>
- </div>
- </div>
- <div class="ats-group email">
- <div class="ats-group-title">Phishing + Threat Intel</div>
- <div class="ats-keywords">
- <span class="skill-tag">Phishing Investigation</span><span class="skill-tag">Email Headers</span><span class="skill-tag">SPF</span><span class="skill-tag">DKIM</span><span class="skill-tag">DMARC</span><span class="skill-tag p">Credential Harvesting</span><span class="skill-tag p">BEC</span><span class="skill-tag p">URL Analysis</span><span class="skill-tag p">IOC Extraction</span><span class="skill-tag p">Threat Intelligence</span><span class="skill-tag p">VirusTotal</span><span class="skill-tag p">AbuseIPDB</span><span class="skill-tag p">Shodan</span><span class="skill-tag p">URLScan.io</span><span class="skill-tag p">MXToolbox</span>
- </div>
- </div>
- <div class="ats-group identity">
- <div class="ats-group-title">Identity + Cloud</div>
- <div class="ats-keywords">
- <span class="skill-tag">Active Directory</span><span class="skill-tag">Active Directory Domain Services</span><span class="skill-tag">Windows Server 2022</span><span class="skill-tag">Domain Controller</span><span class="skill-tag">AD DNS</span><span class="skill-tag">Domain Join</span><span class="skill-tag">OU Management</span><span class="skill-tag">Security Groups</span><span class="skill-tag">Kerberos Authentication</span><span class="skill-tag">Windows Identity Events</span><span class="skill-tag p">Password Spray Investigation</span><span class="skill-tag p">AS-REP Roastable Configuration</span><span class="skill-tag p">Kerberoast-Relevant Telemetry</span><span class="skill-tag p">Event ID 4769</span><span class="skill-tag p">Events 4728 / 4729</span><span class="skill-tag p">AD Enumeration</span><span class="skill-tag">Entra ID</span><span class="skill-tag">IAM</span><span class="skill-tag g">Least Privilege</span><span class="skill-tag g">AWS CloudTrail</span><span class="skill-tag g">GuardDuty</span><span class="skill-tag g">Security Hub</span><span class="skill-tag g">CloudWatch</span>
- </div>
- </div>
- <div class="ats-group lab">
- <div class="ats-group-title">Lab + Reporting</div>
- <div class="ats-keywords">
- <span class="skill-tag y">VMware Workstation</span><span class="skill-tag y">VirtualBox</span><span class="skill-tag y">Ubuntu Server</span><span class="skill-tag y">Windows 10/11</span><span class="skill-tag y">Kali Linux</span><span class="skill-tag y">pfSense</span><span class="skill-tag y">Python</span><span class="skill-tag y">PowerShell</span><span class="skill-tag y">GitHub</span><span class="skill-tag y">GitHub Pages</span><span class="skill-tag y">Technical Writing</span><span class="skill-tag y">Dashboards</span>
- </div>
- </div>
- </div>
- </div>
- <div class="proof-strip reveal">
- <div class="proof-item">
- <div class="proof-num">01</div>
- <div>
- <div class="proof-title">Build logs show the work</div>
- <div class="proof-copy">Daily writeups document what was configured, what broke, what was fixed, and what alerts were generated.</div>
- </div>
- </div>
- <div class="proof-item">
- <div class="proof-num">02</div>
- <div>
- <div class="proof-title">Roadmap maps to job functions</div>
- <div class="proof-copy">The lab covers high-volume triage, detection, ticketing, false-positive tuning, escalation, IR, cloud, vulnerability management, and analyst reporting.</div>
- </div>
- </div>
- </div>
-</section>
-
-<div class="divider"></div>
-
 <!-- CERTS -->
 <section id="certs">
  <div class="eyebrow">04 - Supporting Certifications</div>
@@ -2568,84 +2358,9 @@ footer{position:relative;z-index:1;padding:50px 20px;border-top:1px solid var(--
  </div>
  </div>
 
- <div class="cert-section reveal" hidden aria-hidden="true">
- <div class="cert-section-head">
- <div>
- <div class="cert-section-kicker">Degree embedded cert map</div>
- <div class="cert-section-title">Certifications Earned By WGU Degree</div>
- <div class="cert-section-sub">WGU's B.S. Cybersecurity and Information Assurance program includes the core CompTIA, ITIL, LPI, and (ISC)2 certification path below.</div>
- </div>
- <a class="cert-source" href="https://www.wgu.edu/online-it-degrees/cybersecurity-information-assurance-bachelors-program.html" target="_blank" rel="noopener">WGU source</a>
- </div>
+ 
 
- <div class="cert-stack">
- <span class="cert-chip">CompTIA A+</span>
- <span class="cert-chip earned">CompTIA Network+</span>
- <span class="cert-chip earned">CompTIA Security+</span>
- <span class="cert-chip">CompTIA Project+</span>
- <span class="cert-chip earned">CompTIA CySA+</span>
- <span class="cert-chip">CompTIA PenTest+</span>
- <span class="cert-chip">CompTIA Data+</span>
- <span class="cert-chip">CompTIA IT Operations Specialist</span>
- <span class="cert-chip">CompTIA Secure Infrastructure Specialist</span>
- <span class="cert-chip">CompTIA Network Vulnerability Assessment Professional</span>
- <span class="cert-chip">CompTIA Network Security Professional</span>
- <span class="cert-chip">CompTIA Security Analytics Professional</span>
- <span class="cert-chip">ITIL 4 Foundation</span>
- <span class="cert-chip">LPI Linux Essentials</span>
- <span class="cert-chip">SSCP - (ISC)2</span>
- <span class="cert-chip optional">CCSP - (ISC)2</span>
- <span class="cert-chip extra">CompTIA Linux+ - current site carryover</span>
- <span class="cert-chip extra">AWS Security Specialty - external cloud target</span>
- </div>
- <div class="cert-note">WGU lists LPI Linux Essentials in the degree. Linux+ and AWS Security Specialty stay visible here because they were already part of the site plan, but they are marked as external/carryover items instead of WGU-included certs.</div>
- </div>
-
- <div class="certs-grid reveal" style="display:none" aria-hidden="true">
- <!-- EARNED -->
- <div class="cert-card earned">
- <div class="cert-top"><div class="cert-name cn-g">CompTIA Security+</div><span class="cbadge cb-earned">✓ EARNED</span></div>
- <div class="cert-desc">The baseline for every SOC and security analyst role. Required on most job postings and a DoD 8570/8140 requirement for government and defense positions.</div>
- </div>
- <div class="cert-card earned">
- <div class="cert-top"><div class="cert-name cn-g">CompTIA Network+</div><span class="cbadge cb-earned">✓ EARNED</span></div>
- <div class="cert-desc">TCP/IP, DNS, VPNs, firewalls - the networking foundation you need to analyze alerts and investigate traffic in any SOC environment.</div>
- </div>
- <div class="cert-card earned">
- <div class="cert-top"><div class="cert-name cn-g">CompTIA CySA+</div><span class="cbadge cb-earned">✓ EARNED</span></div>
- <div class="cert-desc">The most SOC-specific CompTIA cert. Covers threat detection, SIEM analysis, incident response, and vulnerability management. Filtered for by MSSP ATS systems.</div>
- </div>
- <!-- IN PROGRESS -->
- <div class="cert-card ip">
- <div class="cert-top"><div class="cert-name cn-b">AWS Security Specialty</div><span class="cbadge cb-ip">IN PROGRESS</span></div>
- <div class="cert-desc">The highest-level AWS security certification. Covers GuardDuty, CloudTrail, Security Hub, IAM, and cloud incident response. Major differentiator for cloud-adjacent SOC and security analyst roles.</div>
- </div>
- <div class="cert-card ip">
- <div class="cert-top"><div class="cert-name cn-b">CompTIA A+</div><span class="cbadge cb-ip">WGU - IN PROGRESS</span></div>
- <div class="cert-desc">Hardware, OS, troubleshooting, and IT operations fundamentals. Required as part of the WGU B.S. Cybersecurity &amp; Information Assurance degree program.</div>
- </div>
- <div class="cert-card ip">
- <div class="cert-top"><div class="cert-name cn-b">CompTIA Linux+</div><span class="cbadge cb-ip">CURRENT STUDY</span></div>
- <div class="cert-desc">Linux administration, shell scripting, and security hardening on Linux systems. Critical for SOC work - most SIEM servers, EDR tools, and cloud workloads run Linux.</div>
- </div>
- <div class="cert-card ip">
- <div class="cert-top"><div class="cert-name cn-b">CompTIA Data+</div><span class="cbadge cb-ip">WGU - IN PROGRESS</span></div>
- <div class="cert-desc">Data analytics, visualization, and reporting fundamentals. Supports security data analysis, SIEM dashboard work, and threat intelligence reporting skills.</div>
- </div>
- <div class="cert-card ip">
- <div class="cert-top"><div class="cert-name cn-b">CompTIA PenTest+</div><span class="cbadge cb-ip">WGU - IN PROGRESS</span></div>
- <div class="cert-desc">Penetration testing methodology, vulnerability scanning, and ethical hacking. Understanding attacker techniques makes you a stronger defender - essential for L2 SOC and threat hunting roles.</div>
- </div>
- <!-- PLANNED -->
- <div class="cert-card ip">
- <div class="cert-top"><div class="cert-name cn-b">CCSP - (ISC)2</div><span class="cbadge cb-ip">CLOUD SECURITY</span></div>
- <div class="cert-desc">Certified Cloud Security Professional track focused on cloud security architecture, governance, operations, and risk.</div>
- </div>
- <div class="cert-card earned">
- <div class="cert-top"><div class="cert-name cn-g">WGU BSCSIA</div><span class="cbadge cb-ip">JAN 2027</span></div>
- <div class="cert-desc">Bachelor of Science in Cybersecurity and Information Assurance - Western Governors University. Includes 16 industry certifications built directly into the curriculum. ABET-accredited. NSA/DHS designated National Center of Academic Excellence in Cyber Defense.</div>
- </div>
- </div>
+ 
 </section>
 
 <div class="divider"></div>
@@ -3876,83 +3591,6 @@ Write-Host "Phase 5 loop complete."</pre>
  </div>
  </div>
 
- </div>
-</section>
-
-<div class="divider"></div>
-
-<!-- TIMELINE / MY JOURNEY -->
-<section id="journey" hidden aria-hidden="true">
- <div class="eyebrow">07 - My Journey</div>
- <h2 class="sec-title reveal">Where I Am On This Path</h2>
- <p class="sec-sub reveal">I'm following this same roadmap. Here's my timeline - so you can see it's achievable.</p>
-
- <div class="tl reveal">
- <div class="tl-item">
- <div class="tl-col"><div class="tl-d done"></div><div class="tl-l"></div></div>
- <div class="tl-body">
- <div class="tl-date">2022 - 2024</div>
- <div class="tl-title">IT Support Analyst - Apple IS&T HelpLine</div>
- <div class="tl-desc">Enterprise IT support for Apple's internal infrastructure. Built foundation in systems, networking, and troubleshooting at scale.</div>
- </div>
- </div>
- <div class="tl-item">
- <div class="tl-col"><div class="tl-d done"></div><div class="tl-l"></div></div>
- <div class="tl-body">
- <div class="tl-date">2024 - Present</div>
- <div class="tl-title">SOC Analyst - Bay Alarm</div>
- <div class="tl-desc">Monitoring security telemetry in Splunk, Elastic, Wazuh, and Microsoft Defender for Endpoint; triaging alerts, investigating phishing, enriching IOCs with threat intelligence, documenting cases in ServiceNow/Jira, and escalating incidents through defined runbooks. Earned Security+, Network+, and CySA+ while working full-time.</div>
- </div>
- </div>
- <div class="tl-item">
- <div class="tl-col"><div class="tl-d done"></div><div class="tl-l"></div></div>
- <div class="tl-body">
- <div class="tl-date">Early 2026</div>
- <div class="tl-title">Built first home SOC lab</div>
- <div class="tl-desc">Deployed Elastic SIEM, Suricata IDS, Sysmon, pfSense, and the first multi-VM monitoring environment. Started generating real alerts and triaging them.</div>
- </div>
- </div>
- <div class="tl-item">
- <div class="tl-col"><div class="tl-d now"></div><div class="tl-l"></div></div>
- <div class="tl-body">
- <div class="tl-date">June 2026 <span class="now-badge">RIGHT NOW</span></div>
- <div class="tl-title">Working through SOC analyst labs in public</div>
- <div class="tl-desc">Completed Phases 1-11: Elastic SIEM, Suricata IDS, Wazuh XDR, Windows/Linux log fundamentals, high-volume SOC triage, ticket/escalation/handoff writing, phishing investigation, Splunk/SPL dashboards, detection engineering, a working Active Directory domain, and five controlled identity-security investigations covering password spray behavior, risky service accounts, Kerberos ticket activity, privileged group changes, and AD enumeration. Phase 12 moves into endpoint and EDR investigation.</div>
- </div>
- </div>
- <div class="tl-item">
- <div class="tl-col"><div class="tl-d done"></div><div class="tl-l"></div></div>
- <div class="tl-body">
- <div class="tl-date">June 2026</div>
- <div class="tl-title">Passed Capstone 01 - SOC L1 Core Workflow Readiness Assessment</div>
- <div class="tl-desc">Completed the first cumulative roadmap capstone after finishing Phases 1-9, validating the lab foundation and SOC L1 workflow through job-style triage, investigation, documentation, detection and tuning reasoning, and interview defense.</div>
- </div>
- </div>
- <div class="tl-item">
- <div class="tl-col"><div class="tl-d future"></div><div class="tl-l"></div></div>
- <div class="tl-body">
- <div class="tl-date">End of 2026 - Target</div>
- <div class="tl-title">SOC Analyst L1 or L2</div>
- <div class="tl-desc">Complete the roadmap. Finish AWS Security Specialty. Build a GitHub portfolio of 20+ reports. Land an L1 or L2 SOC role at an MSSP or enterprise SOC in Charlotte or remote.</div>
- </div>
- </div>
- <div class="tl-item">
- <div class="tl-col"><div class="tl-d future"></div></div>
- <div class="tl-body">
- <div class="tl-date">End of 2027 - Target</div>
- <div class="tl-title">Cloud Security Engineer</div>
- <div class="tl-desc">1 year of SOC experience + cloud certifications + Python and automation skills → pivot to Cloud Security Engineering. The destination this whole path is working toward.</div>
- </div>
- </div>
- </div>
-
- <!-- CLOUD SALARY BOX -->
- <div class="salary-box reveal">
- <div class="salary-label">Why Cloud Security Engineering</div>
- <div class="salary-role">Cloud Security Engineer - Average Salary</div>
- <div class="salary-num">$147K</div>
- <div class="salary-range">Range: $110,000 - $185,000+ annually</div>
- <div class="salary-desc">The SOC analyst path isn't just about landing a security job - it's the foundation for cloud security engineering, where the combination of detection experience and cloud expertise commands top-of-market compensation.</div>
  </div>
 </section>
 
