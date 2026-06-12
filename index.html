@@ -323,7 +323,17 @@ section{position:relative;z-index:1;padding:70px 20px;scroll-margin-top:74px}
 .practice-step-copy{font-size:12px;color:var(--muted);line-height:1.6;margin-top:3px}
 @media(min-width:780px){.overview-grid{grid-template-columns:1.15fr .85fr}.audience-grid{grid-template-columns:1fr 1fr}.workflow-strip{grid-template-columns:repeat(5,1fr)}.workflow-step{grid-template-columns:1fr}.recruiter-snapshot{grid-template-columns:1.5fr .8fr}.skills-focus-grid{grid-template-columns:repeat(2,1fr)}.ats-groups{grid-template-columns:repeat(2,1fr)}.skill-row{grid-template-columns:minmax(170px,.55fr) 1fr}.proof-strip{grid-template-columns:1fr 1fr}.practice-board{grid-template-columns:1fr 1.35fr}.reps-grid{grid-template-columns:repeat(5,1fr)}}
 @media(min-width:1180px){.ats-groups{grid-template-columns:repeat(3,1fr)}}
-@media(max-width:680px){nav{position:sticky;top:0;align-items:flex-start;gap:10px;padding:12px 14px}.nav-links{justify-content:flex-start}.hero{padding-top:42px}section{scroll-margin-top:118px}.nav-shortcuts-label{width:100%;margin-bottom:2px}}
+@media(max-width:680px){
+ nav{position:sticky;top:0;display:block;padding:9px 12px}
+ .nav-logo{font-size:9px;white-space:nowrap;margin-bottom:7px}
+ .nav-logo br{display:none}
+ .nav-links{justify-content:flex-start;flex-wrap:nowrap;overflow-x:auto;gap:5px;padding-bottom:2px;scrollbar-width:none}
+ .nav-links::-webkit-scrollbar{display:none}
+ .nav-shortcuts-label{display:none}
+ .nav-link{flex:0 0 auto;font-size:8px;padding:4px 7px}
+ .hero{padding-top:54px}
+ section{scroll-margin-top:78px}
+}
 
 /* Keep dense roadmap and skills content softer for scanability */
 #roadmap .sec-sub,
@@ -478,35 +488,149 @@ footer{position:relative;z-index:1;padding:50px 20px;border-top:1px solid var(--
 .footer-link:hover{color:var(--accent);border-bottom-color:var(--accent)}
 .footer-copy{font-size:10px;color:#7f93a3;margin-top:26px;font-family:var(--mono)}
 
+/* JARVIS GUIDE SYSTEM */
+.hero-author,.hire-callout,.proof-metrics,.audience-card.recruiter{display:none}
+#skills[hidden],#journey[hidden],.cert-section[hidden]{display:none}
+.audience-grid{grid-template-columns:1fr}
+.system-grid{position:absolute;inset:0;pointer-events:none;overflow:hidden;opacity:.38}
+.system-grid::before{content:'';position:absolute;width:420px;height:420px;right:-160px;top:15%;border:1px solid rgba(0,212,255,.18);border-radius:50%;box-shadow:0 0 70px rgba(0,212,255,.08),inset 0 0 70px rgba(0,212,255,.04);animation:hudSpin 28s linear infinite}
+.system-grid::after{content:'';position:absolute;width:300px;height:300px;right:-100px;top:calc(15% + 60px);border:1px dashed rgba(0,255,136,.2);border-radius:50%;animation:hudSpin 18s linear infinite reverse}
+.hud-panel{position:relative;border:1px solid var(--border);background:linear-gradient(145deg,rgba(13,18,25,.96),rgba(8,12,16,.96));box-shadow:inset 0 0 38px rgba(0,212,255,.025)}
+.hud-panel::before,.hud-panel::after,.hud-corners::before,.hud-corners::after{content:'';position:absolute;width:17px;height:17px;border:2px solid var(--accent);z-index:2;pointer-events:none}
+.hud-panel::before{top:-2px;left:-2px;border-right:0;border-bottom:0}
+.hud-panel::after{top:-2px;right:-2px;border-left:0;border-bottom:0}
+.hud-corners::before{bottom:-2px;left:-2px;border-right:0;border-top:0}
+.hud-corners::after{bottom:-2px;right:-2px;border-left:0;border-top:0}
+.guide-console{padding:24px;margin-top:34px}
+.console-status{display:flex;align-items:center;gap:9px;font-family:var(--mono);font-size:9px;color:var(--accent2);letter-spacing:.13em;text-transform:uppercase;margin-bottom:12px}
+.console-status::before{content:'';width:7px;height:7px;border-radius:50%;background:var(--accent2);box-shadow:0 0 12px var(--accent2);animation:pulse 1.8s infinite}
+.console-title{font-family:var(--mono);font-size:clamp(18px,3vw,25px);color:var(--text);margin-bottom:9px}
+.console-copy{font-size:13px;color:var(--soft);line-height:1.75;max-width:760px}
+.console-copy strong{color:var(--accent)}
+.console-actions{display:flex;flex-wrap:wrap;gap:9px;margin-top:18px}
+.console-link{font-family:var(--mono);font-size:10px;color:var(--text);border:1px solid var(--border);padding:8px 12px;text-decoration:none;background:rgba(0,212,255,.025)}
+.console-link:hover{color:var(--accent);border-color:var(--accent);box-shadow:0 0 12px rgba(0,212,255,.22)}
+.quick-facts{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin-top:14px}
+.quick-fact{border:1px solid var(--border);background:rgba(8,12,16,.65);padding:12px}
+.quick-fact strong{display:block;font-family:var(--mono);font-size:13px;color:var(--accent);margin-bottom:3px}
+.quick-fact span{font-size:10px;color:var(--soft)}
+.architecture-wrap{padding-top:54px}
+.diagram-head{display:flex;justify-content:space-between;gap:16px;align-items:flex-end;margin-bottom:18px}
+.diagram-state{font-family:var(--mono);font-size:9px;color:var(--accent2);letter-spacing:.12em;white-space:nowrap}
+.diagram-shell{padding:8px;background:var(--bg);overflow-x:auto}
+.diagram-shell svg{display:block;min-width:680px;width:100%;height:auto}
+.diagram-legend{display:flex;flex-wrap:wrap;gap:18px;font-family:var(--mono);font-size:10px;color:var(--soft);padding:12px 14px;letter-spacing:.06em;border-top:1px solid var(--border)}
+.diagram-legend i{display:inline-block;width:22px;height:0;border-top:2px dashed var(--accent);vertical-align:middle;margin-right:6px}
+.diagram-legend i.attack{border-color:var(--accent3)}
+.diagram-legend i.network{border-color:var(--accent2)}
+.tele{stroke:var(--accent);stroke-width:1.6;stroke-dasharray:6 6;fill:none;animation:hudFlow 1.4s linear infinite;filter:drop-shadow(0 0 3px rgba(0,212,255,.8))}
+.atk-line{stroke:var(--accent3);stroke-width:1.7;stroke-dasharray:3 5;fill:none;animation:hudFlow 1s linear infinite;filter:drop-shadow(0 0 3px rgba(255,107,53,.8))}
+.pulse-ring{fill:none;stroke:var(--accent);stroke-width:1;animation:nodePulse 2.6s ease-out infinite}
+.pulse-ring.o{stroke:var(--accent3)}
+.ring-spin{transform-origin:center;animation:hudSpin 14s linear infinite}
+.xp-block{padding:22px 22px 24px;margin-top:30px}
+.xp-head{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:7px;margin-bottom:18px}
+.xp-label{font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:var(--accent);text-shadow:0 0 12px rgba(0,212,255,.65)}
+.xp-count{font-family:var(--mono);font-size:11px;color:var(--soft)}
+.xp-count b{font-size:20px;color:var(--accent);text-shadow:0 0 10px rgba(0,212,255,.7)}
+.xp-track{position:relative;height:24px;background:#050a0e;border:1px solid var(--border);box-shadow:inset 0 0 12px rgba(0,0,0,.8)}
+.xp-fill{position:absolute;inset:2px auto 2px 2px;width:0;background:linear-gradient(180deg,#7df3ff,var(--accent) 35%,#0095c8);box-shadow:0 0 14px rgba(0,212,255,.85),0 0 34px rgba(0,212,255,.35);transition:width .45s cubic-bezier(.22,1,.36,1);overflow:hidden}
+.xp-fill::after{content:'';position:absolute;inset:0;background:linear-gradient(105deg,transparent 30%,rgba(255,255,255,.55) 48%,transparent 60%);animation:xpShine 2.4s linear infinite}
+.xp-segs{position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(90deg,transparent 0,transparent calc(100%/26 - 2px),#080c10 calc(100%/26 - 2px),#080c10 calc(100%/26))}
+.maint-tick{position:absolute;top:-7px;bottom:-7px;width:2px;background:var(--accent4);box-shadow:0 0 8px rgba(251,191,36,.8);z-index:3}
+.maint-tick::after{content:'BUILD STATUS';position:absolute;top:-19px;left:50%;transform:translateX(-50%);font-family:var(--mono);font-size:8px;letter-spacing:.1em;color:var(--accent4);white-space:nowrap}
+.xp-foot{display:flex;justify-content:space-between;font-family:var(--mono);font-size:9px;color:var(--soft);margin-top:9px;letter-spacing:.08em}
+.progress-reset{border:0;background:none;color:var(--soft);font-family:var(--mono);font-size:9px;text-decoration:underline;cursor:pointer;margin-top:12px}
+.progress-reset:hover{color:var(--accent3)}
+.phase-block,.capstone-card{position:relative}
+.phase-block.maintainer-done,.capstone-card.maintainer-done{border-color:rgba(0,255,136,.52);box-shadow:0 0 17px rgba(0,255,136,.11),inset 0 0 28px rgba(0,255,136,.025)}
+.phase-block.learner-done,.capstone-card.learner-done{box-shadow:0 0 22px rgba(0,255,136,.2),inset 0 0 38px rgba(0,255,136,.045)}
+.phase-block.maintainer-done::after,.capstone-card.maintainer-done::after{content:'';position:absolute;inset:0;pointer-events:none;opacity:.55;background:repeating-linear-gradient(0deg,transparent 0,transparent 4px,rgba(0,255,136,.022) 4px,rgba(0,255,136,.022) 5px)}
+.phase-block.maintainer-done::before,.capstone-card.maintainer-done::before{content:'';position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,transparent,rgba(0,255,136,.07),transparent);transform:translateX(-110%);animation:phaseSweep 6s ease-in-out infinite}
+.phase-block.maintainer-done .phase-num{color:var(--accent2);border-color:rgba(0,255,136,.5);box-shadow:0 0 12px rgba(0,255,136,.2)}
+.phase-progress-controls{display:flex;align-items:center;justify-content:flex-end;gap:9px;flex-wrap:wrap;margin-left:auto;position:relative;z-index:3}
+.phase-status{font-family:var(--mono);font-size:8px;letter-spacing:.1em;color:var(--soft);border:1px solid var(--border);padding:3px 6px;white-space:nowrap}
+.maintainer-done .phase-status{color:var(--accent2);border-color:rgba(0,255,136,.35);text-shadow:0 0 7px rgba(0,255,136,.5)}
+.phase-check{display:flex;align-items:center;gap:6px;font-family:var(--mono);font-size:8px;color:var(--soft);cursor:pointer;white-space:nowrap}
+.phase-check input{appearance:none;width:17px;height:17px;border:1px solid var(--border);background:var(--bg);display:grid;place-items:center;cursor:pointer}
+.phase-check input:checked{border-color:var(--accent2);box-shadow:0 0 10px rgba(0,255,136,.45)}
+.phase-check input:checked::before{content:'✓';font-family:var(--mono);font-size:12px;color:var(--accent2)}
+.phase-check input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.phase-meta-strip{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
+.phase-meta-strip span{font-family:var(--mono);font-size:8px;color:var(--soft);border:1px solid rgba(20,58,76,.75);padding:2px 6px}
+.phase-meta-strip b{color:var(--accent4);font-weight:700}
+.code-shell{position:relative}
+.code-copy{position:absolute;top:8px;right:8px;z-index:2;font-family:var(--mono);font-size:8px;letter-spacing:.08em;color:var(--soft);background:var(--surface);border:1px solid var(--border);padding:5px 8px;cursor:pointer}
+.code-copy:hover,.code-copy.copied{color:var(--accent2);border-color:var(--accent2)}
+.guide-end{display:grid;grid-template-columns:1.35fr .9fr;gap:16px}
+.changelog-row{display:grid;grid-template-columns:68px 1fr;gap:14px;padding:12px 16px;border-bottom:1px solid var(--border)}
+.changelog-row:last-child{border-bottom:0}
+.changelog-date{font-family:var(--mono);font-size:9px;color:var(--accent)}
+.changelog-copy{font-size:12px;color:var(--soft)}
+.changelog-copy strong{color:var(--text)}
+.maintainer-card{padding:20px;display:flex;flex-direction:column;justify-content:center}
+.maintainer-id{font-family:var(--mono);font-size:9px;color:var(--accent2);letter-spacing:.12em;margin-bottom:9px}
+.maintainer-name{font-size:17px;font-weight:600;margin-bottom:6px}
+.maintainer-copy{font-size:12px;color:var(--soft);line-height:1.65}
+.maintainer-links{display:flex;flex-wrap:wrap;gap:7px;margin-top:15px}
+.maintainer-links a{font-family:var(--mono);font-size:9px;color:var(--text);border:1px solid var(--border);padding:7px 9px;text-decoration:none}
+.maintainer-links a:hover{color:var(--accent);border-color:var(--accent)}
+.cert-guide .cbadge{display:none}
+.cert-guide .cert-card{border-top-color:var(--accent)}
+
+@keyframes hudFlow{to{stroke-dashoffset:-18}}
+@keyframes nodePulse{0%{r:30;opacity:.5}100%{r:46;opacity:0}}
+@keyframes hudSpin{to{transform:rotate(360deg)}}
+@keyframes xpShine{from{transform:translateX(-120%)}to{transform:translateX(220%)}}
+@keyframes phaseSweep{0%,65%{transform:translateX(-110%)}85%,100%{transform:translateX(110%)}}
 @keyframes fadeUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:translateY(0)}}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
 @keyframes scan{0%{top:-2px;opacity:.2}100%{top:100%;opacity:0}}
+@media(max-width:820px){
+ .quick-facts{grid-template-columns:repeat(2,1fr)}
+ .guide-end{grid-template-columns:1fr}
+ .diagram-head{align-items:flex-start;flex-direction:column}
+}
+@media(max-width:640px){
+ .system-grid{display:none}
+ .phase-hdr,.capstone-hdr{align-items:flex-start;flex-wrap:wrap}
+ .phase-hdr-info,.capstone-hdr-info{min-width:0}
+ .phase-progress-controls{order:4;width:100%;justify-content:flex-start;margin:8px 0 0 44px}
+ .phase-caret{margin-left:auto}
+ .xp-block{padding:21px 14px}
+ .maint-tick::after{font-size:7px}
+}
+@media(max-width:460px){.quick-facts{grid-template-columns:1fr}}
+@media(prefers-reduced-motion:reduce){
+ .tele,.atk-line,.pulse-ring,.ring-spin,.xp-fill::after,.phase-block.maintainer-done::before,.capstone-card.maintainer-done::before,.system-grid::before,.system-grid::after{animation:none!important}
+ .xp-fill{transition:none}
+}
 </style>
 </head>
 <body>
 
 <nav>
- <div class="nav-logo">SOC & Cybersecurity Analyst Roadmap<br>by Mohammed H. Majeed</div>
+ <div class="nav-logo">SOC LAB ROADMAP // Mohammed H. Majeed</div>
  <div class="nav-links">
  <span class="nav-shortcuts-label">Shortcuts</span>
- <a href="#overview" class="nav-link">Overview</a>
+ <a href="#start" class="nav-link">Start</a>
+ <a href="#architecture" class="nav-link">Lab Map</a>
  <a href="#roadmap" class="nav-link">Roadmap</a>
- <a href="#skills" class="nav-link">Skills</a>
  <a href="#certs" class="nav-link">Certs</a>
  <a href="#logs" class="nav-link">Logs</a>
- <a href="#journey" class="nav-link">Journey</a>
  </div>
 </nav>
 
 <!-- HERO -->
 <div class="hero">
+ <div class="system-grid"></div>
  <div class="scanline"></div>
  <div class="hero-tag">
  <div class="hero-tag-dot"></div>
  <span class="hero-tag-text">Free roadmap - updated as phases complete</span>
  </div>
  <h1 class="hero-title">Become a<span>SOC & Cybersecurity Analyst</span></h1>
- <p class="hero-sub">A <strong>free, step-by-step roadmap</strong> built by a working SOC analyst documenting the path in public. Real labs, real telemetry, real troubleshooting, and the analyst workflow behind the job. Currently leveling up toward SOC L2 and cloud security.</p>
+ <p class="hero-sub">A <strong>free, step-by-step SOC lab guide</strong> for building the environment, generating real telemetry, investigating alerts, troubleshooting failures, and documenting the analyst workflow behind the job.</p>
  <div class="live-update">
  <div class="live-update-dot"></div>
  <div>
@@ -515,9 +639,9 @@ footer{position:relative;z-index:1;padding:50px 20px;border-top:1px solid var(--
  </div>
  </div>
  <div class="hero-meta">
- <div class="hero-meta-item"><span>→</span> Covers everything from lab setup to threat hunting to cloud security monitoring</div>
- <div class="hero-meta-item"><span>→</span> Every tool listed is free or low cost - no expensive bootcamps needed</div>
- <div class="hero-meta-item"><span>→</span> Built for anyone with a laptop and the drive to put in the work</div>
+ <div class="hero-meta-item"><span>&gt;</span> Build in order: infrastructure, telemetry, triage, detection, identity, cloud, and response</div>
+ <div class="hero-meta-item"><span>&gt;</span> Use completed GitHub logs when setup or troubleshooting blocks your progress</div>
+ <div class="hero-meta-item"><span>&gt;</span> Track your own completion locally as you work through all 26 phases</div>
  </div>
  <div class="hero-author">
  <div class="hero-author-label">Built and maintained by</div>
@@ -531,9 +655,9 @@ footer{position:relative;z-index:1;padding:50px 20px;border-top:1px solid var(--
  </div>
  </div>
  <div class="hero-cta">
- <a href="#roadmap" class="btn btn-primary">Start the Roadmap</a>
- <a href="https://mmajeed7864.github.io" target="_blank" rel="noopener" class="btn btn-ghost">View Portfolio</a>
- <a href="https://www.linkedin.com/in/mohammed-majeed-40a661271" class="btn btn-ghost">Follow on LinkedIn</a>
+ <a href="#start" class="btn btn-primary">Start Roadmap</a>
+ <a href="#architecture" class="btn btn-ghost">Open Lab Map</a>
+ <a href="#logs" class="btn btn-ghost">Read Build Logs</a>
  </div>
 </div>
 
@@ -541,20 +665,20 @@ footer{position:relative;z-index:1;padding:50px 20px;border-top:1px solid var(--
 
 <!-- PROJECT OVERVIEW -->
 <section id="overview">
- <div class="eyebrow">00 - Project Overview</div>
- <h2 class="sec-title reveal">Roadmap, Guide, and Portfolio Proof</h2>
- <p class="sec-sub reveal">This site has two jobs: help other people build a SOC lab in the right order, and prove I can do the work through linked GitHub logs, tickets, troubleshooting notes, and analyst write-ups.</p>
+ <div class="eyebrow">00 - System Brief</div>
+ <h2 class="sec-title reveal">How To Use This Roadmap</h2>
+ <p class="sec-sub reveal">Treat this as an operating guide. Build each phase in order, validate the telemetry, document what broke, and complete the track assessments before moving deeper into the stack.</p>
 
  <div class="overview-grid reveal">
  <div class="overview-panel">
- <div class="overview-kicker">What this is</div>
- <div class="overview-title">A public SOC analyst build log, not just a list of tools.</div>
- <div class="overview-copy">Every completed phase links to evidence: what was configured, what broke, how it was fixed, what alerts were generated, and what analyst skill the work proves. The roadmap starts with infrastructure, then moves into triage, ticketing, escalation, detection tuning, Splunk/SPL, EDR, cloud, IR, automation, and portfolio documentation.</div>
+ <div class="overview-kicker">Guide protocol</div>
+ <div class="overview-title">Build the system. Generate evidence. Make an analyst decision.</div>
+ <div class="overview-copy">Every phase has a practical outcome. Completed phases link to the exact configuration, troubleshooting, alerts, decisions, and lessons learned from the working lab. Use those logs as a reference, then recreate the work and document your own evidence.</div>
  <div class="overview-actions">
- <a class="overview-link" href="#roadmap">View roadmap</a>
- <a class="overview-link" href="#logs">Read build logs</a>
- <a class="overview-link" href="https://mmajeed7864.github.io" target="_blank" rel="noopener">Portfolio site</a>
- <a class="overview-link" href="https://github.com/mmajeed7864/soclab" target="_blank" rel="noopener">GitHub repo</a>
+ <a class="overview-link" href="#start">Check requirements</a>
+ <a class="overview-link" href="#architecture">Inspect lab map</a>
+ <a class="overview-link" href="#roadmap">Open phase guide</a>
+ <a class="overview-link" href="#logs">Use troubleshooting logs</a>
  </div>
  <div class="hire-callout">
  <div class="hire-label">Open to work</div>
@@ -599,35 +723,35 @@ footer{position:relative;z-index:1;padding:50px 20px;border-top:1px solid var(--
  <div class="proof-metric-copy">11 phase logs plus 1 capstone results log with troubleshooting, investigations, and analyst decisions.</div>
  </div>
  <div class="proof-metric">
- <div class="proof-metric-num">90%</div>
- <div class="proof-metric-label">SOC Level</div>
- <div class="proof-metric-copy">Capstone-validated SOC L1 workflow level across Phases 1-9.</div>
+ <div class="proof-metric-num">Passed</div>
+ <div class="proof-metric-label">Capstone 01</div>
+ <div class="proof-metric-copy">Completed the cumulative workflow assessment across Phases 1-9.</div>
  </div>
  <div class="proof-metric">
- <div class="proof-metric-num">90%</div>
- <div class="proof-metric-label">SOC Readiness Rating</div>
- <div class="proof-metric-copy">Validated after completing Phases 1-9.</div>
+ <div class="proof-metric-num">1-2</div>
+ <div class="proof-metric-label">Tracks validated</div>
+ <div class="proof-metric-copy">Lab foundation and SOC L1 workflow assessed.</div>
  </div>
  </div>
  </div>
 
  <div class="audience-grid reveal">
- <div class="audience-card recruiter">
+ <div class="audience-card recruiter" hidden aria-hidden="true">
  <div class="audience-label">For recruiters</div>
  <div class="audience-title">Evidence of hands-on SOC readiness.</div>
  <div class="audience-copy">The goal is to make the skills easy to verify: tools used, problems solved, investigations written, and the role this maps to.</div>
  <ul class="audience-list">
  <li>Target roles: SOC Analyst L1/L2, Cybersecurity Analyst, Security Operations.</li>
  <li>Proof areas: SIEM/XDR setup, endpoint telemetry, IDS, queue triage, tickets, escalation, phishing investigation.</li>
- <li>Assessment proof: Passed the cumulative SOC L1 Core Workflow Readiness Assessment with a 90% SOC readiness rating and 90% SOC level.</li>
+ <li>Assessment proof: Passed the cumulative SOC L1 Core Workflow Readiness Assessment covering Phases 1-9.</li>
  <li>Tools shown: Elastic, Kibana, Fleet, Sysmon, Suricata, Wazuh, Splunk Enterprise, Splunk Universal Forwarder, Active Directory, Windows Server, SPL, VMware, Kali, Windows, Linux.</li>
  </ul>
  </div>
 
  <div class="audience-card learner">
  <div class="audience-label">For learners</div>
- <div class="audience-title">A guide you can follow phase by phase.</div>
- <div class="audience-copy">Each phase is designed to be practical: build the thing, break into real troubleshooting, document the fix, then turn the work into portfolio evidence.</div>
+ <div class="audience-title">One phase at a time, with evidence at every step.</div>
+ <div class="audience-copy">The sequence is deliberate: establish visibility first, then practice triage and investigation before moving into identity, endpoint, cloud, response, and automation.</div>
  <ul class="audience-list">
  <li>Start with the lab foundation before jumping into attacks.</li>
  <li>Use the GitHub logs when setup issues block you.</li>
@@ -679,9 +803,27 @@ footer{position:relative;z-index:1;padding:50px 20px;border-top:1px solid var(--
 
 <!-- BEFORE YOU START -->
 <section id="start">
- <div class="eyebrow">01 - For Learners</div>
- <h2 class="sec-title reveal">What You Need</h2>
- <p class="sec-sub reveal">Before touching a single lab - get these sorted. This is your foundation.</p>
+ <div class="eyebrow">01 - Start Here</div>
+ <h2 class="sec-title reveal">Initialize Your Lab</h2>
+ <p class="sec-sub reveal">Get the hardware, accounts, downloads, and expectations sorted before Phase 1. This prevents avoidable setup failures later.</p>
+
+ <div class="guide-console hud-panel reveal">
+ <span class="hud-corners"></span>
+ <div class="console-status">Roadmap systems online</div>
+ <div class="console-title">Recommended Entry Sequence</div>
+ <div class="console-copy">Start at Phase 1 even if you already know basic security concepts. The early phases establish the private network, endpoint telemetry, time synchronization, snapshots, and log pipelines that every later investigation depends on.</div>
+ <div class="quick-facts">
+ <div class="quick-fact"><strong>16 GB</strong><span>minimum usable RAM</span></div>
+ <div class="quick-fact"><strong>$0-300</strong><span>typical lab budget</span></div>
+ <div class="quick-fact"><strong>12-15 HR</strong><span>weekly pace</span></div>
+ <div class="quick-fact"><strong>26 PHASES</strong><span>full analyst path</span></div>
+ </div>
+ <div class="console-actions">
+ <a class="console-link" href="#architecture">View Lab Architecture</a>
+ <a class="console-link" href="#roadmap">Begin Phase 01</a>
+ <a class="console-link" href="#logs">Open reference logs</a>
+ </div>
+ </div>
 
  <div class="prereq-grid reveal">
  <div class="prereq">
@@ -732,8 +874,109 @@ footer{position:relative;z-index:1;padding:50px 20px;border-top:1px solid var(--
 <div class="prereq-icon">⏱️</div>
  <div>
  <div class="prereq-title">Knowledge and time commitment</div>
- <div class="prereq-desc">No certification is required, but Network+ and Security+ level concepts make the labs easier. At roughly 8-10 focused hours per week, expect about <strong>5-7 months for the job-ready core through Track 4</strong> and <strong>9-12 months for the full L2, cloud, automation, and portfolio path</strong>. Move faster when you already know a topic; do not repeat work just to fill time.</div>
+ <div class="prereq-desc">No certification is required, but Network+ and Security+ level concepts make the labs easier. At roughly <strong>12-15 focused hours per week</strong>, the complete guided lab is designed for about <strong>3 months</strong>. Continue mixed-queue practice, capstone retakes, and deeper investigations for a total of about <strong>5 months</strong> to build stronger working proficiency across the full path.</div>
  </div>
+ </div>
+ </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- LAB ARCHITECTURE -->
+<section id="architecture" class="architecture-wrap">
+ <div class="diagram-head">
+ <div>
+ <div class="eyebrow">02 - Live Lab Topology</div>
+ <h2 class="sec-title reveal">SOC Lab Architecture</h2>
+ <p class="sec-sub reveal">The working six-VM environment behind the roadmap. Cyan paths carry telemetry into the collection stack; orange paths show controlled attack traffic.</p>
+ </div>
+ <div class="diagram-state reveal">[ HOST-ONLY NETWORK: ONLINE ]</div>
+ </div>
+
+ <div class="hud-panel reveal">
+ <span class="hud-corners"></span>
+ <div class="diagram-shell">
+ <svg viewBox="0 0 900 560" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="SOC lab with Elastic SIEM, Splunk, Wazuh, Active Directory, Windows 10, and Kali Linux on host-only network 192.168.56.0/24.">
+  <defs>
+   <marker id="aC" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6.5" markerHeight="6.5" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#00d4ff"/></marker>
+   <marker id="aO" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6.5" markerHeight="6.5" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#ff6b35"/></marker>
+   <filter id="glow" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  </defs>
+
+  <g>
+   <circle class="pulse-ring" cx="170" cy="130" r="34"/>
+   <circle cx="170" cy="130" r="34" fill="#0d1219" stroke="#00d4ff" stroke-width="1.5" filter="url(#glow)"/>
+   <g class="ring-spin" style="transform-box:fill-box"><circle cx="170" cy="130" r="41" fill="none" stroke="#143a4c" stroke-width="1" stroke-dasharray="8 10"/></g>
+   <path d="M152,130 Q170,116 188,130 Q170,144 152,130 Z" fill="none" stroke="#00d4ff" stroke-width="1.6"/>
+   <circle cx="170" cy="130" r="5" fill="#00d4ff"/>
+   <text x="170" y="192" text-anchor="middle" font-family="Space Mono,monospace" font-size="11" font-weight="700" fill="#00d4ff">ELASTIC SIEM</text>
+   <text x="170" y="207" text-anchor="middle" font-family="Space Mono,monospace" font-size="9" fill="#7f93a3">.101 | SURICATA</text>
+  </g>
+
+  <g>
+   <circle class="pulse-ring" cx="450" cy="130" r="34"/>
+   <circle cx="450" cy="130" r="34" fill="#0d1219" stroke="#00d4ff" stroke-width="1.5" filter="url(#glow)"/>
+   <g class="ring-spin" style="transform-box:fill-box"><circle cx="450" cy="130" r="41" fill="none" stroke="#143a4c" stroke-width="1" stroke-dasharray="8 10"/></g>
+   <rect x="437" y="132" width="6" height="12" fill="#00d4ff"/><rect x="447" y="122" width="6" height="22" fill="#00d4ff"/><rect x="457" y="114" width="6" height="30" fill="#00d4ff"/>
+   <text x="450" y="192" text-anchor="middle" font-family="Space Mono,monospace" font-size="11" font-weight="700" fill="#00d4ff">SPLUNK</text>
+   <text x="450" y="207" text-anchor="middle" font-family="Space Mono,monospace" font-size="9" fill="#7f93a3">.102 | TCP 9997</text>
+  </g>
+
+  <g>
+   <circle class="pulse-ring" cx="730" cy="130" r="34"/>
+   <circle cx="730" cy="130" r="34" fill="#0d1219" stroke="#00d4ff" stroke-width="1.5" filter="url(#glow)"/>
+   <g class="ring-spin" style="transform-box:fill-box"><circle cx="730" cy="130" r="41" fill="none" stroke="#143a4c" stroke-width="1" stroke-dasharray="8 10"/></g>
+   <path d="M730,112 L746,119 V132 Q746,146 730,151 Q714,146 714,132 V119 Z" fill="none" stroke="#00d4ff" stroke-width="1.6"/>
+   <path d="M723,131 L728,137 L738,124" fill="none" stroke="#00d4ff" stroke-width="1.8"/>
+   <text x="730" y="192" text-anchor="middle" font-family="Space Mono,monospace" font-size="11" font-weight="700" fill="#00d4ff">WAZUH XDR</text>
+   <text x="730" y="207" text-anchor="middle" font-family="Space Mono,monospace" font-size="9" fill="#7f93a3">.105 | FIM</text>
+  </g>
+
+  <line x1="36" y1="290" x2="864" y2="290" stroke="#143a4c" stroke-width="2"/>
+  <line x1="36" y1="290" x2="864" y2="290" stroke="#00ff88" stroke-width="1" opacity=".35" stroke-dasharray="2 8" class="tele" style="stroke:#00ff88;filter:none"/>
+  <rect x="352" y="277" width="196" height="26" fill="#080c10" stroke="#143a4c"/>
+  <text x="450" y="294" text-anchor="middle" font-family="Space Mono,monospace" font-size="10.5" fill="#00ff88" filter="url(#glow)">192.168.56.0/24</text>
+
+  <g>
+   <circle class="pulse-ring" cx="170" cy="430" r="34"/>
+   <circle cx="170" cy="430" r="34" fill="#0d1219" stroke="#00d4ff" stroke-width="1.5" filter="url(#glow)"/>
+   <circle cx="161" cy="423" r="7" fill="none" stroke="#00d4ff" stroke-width="1.6"/>
+   <path d="M166,428 L184,444 M177,438 L173,443 M182,442 L178,447" stroke="#00d4ff" stroke-width="1.6" fill="none"/>
+   <text x="170" y="492" text-anchor="middle" font-family="Space Mono,monospace" font-size="11" font-weight="700" fill="#00d4ff">DC01 | AD</text>
+   <text x="170" y="507" text-anchor="middle" font-family="Space Mono,monospace" font-size="9" fill="#7f93a3">.10 | MAJEED.LOCAL</text>
+  </g>
+
+  <g>
+   <circle class="pulse-ring" cx="450" cy="430" r="34"/>
+   <circle cx="450" cy="430" r="34" fill="#0d1219" stroke="#00d4ff" stroke-width="1.5" filter="url(#glow)"/>
+   <rect x="436" y="416" width="28" height="19" rx="1.5" fill="none" stroke="#00d4ff" stroke-width="1.6"/>
+   <path d="M444,442 H456 M450,435 V442" stroke="#00d4ff" stroke-width="1.6"/>
+   <text x="450" y="492" text-anchor="middle" font-family="Space Mono,monospace" font-size="11" font-weight="700" fill="#00d4ff">WIN10 VICTIM</text>
+   <text x="450" y="507" text-anchor="middle" font-family="Space Mono,monospace" font-size="9" fill="#7f93a3">.104 | SYSMON + AGENTS</text>
+  </g>
+
+  <g>
+   <circle class="pulse-ring o" cx="730" cy="430" r="34"/>
+   <circle cx="730" cy="430" r="34" fill="#0d1219" stroke="#ff6b35" stroke-width="1.5" filter="url(#glow)"/>
+   <circle cx="730" cy="430" r="12" fill="none" stroke="#ff6b35" stroke-width="1.6"/>
+   <path d="M730,412 V422 M730,438 V448 M712,430 H722 M738,430 H748" stroke="#ff6b35" stroke-width="1.6"/>
+   <circle cx="730" cy="430" r="2.5" fill="#ff6b35"/>
+   <text x="730" y="492" text-anchor="middle" font-family="Space Mono,monospace" font-size="11" font-weight="700" fill="#ff6b35">KALI ATTACKER</text>
+   <text x="730" y="507" text-anchor="middle" font-family="Space Mono,monospace" font-size="9" fill="#7f93a3">SCRIPTED ATTACK LOOPS</text>
+  </g>
+
+  <path class="tele" d="M432,398 C380,340 240,250 196,166"/>
+  <path class="tele" d="M450,396 L450,168" marker-end="url(#aC)"/>
+  <path class="tele" d="M468,398 C520,340 660,250 704,166"/>
+  <path class="tele" d="M186,400 C250,320 360,230 426,162" marker-end="url(#aC)"/>
+  <path class="atk-line" d="M696,430 L488,430" marker-end="url(#aO)"/>
+  <path class="atk-line" d="M700,452 C580,520 320,520 204,456" marker-end="url(#aO)"/>
+ </svg>
+ </div>
+ <div class="diagram-legend">
+ <span><i></i>TELEMETRY</span>
+ <span><i class="attack"></i>CONTROLLED ATTACK TRAFFIC</span>
+ <span><i class="network"></i>HOST-ONLY NETWORK</span>
  </div>
  </div>
 </section>
@@ -742,9 +985,24 @@ footer{position:relative;z-index:1;padding:50px 20px;border-top:1px solid var(--
 
 <!-- ROADMAP -->
 <section id="roadmap">
- <div class="eyebrow">02 - The Roadmap</div>
+ <div class="eyebrow">03 - The Roadmap</div>
  <h2 class="sec-title reveal">The Complete Path</h2>
  <p class="sec-sub reveal">8 tracks. 26 phases. No extra filler phases. Track-end capstone assessments plus lightweight external cases and mixed queue days keep earlier skills active while you build toward SOC L1/L2, Cybersecurity Analyst, cloud, IR, automation, and interview-ready proof.</p>
+
+ <div class="xp-block hud-panel reveal" aria-label="Roadmap progress">
+ <span class="hud-corners"></span>
+ <div class="xp-head">
+ <span class="xp-label">[ OPERATOR PROGRESS ]</span>
+ <span class="xp-count"><b id="progress-count">11</b> / 26 <span id="progress-state">BUILT</span></span>
+ </div>
+ <div class="xp-track">
+ <div class="xp-fill" id="progress-fill"></div>
+ <div class="xp-segs"></div>
+ <div class="maint-tick" id="maintainer-tick" aria-label="Maintainer build status"></div>
+ </div>
+ <div class="xp-foot"><span>PHASE 01</span><span>PHASE 26</span></div>
+ <button class="progress-reset" id="progress-reset" type="button">reset my progress</button>
+ </div>
 
  <!-- CAPSTONE OVERVIEW -->
  <div class="capstone-overview reveal">
@@ -1156,7 +1414,7 @@ footer{position:relative;z-index:1;padding:50px 20px;border-top:1px solid var(--
  <div class="capstone-hdr-info">
  <div class="capstone-hdr-title">SOC L1 Core Workflow Readiness Assessment</div>
  <div class="capstone-hdr-sub">Track 1 Foundation + Track 2 SOC L1 Workflow · Phases 1-9</div>
- <div class="capstone-hdr-meta">COMPLETE - PASSED / 90% SOC readiness / 90% SOC level</div>
+ <div class="capstone-hdr-meta">COMPLETE - PASSED / TRACK 1 FOUNDATION + TRACK 2 WORKFLOW VALIDATED</div>
  <a href="https://github.com/mmajeed7864/soclab/blob/main/capstone-01-soc-l1-core-workflow-readiness-assessment.md" target="_blank" rel="noopener" class="phase-proof-link" onclick="event.stopPropagation()">View Capstone 01 Results Log</a>
  </div>
  <div class="capstone-status cs-passed">PASSED</div>
@@ -1164,8 +1422,8 @@ footer{position:relative;z-index:1;padding:50px 20px;border-top:1px solid var(--
  </div>
  <div class="capstone-body">
  <div class="capstone-metrics">
- <div class="capstone-metric">90% SOC Level</div>
- <div class="capstone-metric">90% SOC Readiness</div>
+ <div class="capstone-metric">Track 1 Validated</div>
+ <div class="capstone-metric">Track 2 Validated</div>
  <div class="capstone-metric">All Parts Strong</div>
  <div class="capstone-metric"><span>All sections completed</span></div>
  <div class="capstone-metric"><span>Ready for Phase 10</span></div>
@@ -1177,7 +1435,7 @@ footer{position:relative;z-index:1;padding:50px 20px;border-top:1px solid var(--
  <div class="capstone-body-section">
  <h4>Verified results</h4>
  <ul>
- <li>Passed with a 90% SOC readiness rating and 90% SOC level.</li>
+ <li>Passed the cumulative assessment covering the lab foundation and SOC L1 workflow.</li>
  <li>Strong performance across all capstone parts.</li>
  <li>All required sections completed: knowledge review, timed triage, hands-on investigations, documentation, detection/tuning, and interview defense.</li>
  <li>No mandatory remediation or retake required before Phase 10.</li>
@@ -2138,7 +2396,7 @@ footer{position:relative;z-index:1;padding:50px 20px;border-top:1px solid var(--
 <div class="divider"></div>
 
 <!-- TECHNICAL SKILLS -->
-<section id="skills">
+<section id="skills" hidden aria-hidden="true">
  <div class="eyebrow">03 - Technical Skills</div>
  <h2 class="sec-title reveal">Recruiter Skills Snapshot</h2>
  <p class="sec-sub reveal">A quick scan of the SOC and cybersecurity analyst capabilities this lab is building, mapped to real job duties instead of just tool names.</p>
@@ -2268,16 +2526,16 @@ footer{position:relative;z-index:1;padding:50px 20px;border-top:1px solid var(--
 
 <!-- CERTS -->
 <section id="certs">
- <div class="eyebrow">04 - Certifications</div>
- <h2 class="sec-title reveal">Cert Roadmap Built For SOC Hiring</h2>
- <p class="sec-sub reveal">A cleaner split: the certs recruiters care about most, then the full WGU cybersecurity degree certification map.</p>
+ <div class="eyebrow">04 - Supporting Certifications</div>
+ <h2 class="sec-title reveal">Certifications That Support The Path</h2>
+ <p class="sec-sub reveal">Labs prove you can perform the work. These certifications reinforce the networking, security operations, offensive context, and cloud knowledge used throughout the roadmap.</p>
 
- <div class="cert-section reveal">
+ <div class="cert-section cert-guide reveal">
  <div class="cert-section-head">
  <div>
- <div class="cert-section-kicker">Recruiter priority</div>
+ <div class="cert-section-kicker">Recommended learning support</div>
  <div class="cert-section-title">Certs That Matter Most</div>
- <div class="cert-section-sub">These are the names most likely to show up in SOC analyst, cybersecurity analyst, cloud security, and L2 analyst job filters.</div>
+ <div class="cert-section-sub">Use these to reinforce the roadmap, not replace the hands-on phases. Prioritize the certifications that match your current knowledge gaps and target roles.</div>
  </div>
  </div>
 
@@ -2309,7 +2567,7 @@ footer{position:relative;z-index:1;padding:50px 20px;border-top:1px solid var(--
  </div>
  </div>
 
- <div class="cert-section reveal">
+ <div class="cert-section reveal" hidden aria-hidden="true">
  <div class="cert-section-head">
  <div>
  <div class="cert-section-kicker">Degree embedded cert map</div>
@@ -3410,8 +3668,8 @@ Write-Host "Phase 5 loop complete."</pre>
  <div class="log-title">Capstone 01 - SOC L1 Core Workflow Readiness Assessment</div>
  <div class="log-phases">
  <span class="log-phase-tag done">Passed</span>
- <span class="log-phase-tag">90% SOC Level</span>
- <span class="log-phase-tag">90% SOC Readiness</span>
+ <span class="log-phase-tag">Track 1 Validated</span>
+ <span class="log-phase-tag">Track 2 Validated</span>
  <span class="log-phase-tag">All Parts Strong</span>
  <span class="log-phase-tag">Track 1-2 Validated</span>
  </div>
@@ -3424,7 +3682,7 @@ Write-Host "Phase 5 loop complete."</pre>
  <div class="log-section">
  <div class="log-section-title">Verified Result</div>
  <ul class="log-list">
- <li>Passed Capstone 01 with a 90% SOC readiness rating and 90% SOC level.</li>
+ <li>Passed Capstone 01 after completing all required assessment sections across Phases 1-9.</li>
  <li>Completed all required assessment sections with strong performance across the full workflow.</li>
  <li>No mandatory remediation or retake required before Phase 10.</li>
  </ul>
@@ -3623,7 +3881,7 @@ Write-Host "Phase 5 loop complete."</pre>
 <div class="divider"></div>
 
 <!-- TIMELINE / MY JOURNEY -->
-<section id="journey">
+<section id="journey" hidden aria-hidden="true">
  <div class="eyebrow">07 - My Journey</div>
  <h2 class="sec-title reveal">Where I Am On This Path</h2>
  <p class="sec-sub reveal">I'm following this same roadmap. Here's my timeline - so you can see it's achievable.</p>
@@ -3666,7 +3924,7 @@ Write-Host "Phase 5 loop complete."</pre>
  <div class="tl-body">
  <div class="tl-date">June 2026</div>
  <div class="tl-title">Passed Capstone 01 - SOC L1 Core Workflow Readiness Assessment</div>
- <div class="tl-desc">Completed the first cumulative roadmap capstone after finishing Phases 1-9. Passed with a 90% SOC readiness rating and 90% SOC level, validating the lab foundation and SOC L1 workflow through job-style triage, investigation, documentation, detection/tuning reasoning, and interview defense. Evidence line: 90% SOC Readiness / 90% SOC Level / Track 2 Validated.</div>
+ <div class="tl-desc">Completed the first cumulative roadmap capstone after finishing Phases 1-9, validating the lab foundation and SOC L1 workflow through job-style triage, investigation, documentation, detection and tuning reasoning, and interview defense.</div>
  </div>
  </div>
  <div class="tl-item">
@@ -3701,13 +3959,34 @@ Write-Host "Phase 5 loop complete."</pre>
 
 <!-- CTA -->
 <section>
+ <div class="eyebrow">08 - System Record</div>
+ <div class="guide-end reveal">
+ <div class="hud-panel">
+ <span class="hud-corners"></span>
+ <div class="changelog-row"><div class="changelog-date">JUN 12</div><div class="changelog-copy"><strong>Guide interface upgraded.</strong> Added lab topology, persistent learner progress, phase metadata, and a cleaner roadmap-first structure.</div></div>
+ <div class="changelog-row"><div class="changelog-date">JUN 11</div><div class="changelog-copy"><strong>Phase 11 completed.</strong> Added identity-security investigations and advanced Active Directory evidence.</div></div>
+ <div class="changelog-row"><div class="changelog-date">JUN 10</div><div class="changelog-copy"><strong>Phase 10 completed.</strong> Expanded the roadmap into the next analyst workflow track.</div></div>
+ </div>
+ <div class="maintainer-card hud-panel">
+ <span class="hud-corners"></span>
+ <div class="maintainer-id">[ ROADMAP MAINTAINER ]</div>
+ <div class="maintainer-name">Mohammed H. Majeed</div>
+ <div class="maintainer-copy">Working SOC analyst documenting this path in public from Charlotte, NC.</div>
+ <div class="maintainer-links">
+ <a href="https://mmajeed7864.github.io" target="_blank" rel="noopener">Portfolio</a>
+ <a href="https://www.linkedin.com/in/mohammed-majeed-40a661271" target="_blank" rel="noopener">LinkedIn</a>
+ <a href="https://github.com/mmajeed7864" target="_blank" rel="noopener">GitHub</a>
+ </div>
+ </div>
+ </div>
+
  <div class="cta-section reveal">
- <div class="cta-title">Follow the journey.</div>
- <div class="cta-sub">I update this roadmap as I learn. If you found it helpful, connect on LinkedIn - I post regular updates on labs, certs, and the job hunt.</div>
+ <div class="cta-title">Build the lab. Document the work.</div>
+ <div class="cta-sub">Start with the foundation, use the linked logs when you get stuck, and keep your own evidence as you work through the phases.</div>
  <div class="cta-btns">
- <a href="https://mmajeed7864.github.io" target="_blank" rel="noopener" class="btn btn-primary">View Portfolio</a>
- <a href="https://www.linkedin.com/in/mohammed-majeed-40a661271" target="_blank" class="btn btn-primary">Connect on LinkedIn</a>
- <a href="https://github.com/mmajeed7864" target="_blank" class="btn btn-ghost">GitHub Portfolio</a>
+ <a href="#roadmap" class="btn btn-primary">Open Phase Guide</a>
+ <a href="#logs" class="btn btn-ghost">Read Build Logs</a>
+ <a href="https://github.com/mmajeed7864/soclab" target="_blank" rel="noopener" class="btn btn-ghost">View Repository</a>
  </div>
  </div>
 </section>
@@ -3735,7 +4014,7 @@ function toggleLog(hdr){
 }
 
 function togglePhase(hdr){
- const body=hdr.nextElementSibling;
+ const body=hdr.parentElement.querySelector('.phase-body');
  const isOpen=body.classList.contains('open');
  document.querySelectorAll('.phase-body').forEach(b=>b.classList.remove('open'));
  document.querySelectorAll('.phase-hdr').forEach(h=>h.classList.remove('open'));
@@ -3749,6 +4028,145 @@ function toggleCapstone(hdr){
  else{body.classList.add('open');hdr.classList.add('open')}
 }
 
+const SOCLAB_STATS={built:11,total:26,capstones:4};
+const phaseEstimates=[
+ ['3-5 HR','BEGINNER','NONE'],['5-7 HR','INTERMEDIATE','PHASE 01'],['4-6 HR','INTERMEDIATE','PHASES 01-02'],
+ ['3-5 HR','BEGINNER','PHASES 01-03'],['5-7 HR','INTERMEDIATE','PHASES 01-04'],['3-5 HR','INTERMEDIATE','PHASE 05'],
+ ['4-6 HR','INTERMEDIATE','PHASE 06'],['5-7 HR','INTERMEDIATE','PHASE 07'],['5-7 HR','INTERMEDIATE','PHASE 08'],
+ ['5-7 HR','INTERMEDIATE','CAPSTONE 01'],['4-6 HR','INTERMEDIATE','PHASE 10'],['4-6 HR','INTERMEDIATE','PHASE 11'],
+ ['4-6 HR','INTERMEDIATE','PHASE 12'],['4-6 HR','INTERMEDIATE','CAPSTONE 02'],['4-6 HR','INTERMEDIATE','PHASE 14'],
+ ['5-7 HR','ADVANCED','PHASE 15'],['4-6 HR','INTERMEDIATE','PHASE 16'],['5-7 HR','ADVANCED','CAPSTONE 03'],
+ ['5-7 HR','ADVANCED','PHASE 18'],['5-7 HR','ADVANCED','PHASE 19'],['4-6 HR','ADVANCED','PHASE 20'],
+ ['5-7 HR','ADVANCED','PHASE 21'],['4-6 HR','INTERMEDIATE','CAPSTONE 04'],['4-6 HR','INTERMEDIATE','PHASE 23'],
+ ['5-7 HR','ADVANCED','PHASE 24'],['4-6 HR','INTERMEDIATE','PHASE 25']
+];
+const sessionProgress={};
+
+function progressRead(key){
+ try{
+  const saved=localStorage.getItem(key);
+  return saved?Boolean(JSON.parse(saved).completed):Boolean(sessionProgress[key]);
+ }catch(error){return Boolean(sessionProgress[key])}
+}
+
+function progressWrite(key,completed){
+ sessionProgress[key]=completed;
+ try{localStorage.setItem(key,JSON.stringify({completed}))}catch(error){}
+}
+
+function updateProgressBar(){
+ const learnerCount=[...document.querySelectorAll('.phase-check input[data-kind="phase"]:checked')].length;
+ const shown=Math.max(SOCLAB_STATS.built,learnerCount);
+ const percent=(shown/SOCLAB_STATS.total)*100;
+ const fill=document.getElementById('progress-fill');
+ const count=document.getElementById('progress-count');
+ const state=document.getElementById('progress-state');
+ const tick=document.getElementById('maintainer-tick');
+ if(fill) fill.style.width=`calc(${percent}% - 2px)`;
+ if(count) count.textContent=shown;
+ if(state) state.textContent=shown>SOCLAB_STATS.built?'TRACKED':'BUILT';
+ if(tick) tick.style.left=`${(SOCLAB_STATS.built/SOCLAB_STATS.total)*100}%`;
+}
+
+function addProgressControl(card,header,key,kind,isMaintainerDone){
+ const controls=document.createElement('div');
+ controls.className='phase-progress-controls';
+ controls.addEventListener('click',event=>event.stopPropagation());
+
+ const status=document.createElement('span');
+ status.className='phase-status';
+ status.textContent=isMaintainerDone?'BUILD COMPLETE':'UP NEXT';
+
+ const label=document.createElement('label');
+ label.className='phase-check';
+ const input=document.createElement('input');
+ input.type='checkbox';
+ input.dataset.kind=kind;
+ input.checked=progressRead(key);
+ const text=document.createElement('span');
+ text.textContent='MY PROGRESS';
+ label.append(input,text);
+ controls.append(status,label);
+
+ const caret=header.querySelector('.phase-caret,.capstone-caret');
+ header.insertBefore(controls,caret||null);
+
+ const sync=()=>{
+  card.classList.toggle('learner-done',input.checked);
+  status.textContent=input.checked?'MY COMPLETE':(isMaintainerDone?'BUILD COMPLETE':'UP NEXT');
+ };
+ sync();
+ input.addEventListener('change',()=>{
+  progressWrite(key,input.checked);
+  sync();
+  updateProgressBar();
+ });
+}
+
+document.querySelectorAll('.phase-block').forEach((card,index)=>{
+ const phase=index+1;
+ const phaseId=String(phase).padStart(2,'0');
+ const header=card.querySelector('.phase-hdr');
+ const info=card.querySelector('.phase-hdr-info');
+ const maintainerDone=phase<=SOCLAB_STATS.built;
+ if(maintainerDone) card.classList.add('maintainer-done');
+ card.dataset.phase=phaseId;
+
+ const estimate=phaseEstimates[index]||['6-8 HR','INTERMEDIATE','PRIOR PHASE'];
+ const meta=document.createElement('div');
+ meta.className='phase-meta-strip';
+ meta.innerHTML=`<span>TIME <b>${estimate[0]}</b></span><span>LEVEL <b>${estimate[1]}</b></span><span>PREREQ <b>${estimate[2]}</b></span>`;
+ if(info) info.appendChild(meta);
+ if(header) addProgressControl(card,header,`soclab_progress_phase_${phaseId}`,'phase',maintainerDone);
+});
+
+document.querySelectorAll('.capstone-card').forEach((card,index)=>{
+ const capstoneId=String(index+1).padStart(2,'0');
+ const header=card.querySelector('.capstone-hdr');
+ const maintainerDone=index===0;
+ if(maintainerDone) card.classList.add('maintainer-done');
+ if(header) addProgressControl(card,header,`soclab_progress_capstone_${capstoneId}`,'capstone',maintainerDone);
+});
+
+document.querySelectorAll('pre.log-code').forEach(pre=>{
+ const shell=document.createElement('div');
+ shell.className='code-shell';
+ pre.parentNode.insertBefore(shell,pre);
+ shell.appendChild(pre);
+ const button=document.createElement('button');
+ button.type='button';
+ button.className='code-copy';
+ button.textContent='COPY';
+ button.addEventListener('click',async()=>{
+  try{
+   await navigator.clipboard.writeText(pre.innerText);
+   button.textContent='COPIED';
+   button.classList.add('copied');
+   setTimeout(()=>{button.textContent='COPY';button.classList.remove('copied')},1400);
+  }catch(error){button.textContent='SELECT TEXT'}
+ });
+ shell.appendChild(button);
+});
+
+const resetProgress=document.getElementById('progress-reset');
+if(resetProgress){
+ resetProgress.addEventListener('click',()=>{
+  document.querySelectorAll('.phase-check input').forEach(input=>{
+   input.checked=false;
+   const card=input.closest('.phase-block,.capstone-card');
+   card?.classList.remove('learner-done');
+   const status=card?.querySelector('.phase-status');
+   if(status) status.textContent=card.classList.contains('maintainer-done')?'BUILD COMPLETE':'UP NEXT';
+  });
+  Object.keys(sessionProgress).forEach(key=>delete sessionProgress[key]);
+  try{
+   for(let phase=1;phase<=SOCLAB_STATS.total;phase++) localStorage.removeItem(`soclab_progress_phase_${String(phase).padStart(2,'0')}`);
+   for(let capstone=1;capstone<=SOCLAB_STATS.capstones;capstone++) localStorage.removeItem(`soclab_progress_capstone_${String(capstone).padStart(2,'0')}`);
+  }catch(error){}
+  updateProgressBar();
+ });
+}
+updateProgressBar();
 
 const obs=new IntersectionObserver(entries=>{
  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}});
