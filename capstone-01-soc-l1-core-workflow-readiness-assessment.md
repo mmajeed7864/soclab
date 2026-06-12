@@ -233,7 +233,7 @@ These are normal growth areas and do not block progression into the next roadmap
 ## Portfolio Translation
 
 ```text
-Completed and passed Capstone 01, a cumulative SOC L1 readiness assessment covering the first two roadmap tracks and Phases 1-9. The assessment validated SIEM workflows, Windows/Sysmon evidence, alert triage, hands-on Splunk investigations, SOC documentation, detection tuning, and interview-style defense of analyst decisions. Final public readiness indicators: 90% SOC readiness and 90% SOC level.
+Completed and passed Capstone 01, a cumulative SOC L1 workflow assessment covering the first two roadmap tracks and Phases 1-9. The assessment validated SIEM workflows, Windows/Sysmon evidence, alert triage, hands-on Splunk investigations, SOC documentation, detection tuning, and interview-style defense of analyst decisions.
 ```
 
 ## Final Verdict
