@@ -82,9 +82,20 @@ Previous role:
 
 ## Roadmap
 
-The full interactive roadmap is on the live site. The order is built around SOC Analyst L1/L2 and Cybersecurity Analyst work: logs, triage, ticketing, phishing, Splunk, endpoint, identity, cloud, incident response, automation, and portfolio proof.
+The full interactive roadmap is on the live site. The order is built around SOC Analyst L1/L2 and Cybersecurity Analyst work: logs, triage, ticketing, phishing, Splunk, endpoint, identity, cloud, incident response, automation, and portfolio proof. It keeps the existing 26 phases and adds lightweight practice checkpoints instead of stretching the roadmap with extra filler phases.
 
 The core SOC analyst tracks also end with a realistic, graded, retakeable capstone assessment before moving to the next track. The capstones simulate real SOC and cybersecurity analyst conditions: timed alert triage, hands-on investigation, documentation, detection logic, and interview-style defense of decisions. They are designed to prove the skills can be applied under pressure, not just that a phase was completed.
+
+### Practice Checkpoints
+
+Starting with the end of Track 3, each core track checkpoint includes:
+
+- One external rep: 2 LetsDefend cases or 1 CyberDefenders lab
+- One mixed queue day using alert types from earlier phases
+- At least 2 cases where incomplete telemetry requires a defensible non-conclusion
+- Severity reasoning that references asset role and business criticality
+
+These checkpoints are reinforcement exercises, not additional numbered phases.
 
 ### Track 1 - Build Your SOC Lab
 
@@ -109,7 +120,7 @@ Status: complete and capstone passed. Capstone 01 was passed with a 90% SOC read
 
 10. Build an Active Directory Environment
 11. AD Attack Simulation + Alert Triage
-12. Endpoint / EDR Investigation with Wazuh, Sysmon, and Defender-Style Telemetry
+12. Endpoint / EDR Investigation with Wazuh, Sysmon, Defender-Style Telemetry, and one Linux victim investigation
 13. IAM, Hardening, and Least Privilege
 
 Status: Phases 10-11 complete. The AD foundation is validated, and five controlled identity-security scenarios were detected, triaged, and documented in Splunk. Phase 12 endpoint and EDR investigation is next.
@@ -118,7 +129,7 @@ Status: Phases 10-11 complete. The AD foundation is validated, and five controll
 
 14. Vulnerability Management + Patch Prioritization
 15. Threat Intelligence + IOC Enrichment
-16. Incident Response Playbooks + Containment Decisions
+16. Incident Response Playbooks + Containment Decisions, including execution of one published third-party runbook
 17. GRC, Compliance, Audit Evidence, and Risk Reporting
 
 ### Track 5 - Deep Investigation and External Practice
@@ -127,7 +138,7 @@ Status: Phases 10-11 complete. The AD foundation is validated, and five controll
 19. Malware Triage + Sandbox Analysis
 20. Digital Forensics + Memory Basics
 21. Threat Hunting
-22. External SOC Platforms and Unfamiliar Case Investigations
+22. Scale External SOC Practice + Unfamiliar Case Investigations
 
 ### Track 6 - Cloud SOC and Microsoft Security Stack
 
@@ -163,9 +174,12 @@ SOC operations:
 - High-volume alert triage
 - Alert queue management
 - 30-second first-look triage
+- External unfamiliar-case investigations and mixed queue days
+- Defensible non-conclusions when telemetry is incomplete
+- Asset criticality in severity decisions
 - False-positive tuning
 - Ticket writing
-- ServiceNow and Jira case tracking
+- ServiceNow and Jira case tracking, with optional hands-on workflow practice in a ServiceNow developer instance or TheHive
 - Escalation summaries
 - Shift handoff notes
 - Phishing triage
@@ -173,10 +187,12 @@ SOC operations:
 - IOC enrichment with VirusTotal, AbuseIPDB, and Shodan
 - Email security incident reports
 - Incident reports and playbooks
+- Third-party runbook execution and exception documentation
 
 Endpoint and identity:
 
 - Windows Event Logs, Sysmon, Microsoft Defender for Endpoint telemetry
+- Linux endpoint investigation using authentication, cron, process, and file-timestamp evidence
 - Active Directory Domain Services, Windows Server, domain controller administration, DNS, OUs, users, security groups, domain join, and Kerberos authentication
 - Splunk investigation of Windows identity events including 4771, 4776, 4769, 4728, and 4729
 - Password-spray investigation, AS-REP roastable configuration review, Kerberoast-relevant telemetry, privileged group monitoring, and AD enumeration analysis
@@ -254,6 +270,8 @@ Location: Charlotte, NC, open to remote
 
 Everything in the roadmap is free or has a free tier. The live site includes step-by-step setup guidance, tool lists, phase goals, and daily build logs.
 
+No certification is required to start, but Network+ and Security+ level concepts are helpful. At roughly 8-10 focused hours per week, the job-ready core through Track 4 should take about 5-7 months; the full L2, cloud, automation, and portfolio path is closer to 9-12 months.
+
 If you're starting from zero:
 
 1. Start with Phase 1 on the live site
@@ -268,7 +286,8 @@ If you're starting from zero:
 10. Use Phase 10 to build AD, join a Windows endpoint, centralize DC logs, and learn where identity evidence lives
 11. Use Phase 11 for controlled identity attack simulation and evidence-safe investigation
 12. Use Phase 12 to investigate endpoint process trees, persistence evidence, device timelines, and containment decisions
-13. Keep adding detections, reports, capstone results, and lessons learned
+13. Complete Practice Checkpoint 01 after Track 3: unfamiliar external cases, a mixed queue day, incomplete-evidence decisions, and asset-aware severity
+14. Keep adding detections, reports, capstone results, and lessons learned
 
 Feel free to fork the repo, copy the structure, and build your own version.
 

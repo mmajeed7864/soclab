@@ -182,6 +182,15 @@ section{position:relative;z-index:1;padding:70px 20px;scroll-margin-top:74px}
 .stool{font-size:10px;padding:2px 8px;border-radius:4px;background:var(--surface2);color:var(--muted);border:1px solid var(--border);font-family:var(--mono)}
 .goal-box{margin:0 18px 18px;padding:12px 14px;background:rgba(0,255,136,.04);border:1px solid rgba(0,255,136,.15);border-radius:8px;font-size:12px;color:var(--accent2);line-height:1.5}
 .goal-box strong{font-family:var(--mono);font-size:10px;letter-spacing:.06em;display:block;margin-bottom:4px;opacity:.7}
+.practice-cadence{margin:20px 0;padding:18px;background:rgba(0,212,255,.035);border:1px solid rgba(0,212,255,.22);border-left:3px solid var(--accent);border-radius:8px}
+.practice-cadence-kicker{font-family:var(--mono);font-size:9px;color:var(--accent);letter-spacing:.12em;text-transform:uppercase;margin-bottom:5px}
+.practice-cadence-title{font-size:16px;font-weight:700;color:var(--text);margin-bottom:5px}
+.practice-cadence-copy{font-size:12px;color:var(--muted);line-height:1.65;max-width:820px}
+.practice-cadence-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:14px}
+.practice-rep{padding:11px 12px;background:rgba(8,12,16,.48);border:1px solid var(--border);border-radius:7px}
+.practice-rep strong{display:block;font-family:var(--mono);font-size:10px;color:var(--accent2);letter-spacing:.04em;margin-bottom:4px}
+.practice-rep span{font-size:11px;color:var(--text);line-height:1.55}
+@media(max-width:640px){.practice-cadence-grid{grid-template-columns:1fr}}
 
 /* TRACK DIVIDER */
 .track-divider{display:flex;align-items:center;gap:12px;margin:32px 0 20px;padding:12px 16px;background:var(--surface);border-radius:8px;border-left:3px solid var(--accent)}
@@ -494,7 +503,7 @@ footer{position:relative;z-index:1;padding:50px 20px;border-top:1px solid var(--
  <div class="scanline"></div>
  <div class="hero-tag">
  <div class="hero-tag-dot"></div>
- <span class="hero-tag-text">Free roadmap - updated daily or as phases complete</span>
+ <span class="hero-tag-text">Free roadmap - updated as phases complete</span>
  </div>
  <h1 class="hero-title">Become a<span>SOC & Cybersecurity Analyst</span></h1>
  <p class="hero-sub">A <strong>free, step-by-step roadmap</strong> built by a working SOC analyst documenting the path in public. Real labs, real telemetry, real troubleshooting, and the analyst workflow behind the job. Currently leveling up toward SOC L2 and cloud security.</p>
@@ -502,7 +511,7 @@ footer{position:relative;z-index:1;padding:50px 20px;border-top:1px solid var(--
  <div class="live-update-dot"></div>
  <div>
  <div class="live-update-kicker">Live roadmap</div>
- <div class="live-update-text">I update this site <strong>daily or whenever a phase is completed</strong>, with new lab notes, GitHub write-ups, troubleshooting, and roadmap changes as the build gets stronger.</div>
+ <div class="live-update-text">I update this site <strong>as phases are completed</strong>, with new lab notes, GitHub write-ups, troubleshooting, and roadmap changes as the build gets stronger.</div>
  </div>
  </div>
  <div class="hero-meta">
@@ -586,8 +595,8 @@ footer{position:relative;z-index:1;padding:50px 20px;border-top:1px solid var(--
  </div>
  <div class="proof-metric">
  <div class="proof-metric-num">12</div>
- <div class="proof-metric-label">Detailed logs</div>
- <div class="proof-metric-copy">Published GitHub write-ups with troubleshooting, investigations, and verified capstone results.</div>
+ <div class="proof-metric-label">Published evidence logs</div>
+ <div class="proof-metric-copy">11 phase logs plus 1 capstone results log with troubleshooting, investigations, and analyst decisions.</div>
  </div>
  <div class="proof-metric">
  <div class="proof-metric-num">90%</div>
@@ -692,6 +701,7 @@ footer{position:relative;z-index:1;padding:50px 20px;border-top:1px solid var(--
  <a href="https://tryhackme.com" target="_blank">TryHackMe</a> - guided learning rooms<br>
  <a href="https://letsdefend.io" target="_blank">LetsDefend</a> - SOC alert queue simulator<br>
  <a href="https://cyberdefenders.org" target="_blank">CyberDefenders</a> - investigation labs<br>
+ <a href="https://developer.servicenow.com" target="_blank">ServiceNow Developer Program</a> - optional case-management practice<br>
  <a href="https://virustotal.com" target="_blank">VirusTotal</a> - IOC lookups<br>
  <a href="https://any.run" target="_blank">Any.run</a> - malware sandbox<br>
  <a href="https://urlscan.io" target="_blank">URLScan.io</a> - URL analysis
@@ -718,6 +728,13 @@ footer{position:relative;z-index:1;padding:50px 20px;border-top:1px solid var(--
  <div class="prereq-desc">This roadmap is hands-on. You learn by doing, not watching. Every phase ends with a written report or working detection - no exceptions. Document everything in GitHub from day one. Hiring managers can't see what you don't show them. The goal is to be able to talk about real things you built, not hypothetical skills.</div>
  </div>
  </div>
+ <div class="prereq">
+<div class="prereq-icon">⏱️</div>
+ <div>
+ <div class="prereq-title">Knowledge and time commitment</div>
+ <div class="prereq-desc">No certification is required, but Network+ and Security+ level concepts make the labs easier. At roughly 8-10 focused hours per week, expect about <strong>5-7 months for the job-ready core through Track 4</strong> and <strong>9-12 months for the full L2, cloud, automation, and portfolio path</strong>. Move faster when you already know a topic; do not repeat work just to fill time.</div>
+ </div>
+ </div>
  </div>
 </section>
 
@@ -727,14 +744,14 @@ footer{position:relative;z-index:1;padding:50px 20px;border-top:1px solid var(--
 <section id="roadmap">
  <div class="eyebrow">02 - The Roadmap</div>
  <h2 class="sec-title reveal">The Complete Path</h2>
- <p class="sec-sub reveal">8 tracks. 26 phases. Track-end capstone assessments. Updated after reviewing current SOC L1, SOC L2, and Cybersecurity Analyst job requirements plus practitioner feedback: build the lab first, then prove high-volume alert triage, ticket writing, phishing investigation, Splunk/SPL, EDR, cloud, IR, automation, and interview-ready proof.</p>
+ <p class="sec-sub reveal">8 tracks. 26 phases. No extra filler phases. Track-end capstone assessments plus lightweight external cases and mixed queue days keep earlier skills active while you build toward SOC L1/L2, Cybersecurity Analyst, cloud, IR, automation, and interview-ready proof.</p>
 
  <!-- CAPSTONE OVERVIEW -->
  <div class="capstone-overview reveal">
  <div class="capstone-overview-kicker">Track-End Capstone Assessments</div>
  <div class="capstone-overview-title">The core tracks end with proof, not just progress.</div>
  <div class="capstone-overview-sub">Build it. Investigate it. Document it. Defend it.</div>
- <div class="capstone-overview-copy">The core SOC analyst tracks end with a realistic assessment before moving forward. The goal is not to claim a phase is finished because a screenshot exists. It is to prove the skills can be applied under pressure in a job-style scenario: timed alert triage, hands-on investigations, ticket writing, detection logic, remediation planning, and mock interview defense. Mistakes do not end the roadmap. They become targeted practice areas. Each retake uses fresh scenarios, indicators, and decision points while testing the same underlying competencies, with a score breakdown and remediation plan after every attempt.</div>
+ <div class="capstone-overview-copy">The core SOC analyst tracks end with a realistic assessment before moving forward. The goal is not to claim a phase is finished because a screenshot exists. It is to prove the skills can be applied under pressure in a job-style scenario: timed alert triage, unfamiliar evidence, incomplete telemetry, ticket writing, detection logic, remediation planning, and mock interview defense. Mistakes do not end the roadmap. They become targeted practice areas. Each retake uses fresh scenarios, indicators, and decision points while testing the same underlying competencies, with a score breakdown and remediation plan after every attempt.</div>
  <div class="capstone-stat-grid">
 <div class="capstone-stat"><div class="capstone-stat-num">4</div><div class="capstone-stat-label">Core track assessments</div></div>
  <div class="capstone-stat"><div class="capstone-stat-num">70%+</div><div class="capstone-stat-label">Hands-on work</div></div>
@@ -1042,7 +1059,7 @@ footer{position:relative;z-index:1;padding:50px 20px;border-top:1px solid var(--
  <div class="step-n sn-green">3</div>
  <div class="step-content">
  <div class="step-title">Document the phishing case</div>
- <div class="step-desc">Write a phishing ticket with user impact, IOCs, verdict, containment steps, and recommended user or security actions.</div>
+ <div class="step-desc">Write a phishing ticket with user impact, IOCs, verdict, containment steps, and recommended user or security actions. For each future case, also write the short reply to the reporting user: confirm receipt, explain the verdict in plain language, and state what they should do next.</div>
  </div>
  </div>
  </div>
@@ -1280,19 +1297,19 @@ footer{position:relative;z-index:1;padding:50px 20px;border-top:1px solid var(--
  <div class="phase-num pn-blue">12</div>
  <div class="phase-hdr-info">
  <div class="phase-hdr-title">Endpoint / EDR Investigation with Wazuh, Sysmon, and Defender-Style Telemetry</div>
- <div class="phase-hdr-meta">Process tree / device timeline / persistence / containment logic</div>
- <div class="phase-tags"><span class="ptag">EDR</span><span class="ptag">Wazuh</span><span class="ptag">Sysmon</span><span class="ptag">Process Tree</span><span class="ptag">Containment</span></div>
+ <div class="phase-hdr-meta">Windows + Linux endpoint timelines / persistence / containment logic</div>
+ <div class="phase-tags"><span class="ptag">EDR</span><span class="ptag">Wazuh</span><span class="ptag">Sysmon</span><span class="ptag">Linux</span><span class="ptag">Process Tree</span><span class="ptag">Containment</span></div>
  </div>
  <div class="phase-caret">▶</div>
  </div>
  <div class="phase-body">
- <div class="phase-intro">SOC postings ask for EDR/XDR. Use Wazuh and Sysmon now, then map the workflow to Defender/CrowdStrike concepts.</div>
+ <div class="phase-intro">SOC postings ask for EDR/XDR across more than Windows. Use Wazuh and Sysmon for Windows investigations, add one Linux victim investigation, then map the workflow to Defender/CrowdStrike concepts.</div>
  <div class="steps-list">
  <div class="step-item">
  <div class="step-n sn-blue">1</div>
  <div class="step-content">
  <div class="step-title">Investigate endpoint behavior</div>
- <div class="step-desc">Review process execution, parent-child chains, network connections, autoruns, services, scheduled tasks, and file changes.</div>
+ <div class="step-desc">Review process execution, parent-child chains, network connections, autoruns, services, scheduled tasks, and file changes. One investigation must cover simulated Ubuntu persistence such as a cron entry or web-shell-style file drop using auth, cron, process, and file-timestamp evidence.</div>
  </div>
  </div>
  <div class="step-item">
@@ -1310,7 +1327,7 @@ footer{position:relative;z-index:1;padding:50px 20px;border-top:1px solid var(--
  </div>
  </div>
  </div>
- <div class="goal-box"><strong>PHASE GOAL</strong>3 endpoint investigations with process trees, timelines, and containment decisions.</div>
+ <div class="goal-box"><strong>PHASE GOAL</strong>3 endpoint investigations - including at least 1 Linux case - with process trees or process evidence, timelines, evidence limits, and containment decisions.</div>
  </div>
  </div>
 
@@ -1354,6 +1371,18 @@ footer{position:relative;z-index:1;padding:50px 20px;border-top:1px solid var(--
  </div>
  </div>
 
+ <div class="practice-cadence reveal" id="practice-checkpoint-01">
+ <div class="practice-cadence-kicker">Practice Checkpoint 01 - Before Capstone 02</div>
+ <div class="practice-cadence-title">External Reps + Mixed Queue Day</div>
+ <div class="practice-cadence-copy">The concept begins after Phase 5, but this is the first formal checkpoint in your current roadmap. You cannot learn triage only from alerts you created yourself, so Track 3 ends with a short unfamiliar-case session and a mixed queue review. This is not a new numbered phase; repeat a lighter version before later capstones.</div>
+ <div class="practice-cadence-grid">
+ <div class="practice-rep"><strong>External Rep + Case Workflow</strong><span>Complete 2 LetsDefend cases or 1 CyberDefenders lab without knowing the answer first. Document both with the Phase 6 format and move the strongest case through assignment, status, observables, and closure in ServiceNow Developer or TheHive.</span></div>
+ <div class="practice-rep"><strong>Queue Day</strong><span>Triage 10 mixed alerts from prior phases under the 30-second first-look rule: Windows, phishing, network, SIEM, and Active Directory.</span></div>
+ <div class="practice-rep"><strong>Ambiguous Evidence</strong><span>Include 2 cases with a log gap or missing telemetry. State what is known, what cannot be concluded, and the exact evidence needed next.</span></div>
+ <div class="practice-rep"><strong>Asset Context</strong><span>Assign each host a business role and criticality. Severity must reference whether it is a domain controller, finance workstation, server, or low-impact kiosk.</span></div>
+ </div>
+ </div>
+
 
  <!-- CAPSTONE 02 -->
  <div class="capstone-card reveal">
@@ -1362,7 +1391,7 @@ footer{position:relative;z-index:1;padding:50px 20px;border-top:1px solid var(--
  <div class="capstone-hdr-info">
  <div class="capstone-hdr-title">Endpoint and Identity Investigation Capstone</div>
  <div class="capstone-hdr-sub">Track 3 - Endpoint and Identity Investigation</div>
- <div class="capstone-hdr-meta">After Phase 13 - Active Directory, identity attacks, EDR, IAM</div>
+ <div class="capstone-hdr-meta">After Phase 13 + Practice Checkpoint 01 - Active Directory, EDR, IAM, unfamiliar cases</div>
  </div>
  <div class="capstone-status cs-planned">PLANNED</div>
  <div class="phase-caret">▶</div>
@@ -1385,6 +1414,7 @@ footer{position:relative;z-index:1;padding:50px 20px;border-top:1px solid var(--
  <li>Password spray, Kerberoasting, and identity alert analysis</li>
  <li>EDR-style endpoint timeline investigation</li>
  <li>IAM and least-privilege findings</li>
+ <li>Unfamiliar-case triage and defensible non-conclusions when evidence is incomplete</li>
  <li>Ticketing, containment, and interview defense</li>
  </ul>
  </div>
@@ -1517,11 +1547,11 @@ footer{position:relative;z-index:1;padding:50px 20px;border-top:1px solid var(--
  <div class="step-n sn-green">3</div>
  <div class="step-content">
  <div class="step-title">Run a tabletop</div>
- <div class="step-desc">Run one tabletop scenario and write a post-incident review with timeline, decisions, blockers, and lessons learned.</div>
+ <div class="step-desc">Run one tabletop scenario and write a post-incident review with timeline, decisions, blockers, and lessons learned. Then execute one published public SOC runbook exactly as written against a lab case and document where it helped, where it did not fit the environment, and how the analyst handled an inapplicable step.</div>
  </div>
  </div>
  </div>
- <div class="goal-box"><strong>PHASE GOAL</strong>6 playbooks and 1 post-incident review completed.</div>
+ <div class="goal-box"><strong>PHASE GOAL</strong>6 playbooks, 1 executed third-party runbook log, and 1 post-incident review completed.</div>
  </div>
  </div>
 
@@ -1781,14 +1811,14 @@ footer{position:relative;z-index:1;padding:50px 20px;border-top:1px solid var(--
  <div class="phase-hdr" onclick="togglePhase(this)">
  <div class="phase-num pn-blue">22</div>
  <div class="phase-hdr-info">
- <div class="phase-hdr-title">External SOC Platforms and Unfamiliar Case Investigations</div>
- <div class="phase-hdr-meta">Alert queue / artifacts / third-party cases / portfolio reports</div>
+ <div class="phase-hdr-title">Scale External SOC Practice + Unfamiliar Investigations</div>
+ <div class="phase-hdr-meta">larger alert queue / deeper artifacts / third-party cases / portfolio reports</div>
  <div class="phase-tags"><span class="ptag">KC7</span><span class="ptag">TryHackMe</span><span class="ptag">LetsDefend</span><span class="ptag">CyberDefenders</span><span class="ptag">BTLO</span><span class="ptag">MetaCTF optional</span><span class="ptag">Case Notes</span></div>
  </div>
  <div class="phase-caret">▶</div>
  </div>
  <div class="phase-body">
- <div class="phase-intro">External platforms prove your investigation skills transfer beyond scenarios you built yourself - unfamiliar data, unseen alerts, and different query languages. KC7 adds KQL-based, evidence-driven investigation practice that directly supports the later Sentinel and Defender work. The goal here is quality documented investigations, not badge collecting.</div>
+ <div class="phase-intro">Earlier track checkpoints introduced unfamiliar cases. This phase scales that practice into sustained external investigations with deeper artifacts, different query languages, and less guidance. KC7 adds KQL-based work that supports later Sentinel and Defender investigations. The goal is quality documented cases, not badge collecting.</div>
  <div class="steps-list">
  <div class="step-item">
  <div class="step-n sn-blue">1</div>
@@ -1828,7 +1858,7 @@ footer{position:relative;z-index:1;padding:50px 20px;border-top:1px solid var(--
  <div class="capstone-hdr-meta">After Phase 22 - PCAP analysis, malware triage, DFIR, hunting, external SOC cases</div>
  </div>
  <div class="capstone-status cs-planned">PLANNED</div>
- <div class="phase-caret">â–¶</div>
+ <div class="phase-caret">&#9654;</div>
  </div>
  <div class="capstone-body">
  <div class="capstone-metrics">
@@ -3427,7 +3457,7 @@ Write-Host "Phase 5 loop complete."</pre>
  </ul>
  </div>
 
- <a href="https://github.com/mmajeed7864/soclab/blob/main/capstone-01-soc-l1-core-workflow-readiness-assessment.md" target="_blank" class="log-cta">Read Capstone 01 results log on GitHub â†’</a>
+ <a href="https://github.com/mmajeed7864/soclab/blob/main/capstone-01-soc-l1-core-workflow-readiness-assessment.md" target="_blank" class="log-cta">Read Capstone 01 results log on GitHub &rarr;</a>
 
  </div>
  </div>
