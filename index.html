@@ -520,8 +520,13 @@ footer{position:relative;z-index:1;padding:50px 20px;border-top:1px solid var(--
 .topo-sweep{transform-origin:340px 290px;animation:hudSpin 9s linear infinite}
 .topo-glow{animation:topoGlow 3s ease-in-out infinite}
 .topo-blink{animation:topoBlink 2.4s ease-in-out infinite}
+.topo-packet{fill:var(--accent);filter:drop-shadow(0 0 5px rgba(0,212,255,1));animation:packetLive 1.35s ease-in-out infinite}
+.topo-packet.attack{fill:var(--accent3);filter:drop-shadow(0 0 5px rgba(255,107,53,1))}
+.topo-network{animation:networkLive 3.6s ease-in-out infinite}
 @keyframes topoGlow{0%,100%{opacity:.38}50%{opacity:1}}
 @keyframes topoBlink{0%,100%{opacity:1}50%{opacity:.42}}
+@keyframes packetLive{0%,100%{opacity:.35}50%{opacity:1}}
+@keyframes networkLive{0%,100%{opacity:.28}50%{opacity:.68}}
 .xp-block{padding:22px 22px 24px;margin-top:30px}
 .xp-head{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:7px;margin-bottom:18px}
 .xp-label{font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:var(--accent);text-shadow:0 0 12px rgba(0,212,255,.65)}
@@ -596,7 +601,8 @@ footer{position:relative;z-index:1;padding:50px 20px;border-top:1px solid var(--
 }
 @media(max-width:460px){.quick-facts{grid-template-columns:1fr}}
 @media(prefers-reduced-motion:reduce){
- .tele,.atk-line,.pulse-ring,.topo-sweep,.topo-glow,.topo-blink,.xp-fill::after,.phase-block.maintainer-done::before,.capstone-card.maintainer-done::before,.system-grid::before,.system-grid::after{animation:none!important}
+ .tele,.atk-line,.pulse-ring,.topo-sweep,.topo-glow,.topo-blink,.topo-network,.xp-fill::after,.phase-block.maintainer-done::before,.capstone-card.maintainer-done::before,.system-grid::before,.system-grid::after{animation:none!important}
+ .topo-packet{display:none}
  .xp-fill{transition:none}
 }
 </style>
@@ -841,11 +847,19 @@ footer{position:relative;z-index:1;padding:50px 20px;border-top:1px solid var(--
    <path class="tele" d="M340 420 L166 164" opacity=".62" marker-end="url(#roadTeleArrow)"/>
    <path class="tele" d="M340 420 L514 164" opacity=".62" marker-end="url(#roadTeleArrow)"/>
    <path class="atk-line" d="M480 420 L374 420" marker-end="url(#roadAttackArrow)"/>
-   <path class="atk-line" d="M492 444 Q340 565 205 444" marker-end="url(#roadAttackArrow)"/>
+   <path class="atk-line" d="M492 444 Q340 590 205 444" marker-end="url(#roadAttackArrow)"/>
   </g>
 
-  <line x1="44" y1="286" x2="636" y2="286" stroke="#143a4c" stroke-width="2"/>
-  <line x1="44" y1="286" x2="636" y2="286" stroke="#00ff88" stroke-width="1" opacity=".45" stroke-dasharray="2 8"/>
+  <g aria-hidden="true">
+   <circle class="topo-packet" r="2.8"><animateMotion dur="4.6s" repeatCount="indefinite" path="M180 420 L150 164"/></circle>
+   <circle class="topo-packet" r="2.8"><animateMotion dur="4.2s" begin="-1.8s" repeatCount="indefinite" path="M340 420 L340 164"/></circle>
+   <circle class="topo-packet" r="2.5"><animateMotion dur="5.2s" begin="-3.1s" repeatCount="indefinite" path="M340 420 L514 164"/></circle>
+   <circle class="topo-packet attack" r="2.9"><animateMotion dur="2.6s" repeatCount="indefinite" path="M480 420 L374 420"/></circle>
+   <circle class="topo-packet attack" r="2.9"><animateMotion dur="4.1s" begin="-2s" repeatCount="indefinite" path="M492 444 Q340 590 205 444"/></circle>
+  </g>
+
+  <line class="topo-network" x1="44" y1="286" x2="636" y2="286" stroke="#143a4c" stroke-width="2"/>
+  <line class="topo-network" x1="44" y1="286" x2="636" y2="286" stroke="#00ff88" stroke-width="1" opacity=".45" stroke-dasharray="2 8" style="animation-delay:.4s"/>
   <rect x="248" y="273" width="184" height="27" rx="4" fill="#080c10" stroke="#00ff88" stroke-opacity=".42"/>
   <text class="topo-glow" x="340" y="291" text-anchor="middle" font-family="Space Mono,monospace" font-size="11" letter-spacing="1" fill="#00ff88">192.168.56.0/24</text>
 
@@ -872,12 +886,14 @@ footer{position:relative;z-index:1;padding:50px 20px;border-top:1px solid var(--
     <text x="530" y="200" text-anchor="middle" font-size="9.5" fill="#7f93a3">.105 · FIM</text>
    </g>
    <g>
+    <circle class="pulse-ring" cx="180" cy="420" r="30" style="animation-delay:1.2s"/>
     <circle cx="180" cy="420" r="30" fill="#0d1219" stroke="#00d4ff" stroke-width="1.5" filter="url(#roadTopoGlow)"/>
     <circle cx="176" cy="416" r="6" fill="none" stroke="#00d4ff" stroke-width="1.5"/><path d="M180 420L188 428M185 425L189 421M188 428L192 424" stroke="#00d4ff" stroke-width="1.5"/>
     <text x="180" y="478" text-anchor="middle" font-size="11" font-weight="700" fill="#00d4ff">DC01 · AD</text>
     <text x="180" y="494" text-anchor="middle" font-size="9.5" fill="#7f93a3">.10 · MAJEED.LOCAL</text>
    </g>
    <g>
+    <circle class="pulse-ring" cx="340" cy="420" r="30" style="animation-delay:2s"/>
     <circle cx="340" cy="420" r="30" fill="#0d1219" stroke="#00d4ff" stroke-width="1.5" filter="url(#roadTopoGlow)"/>
     <rect x="326" y="410" width="28" height="18" rx="2" fill="none" stroke="#00d4ff" stroke-width="1.5"/><path d="M336 428H344M340 428V434M334 435H346" stroke="#00d4ff" stroke-width="1.5"/>
     <text x="340" y="478" text-anchor="middle" font-size="11" font-weight="700" fill="#00d4ff">WIN10 VICTIM</text>
