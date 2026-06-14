@@ -507,17 +507,21 @@ footer{position:relative;z-index:1;padding:50px 20px;border-top:1px solid var(--
 .architecture-wrap{padding-top:54px}
 .diagram-head{display:flex;justify-content:space-between;gap:16px;align-items:flex-end;margin-bottom:18px}
 .diagram-state{font-family:var(--mono);font-size:9px;color:var(--accent2);letter-spacing:.12em;white-space:nowrap}
-.diagram-shell{padding:8px;background:var(--bg);overflow-x:auto}
-.diagram-shell svg{display:block;min-width:680px;width:100%;height:auto}
+.diagram-shell{padding:8px;background:radial-gradient(circle at 50% 48%,rgba(0,212,255,.045),transparent 52%),var(--bg);overflow-x:auto}
+.diagram-shell svg{display:block;min-width:680px;width:100%;max-width:900px;height:auto;margin:0 auto}
 .diagram-legend{display:flex;flex-wrap:wrap;gap:18px;font-family:var(--mono);font-size:10px;color:var(--soft);padding:12px 14px;letter-spacing:.06em;border-top:1px solid var(--border)}
 .diagram-legend i{display:inline-block;width:22px;height:0;border-top:2px dashed var(--accent);vertical-align:middle;margin-right:6px}
 .diagram-legend i.attack{border-color:var(--accent3)}
 .diagram-legend i.network{border-color:var(--accent2)}
-.tele{stroke:var(--accent);stroke-width:1.6;stroke-dasharray:6 6;fill:none;animation:hudFlow 1.4s linear infinite;filter:drop-shadow(0 0 3px rgba(0,212,255,.8))}
-.atk-line{stroke:var(--accent3);stroke-width:1.7;stroke-dasharray:3 5;fill:none;animation:hudFlow 1s linear infinite;filter:drop-shadow(0 0 3px rgba(255,107,53,.8))}
-.pulse-ring{fill:none;stroke:var(--accent);stroke-width:1;animation:nodePulse 2.6s ease-out infinite}
+.tele{stroke:var(--accent);stroke-width:1.55;stroke-dasharray:6 8;fill:none;animation:hudFlow 14s linear infinite;filter:drop-shadow(0 0 3px rgba(0,212,255,.8))}
+.atk-line{stroke:var(--accent3);stroke-width:1.65;stroke-dasharray:3 7;fill:none;animation:hudFlow 5s linear infinite;filter:drop-shadow(0 0 3px rgba(255,107,53,.8))}
+.pulse-ring{fill:none;stroke:var(--accent);stroke-width:1;animation:nodePulse 2.8s ease-out infinite}
 .pulse-ring.o{stroke:var(--accent3)}
-.ring-spin{transform-origin:center;animation:hudSpin 14s linear infinite}
+.topo-sweep{transform-origin:340px 290px;animation:hudSpin 9s linear infinite}
+.topo-glow{animation:topoGlow 3s ease-in-out infinite}
+.topo-blink{animation:topoBlink 2.4s ease-in-out infinite}
+@keyframes topoGlow{0%,100%{opacity:.38}50%{opacity:1}}
+@keyframes topoBlink{0%,100%{opacity:1}50%{opacity:.42}}
 .xp-block{padding:22px 22px 24px;margin-top:30px}
 .xp-head{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:7px;margin-bottom:18px}
 .xp-label{font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:var(--accent);text-shadow:0 0 12px rgba(0,212,255,.65)}
@@ -592,7 +596,7 @@ footer{position:relative;z-index:1;padding:50px 20px;border-top:1px solid var(--
 }
 @media(max-width:460px){.quick-facts{grid-template-columns:1fr}}
 @media(prefers-reduced-motion:reduce){
- .tele,.atk-line,.pulse-ring,.ring-spin,.xp-fill::after,.phase-block.maintainer-done::before,.capstone-card.maintainer-done::before,.system-grid::before,.system-grid::after{animation:none!important}
+ .tele,.atk-line,.pulse-ring,.topo-sweep,.topo-glow,.topo-blink,.xp-fill::after,.phase-block.maintainer-done::before,.capstone-card.maintainer-done::before,.system-grid::before,.system-grid::after{animation:none!important}
  .xp-fill{transition:none}
 }
 </style>
@@ -816,81 +820,77 @@ footer{position:relative;z-index:1;padding:50px 20px;border-top:1px solid var(--
  <div class="hud-panel reveal">
  <span class="hud-corners"></span>
  <div class="diagram-shell">
- <svg viewBox="0 0 900 590" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="SOC lab with Elastic SIEM, Splunk, Wazuh, Active Directory, Windows 10, and Kali Linux on host-only network 192.168.56.0/24.">
+ <svg viewBox="0 0 680 580" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Animated SOC lab topology with Elastic SIEM, Splunk, Wazuh XDR, Active Directory, Windows 10, and Kali Linux on host-only network 192.168.56.0/24.">
+  <title>Six-VM home SOC lab topology</title>
+  <desc>Cyan dashed paths carry endpoint telemetry into Elastic SIEM, Splunk, and Wazuh XDR. Orange dashed paths carry controlled attack traffic from Kali to the Windows victim and domain controller.</desc>
   <defs>
-   <marker id="aC" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6.5" markerHeight="6.5" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#00d4ff"/></marker>
-   <marker id="aO" viewBox="0 0 8 8" refX="7" refY="4" markerWidth="6.5" markerHeight="6.5" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#ff6b35"/></marker>
-   <filter id="glow" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="3" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+   <radialGradient id="roadTopoRadar" cx="50%" cy="50%" r="50%"><stop offset="0%" stop-color="#00d4ff" stop-opacity=".16"/><stop offset="72%" stop-color="#00d4ff" stop-opacity=".035"/><stop offset="100%" stop-color="#00d4ff" stop-opacity="0"/></radialGradient>
+   <linearGradient id="roadTopoSweep" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#00d4ff" stop-opacity="0"/><stop offset="100%" stop-color="#00d4ff" stop-opacity=".2"/></linearGradient>
+   <marker id="roadTeleArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M2 1L8 5L2 9" fill="none" stroke="#00d4ff" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker>
+   <marker id="roadAttackArrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M2 1L8 5L2 9" fill="none" stroke="#ff6b35" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></marker>
+   <filter id="roadTopoGlow" x="-60%" y="-60%" width="220%" height="220%"><feGaussianBlur stdDeviation="2.5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
   </defs>
 
-  <g>
-   <circle class="pulse-ring" cx="170" cy="130" r="34"/>
-   <circle cx="170" cy="130" r="34" fill="#0d1219" stroke="#00d4ff" stroke-width="1.5" filter="url(#glow)"/>
-   <g class="ring-spin" style="transform-box:fill-box"><circle cx="170" cy="130" r="41" fill="none" stroke="#143a4c" stroke-width="1" stroke-dasharray="8 10"/></g>
-   <path d="M152,130 Q170,116 188,130 Q170,144 152,130 Z" fill="none" stroke="#00d4ff" stroke-width="1.6"/>
-   <circle cx="170" cy="130" r="5" fill="#00d4ff"/>
-   <text x="170" y="192" text-anchor="middle" font-family="Space Mono,monospace" font-size="11" font-weight="700" fill="#00d4ff">ELASTIC SIEM</text>
-   <text x="170" y="207" text-anchor="middle" font-family="Space Mono,monospace" font-size="9" fill="#7f93a3">.101 | SURICATA</text>
+  <rect x="12" y="12" width="656" height="556" rx="12" fill="none" stroke="#143a4c" stroke-width="1"/>
+  <circle cx="340" cy="290" r="214" fill="url(#roadTopoRadar)"/>
+  <g class="topo-sweep"><path d="M340 290 L340 76 A214 214 0 0 1 525 183 Z" fill="url(#roadTopoSweep)"/></g>
+
+  <g stroke-linecap="round" fill="none">
+   <path class="tele" d="M180 420 L150 164" marker-end="url(#roadTeleArrow)"/>
+   <path class="tele" d="M340 420 L340 164" marker-end="url(#roadTeleArrow)"/>
+   <path class="tele" d="M340 420 L166 164" opacity=".62" marker-end="url(#roadTeleArrow)"/>
+   <path class="tele" d="M340 420 L514 164" opacity=".62" marker-end="url(#roadTeleArrow)"/>
+   <path class="atk-line" d="M480 420 L374 420" marker-end="url(#roadAttackArrow)"/>
+   <path class="atk-line" d="M492 444 Q340 565 205 444" marker-end="url(#roadAttackArrow)"/>
   </g>
 
-  <g>
-   <circle class="pulse-ring" cx="450" cy="130" r="34"/>
-   <circle cx="450" cy="130" r="34" fill="#0d1219" stroke="#00d4ff" stroke-width="1.5" filter="url(#glow)"/>
-   <g class="ring-spin" style="transform-box:fill-box"><circle cx="450" cy="130" r="41" fill="none" stroke="#143a4c" stroke-width="1" stroke-dasharray="8 10"/></g>
-   <rect x="437" y="132" width="6" height="12" fill="#00d4ff"/><rect x="447" y="122" width="6" height="22" fill="#00d4ff"/><rect x="457" y="114" width="6" height="30" fill="#00d4ff"/>
-   <text x="450" y="192" text-anchor="middle" font-family="Space Mono,monospace" font-size="11" font-weight="700" fill="#00d4ff">SPLUNK</text>
-   <text x="450" y="207" text-anchor="middle" font-family="Space Mono,monospace" font-size="9" fill="#7f93a3">.102 | TCP 9997</text>
+  <line x1="44" y1="286" x2="636" y2="286" stroke="#143a4c" stroke-width="2"/>
+  <line x1="44" y1="286" x2="636" y2="286" stroke="#00ff88" stroke-width="1" opacity=".45" stroke-dasharray="2 8"/>
+  <rect x="248" y="273" width="184" height="27" rx="4" fill="#080c10" stroke="#00ff88" stroke-opacity=".42"/>
+  <text class="topo-glow" x="340" y="291" text-anchor="middle" font-family="Space Mono,monospace" font-size="11" letter-spacing="1" fill="#00ff88">192.168.56.0/24</text>
+
+  <g font-family="Space Mono,monospace">
+   <g>
+    <circle class="pulse-ring" cx="150" cy="130" r="30"/>
+    <circle cx="150" cy="130" r="30" fill="#0d1219" stroke="#00d4ff" stroke-width="1.5" filter="url(#roadTopoGlow)"/>
+    <path d="M135 130 Q150 119 165 130 Q150 141 135 130Z" fill="none" stroke="#00d4ff" stroke-width="1.5"/><circle cx="150" cy="130" r="4" fill="#00d4ff"/>
+    <text x="150" y="184" text-anchor="middle" font-size="11" font-weight="700" fill="#00d4ff">ELASTIC SIEM</text>
+    <text x="150" y="200" text-anchor="middle" font-size="9.5" fill="#7f93a3">.101 · SURICATA</text>
+   </g>
+   <g>
+    <circle class="pulse-ring" cx="340" cy="130" r="30" style="animation-delay:.9s"/>
+    <circle cx="340" cy="130" r="30" fill="#0d1219" stroke="#00d4ff" stroke-width="1.5" filter="url(#roadTopoGlow)"/>
+    <rect class="topo-blink" x="332" y="121" width="4" height="14" fill="#00d4ff"/><rect class="topo-blink" x="338" y="116" width="4" height="19" fill="#00d4ff" style="animation-delay:.4s"/><rect class="topo-blink" x="344" y="124" width="4" height="11" fill="#00d4ff" style="animation-delay:.8s"/>
+    <text x="340" y="184" text-anchor="middle" font-size="11" font-weight="700" fill="#00d4ff">SPLUNK</text>
+    <text x="340" y="200" text-anchor="middle" font-size="9.5" fill="#7f93a3">.102 · TCP 9997</text>
+   </g>
+   <g>
+    <circle class="pulse-ring" cx="530" cy="130" r="30" style="animation-delay:1.6s"/>
+    <circle cx="530" cy="130" r="30" fill="#0d1219" stroke="#00d4ff" stroke-width="1.5" filter="url(#roadTopoGlow)"/>
+    <path d="M530 116L541 121V132Q541 141 530 146Q519 141 519 132V121Z" fill="none" stroke="#00d4ff" stroke-width="1.5"/><path d="M525 131L529 135L536 126" fill="none" stroke="#00d4ff" stroke-width="1.5"/>
+    <text x="530" y="184" text-anchor="middle" font-size="11" font-weight="700" fill="#00d4ff">WAZUH XDR</text>
+    <text x="530" y="200" text-anchor="middle" font-size="9.5" fill="#7f93a3">.105 · FIM</text>
+   </g>
+   <g>
+    <circle cx="180" cy="420" r="30" fill="#0d1219" stroke="#00d4ff" stroke-width="1.5" filter="url(#roadTopoGlow)"/>
+    <circle cx="176" cy="416" r="6" fill="none" stroke="#00d4ff" stroke-width="1.5"/><path d="M180 420L188 428M185 425L189 421M188 428L192 424" stroke="#00d4ff" stroke-width="1.5"/>
+    <text x="180" y="478" text-anchor="middle" font-size="11" font-weight="700" fill="#00d4ff">DC01 · AD</text>
+    <text x="180" y="494" text-anchor="middle" font-size="9.5" fill="#7f93a3">.10 · MAJEED.LOCAL</text>
+   </g>
+   <g>
+    <circle cx="340" cy="420" r="30" fill="#0d1219" stroke="#00d4ff" stroke-width="1.5" filter="url(#roadTopoGlow)"/>
+    <rect x="326" y="410" width="28" height="18" rx="2" fill="none" stroke="#00d4ff" stroke-width="1.5"/><path d="M336 428H344M340 428V434M334 435H346" stroke="#00d4ff" stroke-width="1.5"/>
+    <text x="340" y="478" text-anchor="middle" font-size="11" font-weight="700" fill="#00d4ff">WIN10 VICTIM</text>
+    <text x="340" y="494" text-anchor="middle" font-size="9.5" fill="#7f93a3">.104 · SYSMON + AGENTS</text>
+   </g>
+   <g>
+    <circle class="pulse-ring o" cx="510" cy="420" r="30" style="animation-delay:.5s"/>
+    <circle cx="510" cy="420" r="30" fill="#171009" stroke="#ff6b35" stroke-width="1.5" filter="url(#roadTopoGlow)"/>
+    <circle cx="510" cy="420" r="11" fill="none" stroke="#ff6b35" stroke-width="1.5"/><circle cx="510" cy="420" r="3" fill="#ff6b35"/><path d="M510 405V413M510 427V435M495 420H503M517 420H525" stroke="#ff6b35" stroke-width="1.5"/>
+    <text x="510" y="478" text-anchor="middle" font-size="11" font-weight="700" fill="#ff6b35">KALI ATTACKER</text>
+    <text x="510" y="494" text-anchor="middle" font-size="9.5" fill="#c9815f">SCRIPTED ATTACK LOOPS</text>
+   </g>
   </g>
-
-  <g>
-   <circle class="pulse-ring" cx="730" cy="130" r="34"/>
-   <circle cx="730" cy="130" r="34" fill="#0d1219" stroke="#00d4ff" stroke-width="1.5" filter="url(#glow)"/>
-   <g class="ring-spin" style="transform-box:fill-box"><circle cx="730" cy="130" r="41" fill="none" stroke="#143a4c" stroke-width="1" stroke-dasharray="8 10"/></g>
-   <path d="M730,112 L746,119 V132 Q746,146 730,151 Q714,146 714,132 V119 Z" fill="none" stroke="#00d4ff" stroke-width="1.6"/>
-   <path d="M723,131 L728,137 L738,124" fill="none" stroke="#00d4ff" stroke-width="1.8"/>
-   <text x="730" y="192" text-anchor="middle" font-family="Space Mono,monospace" font-size="11" font-weight="700" fill="#00d4ff">WAZUH XDR</text>
-   <text x="730" y="207" text-anchor="middle" font-family="Space Mono,monospace" font-size="9" fill="#7f93a3">.105 | FIM</text>
-  </g>
-
-  <line x1="36" y1="290" x2="864" y2="290" stroke="#143a4c" stroke-width="2"/>
-  <line x1="36" y1="290" x2="864" y2="290" stroke="#00ff88" stroke-width="1" opacity=".35" stroke-dasharray="2 8" class="tele" style="stroke:#00ff88;filter:none"/>
-  <rect x="352" y="277" width="196" height="26" fill="#080c10" stroke="#143a4c"/>
-  <text x="450" y="294" text-anchor="middle" font-family="Space Mono,monospace" font-size="10.5" fill="#00ff88" filter="url(#glow)">192.168.56.0/24</text>
-
-  <g>
-   <circle class="pulse-ring" cx="170" cy="430" r="34"/>
-   <circle cx="170" cy="430" r="34" fill="#0d1219" stroke="#00d4ff" stroke-width="1.5" filter="url(#glow)"/>
-   <circle cx="161" cy="423" r="7" fill="none" stroke="#00d4ff" stroke-width="1.6"/>
-   <path d="M166,428 L184,444 M177,438 L173,443 M182,442 L178,447" stroke="#00d4ff" stroke-width="1.6" fill="none"/>
-   <text x="170" y="492" text-anchor="middle" font-family="Space Mono,monospace" font-size="11" font-weight="700" fill="#00d4ff">DC01 | AD</text>
-   <text x="170" y="507" text-anchor="middle" font-family="Space Mono,monospace" font-size="9" fill="#7f93a3">.10 | MAJEED.LOCAL</text>
-  </g>
-
-  <g>
-   <circle class="pulse-ring" cx="450" cy="430" r="34"/>
-   <circle cx="450" cy="430" r="34" fill="#0d1219" stroke="#00d4ff" stroke-width="1.5" filter="url(#glow)"/>
-   <rect x="436" y="416" width="28" height="19" rx="1.5" fill="none" stroke="#00d4ff" stroke-width="1.6"/>
-   <path d="M444,442 H456 M450,435 V442" stroke="#00d4ff" stroke-width="1.6"/>
-   <text x="450" y="492" text-anchor="middle" font-family="Space Mono,monospace" font-size="11" font-weight="700" fill="#00d4ff">WIN10 VICTIM</text>
-   <text x="450" y="507" text-anchor="middle" font-family="Space Mono,monospace" font-size="9" fill="#7f93a3">.104 | SYSMON + AGENTS</text>
-  </g>
-
-  <g>
-   <circle class="pulse-ring o" cx="730" cy="430" r="34"/>
-   <circle cx="730" cy="430" r="34" fill="#0d1219" stroke="#ff6b35" stroke-width="1.5" filter="url(#glow)"/>
-   <circle cx="730" cy="430" r="12" fill="none" stroke="#ff6b35" stroke-width="1.6"/>
-   <path d="M730,412 V422 M730,438 V448 M712,430 H722 M738,430 H748" stroke="#ff6b35" stroke-width="1.6"/>
-   <circle cx="730" cy="430" r="2.5" fill="#ff6b35"/>
-   <text x="730" y="492" text-anchor="middle" font-family="Space Mono,monospace" font-size="11" font-weight="700" fill="#ff6b35">KALI ATTACKER</text>
-   <text x="730" y="507" text-anchor="middle" font-family="Space Mono,monospace" font-size="9" fill="#7f93a3">SCRIPTED ATTACK LOOPS</text>
-  </g>
-
-  <path class="tele" d="M432,398 C380,340 240,250 196,166"/>
-  <path class="tele" d="M450,396 L450,168" marker-end="url(#aC)"/>
-  <path class="tele" d="M468,398 C520,340 660,250 704,166"/>
-  <path class="tele" d="M186,400 C250,320 360,230 426,162" marker-end="url(#aC)"/>
-  <path class="atk-line" d="M696,430 L488,430" marker-end="url(#aO)"/>
-  <path class="atk-line" d="M700,456 C600,565 304,565 204,460" marker-end="url(#aO)"/>
  </svg>
  </div>
  <div class="diagram-legend">
