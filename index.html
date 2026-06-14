@@ -913,7 +913,7 @@ footer{position:relative;z-index:1;padding:50px 20px;border-top:1px solid var(--
  <span class="hud-corners"></span>
  <div class="xp-head">
  <span class="xp-label">[ OPERATOR PROGRESS ]</span>
- <span class="xp-count"><b id="progress-count">11</b> / 26 <span id="progress-state">BUILT</span></span>
+ <span class="xp-count"><b id="progress-count">12</b> / 26 <span id="progress-state">BUILT</span></span>
  </div>
  <div class="xp-track">
  <div class="xp-fill" id="progress-fill"></div>
@@ -1472,40 +1472,41 @@ footer{position:relative;z-index:1;padding:50px 20px;border-top:1px solid var(--
  <!-- PHASE 12 -->
  <div class="phase-block">
  <div class="phase-hdr" onclick="togglePhase(this)">
- <div class="phase-num pn-blue">12</div>
+ <div class="phase-num pn-green">12</div>
  <div class="phase-hdr-info">
  <div class="phase-hdr-title">Endpoint / EDR Investigation with Wazuh, Sysmon, and Defender-Style Telemetry</div>
- <div class="phase-hdr-meta">Windows + Linux endpoint timelines / persistence / containment logic</div>
- <div class="phase-tags"><span class="ptag">EDR</span><span class="ptag">Wazuh</span><span class="ptag">Sysmon</span><span class="ptag">Linux</span><span class="ptag">Process Tree</span><span class="ptag">Containment</span></div>
+ <div class="phase-hdr-meta">3 Windows and Linux endpoint investigations with timelines, persistence evidence, and containment decisions</div>
+ <div class="phase-tags"><span class="ptag g">&#10003; Complete</span><span class="ptag g">Sysmon</span><span class="ptag g">Splunk</span><span class="ptag g">Wazuh</span><span class="ptag g">PowerShell</span><span class="ptag g">Scheduled Tasks</span><span class="ptag g">Linux Cron</span></div>
+ <a href="https://github.com/mmajeed7864/soclab/blob/main/DAY-12-LAB-LOG.md" target="_blank" rel="noopener" class="phase-proof-link orange" onclick="event.stopPropagation()">View Day 12 GitHub Log</a>
  </div>
  <div class="phase-caret">▶</div>
  </div>
  <div class="phase-body">
- <div class="phase-intro">SOC postings ask for EDR/XDR across more than Windows. Use Wazuh and Sysmon for Windows investigations, add one Linux victim investigation, then map the workflow to Defender/CrowdStrike concepts.</div>
+ <div class="phase-intro">Completed three endpoint/EDR-style investigations using Splunk, Sysmon, Wazuh visibility, and Linux host artifacts. Built timelines for suspicious PowerShell execution, scheduled-task persistence-style behavior, and Linux cron persistence while documenting evidence limits and defensible containment decisions.</div>
  <div class="steps-list">
  <div class="step-item">
  <div class="step-n sn-blue">1</div>
  <div class="step-content">
- <div class="step-title">Investigate endpoint behavior</div>
- <div class="step-desc">Review process execution, parent-child chains, network connections, autoruns, services, scheduled tasks, and file changes. One investigation must cover simulated Ubuntu persistence such as a cron entry or web-shell-style file drop using auth, cron, process, and file-timestamp evidence.</div>
+ <div class="step-title">Investigate a suspicious PowerShell process chain</div>
+ <div class="step-desc">Used Sysmon Event ID 1 in Splunk to review the host, user, parent process, child process, and command line for controlled PowerShell execution using <code>-NoProfile</code> and <code>-ExecutionPolicy Bypass</code>. Documented that the technique was suspicious while the known marker-file and lab context supported a benign verdict.</div>
  </div>
  </div>
  <div class="step-item">
  <div class="step-n sn-blue">2</div>
  <div class="step-content">
- <div class="step-title">Build a device timeline</div>
- <div class="step-desc">Create a timeline for one suspicious endpoint scenario using SIEM events, endpoint alerts, user context, and file activity.</div>
+ <div class="step-title">Analyze scheduled-task persistence-style behavior</div>
+ <div class="step-desc">Created and queried <code>\Phase12\UpdaterCheck</code>, traced <code>schtasks.exe</code> back to PowerShell, validated the ONLOGON trigger and harmless action, then removed the task and verified cleanup.</div>
  </div>
  </div>
  <div class="step-item">
  <div class="step-n sn-blue">3</div>
  <div class="step-content">
- <div class="step-title">Choose a response action</div>
- <div class="step-desc">Decide whether to isolate the host, disable the user, block an IOC, collect memory, escalate, or close the alert as benign.</div>
+ <div class="step-title">Build a Linux cron persistence timeline</div>
+ <div class="step-desc">Reviewed a user crontab, script path, ownership, permissions, and repeated timestamped output to prove recurring execution. Removed the cron entry, script, and marker file, then documented the production checks and containment actions an unexplained case would require.</div>
  </div>
  </div>
  </div>
- <div class="goal-box"><strong>PHASE GOAL</strong>3 endpoint investigations - including at least 1 Linux case - with process trees or process evidence, timelines, evidence limits, and containment decisions.</div>
+ <div class="goal-box"><strong>PHASE COMPLETE</strong>3 endpoint investigations completed with Windows process-chain evidence, Windows and Linux persistence timelines, raw XML field extraction, evidence limitations, containment decisions, and verified cleanup.</div>
  </div>
  </div>
 
@@ -2421,6 +2422,10 @@ footer{position:relative;z-index:1;padding:50px 20px;border-top:1px solid var(--
  <span class="tool-pill p">PowerShell</span>
  <span class="tool-pill p">Process Creation</span>
  <span class="tool-pill p">Parent Process Analysis</span>
+ <span class="tool-pill p">Scheduled Task Analysis</span>
+ <span class="tool-pill p">Linux Cron Persistence</span>
+ <span class="tool-pill p">Endpoint Timelines</span>
+ <span class="tool-pill p">Raw XML Field Extraction</span>
  <span class="tool-pill p">Event ID 4624</span>
  <span class="tool-pill p">Event ID 4625</span>
  <span class="tool-pill p">Microsoft Defender for Endpoint</span>
@@ -3591,6 +3596,79 @@ Write-Host "Phase 5 loop complete."</pre>
  </div>
  </div>
 
+ <!-- DAY 12 -->
+ <div class="log-card">
+ <div class="log-card-hdr" onclick="toggleLog(this)">
+ <div class="log-day">
+ <div class="log-day-label">Day</div>
+ <div class="log-day-num">12</div>
+ </div>
+ <div class="log-info">
+ <div class="log-date">June 14, 2026</div>
+ <div class="log-title">Phase 12 - Endpoint / EDR Investigation</div>
+ <div class="log-phases">
+ <span class="log-phase-tag done">&#10003; Phase 12 Complete</span>
+ <span class="log-phase-tag">Sysmon</span>
+ <span class="log-phase-tag">PowerShell</span>
+ <span class="log-phase-tag">Scheduled Tasks</span>
+ <span class="log-phase-tag">Linux Cron</span>
+ <span class="log-phase-tag">Containment</span>
+ </div>
+ </div>
+ <div class="log-caret">&#9654;</div>
+ </div>
+ <div class="log-body">
+ <div class="log-body-inner">
+
+ <div class="log-section">
+ <div class="log-section-title">Three Endpoint Investigations</div>
+ <ul class="log-list">
+ <li>Investigated a suspicious PowerShell process chain using Sysmon Event ID 1 in Splunk, including parent process, command line, user, host, marker-file activity, and controlled follow-on execution.</li>
+ <li>Investigated scheduled-task persistence-style behavior by reviewing <code>schtasks.exe</code>, the PowerShell parent, task name, ONLOGON trigger, harmless action, user context, and cleanup evidence.</li>
+ <li>Investigated Linux cron persistence through the user crontab, script path, ownership, permissions, repeated timestamped output, and verified artifact removal.</li>
+ </ul>
+ </div>
+
+ <div class="log-section">
+ <div class="log-section-title">Timeline + Evidence Analysis</div>
+ <ul class="log-list">
+ <li>Built Windows timelines from process-creation telemetry and Linux timelines from endpoint artifacts rather than claiming every sensor produced identical evidence.</li>
+ <li>Used raw Sysmon XML and <code>rex</code> extraction when normalized Splunk fields did not expose the needed process, parent, command-line, and user values.</li>
+ <li>Recorded what each case proved, what remained unknown, and why suspicious technique alone did not establish malware, credential theft, C2, or compromise.</li>
+ </ul>
+ </div>
+
+ <div class="log-section">
+ <div class="log-section-title">Containment + Cleanup Decisions</div>
+ <ul class="log-list">
+ <li>Closed the PowerShell activity as a benign simulation after validating the expected command and artifacts; documented the scoping and isolation criteria a production case would require.</li>
+ <li>Removed the scheduled task and verified cleanup while documenting the action-path, change-control, and enterprise-scoping checks for an unauthorized task.</li>
+ <li>Removed the Linux cron entry, script directory, and marker file, then verified that the persistence artifacts were gone.</li>
+ </ul>
+ </div>
+
+ <div class="log-section">
+ <div class="log-section-title">Troubleshooting + Visibility Lessons</div>
+ <ul class="log-list">
+ <li>Pivoted from missing normalized fields to raw XML instead of treating a field-extraction gap as missing telemetry.</li>
+ <li>Separated Splunk/Sysmon process evidence from Wazuh agent verification and documented the visibility supplied by each platform.</li>
+ <li>Used direct Linux artifacts to build a defensible host timeline without overstating that an EDR alert existed.</li>
+ </ul>
+ </div>
+
+ <div class="log-section">
+ <div class="log-section-title">Up Next - Phase 13</div>
+ <ul class="log-list">
+ <li>Review IAM exposure, administrative groups, service accounts, stale identities, unnecessary privilege, audit gaps, and prioritized hardening recommendations.</li>
+ </ul>
+ </div>
+
+ <a href="https://github.com/mmajeed7864/soclab/blob/main/DAY-12-LAB-LOG.md" target="_blank" class="log-cta">Read full Phase 12 log on GitHub &rarr;</a>
+
+ </div>
+ </div>
+ </div>
+
  </div>
 </section>
 
@@ -3602,6 +3680,7 @@ Write-Host "Phase 5 loop complete."</pre>
  <div class="guide-end reveal">
  <div class="hud-panel">
  <span class="hud-corners"></span>
+ <div class="changelog-row"><div class="changelog-date">JUN 14</div><div class="changelog-copy"><strong>Phase 12 completed.</strong> Added Windows and Linux endpoint investigations, persistence timelines, evidence limits, and containment decisions.</div></div>
  <div class="changelog-row"><div class="changelog-date">JUN 12</div><div class="changelog-copy"><strong>Guide interface upgraded.</strong> Added lab topology, persistent learner progress, phase metadata, and a cleaner roadmap-first structure.</div></div>
  <div class="changelog-row"><div class="changelog-date">JUN 11</div><div class="changelog-copy"><strong>Phase 11 completed.</strong> Added identity-security investigations and advanced Active Directory evidence.</div></div>
  <div class="changelog-row"><div class="changelog-date">JUN 10</div><div class="changelog-copy"><strong>Phase 10 completed.</strong> Expanded the roadmap into the next analyst workflow track.</div></div>
@@ -3668,7 +3747,7 @@ function toggleCapstone(hdr){
  else{body.classList.add('open');hdr.classList.add('open')}
 }
 
-const SOCLAB_STATS={built:11,total:26,capstones:4};
+const SOCLAB_STATS={built:12,total:26,capstones:4};
 const phaseEstimates=[
  ['3-5 HR','BEGINNER','NONE'],['5-7 HR','INTERMEDIATE','PHASE 01'],['4-6 HR','INTERMEDIATE','PHASES 01-02'],
  ['3-5 HR','BEGINNER','PHASES 01-03'],['5-7 HR','INTERMEDIATE','PHASES 01-04'],['3-5 HR','INTERMEDIATE','PHASE 05'],

@@ -43,6 +43,9 @@ The roadmap now includes a production-style SOC practice layer:
 - DC01 Security, System, Application, Directory Service, and DNS Server logs forwarded into Splunk
 - Kerberos pre-authentication and privileged group-membership investigations using Events 4771, 4776, 4728, and 4729
 - Five controlled AD security scenarios covering password spray behavior, AS-REP roastable configuration, Kerberoast-relevant telemetry, privileged group changes, and AD enumeration
+- Three endpoint/EDR-style investigations covering a suspicious PowerShell process chain, scheduled-task persistence-style behavior, and Linux cron persistence
+- Sysmon Event ID 1 process analysis in Splunk with raw XML field extraction when normalized fields were incomplete
+- Windows and Linux endpoint timelines with evidence limits, containment decisions, cleanup, and visibility-gap documentation
 - Case notes and lessons learned added to build logs
 
 This is designed to practice the real SOC motion: sort signal from noise, decide what deserves more time, close benign activity, tune recurring noise, write clean tickets, investigate suspicious emails, extract IOCs, search telemetry in multiple SIEMs, build dashboards, and escalate cleanly.
@@ -123,7 +126,7 @@ Status: complete and capstone passed. Capstone 01 validated the Track 1 lab foun
 12. Endpoint / EDR Investigation with Wazuh, Sysmon, Defender-Style Telemetry, and one Linux victim investigation
 13. IAM, Hardening, and Least Privilege
 
-Status: Phases 10-11 complete. The AD foundation is validated, and five controlled identity-security scenarios were detected, triaged, and documented in Splunk. Phase 12 endpoint and EDR investigation is next.
+Status: Phases 10-12 complete. The AD foundation and five controlled identity-security scenarios are documented in Splunk, followed by three endpoint/EDR-style investigations covering suspicious PowerShell execution, scheduled-task persistence, and Linux cron persistence. Phase 13 IAM, hardening, and least privilege is next.
 
 ### Track 4 - Cybersecurity Analyst Operations
 
@@ -196,6 +199,9 @@ Endpoint and identity:
 - Active Directory Domain Services, Windows Server, domain controller administration, DNS, OUs, users, security groups, domain join, and Kerberos authentication
 - Splunk investigation of Windows identity events including 4771, 4776, 4769, 4728, and 4729
 - Password-spray investigation, AS-REP roastable configuration review, Kerberoast-relevant telemetry, privileged group monitoring, and AD enumeration analysis
+- PowerShell process-chain analysis and scheduled-task persistence investigation using Sysmon Event ID 1 in Splunk
+- Linux cron persistence review using crontab, script, permission, timestamp, execution, and cleanup evidence
+- Raw Sysmon XML field extraction, endpoint timeline building, containment decisions, and visibility-gap documentation
 - Evidence-safe identity triage that separates suspicious behavior from confirmed compromise
 
 Network and infrastructure:
@@ -239,6 +245,7 @@ I post lab work as I complete it:
 - [DAY-09-LAB-LOG.md](./DAY-09-LAB-LOG.md) - Detection engineering in Splunk: six enabled alerts, three Sigma-style rules, before/after false-positive tuning, and honest deferral of unsupported LSASS and Certutil validation paths
 - [DAY-10-LAB-LOG.md](./DAY-10-LAB-LOG.md) - Windows Server Active Directory domain build, DNS, users/groups/OUs, Windows domain join, DC01 Splunk forwarding, Kerberos failures, privileged group changes, troubleshooting, and analyst mini-tickets
 - [DAY-11-LAB-LOG.md](./DAY-11-LAB-LOG.md) - Five controlled AD security scenarios, Splunk identity triage, evidence-safe verdicts, and troubleshooting
+- [DAY-12-LAB-LOG.md](./DAY-12-LAB-LOG.md) - Windows and Linux endpoint investigations covering PowerShell process chains, scheduled-task and cron persistence, raw Sysmon XML analysis, containment decisions, cleanup, and evidence limits
 - [capstone-01-soc-l1-core-workflow-readiness-assessment.md](./capstone-01-soc-l1-core-workflow-readiness-assessment.md) - Capstone 01 results log validating the Track 1 foundation and Track 2 SOC L1 workflow
 
 More logs are added with each lab session.
@@ -251,6 +258,8 @@ If you're hiring for SOC Analyst L1/L2, Cybersecurity Analyst, Security Operatio
 - Built a Windows Server domain controller, joined a Windows endpoint to the domain, and centralized DC01 identity logs in Splunk
 - Investigated Kerberos pre-authentication failures and privileged group membership changes with evidence-safe SOC conclusions
 - Simulated and triaged five identity-security scenarios covering password spray behavior, risky service-account configurations, Kerberos service-ticket activity, Domain Admins changes, and AD enumeration
+- Investigated suspicious PowerShell execution, scheduled-task persistence-style behavior, and Linux cron persistence using Sysmon/Splunk telemetry and Linux host artifacts
+- Built endpoint timelines, extracted fields from raw Sysmon XML, documented visibility gaps, and made evidence-based containment and cleanup decisions
 - Current SOC analyst responsibilities across Splunk, Elastic, Wazuh, Microsoft Defender for Endpoint, phishing investigation, IOC enrichment, ServiceNow/Jira ticketing, and escalation handoff
 - Assessment proof: Passed the cumulative SOC L1 Core Workflow Readiness Assessment covering Phases 1-9
 - High-volume alert triage practice with scripted lab-generated alert volume
