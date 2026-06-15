@@ -530,8 +530,10 @@ footer{position:relative;z-index:1;padding:50px 20px;border-top:1px solid var(--
 .xp-block{padding:22px 22px 24px;margin-top:30px}
 .xp-head{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:7px;margin-bottom:18px}
 .xp-label{font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:var(--accent);text-shadow:0 0 12px rgba(0,212,255,.65)}
+.xp-summary{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;justify-content:flex-end}
 .xp-count{font-family:var(--mono);font-size:11px;color:var(--soft)}
 .xp-count b{font-size:20px;color:var(--accent);text-shadow:0 0 10px rgba(0,212,255,.7)}
+.xp-percent{font-family:var(--mono);font-size:13px;font-weight:700;color:var(--accent2);border:1px solid rgba(0,255,136,.42);background:rgba(0,255,136,.055);padding:4px 8px;box-shadow:0 0 13px rgba(0,255,136,.12);letter-spacing:.06em}
 .xp-track{position:relative;height:24px;background:#050a0e;border:1px solid var(--border);box-shadow:inset 0 0 12px rgba(0,0,0,.8)}
 .xp-fill{position:absolute;inset:2px auto 2px 2px;width:0;background:linear-gradient(180deg,#7df3ff,var(--accent) 35%,#0095c8);box-shadow:0 0 14px rgba(0,212,255,.85),0 0 34px rgba(0,212,255,.35);transition:width .45s cubic-bezier(.22,1,.36,1);overflow:hidden}
 .xp-fill::after{content:'';position:absolute;inset:0;background:linear-gradient(105deg,transparent 30%,rgba(255,255,255,.55) 48%,transparent 60%);animation:xpShine 2.4s linear infinite}
@@ -931,7 +933,7 @@ footer{position:relative;z-index:1;padding:50px 20px;border-top:1px solid var(--
  <span class="hud-corners"></span>
  <div class="xp-head">
  <span class="xp-label">[ OPERATOR PROGRESS ]</span>
- <span class="xp-count"><b id="progress-count">12</b> / 26 <span id="progress-state">BUILT</span></span>
+ <span class="xp-summary"><span class="xp-count"><b id="progress-count">13</b> / 26 <span id="progress-state">BUILT</span></span><span class="xp-percent" id="progress-percent">50% BUILT</span></span>
  </div>
  <div class="xp-track">
  <div class="xp-fill" id="progress-fill"></div>
@@ -1534,37 +1536,38 @@ footer{position:relative;z-index:1;padding:50px 20px;border-top:1px solid var(--
  <div class="phase-num pn-blue">13</div>
  <div class="phase-hdr-info">
  <div class="phase-hdr-title">IAM, Hardening, and Least Privilege</div>
- <div class="phase-hdr-meta">Admin review / local groups / baseline hardening / policy gaps</div>
- <div class="phase-tags"><span class="ptag">IAM</span><span class="ptag">Hardening</span><span class="ptag">Least Privilege</span><span class="ptag">CIS Controls</span></div>
+ <div class="phase-hdr-meta">10 IAM findings across accounts, Kerberos settings, domain policy, and endpoint administrators</div>
+ <div class="phase-tags"><span class="ptag g">&#10003; Complete</span><span class="ptag">IAM</span><span class="ptag">Service Accounts</span><span class="ptag">Password Policy</span><span class="ptag">Least Privilege</span><span class="ptag">Change Control</span></div>
+ <a href="https://github.com/mmajeed7864/soclab/blob/main/DAY-13-LAB-LOG.md" target="_blank" rel="noopener" class="phase-proof-link orange" onclick="event.stopPropagation()">View Day 13 GitHub Log</a>
  </div>
  <div class="phase-caret">▶</div>
  </div>
  <div class="phase-body">
- <div class="phase-intro">Cybersecurity analyst roles are broader than SOC. This phase connects alert work to prevention and control improvement.</div>
+ <div class="phase-intro">Completed an IAM and hardening review of the Active Directory lab. Reviewed domain and service accounts, SPNs, Kerberos pre-authentication, password and lockout policy, test accounts, privileged groups, and endpoint local administrators. Documented 10 risk-rated findings, fixed the safe items, and separated immediate remediation from changes that would require controlled planning in production.</div>
  <div class="steps-list">
  <div class="step-item">
  <div class="step-n sn-blue">1</div>
  <div class="step-content">
- <div class="step-title">Review identity exposure</div>
- <div class="step-desc">Review local administrators, domain admins, service accounts, stale users, weak password settings, and unnecessary privileges.</div>
+ <div class="step-title">Review accounts and Kerberos exposure</div>
+ <div class="step-desc">Reviewed domain users, privileged groups, service accounts, <code>PasswordNeverExpires</code>, <code>DoesNotRequirePreAuth</code>, SPN-backed accounts, enabled test identities, and missing sign-in context.</div>
  </div>
  </div>
  <div class="step-item">
  <div class="step-n sn-blue">2</div>
  <div class="step-content">
- <div class="step-title">Harden the lab systems</div>
- <div class="step-desc">Disable unnecessary services, improve audit policy, tighten logging, remove excess privilege, and document before-and-after posture.</div>
+ <div class="step-title">Strengthen policy and remove safe excess access</div>
+ <div class="step-desc">Set the minimum domain password length to 12, enabled a five-attempt account lockout with 15-minute duration and reset window, disabled an unused test account, corrected two risky service-account flags, and removed an unnecessary local administrator.</div>
  </div>
  </div>
  <div class="step-item">
  <div class="step-n sn-blue">3</div>
  <div class="step-content">
- <div class="step-title">Map to security controls</div>
- <div class="step-desc">Map findings to CIS Controls or NIST CSF and write remediation recommendations in business-friendly language.</div>
+ <div class="step-title">Document risk and change-control boundaries</div>
+ <div class="step-desc">Recorded all 10 findings with severity, evidence, recommendation, lab action, and validation. Access-sensitive items such as the built-in Administrator account, Domain Admins membership, and a legitimate service SPN were documented instead of changed casually.</div>
  </div>
  </div>
  </div>
- <div class="goal-box"><strong>PHASE GOAL</strong>IAM/hardening review report with 10 findings and prioritized remediation steps.</div>
+ <div class="goal-box"><strong>PHASE COMPLETE</strong>10 IAM and hardening findings documented; service-account settings, password and lockout policy, an unused test account, and unnecessary endpoint admin access safely remediated.</div>
  </div>
  </div>
 
@@ -2486,6 +2489,13 @@ footer{position:relative;z-index:1;padding:50px 20px;border-top:1px solid var(--
  <span class="tool-pill g">Kerberoast-Relevant Telemetry</span>
  <span class="tool-pill g">Privileged Group Monitoring</span>
  <span class="tool-pill g">AD Enumeration Analysis</span>
+ <span class="tool-pill g">Service Account Review</span>
+ <span class="tool-pill g">Kerberos Pre-Authentication</span>
+ <span class="tool-pill g">SPN Exposure Review</span>
+ <span class="tool-pill g">AD Password Policy</span>
+ <span class="tool-pill g">Account Lockout Policy</span>
+ <span class="tool-pill g">Local Administrator Review</span>
+ <span class="tool-pill g">Change Control</span>
  <span class="tool-pill g">Entra ID</span>
  <span class="tool-pill g">IAM</span>
  <span class="tool-pill g">Least Privilege</span>
@@ -3687,6 +3697,81 @@ Write-Host "Phase 5 loop complete."</pre>
  </div>
  </div>
 
+ <!-- DAY 13 -->
+ <div class="log-card">
+ <div class="log-card-hdr" onclick="toggleLog(this)">
+ <div class="log-day">
+ <div class="log-day-label">Day</div>
+ <div class="log-day-num">13</div>
+ </div>
+ <div class="log-info">
+ <div class="log-date">June 15, 2026</div>
+ <div class="log-title">Phase 13 - IAM, Hardening, and Least Privilege</div>
+ <div class="log-phases">
+ <span class="log-phase-tag done">&#10003; Phase 13 Complete</span>
+ <span class="log-phase-tag">10 Findings</span>
+ <span class="log-phase-tag">Service Accounts</span>
+ <span class="log-phase-tag">Password Policy</span>
+ <span class="log-phase-tag">Local Admins</span>
+ <span class="log-phase-tag">Change Control</span>
+ </div>
+ </div>
+ <div class="log-caret">&#9654;</div>
+ </div>
+ <div class="log-body">
+ <div class="log-body-inner">
+
+ <div class="log-section">
+ <div class="log-section-title">IAM + Hardening Review</div>
+ <ul class="log-list">
+ <li>Reviewed Active Directory users, privileged groups, service accounts, admin indicators, enabled test accounts, and the local Administrators group on the Windows 10 endpoint.</li>
+ <li>Checked <code>PasswordNeverExpires</code>, <code>DoesNotRequirePreAuth</code>, service principal names, visible last-logon context, the default domain password policy, and account lockout controls.</li>
+ <li>Converted the review into 10 findings with risk ratings, evidence, production recommendations, lab actions, and validation notes.</li>
+ </ul>
+ </div>
+
+ <div class="log-section">
+ <div class="log-section-title">Safe Remediation Completed</div>
+ <ul class="log-list">
+ <li>Changed <code>svc_sql</code> so its password is no longer configured to never expire.</li>
+ <li>Re-enabled Kerberos pre-authentication for <code>svc_legacy</code>.</li>
+ <li>Disabled the unused <code>test.employee1</code> account.</li>
+ <li>Raised the domain minimum password length from 7 to 12 and configured a five-attempt lockout with 15-minute duration and observation window.</li>
+ <li>Removed the unnecessary <code>mmajeed</code> account from the Windows endpoint's local Administrators group.</li>
+ </ul>
+ </div>
+
+ <div class="log-section">
+ <div class="log-section-title">Documented for Controlled Change</div>
+ <ul class="log-list">
+ <li>Documented the enabled built-in Administrator account and its non-expiring password setting without risking loss of lab access.</li>
+ <li>Kept the legitimate <code>HTTP/webapp.majeed.local</code> SPN while recommending ownership review, privilege minimization, managed credentials, and monitoring.</li>
+ <li>Recorded service accounts without visible last-logon dates for ownership validation before any disablement decision.</li>
+ <li>Documented Domain Admins membership on the endpoint as a high-risk design issue while preserving administrative access in the lab.</li>
+ </ul>
+ </div>
+
+ <div class="log-section">
+ <div class="log-section-title">Analyst Takeaway</div>
+ <ul class="log-list">
+ <li>Hardening is not simply changing every risky setting immediately. The analyst must understand business purpose, service ownership, alternate access, rollback, and the impact of a failed change.</li>
+ <li>The final report separates observed risk from confirmed abuse and distinguishes safe lab remediation from production changes that need approval and testing.</li>
+ </ul>
+ </div>
+
+ <div class="log-section">
+ <div class="log-section-title">Up Next - Practice Checkpoint 01 + Capstone 02</div>
+ <ul class="log-list">
+ <li>Complete unfamiliar external cases and a mixed alert queue before the Endpoint and Identity Investigation capstone.</li>
+ </ul>
+ </div>
+
+ <a href="https://github.com/mmajeed7864/soclab/blob/main/DAY-13-LAB-LOG.md" target="_blank" class="log-cta">Read full Phase 13 log on GitHub &rarr;</a>
+
+ </div>
+ </div>
+ </div>
+
  </div>
 </section>
 
@@ -3698,6 +3783,7 @@ Write-Host "Phase 5 loop complete."</pre>
  <div class="guide-end reveal">
  <div class="hud-panel">
  <span class="hud-corners"></span>
+ <div class="changelog-row"><div class="changelog-date">JUN 15</div><div class="changelog-copy"><strong>Phase 13 completed.</strong> Added a 10-finding IAM and hardening review, safe remediation, and change-control decisions.</div></div>
  <div class="changelog-row"><div class="changelog-date">JUN 14</div><div class="changelog-copy"><strong>Phase 12 completed.</strong> Added Windows and Linux endpoint investigations, persistence timelines, evidence limits, and containment decisions.</div></div>
  <div class="changelog-row"><div class="changelog-date">JUN 12</div><div class="changelog-copy"><strong>Guide interface upgraded.</strong> Added lab topology, persistent learner progress, phase metadata, and a cleaner roadmap-first structure.</div></div>
  <div class="changelog-row"><div class="changelog-date">JUN 11</div><div class="changelog-copy"><strong>Phase 11 completed.</strong> Added identity-security investigations and advanced Active Directory evidence.</div></div>
@@ -3765,7 +3851,7 @@ function toggleCapstone(hdr){
  else{body.classList.add('open');hdr.classList.add('open')}
 }
 
-const SOCLAB_STATS={built:12,total:26,capstones:4};
+const SOCLAB_STATS={built:13,total:26,capstones:4};
 const phaseEstimates=[
  ['3-5 HR','BEGINNER','NONE'],['5-7 HR','INTERMEDIATE','PHASE 01'],['4-6 HR','INTERMEDIATE','PHASES 01-02'],
  ['3-5 HR','BEGINNER','PHASES 01-03'],['5-7 HR','INTERMEDIATE','PHASES 01-04'],['3-5 HR','INTERMEDIATE','PHASE 05'],
@@ -3797,11 +3883,13 @@ function updateProgressBar(){
  const percent=(shown/SOCLAB_STATS.total)*100;
  const fill=document.getElementById('progress-fill');
  const count=document.getElementById('progress-count');
+ const percentLabel=document.getElementById('progress-percent');
  const state=document.getElementById('progress-state');
  const tick=document.getElementById('maintainer-tick');
  if(fill) fill.style.width=`calc(${percent}% - 2px)`;
  if(count) count.textContent=shown;
  if(state) state.textContent=shown>SOCLAB_STATS.built?'TRACKED':'BUILT';
+ if(percentLabel) percentLabel.textContent=`${Math.round(percent)}% ${shown>SOCLAB_STATS.built?'TRACKED':'BUILT'}`;
  if(tick) tick.style.left=`${(SOCLAB_STATS.built/SOCLAB_STATS.total)*100}%`;
 }
 

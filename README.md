@@ -46,6 +46,9 @@ The roadmap now includes a production-style SOC practice layer:
 - Three endpoint/EDR-style investigations covering a suspicious PowerShell process chain, scheduled-task persistence-style behavior, and Linux cron persistence
 - Sysmon Event ID 1 process analysis in Splunk with raw XML field extraction when normalized fields were incomplete
 - Windows and Linux endpoint timelines with evidence limits, containment decisions, cleanup, and visibility-gap documentation
+- Ten-finding IAM and Active Directory hardening review covering privileged accounts, service accounts, Kerberos settings, password policy, account lockout, test accounts, and endpoint local administrators
+- Safe IAM remediation across service-account settings, domain password and lockout policy, an unused test account, and unnecessary local administrator access
+- Change-control decisions for access-sensitive and service-dependent findings that should not be changed without ownership review, alternate access, testing, and rollback
 - Case notes and lessons learned added to build logs
 
 This is designed to practice the real SOC motion: sort signal from noise, decide what deserves more time, close benign activity, tune recurring noise, write clean tickets, investigate suspicious emails, extract IOCs, search telemetry in multiple SIEMs, build dashboards, and escalate cleanly.
@@ -126,7 +129,7 @@ Status: complete and capstone passed. Capstone 01 validated the Track 1 lab foun
 12. Endpoint / EDR Investigation with Wazuh, Sysmon, Defender-Style Telemetry, and one Linux victim investigation
 13. IAM, Hardening, and Least Privilege
 
-Status: Phases 10-12 complete. The AD foundation and five controlled identity-security scenarios are documented in Splunk, followed by three endpoint/EDR-style investigations covering suspicious PowerShell execution, scheduled-task persistence, and Linux cron persistence. Phase 13 IAM, hardening, and least privilege is next.
+Status: Phases 10-13 complete. Track 3 now includes the AD foundation, five controlled identity-security investigations, three endpoint/EDR-style investigations, and a 10-finding IAM and hardening review with safe remediation and documented change-control boundaries. Practice Checkpoint 01 and Capstone 02 are next.
 
 ### Track 4 - Cybersecurity Analyst Operations
 
@@ -203,6 +206,10 @@ Endpoint and identity:
 - Linux cron persistence review using crontab, script, permission, timestamp, execution, and cleanup evidence
 - Raw Sysmon XML field extraction, endpoint timeline building, containment decisions, and visibility-gap documentation
 - Evidence-safe identity triage that separates suspicious behavior from confirmed compromise
+- IAM and least-privilege review of domain users, privileged groups, service accounts, SPNs, Kerberos pre-authentication, enabled test identities, and endpoint local administrators
+- Active Directory password and account lockout policy review and remediation
+- Service-account ownership, managed credential, gMSA, and Windows LAPS recommendations
+- Risk-rated hardening findings with validation, residual-risk notes, and change-control decisions
 
 Network and infrastructure:
 
@@ -246,6 +253,7 @@ I post lab work as I complete it:
 - [DAY-10-LAB-LOG.md](./DAY-10-LAB-LOG.md) - Windows Server Active Directory domain build, DNS, users/groups/OUs, Windows domain join, DC01 Splunk forwarding, Kerberos failures, privileged group changes, troubleshooting, and analyst mini-tickets
 - [DAY-11-LAB-LOG.md](./DAY-11-LAB-LOG.md) - Five controlled AD security scenarios, Splunk identity triage, evidence-safe verdicts, and troubleshooting
 - [DAY-12-LAB-LOG.md](./DAY-12-LAB-LOG.md) - Windows and Linux endpoint investigations covering PowerShell process chains, scheduled-task and cron persistence, raw Sysmon XML analysis, containment decisions, cleanup, and evidence limits
+- [DAY-13-LAB-LOG.md](./DAY-13-LAB-LOG.md) - Ten-finding IAM and hardening review covering service accounts, Kerberos settings, password and lockout policy, stale accounts, local administrators, safe remediation, and change-control decisions
 - [capstone-01-soc-l1-core-workflow-readiness-assessment.md](./capstone-01-soc-l1-core-workflow-readiness-assessment.md) - Capstone 01 results log validating the Track 1 foundation and Track 2 SOC L1 workflow
 
 More logs are added with each lab session.
@@ -260,6 +268,8 @@ If you're hiring for SOC Analyst L1/L2, Cybersecurity Analyst, Security Operatio
 - Simulated and triaged five identity-security scenarios covering password spray behavior, risky service-account configurations, Kerberos service-ticket activity, Domain Admins changes, and AD enumeration
 - Investigated suspicious PowerShell execution, scheduled-task persistence-style behavior, and Linux cron persistence using Sysmon/Splunk telemetry and Linux host artifacts
 - Built endpoint timelines, extracted fields from raw Sysmon XML, documented visibility gaps, and made evidence-based containment and cleanup decisions
+- Completed a 10-finding IAM and Active Directory hardening review with risk ratings, safe remediation, and documented production change-control recommendations
+- Strengthened domain password and lockout policy, corrected risky service-account settings, disabled an unused test account, and removed unnecessary endpoint administrator access
 - Current SOC analyst responsibilities across Splunk, Elastic, Wazuh, Microsoft Defender for Endpoint, phishing investigation, IOC enrichment, ServiceNow/Jira ticketing, and escalation handoff
 - Assessment proof: Passed the cumulative SOC L1 Core Workflow Readiness Assessment covering Phases 1-9
 - High-volume alert triage practice with scripted lab-generated alert volume
@@ -279,7 +289,7 @@ Location: Charlotte, NC, open to remote
 
 Everything in the roadmap is free or has a free tier. The live site includes step-by-step setup guidance, tool lists, phase goals, and daily build logs.
 
-No certification is required to start, but Network+ and Security+ level concepts are helpful. At roughly 8-10 focused hours per week, the job-ready core through Track 4 should take about 5-7 months; the full L2, cloud, automation, and portfolio path is closer to 9-12 months.
+No certification is required to start, but Network+ and Security+ level concepts are helpful. At a steady weekly pace, the core lab can be completed in about three months, with the broader L2, cloud, automation, and portfolio path designed for roughly five months of focused work.
 
 If you're starting from zero:
 
@@ -295,8 +305,9 @@ If you're starting from zero:
 10. Use Phase 10 to build AD, join a Windows endpoint, centralize DC logs, and learn where identity evidence lives
 11. Use Phase 11 for controlled identity attack simulation and evidence-safe investigation
 12. Use Phase 12 to investigate endpoint process trees, persistence evidence, device timelines, and containment decisions
-13. Complete Practice Checkpoint 01 after Track 3: unfamiliar external cases, a mixed queue day, incomplete-evidence decisions, and asset-aware severity
-14. Keep adding detections, reports, capstone results, and lessons learned
+13. Use Phase 13 to review IAM exposure, harden safe settings, and document changes that require controlled implementation
+14. Complete Practice Checkpoint 01 after Track 3: unfamiliar external cases, a mixed queue day, incomplete-evidence decisions, and asset-aware severity
+15. Keep adding detections, reports, capstone results, and lessons learned
 
 Feel free to fork the repo, copy the structure, and build your own version.
 
