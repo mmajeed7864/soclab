@@ -46,8 +46,18 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:14px 20px;display:fl
 .nav-link:nth-of-type(5){border-color:rgba(206,147,216,.22)}
 .nav-link:hover{color:#000;background:var(--accent);border-color:var(--accent)}
 
+/* DAILY AYAH */
+.roadmap-ayah{position:relative;z-index:2;margin:78px 20px 0;padding:1px;border:1px solid rgba(0,212,255,.24);border-radius:12px;background:linear-gradient(135deg,rgba(0,212,255,.14),rgba(0,255,136,.07),rgba(8,12,16,.72));box-shadow:0 0 22px rgba(0,212,255,.08)}
+.roadmap-ayah-inner{position:relative;overflow:hidden;display:grid;grid-template-columns:1fr minmax(260px,.9fr);gap:18px;align-items:center;padding:18px 20px;background:rgba(8,12,16,.92);border-radius:11px}
+.roadmap-ayah-inner::before{content:'محمد';position:absolute;right:-10px;bottom:-30px;font-family:serif;font-size:112px;color:rgba(0,212,255,.045);pointer-events:none}
+.roadmap-ayah-kicker{font-family:var(--mono);font-size:9px;color:var(--accent2);letter-spacing:.14em;text-transform:uppercase;margin-bottom:8px}
+.roadmap-ayah-ar{position:relative;font-family:'Times New Roman',serif;font-size:clamp(21px,3vw,30px);line-height:1.75;color:var(--accent);direction:rtl;text-align:right;text-shadow:0 0 16px rgba(0,212,255,.16)}
+.roadmap-ayah-meaning{position:relative;font-size:13px;color:var(--text);line-height:1.7}
+.roadmap-ayah-ref{position:relative;margin-top:9px;font-family:var(--mono);font-size:9px;color:var(--accent4);letter-spacing:.1em;text-transform:uppercase}
+@media(max-width:760px){.roadmap-ayah{margin-top:96px}.roadmap-ayah-inner{grid-template-columns:1fr}}
+
 /* HERO */
-.hero{position:relative;min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:100px 20px 80px;z-index:1}
+.hero{position:relative;min-height:calc(100vh - 118px);display:flex;flex-direction:column;justify-content:center;padding:58px 20px 80px;z-index:1}
 .scanline{position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,var(--accent),transparent);animation:scan 5s linear infinite;opacity:.15}
 .hero-tag{display:inline-flex;align-items:center;gap:8px;background:rgba(0,255,136,.06);border:1px solid rgba(0,255,136,.2);border-radius:20px;padding:6px 14px;margin-bottom:28px;animation:fadeUp .8s ease both}
 .hero-tag-dot{width:7px;height:7px;background:var(--accent2);border-radius:50%;animation:pulse 2s infinite}
@@ -623,6 +633,20 @@ footer{position:relative;z-index:1;padding:50px 20px;border-top:1px solid var(--
  <a href="https://mmajeed7864.github.io" target="_blank" rel="noopener" class="nav-link">Portfolio</a>
  </div>
 </nav>
+
+<div class="roadmap-ayah" aria-label="Quran reminder">
+ <div class="roadmap-ayah-inner">
+ <div>
+ <div class="roadmap-ayah-kicker">Daily Ayah</div>
+ <div class="roadmap-ayah-ar" id="roadmapAyahArabic">...</div>
+ </div>
+ <div>
+ <div class="roadmap-ayah-kicker">Reflection</div>
+ <div class="roadmap-ayah-meaning" id="roadmapAyahMeaning">Loading reminder...</div>
+ <div class="roadmap-ayah-ref" id="roadmapAyahRef">QURAN</div>
+ </div>
+ </div>
+</div>
 
 <!-- HERO -->
 <div class="hero">
@@ -3829,6 +3853,30 @@ Write-Host "Phase 5 loop complete."</pre>
 </footer>
 
 <script>
+const ROADMAP_AYAHS=[
+ {ref:'2:286',arabic:'لَا يُكَلِّفُ ٱللَّهُ نَفْسًا إِلَّا وُسْعَهَا',meaning:'A soul is not burdened beyond what it can carry.'},
+ {ref:'94:5-6',arabic:'فَإِنَّ مَعَ ٱلْعُسْرِ يُسْرًا ۝ إِنَّ مَعَ ٱلْعُسْرِ يُسْرًا',meaning:'With hardship comes ease.'},
+ {ref:'20:114',arabic:'وَقُل رَّبِّ زِدْنِي عِلْمًا',meaning:'My Lord, increase me in knowledge.'},
+ {ref:'3:159',arabic:'فَإِذَا عَزَمْتَ فَتَوَكَّلْ عَلَى ٱللَّهِ',meaning:'When you decide, place your trust in Allah.'},
+ {ref:'65:3',arabic:'وَمَن يَتَوَكَّلْ عَلَى ٱللَّهِ فَهُوَ حَسْبُهُ',meaning:'Whoever trusts in Allah finds Him sufficient.'},
+ {ref:'13:28',arabic:'أَلَا بِذِكْرِ ٱللَّهِ تَطْمَئِنُّ ٱلْقُلُوبُ',meaning:'In the remembrance of Allah, hearts find rest.'},
+ {ref:'39:53',arabic:'لَا تَقْنَطُوا مِن رَّحْمَةِ ٱللَّهِ',meaning:'Do not lose hope in the mercy of Allah.'},
+ {ref:'8:46',arabic:'وَٱصْبِرُوا إِنَّ ٱللَّهَ مَعَ ٱلصَّابِرِينَ',meaning:'Be patient; Allah is with the patient.'},
+ {ref:'14:7',arabic:'لَئِن شَكَرْتُمْ لَأَزِيدَنَّكُمْ',meaning:'If you are grateful, you will be given increase.'},
+ {ref:'93:4',arabic:'وَلَلْـَٔاخِرَةُ خَيْرٌ لَّكَ مِنَ ٱلْأُولَىٰ',meaning:'What is ahead can be better than what has passed.'}
+];
+
+function loadRoadmapAyah(){
+ const ayah=ROADMAP_AYAHS[Math.floor(Math.random()*ROADMAP_AYAHS.length)];
+ const arabic=document.getElementById('roadmapAyahArabic');
+ const meaning=document.getElementById('roadmapAyahMeaning');
+ const ref=document.getElementById('roadmapAyahRef');
+ if(arabic) arabic.textContent=ayah.arabic;
+ if(meaning) meaning.textContent=ayah.meaning;
+ if(ref) ref.textContent='Surah '+ayah.ref;
+}
+loadRoadmapAyah();
+
 function toggleLog(hdr){
  const body=hdr.nextElementSibling;
  const isOpen=body.classList.contains('open');
