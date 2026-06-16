@@ -250,7 +250,8 @@ section{position:relative;z-index:1;padding:70px 20px;scroll-margin-top:74px}
 .cs-upcoming{color:var(--accent4);background:rgba(251,191,36,.12);border:1px solid rgba(251,191,36,.35)}
 .cs-planned{color:var(--soft);background:rgba(127,147,163,.1);border:1px solid rgba(127,147,163,.3)}
 .cs-passed{color:#00ff88;background:rgba(0,255,136,.12);border:1px solid rgba(0,255,136,.42)}
-.capstone-card.passed{border-color:rgba(0,255,136,.45);border-left-color:#00ff88;background:linear-gradient(135deg,rgba(0,255,136,.07),rgba(0,212,255,.04))}
+.capstone-card.passed{border-color:rgba(var(--done-rgb),.45);border-left-color:var(--done-color);background:linear-gradient(135deg,rgba(var(--done-rgb),.07),rgba(0,212,255,.04))}
+.capstone-card.passed .cs-passed{color:var(--done-color);background:rgba(var(--done-rgb),.12);border-color:rgba(var(--done-rgb),.42)}
 .capstone-metrics{display:flex;flex-wrap:wrap;gap:16px;padding:14px 0 4px}
 .capstone-metric{font-family:var(--mono);font-size:11px;color:var(--accent2)}
 .capstone-metric span{color:var(--soft)}
@@ -428,7 +429,15 @@ section{position:relative;z-index:1;padding:70px 20px;scroll-margin-top:74px}
 .log-title{font-size:14px;font-weight:600;color:var(--text);line-height:1.3}
 .log-phases{display:flex;flex-wrap:wrap;gap:5px;margin-top:8px}
 .log-phase-tag{font-family:var(--mono);font-size:9px;padding:3px 8px;border-radius:4px;background:rgba(0,212,255,.06);color:var(--accent);border:1px solid rgba(0,212,255,.15)}
-.log-phase-tag.done{background:rgba(0,255,136,.06);color:var(--accent2);border-color:rgba(0,255,136,.2)}
+.log-phase-tag.done{--done-rgb:0,255,136;--done-color:var(--accent2);background:rgba(var(--done-rgb),.06);color:var(--done-color);border-color:rgba(var(--done-rgb),.22)}
+.log-phase-tag.done[data-track="1"]{--done-rgb:0,212,255;--done-color:var(--accent)}
+.log-phase-tag.done[data-track="2"]{--done-rgb:251,191,36;--done-color:var(--accent4)}
+.log-phase-tag.done[data-track="3"]{--done-rgb:206,147,216;--done-color:var(--accent5)}
+.log-phase-tag.done[data-track="4"]{--done-rgb:255,107,53;--done-color:var(--accent3)}
+.log-phase-tag.done[data-track="5"]{--done-rgb:56,189,248;--done-color:#38bdf8}
+.log-phase-tag.done[data-track="6"]{--done-rgb:244,114,182;--done-color:#f472b6}
+.log-phase-tag.done[data-track="7"]{--done-rgb:167,139,250;--done-color:#a78bfa}
+.log-phase-tag.done[data-track="8"]{--done-rgb:251,113,133;--done-color:#fb7185}
 .log-caret{font-size:11px;color:var(--muted);transition:transform .25s;flex-shrink:0}
 .log-card-hdr.open .log-caret{transform:rotate(90deg)}
 .log-body{display:none;padding:0 18px 18px;border-top:1px solid var(--border);margin-top:0}
@@ -558,19 +567,31 @@ footer{position:relative;z-index:1;padding:50px 20px;border-top:1px solid var(--
 .xp-foot{display:flex;justify-content:space-between;font-family:var(--mono);font-size:9px;color:var(--soft);margin-top:9px;letter-spacing:.08em}
 .progress-reset{border:0;background:none;color:var(--soft);font-family:var(--mono);font-size:9px;text-decoration:underline;cursor:pointer;margin-top:12px}
 .progress-reset:hover{color:var(--accent3)}
-.phase-block,.capstone-card{position:relative}
-.phase-block.maintainer-done,.capstone-card.maintainer-done{border-color:rgba(0,255,136,.52);box-shadow:0 0 17px rgba(0,255,136,.11),inset 0 0 28px rgba(0,255,136,.025)}
-.phase-block.learner-done,.capstone-card.learner-done{box-shadow:0 0 22px rgba(0,255,136,.2),inset 0 0 38px rgba(0,255,136,.045)}
-.phase-block.maintainer-done::after,.capstone-card.maintainer-done::after{content:'';position:absolute;inset:0;pointer-events:none;opacity:.55;background:repeating-linear-gradient(0deg,transparent 0,transparent 4px,rgba(0,255,136,.022) 4px,rgba(0,255,136,.022) 5px)}
-.phase-block.maintainer-done::before,.capstone-card.maintainer-done::before{content:'';position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,transparent,rgba(0,255,136,.07),transparent);transform:translateX(-110%);animation:phaseSweep 6s ease-in-out infinite}
-.phase-block.maintainer-done .phase-num{color:var(--accent2);border-color:rgba(0,255,136,.5);box-shadow:0 0 12px rgba(0,255,136,.2)}
+.phase-block,.capstone-card{position:relative;--done-rgb:0,255,136;--done-color:var(--accent2)}
+.phase-block[data-track="1"],.capstone-card[data-track="1"]{--done-rgb:0,212,255;--done-color:var(--accent)}
+.phase-block[data-track="2"],.capstone-card[data-track="2"]{--done-rgb:251,191,36;--done-color:var(--accent4)}
+.phase-block[data-track="3"],.capstone-card[data-track="3"]{--done-rgb:206,147,216;--done-color:var(--accent5)}
+.phase-block[data-track="4"],.capstone-card[data-track="4"]{--done-rgb:255,107,53;--done-color:var(--accent3)}
+.phase-block[data-track="5"],.capstone-card[data-track="5"]{--done-rgb:56,189,248;--done-color:#38bdf8}
+.phase-block[data-track="6"],.capstone-card[data-track="6"]{--done-rgb:244,114,182;--done-color:#f472b6}
+.phase-block[data-track="7"],.capstone-card[data-track="7"]{--done-rgb:167,139,250;--done-color:#a78bfa}
+.phase-block[data-track="8"],.capstone-card[data-track="8"]{--done-rgb:251,113,133;--done-color:#fb7185}
+.phase-block.maintainer-done,.capstone-card.maintainer-done{border-color:rgba(var(--done-rgb),.52);box-shadow:0 0 17px rgba(var(--done-rgb),.13),inset 0 0 28px rgba(var(--done-rgb),.025)}
+.phase-block.learner-done,.capstone-card.learner-done{box-shadow:0 0 22px rgba(var(--done-rgb),.2),inset 0 0 38px rgba(var(--done-rgb),.045)}
+.phase-block.maintainer-done::after,.capstone-card.maintainer-done::after{content:'';position:absolute;inset:0;pointer-events:none;opacity:.55;background:repeating-linear-gradient(0deg,transparent 0,transparent 4px,rgba(var(--done-rgb),.022) 4px,rgba(var(--done-rgb),.022) 5px)}
+.phase-block.maintainer-done::before,.capstone-card.maintainer-done::before{content:'';position:absolute;inset:0;pointer-events:none;background:linear-gradient(90deg,transparent,rgba(var(--done-rgb),.075),transparent);transform:translateX(-110%);animation:phaseSweep 6s ease-in-out infinite}
+.phase-block.maintainer-done .phase-num{color:var(--done-color);background:rgba(var(--done-rgb),.08);border-color:rgba(var(--done-rgb),.5);box-shadow:0 0 12px rgba(var(--done-rgb),.22)}
+.phase-block.maintainer-done .ptag{background:rgba(var(--done-rgb),.055);color:var(--done-color);border-color:rgba(var(--done-rgb),.16)}
+.phase-block.maintainer-done .goal-box{background:rgba(var(--done-rgb),.04);border-color:rgba(var(--done-rgb),.16);color:var(--done-color)}
+.phase-block.maintainer-done .phase-proof-link:not(.cyan):not(.orange):not(.violet),.capstone-card.maintainer-done .phase-proof-link:not(.cyan):not(.orange):not(.violet){background:rgba(var(--done-rgb),.055);border-color:rgba(var(--done-rgb),.22);color:var(--done-color)}
+.phase-block.maintainer-done .phase-proof-link:not(.cyan):not(.orange):not(.violet):hover,.capstone-card.maintainer-done .phase-proof-link:not(.cyan):not(.orange):not(.violet):hover{background:rgba(var(--done-rgb),.1);border-color:rgba(var(--done-rgb),.45);color:var(--text)}
 .phase-progress-controls{display:flex;align-items:center;justify-content:flex-end;gap:9px;flex-wrap:wrap;margin-left:auto;position:relative;z-index:3}
 .phase-status{font-family:var(--mono);font-size:8px;letter-spacing:.1em;color:var(--soft);border:1px solid var(--border);padding:3px 6px;white-space:nowrap}
-.maintainer-done .phase-status{color:var(--accent2);border-color:rgba(0,255,136,.35);text-shadow:0 0 7px rgba(0,255,136,.5)}
+.maintainer-done .phase-status{color:var(--done-color);border-color:rgba(var(--done-rgb),.35);text-shadow:0 0 7px rgba(var(--done-rgb),.5)}
 .phase-check{display:flex;align-items:center;gap:6px;font-family:var(--mono);font-size:8px;color:var(--soft);cursor:pointer;white-space:nowrap}
 .phase-check input{appearance:none;width:17px;height:17px;border:1px solid var(--border);background:var(--bg);display:grid;place-items:center;cursor:pointer}
-.phase-check input:checked{border-color:var(--accent2);box-shadow:0 0 10px rgba(0,255,136,.45)}
-.phase-check input:checked::before{content:'✓';font-family:var(--mono);font-size:12px;color:var(--accent2)}
+.phase-check input:checked{border-color:var(--done-color);box-shadow:0 0 10px rgba(var(--done-rgb),.45)}
+.phase-check input:checked::before{content:'✓';font-family:var(--mono);font-size:12px;color:var(--done-color)}
 .phase-check input:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
 .phase-meta-strip{display:flex;flex-wrap:wrap;gap:6px;margin-top:8px}
 .phase-meta-strip span{font-family:var(--mono);font-size:8px;color:var(--soft);border:1px solid rgba(20,58,76,.75);padding:2px 6px}
@@ -3948,7 +3969,19 @@ const phaseEstimates=[
  ['5-7 HR','ADVANCED','PHASE 21'],['4-6 HR','INTERMEDIATE','CAPSTONE 04'],['4-6 HR','INTERMEDIATE','PHASE 23'],
  ['5-7 HR','ADVANCED','PHASE 24'],['4-6 HR','INTERMEDIATE','PHASE 25']
 ];
+const capstoneTracks=[2,3,4,5];
 const sessionProgress={};
+
+function trackForPhase(phase){
+ if(phase<=3) return 1;
+ if(phase<=9) return 2;
+ if(phase<=13) return 3;
+ if(phase<=17) return 4;
+ if(phase<=22) return 5;
+ if(phase<=24) return 6;
+ if(phase===25) return 7;
+ return 8;
+}
 
 function progressRead(key){
  try{
@@ -4016,11 +4049,13 @@ function addProgressControl(card,header,key,kind,isMaintainerDone){
 document.querySelectorAll('.phase-block').forEach((card,index)=>{
  const phase=index+1;
  const phaseId=String(phase).padStart(2,'0');
+ const track=trackForPhase(phase);
  const header=card.querySelector('.phase-hdr');
  const info=card.querySelector('.phase-hdr-info');
  const maintainerDone=phase<=SOCLAB_STATS.built;
- if(maintainerDone) card.classList.add('maintainer-done');
  card.dataset.phase=phaseId;
+ card.dataset.track=track;
+ if(maintainerDone) card.classList.add('maintainer-done');
 
  const estimate=phaseEstimates[index]||['6-8 HR','INTERMEDIATE','PRIOR PHASE'];
  const meta=document.createElement('div');
@@ -4034,8 +4069,14 @@ document.querySelectorAll('.capstone-card').forEach((card,index)=>{
  const capstoneId=String(index+1).padStart(2,'0');
  const header=card.querySelector('.capstone-hdr');
  const maintainerDone=index===0;
+ card.dataset.track=capstoneTracks[index]||8;
  if(maintainerDone) card.classList.add('maintainer-done');
  if(header) addProgressControl(card,header,`soclab_progress_capstone_${capstoneId}`,'capstone',maintainerDone);
+});
+
+document.querySelectorAll('.log-phase-tag.done').forEach(tag=>{
+ const match=tag.textContent.match(/Phase\s+(\d+)/i);
+ if(match) tag.dataset.track=trackForPhase(Number(match[1]));
 });
 
 document.querySelectorAll('pre.log-code').forEach(pre=>{
