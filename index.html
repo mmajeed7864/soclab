@@ -54,6 +54,11 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:14px 20px;display:fl
 .roadmap-ayah-ar{position:relative;font-family:'Times New Roman',serif;font-size:clamp(21px,3vw,30px);line-height:1.75;color:var(--accent);direction:rtl;text-align:right;text-shadow:0 0 16px rgba(0,212,255,.16)}
 .roadmap-ayah-meaning{position:relative;font-size:13px;color:var(--text);line-height:1.7}
 .roadmap-ayah-ref{position:relative;margin-top:9px;font-family:var(--mono);font-size:9px;color:var(--accent4);letter-spacing:.1em;text-transform:uppercase}
+.roadmap-wisdom{position:relative;z-index:2;margin:12px 20px 0;padding:15px 18px;border:1px solid rgba(0,212,255,.2);border-left:3px solid var(--accent4);border-radius:10px;background:linear-gradient(135deg,rgba(251,191,36,.06),rgba(0,212,255,.035),rgba(8,12,16,.88));overflow:hidden}
+.roadmap-wisdom::before{content:'';position:absolute;inset:0;background:linear-gradient(90deg,transparent,rgba(251,191,36,.09),transparent);transform:translateX(-110%);animation:phaseSweep 7s ease-in-out infinite;pointer-events:none}
+.roadmap-wisdom-kicker{position:relative;font-family:var(--mono);font-size:9px;color:var(--accent4);letter-spacing:.13em;text-transform:uppercase;margin-bottom:7px}
+.roadmap-wisdom-quote{position:relative;font-size:13px;color:var(--text);line-height:1.7;max-width:920px}
+.roadmap-wisdom-author{position:relative;margin-top:8px;font-family:var(--mono);font-size:9px;color:var(--accent);letter-spacing:.1em;text-transform:uppercase}
 @media(max-width:760px){.roadmap-ayah{margin-top:96px}.roadmap-ayah-inner{grid-template-columns:1fr}}
 
 /* HERO */
@@ -646,6 +651,12 @@ footer{position:relative;z-index:1;padding:50px 20px;border-top:1px solid var(--
  <div class="roadmap-ayah-ref" id="roadmapAyahRef">QURAN</div>
  </div>
  </div>
+</div>
+
+<div class="roadmap-wisdom" aria-label="Motivational quote">
+ <div class="roadmap-wisdom-kicker">Random Wisdom</div>
+ <div class="roadmap-wisdom-quote" id="roadmapWisdomQuote">Loading quote...</div>
+ <div class="roadmap-wisdom-author" id="roadmapWisdomAuthor">--</div>
 </div>
 
 <!-- HERO -->
@@ -3865,6 +3876,23 @@ const ROADMAP_AYAHS=[
  {ref:'14:7',arabic:'لَئِن شَكَرْتُمْ لَأَزِيدَنَّكُمْ',meaning:'If you are grateful, you will be given increase.'},
  {ref:'93:4',arabic:'وَلَلْـَٔاخِرَةُ خَيْرٌ لَّكَ مِنَ ٱلْأُولَىٰ',meaning:'What is ahead can be better than what has passed.'}
 ];
+const ROADMAP_WISDOM_QUOTES=[
+ {quote:'In the middle of difficulty lies opportunity.',author:'Albert Einstein'},
+ {quote:'If I have seen further, it is by standing on the shoulders of giants.',author:'Isaac Newton'},
+ {quote:'He who is not courageous enough to take risks will accomplish nothing in life.',author:'Muhammad Ali'},
+ {quote:'Absorb what is useful, discard what is not, add what is uniquely your own.',author:'Bruce Lee'},
+ {quote:'I fear not the man who has practiced 10,000 kicks once, but I fear the man who has practiced one kick 10,000 times.',author:'Bruce Lee'},
+ {quote:'It always seems impossible until it is done.',author:'Nelson Mandela'},
+ {quote:'You have power over your mind, not outside events. Realize this, and you will find strength.',author:'Marcus Aurelius'},
+ {quote:'The secret of getting ahead is getting started.',author:'Mark Twain'},
+ {quote:'The most successful people in life are the ones who ask questions.',author:'Robert Kiyosaki'},
+ {quote:'Losers quit when they fail. Winners fail until they succeed.',author:'Robert Kiyosaki'},
+ {quote:'I refuse to accept other people’s ideas of happiness for me.',author:'Kanye West'},
+ {quote:'Everything you are not made you everything you are.',author:'Kanye West'},
+ {quote:'Great things are done by a series of small things brought together.',author:'Vincent van Gogh'},
+ {quote:'Quality is not an act, it is a habit.',author:'Will Durant, summarizing Aristotle'},
+ {quote:'Discipline is choosing between what you want now and what you want most.',author:'Often attributed to Abraham Lincoln'}
+];
 
 function loadRoadmapAyah(){
  const ayah=ROADMAP_AYAHS[Math.floor(Math.random()*ROADMAP_AYAHS.length)];
@@ -3876,6 +3904,15 @@ function loadRoadmapAyah(){
  if(ref) ref.textContent='Surah '+ayah.ref;
 }
 loadRoadmapAyah();
+
+function loadRoadmapWisdom(){
+ const item=ROADMAP_WISDOM_QUOTES[Math.floor(Math.random()*ROADMAP_WISDOM_QUOTES.length)];
+ const quote=document.getElementById('roadmapWisdomQuote');
+ const author=document.getElementById('roadmapWisdomAuthor');
+ if(quote) quote.textContent='“'+item.quote+'”';
+ if(author) author.textContent='— '+item.author;
+}
+loadRoadmapWisdom();
 
 function toggleLog(hdr){
  const body=hdr.nextElementSibling;
