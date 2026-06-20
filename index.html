@@ -531,26 +531,39 @@ footer{position:relative;z-index:1;padding:50px 20px;border-top:1px solid var(--
 .architecture-wrap{padding-top:54px}
 .diagram-head{display:flex;justify-content:space-between;gap:16px;align-items:flex-end;margin-bottom:18px}
 .diagram-state{font-family:var(--mono);font-size:9px;color:var(--accent2);letter-spacing:.12em;white-space:nowrap}
-.diagram-shell{padding:8px;background:radial-gradient(circle at 50% 48%,rgba(0,212,255,.045),transparent 52%),var(--bg);overflow-x:auto}
-.diagram-shell svg{display:block;min-width:680px;width:100%;max-width:900px;height:auto;margin:0 auto}
-.diagram-legend{display:flex;flex-wrap:wrap;gap:18px;font-family:var(--mono);font-size:10px;color:var(--soft);padding:12px 14px;letter-spacing:.06em;border-top:1px solid var(--border)}
+.diagram-shell{padding:14px;background:radial-gradient(circle at 50% 48%,rgba(0,212,255,.07),transparent 58%),linear-gradient(145deg,rgba(0,255,136,.035),rgba(255,107,53,.025),rgba(8,12,16,.96));overflow-x:auto}
+.diagram-shell svg{display:block;min-width:760px;width:100%;max-width:1080px;height:auto;margin:0 auto}
+.old-topology{display:none!important}
+.diagram-legend{display:flex;flex-wrap:wrap;gap:18px;font-family:var(--mono);font-size:10px;color:var(--soft);padding:12px 14px;letter-spacing:.06em;border-top:1px solid var(--border);background:rgba(5,10,14,.58)}
 .diagram-legend i{display:inline-block;width:22px;height:0;border-top:2px dashed var(--accent);vertical-align:middle;margin-right:6px}
 .diagram-legend i.attack{border-color:var(--accent3)}
 .diagram-legend i.network{border-color:var(--accent2)}
-.tele{stroke:var(--accent);stroke-width:1.55;stroke-dasharray:6 8;fill:none;animation:hudFlow 5s linear infinite;filter:drop-shadow(0 0 3px rgba(0,212,255,.8))}
-.atk-line{stroke:var(--accent3);stroke-width:1.65;stroke-dasharray:3 7;fill:none;animation:hudFlow 5s linear infinite;filter:drop-shadow(0 0 3px rgba(255,107,53,.8))}
-.pulse-ring{fill:none;stroke:var(--accent);stroke-width:1;animation:nodePulse 2.8s ease-out infinite}
-.pulse-ring.o{stroke:var(--accent3)}
-.topo-sweep{transform-origin:340px 290px;animation:hudSpin 9s linear infinite}
+.topo-board-grid{opacity:.55}
+.fabric-line{stroke:var(--accent);stroke-width:1.9;stroke-dasharray:8 11;fill:none;stroke-linecap:round;animation:hudFlow 5.4s linear infinite;filter:drop-shadow(0 0 5px rgba(0,212,255,.7))}
+.fabric-line.green{stroke:var(--accent2);filter:drop-shadow(0 0 5px rgba(0,255,136,.55))}
+.attack-line{stroke:var(--accent3);stroke-width:2.05;stroke-dasharray:4 9;fill:none;stroke-linecap:round;animation:hudFlow 4.2s linear infinite;filter:drop-shadow(0 0 5px rgba(255,107,53,.75))}
+.topo-node-card{fill:rgba(8,12,16,.9);stroke:rgba(0,212,255,.38);stroke-width:1.2;filter:drop-shadow(0 0 12px rgba(0,212,255,.12))}
+.topo-node-card.green{stroke:rgba(0,255,136,.42);filter:drop-shadow(0 0 12px rgba(0,255,136,.1))}
+.topo-node-card.orange{stroke:rgba(255,107,53,.58);filter:drop-shadow(0 0 14px rgba(255,107,53,.16))}
+.topo-node-accent{fill:rgba(0,212,255,.11);stroke:var(--accent);stroke-width:1.5;filter:drop-shadow(0 0 8px rgba(0,212,255,.6))}
+.topo-node-accent.green{fill:rgba(0,255,136,.1);stroke:var(--accent2);filter:drop-shadow(0 0 8px rgba(0,255,136,.45))}
+.topo-node-accent.orange{fill:rgba(255,107,53,.11);stroke:var(--accent3);filter:drop-shadow(0 0 9px rgba(255,107,53,.55))}
+.topo-orbit{fill:none;stroke:rgba(0,212,255,.28);stroke-width:1;stroke-dasharray:3 8;animation:hudSpin 18s linear infinite;transform-box:fill-box;transform-origin:center}
+.topo-orbit.orange{stroke:rgba(255,107,53,.35);animation-duration:14s}
+.topo-core{animation:topoCorePulse 3s ease-in-out infinite}
+.topo-scan{animation:topoScan 5.5s ease-in-out infinite}
 .topo-glow{animation:topoGlow 3s ease-in-out infinite}
 .topo-blink{animation:topoBlink 2.4s ease-in-out infinite}
-.topo-packet{fill:var(--accent);filter:drop-shadow(0 0 5px rgba(0,212,255,1));animation:packetLive 1.35s ease-in-out infinite}
+.topo-packet{fill:var(--accent);filter:drop-shadow(0 0 6px rgba(0,212,255,1));animation:packetLive 1.35s ease-in-out infinite}
+.topo-packet.green{fill:var(--accent2);filter:drop-shadow(0 0 6px rgba(0,255,136,.9))}
 .topo-packet.attack{fill:var(--accent3);filter:drop-shadow(0 0 5px rgba(255,107,53,1))}
 .topo-network{animation:networkLive 3.6s ease-in-out infinite}
 @keyframes topoGlow{0%,100%{opacity:.38}50%{opacity:1}}
 @keyframes topoBlink{0%,100%{opacity:1}50%{opacity:.42}}
 @keyframes packetLive{0%,100%{opacity:.35}50%{opacity:1}}
 @keyframes networkLive{0%,100%{opacity:.28}50%{opacity:.68}}
+@keyframes topoCorePulse{0%,100%{filter:drop-shadow(0 0 8px rgba(0,255,136,.35));opacity:.88}50%{filter:drop-shadow(0 0 22px rgba(0,255,136,.72));opacity:1}}
+@keyframes topoScan{0%,100%{opacity:.1;transform:translateX(-18px)}50%{opacity:.48;transform:translateX(18px)}}
 .xp-block{padding:22px 22px 24px;margin-top:30px}
 .xp-head{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:7px;margin-bottom:18px}
 .xp-label{font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:var(--accent);text-shadow:0 0 12px rgba(0,212,255,.65)}
@@ -639,7 +652,7 @@ footer{position:relative;z-index:1;padding:50px 20px;border-top:1px solid var(--
 }
 @media(max-width:460px){.quick-facts{grid-template-columns:1fr}}
 @media(prefers-reduced-motion:reduce){
- .tele,.atk-line,.pulse-ring,.topo-sweep,.topo-glow,.topo-blink,.topo-network,.xp-fill::after,.phase-block.maintainer-done::before,.capstone-card.maintainer-done::before,.system-grid::before,.system-grid::after{animation:none!important}
+ .tele,.atk-line,.fabric-line,.attack-line,.pulse-ring,.topo-sweep,.topo-orbit,.topo-core,.topo-scan,.topo-glow,.topo-blink,.topo-network,.xp-fill::after,.phase-block.maintainer-done::before,.capstone-card.maintainer-done::before,.system-grid::before,.system-grid::after{animation:none!important}
  .topo-packet{display:none}
  .xp-fill{transition:none}
 }
@@ -884,7 +897,137 @@ footer{position:relative;z-index:1;padding:50px 20px;border-top:1px solid var(--
  <div class="hud-panel reveal">
  <span class="hud-corners"></span>
  <div class="diagram-shell">
- <svg viewBox="0 0 680 580" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Animated SOC lab topology with Elastic SIEM, Splunk, Wazuh XDR, Active Directory, Windows 10, and Kali Linux on host-only network 192.168.56.0/24.">
+ <svg viewBox="0 0 980 620" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Futuristic SOC lab topology showing Elastic SIEM, Splunk, Wazuh XDR, Active Directory, Windows 10, and Kali Linux on host-only network 192.168.56.0/24.">
+  <title>Six-VM home SOC lab topology</title>
+  <desc>Cyan and green animated paths show logs and endpoint telemetry flowing into Elastic, Splunk, and Wazuh. Orange animated paths show safe test attacks from Kali into the Windows victim and domain controller.</desc>
+  <defs>
+   <pattern id="roadGrid" width="34" height="34" patternUnits="userSpaceOnUse"><path d="M34 0H0V34" fill="none" stroke="#00d4ff" stroke-opacity=".07" stroke-width="1"/></pattern>
+   <radialGradient id="roadCoreGlow" cx="50%" cy="50%" r="55%"><stop offset="0%" stop-color="#00ff88" stop-opacity=".2"/><stop offset="62%" stop-color="#00d4ff" stop-opacity=".07"/><stop offset="100%" stop-color="#00d4ff" stop-opacity="0"/></radialGradient>
+   <linearGradient id="roadGlass" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#0f1a22" stop-opacity=".96"/><stop offset="100%" stop-color="#05090d" stop-opacity=".96"/></linearGradient>
+   <linearGradient id="roadScan" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#00d4ff" stop-opacity="0"/><stop offset="50%" stop-color="#00d4ff" stop-opacity=".26"/><stop offset="100%" stop-color="#00d4ff" stop-opacity="0"/></linearGradient>
+   <marker id="roadTeleArrowNew" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M2 1L8 5L2 9" fill="none" stroke="#00d4ff" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker>
+   <marker id="roadGreenArrowNew" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M2 1L8 5L2 9" fill="none" stroke="#00ff88" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></marker>
+   <marker id="roadAttackArrowNew" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M2 1L8 5L2 9" fill="none" stroke="#ff6b35" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/></marker>
+  </defs>
+
+  <rect x="16" y="18" width="948" height="584" rx="22" fill="url(#roadGlass)" stroke="#143a4c" stroke-width="1.2"/>
+  <rect x="16" y="18" width="948" height="584" rx="22" fill="url(#roadGrid)" class="topo-board-grid"/>
+  <circle cx="490" cy="318" r="238" fill="url(#roadCoreGlow)"/>
+  <path class="topo-scan" d="M110 78H872V542H110Z" fill="url(#roadScan)" opacity=".24"/>
+
+  <g font-family="Space Mono,monospace">
+   <text x="54" y="56" font-size="10" letter-spacing="2.4" fill="#00d4ff">SOC LAB FABRIC</text>
+   <text x="54" y="76" font-size="8.5" letter-spacing="1.6" fill="#7f93a3">host-only network / controlled telemetry / safe attack traffic</text>
+   <text x="808" y="56" font-size="9" text-anchor="end" letter-spacing="1.5" fill="#00ff88">LAB STATUS: ONLINE</text>
+  </g>
+
+  <g stroke-linecap="round" fill="none">
+   <path class="fabric-line" d="M242 415 C255 330 230 245 186 187" marker-end="url(#roadTeleArrowNew)"/>
+   <path class="fabric-line green" d="M255 415 C350 330 430 260 490 187" marker-end="url(#roadGreenArrowNew)"/>
+   <path class="fabric-line" d="M490 415 L490 187" marker-end="url(#roadTeleArrowNew)"/>
+   <path class="fabric-line" d="M520 415 C390 322 285 240 190 187" opacity=".72" marker-end="url(#roadTeleArrowNew)"/>
+   <path class="fabric-line" d="M548 415 C660 330 735 252 795 187" opacity=".78" marker-end="url(#roadTeleArrowNew)"/>
+   <path class="attack-line" d="M770 423 C700 395 620 394 559 426" marker-end="url(#roadAttackArrowNew)"/>
+   <path class="attack-line" d="M775 457 C600 562 390 560 267 466" marker-end="url(#roadAttackArrowNew)"/>
+  </g>
+
+  <g aria-hidden="true">
+   <circle class="topo-packet" r="3.2"><animateMotion dur="4.2s" repeatCount="indefinite" path="M242 415 C255 330 230 245 186 187"/></circle>
+   <circle class="topo-packet green" r="3.2"><animateMotion dur="4.8s" begin="-1.8s" repeatCount="indefinite" path="M255 415 C350 330 430 260 490 187"/></circle>
+   <circle class="topo-packet" r="3.2"><animateMotion dur="3.8s" begin="-1.2s" repeatCount="indefinite" path="M490 415 L490 187"/></circle>
+   <circle class="topo-packet" r="2.9"><animateMotion dur="5s" begin="-2.6s" repeatCount="indefinite" path="M520 415 C390 322 285 240 190 187"/></circle>
+   <circle class="topo-packet" r="2.9"><animateMotion dur="5.2s" begin="-3.1s" repeatCount="indefinite" path="M548 415 C660 330 735 252 795 187"/></circle>
+   <circle class="topo-packet attack" r="3.3"><animateMotion dur="2.8s" repeatCount="indefinite" path="M770 423 C700 395 620 394 559 426"/></circle>
+   <circle class="topo-packet attack" r="3.3"><animateMotion dur="4.4s" begin="-2.2s" repeatCount="indefinite" path="M775 457 C600 562 390 560 267 466"/></circle>
+  </g>
+
+  <g class="topo-core" font-family="Space Mono,monospace">
+   <circle cx="490" cy="315" r="88" fill="none" stroke="#00ff88" stroke-opacity=".2" stroke-dasharray="3 9"/>
+   <circle class="topo-orbit" cx="490" cy="315" r="115"/>
+   <path d="M430 315L464 276H516L550 315L516 354H464Z" fill="rgba(0,255,136,.055)" stroke="#00ff88" stroke-opacity=".5"/>
+   <rect x="390" y="294" width="200" height="42" rx="9" fill="#07110f" stroke="#00ff88" stroke-opacity=".62"/>
+   <text x="490" y="312" text-anchor="middle" font-size="9" letter-spacing="1.6" fill="#7f93a3">HOST-ONLY SUBNET</text>
+   <text class="topo-glow" x="490" y="328" text-anchor="middle" font-size="14" letter-spacing="1.4" fill="#00ff88">192.168.56.0/24</text>
+  </g>
+
+  <g font-family="Space Mono,monospace">
+   <g transform="translate(96 100)">
+    <rect class="topo-node-card" width="180" height="104" rx="18"/>
+    <circle class="topo-orbit" cx="54" cy="50" r="38"/>
+    <circle class="topo-node-accent" cx="54" cy="50" r="28"/>
+    <path d="M38 50Q54 38 70 50Q54 62 38 50Z" fill="none" stroke="#00d4ff" stroke-width="1.8"/><circle cx="54" cy="50" r="4" fill="#00d4ff"/>
+    <text x="92" y="38" font-size="13" font-weight="700" fill="#00d4ff">ELASTIC</text>
+    <text x="92" y="55" font-size="9.5" fill="#e8edf2">SIEM + Kibana</text>
+    <text x="92" y="72" font-size="8.5" fill="#7f93a3">.101 / Suricata IDS</text>
+    <rect x="92" y="82" width="72" height="14" rx="7" fill="rgba(0,212,255,.08)" stroke="rgba(0,212,255,.24)"/><text x="128" y="92" text-anchor="middle" font-size="7" fill="#00d4ff">DETECTION</text>
+   </g>
+
+   <g transform="translate(400 100)">
+    <rect class="topo-node-card green" width="180" height="104" rx="18"/>
+    <circle class="topo-orbit" cx="54" cy="50" r="38"/>
+    <circle class="topo-node-accent green" cx="54" cy="50" r="28"/>
+    <rect class="topo-blink" x="43" y="39" width="5" height="22" fill="#00ff88"/><rect class="topo-blink" x="52" y="32" width="5" height="29" fill="#00ff88" style="animation-delay:.3s"/><rect class="topo-blink" x="61" y="45" width="5" height="16" fill="#00ff88" style="animation-delay:.6s"/>
+    <text x="92" y="38" font-size="13" font-weight="700" fill="#00ff88">SPLUNK</text>
+    <text x="92" y="55" font-size="9.5" fill="#e8edf2">SPL searches</text>
+    <text x="92" y="72" font-size="8.5" fill="#7f93a3">.102 / TCP 9997</text>
+    <rect x="92" y="82" width="78" height="14" rx="7" fill="rgba(0,255,136,.08)" stroke="rgba(0,255,136,.25)"/><text x="131" y="92" text-anchor="middle" font-size="7" fill="#00ff88">LOG INGEST</text>
+   </g>
+
+   <g transform="translate(704 100)">
+    <rect class="topo-node-card" width="180" height="104" rx="18"/>
+    <circle class="topo-orbit" cx="54" cy="50" r="38"/>
+    <circle class="topo-node-accent" cx="54" cy="50" r="28"/>
+    <path d="M54 33L68 40V54Q68 66 54 74Q40 66 40 54V40Z" fill="none" stroke="#00d4ff" stroke-width="1.8"/><path d="M48 54L53 59L62 48" fill="none" stroke="#00d4ff" stroke-width="1.8"/>
+    <text x="92" y="38" font-size="13" font-weight="700" fill="#00d4ff">WAZUH XDR</text>
+    <text x="92" y="55" font-size="9.5" fill="#e8edf2">Endpoint control</text>
+    <text x="92" y="72" font-size="8.5" fill="#7f93a3">.105 / FIM + SCA</text>
+    <rect x="92" y="82" width="72" height="14" rx="7" fill="rgba(0,212,255,.08)" stroke="rgba(0,212,255,.24)"/><text x="128" y="92" text-anchor="middle" font-size="7" fill="#00d4ff">XDR VIEW</text>
+   </g>
+
+   <g transform="translate(126 398)">
+    <rect class="topo-node-card green" width="190" height="112" rx="18"/>
+    <circle class="topo-orbit" cx="58" cy="54" r="38"/>
+    <circle class="topo-node-accent green" cx="58" cy="54" r="28"/>
+    <circle cx="52" cy="48" r="8" fill="none" stroke="#00ff88" stroke-width="1.8"/><path d="M58 54L70 66M65 61L71 55M70 66L76 60" stroke="#00ff88" stroke-width="1.8"/>
+    <text x="96" y="39" font-size="13" font-weight="700" fill="#00ff88">DC01 / AD</text>
+    <text x="96" y="57" font-size="9.5" fill="#e8edf2">Identity source</text>
+    <text x="96" y="74" font-size="8.5" fill="#7f93a3">.10 / MAJEED.LOCAL</text>
+    <text x="96" y="93" font-size="8" fill="#00d4ff">Security logs to Splunk</text>
+   </g>
+
+   <g transform="translate(425 398)">
+    <rect class="topo-node-card" width="190" height="112" rx="18"/>
+    <circle class="topo-orbit" cx="58" cy="54" r="38"/>
+    <circle class="topo-node-accent" cx="58" cy="54" r="28"/>
+    <rect x="43" y="44" width="30" height="20" rx="3" fill="none" stroke="#00d4ff" stroke-width="1.8"/><path d="M53 64H63M58 64V72M50 73H66" stroke="#00d4ff" stroke-width="1.8"/>
+    <text x="96" y="39" font-size="13" font-weight="700" fill="#00d4ff">WIN10</text>
+    <text x="96" y="57" font-size="9.5" fill="#e8edf2">Victim endpoint</text>
+    <text x="96" y="74" font-size="8.5" fill="#7f93a3">.104 / Sysmon + Agents</text>
+    <text x="96" y="93" font-size="8" fill="#00d4ff">Telemetry fan-out</text>
+   </g>
+
+   <g transform="translate(716 398)">
+    <rect class="topo-node-card orange" width="190" height="112" rx="18"/>
+    <circle class="topo-orbit orange" cx="58" cy="54" r="38"/>
+    <circle class="topo-node-accent orange" cx="58" cy="54" r="28"/>
+    <circle cx="58" cy="54" r="13" fill="none" stroke="#ff6b35" stroke-width="1.8"/><circle cx="58" cy="54" r="4" fill="#ff6b35"/><path d="M58 34V44M58 64V74M38 54H48M68 54H78" stroke="#ff6b35" stroke-width="1.8"/>
+    <text x="96" y="39" font-size="13" font-weight="700" fill="#ff6b35">KALI</text>
+    <text x="96" y="57" font-size="9.5" fill="#e8edf2">Attacker VM</text>
+    <text x="96" y="74" font-size="8.5" fill="#c9815f">Scripted attack loops</text>
+    <text x="96" y="93" font-size="8" fill="#ff6b35">Safe test traffic</text>
+   </g>
+  </g>
+
+  <g font-family="Space Mono,monospace">
+   <rect x="54" y="542" width="178" height="26" rx="13" fill="rgba(0,212,255,.055)" stroke="rgba(0,212,255,.22)"/>
+   <text x="143" y="559" text-anchor="middle" font-size="8.5" fill="#00d4ff">TELEMETRY FABRIC</text>
+   <rect x="246" y="542" width="156" height="26" rx="13" fill="rgba(0,255,136,.055)" stroke="rgba(0,255,136,.22)"/>
+   <text x="324" y="559" text-anchor="middle" font-size="8.5" fill="#00ff88">DC01 TO SPLUNK</text>
+   <rect x="416" y="542" width="152" height="26" rx="13" fill="rgba(255,107,53,.06)" stroke="rgba(255,107,53,.25)"/>
+   <text x="492" y="559" text-anchor="middle" font-size="8.5" fill="#ff6b35">ATTACK LANE</text>
+  </g>
+ </svg>
+ <svg class="old-topology" viewBox="0 0 680 580" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Animated SOC lab topology with Elastic SIEM, Splunk, Wazuh XDR, Active Directory, Windows 10, and Kali Linux on host-only network 192.168.56.0/24.">
   <title>Six-VM home SOC lab topology</title>
   <desc>Cyan dashed paths show security logs sent to Elastic SIEM, Splunk, and Wazuh XDR. Orange dashed paths show safe test attacks from Kali to the Windows victim and domain controller.</desc>
   <defs>
